@@ -1,0 +1,81 @@
+@import '../styles/colors/variables.scss';
+
+.emojiPickerContainer{
+    width: 450px;
+    height: 450px;
+    max-height: 400px;
+    max-width: 450px;
+    background: $black2;
+    display: flex;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+    .searchAndCategory{
+        width: 100%;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 0px 20px;
+        margin-right: 40px;
+        .category{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            button{
+                width: 50px;
+                height: 50px;
+                background: $black2;
+                transition: 0.3s;
+                color: #777;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Poppins', sans-serif;
+                font-size: 25px;
+                cursor: pointer;
+                &:hover{
+                    background: $black2h;
+                    color: $primary;
+                }
+            }
+        }
+    }
+    .emojiGrid{
+        font-size: 30px;
+        padding: 10px 0px;
+        overflow: scroll;
+        overflow-x: hidden;
+        max-width: 100%;
+        min-height: 90%;
+        span{
+            cursor: pointer;
+            user-select: none;
+            transition: 0.2s;
+            animation: appear 0.45s forwards;
+            &:hover{
+                filter: brightness(1.3);
+            }
+        }
+        &::-webkit-scrollbar{
+            width: 8px;
+        }
+        &::-webkit-scrollbar-thumb{
+            background: $primary;
+            border-radius: 20px;
+        }
+    }
+}
+
+@keyframes appear{
+    from{
+        opacity: 0;
+    } to{
+        opacity: 1;
+    }
+}

@@ -1,0 +1,172 @@
+@import '../styles/colors/variables.scss';
+
+.gifContainer{
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 450px;
+    height: 400px;
+    max-height: 400px;
+    max-width: 450px;
+    background: $black2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    flex-direction: column;
+    position: relative;
+    padding: 5px 20px;
+    padding-top: 300px;
+    &::-webkit-scrollbar{
+        width: 8px;
+    }
+    &::-webkit-scrollbar-thumb{
+        background: $primary;
+        border-radius: 20px;
+    }
+    .inputContainer{
+        z-index: 5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 450px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 10px;
+        input{
+            width: 300px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            margin-left: 50px;
+            padding: 0 20px;
+            display: block;
+            background: $black3;
+            color: #fff;
+            font-size: 1em;
+            font-family: 'Nunito Sans', sans-serif;
+            outline: none;
+            transition: background .3s;
+            &:focus{
+                background: $black3h;
+            }
+        }
+        button{
+            height: 40px;
+            width: 40px;
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 47px;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            font-size: 1.3em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid $primary;
+            color: $primary;
+            transition: .3s;
+            background: transparent;
+            &:hover{
+                background: $primary;
+                color: $black2h;
+            }
+        }
+    }
+    .gifsContainer{
+        width: 450px;
+        height: auto;
+        position: absolute;
+        top: 85px;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+        .loaderContainer{
+            width: 450px;
+            height: 270px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .loader{
+                position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: transparent;
+                animation: spin 0.8s linear infinite;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 50%;
+                    height: 100%;
+                    background: linear-gradient(to top, transparent, $primary);
+                    border-top-left-radius: 25px;
+                    border-bottom-left-radius: 25px;
+                }
+                span{
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    right: 5px;
+                    bottom: 5px;
+                    background: $black2;
+                    border-radius: 50%;
+                }
+            }
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: minmax(50px, auto);
+            grid-gap: 10px;
+            .gif{
+                height: 100px;
+                width: 120px;
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;
+                img{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    object-fit: cover;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    filter: brightness(0.8);
+                    &:hover{
+                        transform: scale(1.2);
+                        filter: brightness(1);
+                    }
+                }
+            }
+            .error{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 450px;
+                height: 250px;
+                p{
+                    font-size: 1.8em;
+                }
+            }
+        }
+    }
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

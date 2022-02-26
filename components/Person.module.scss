@@ -1,0 +1,44 @@
+@import '../styles/colors/variables.scss';
+
+.personContainer{
+    height: 70px;
+    width: 350px;
+    position: relative;
+    border-radius: 10px;
+    background: $black3;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 7;
+    &:hover{
+        background: $black3h;
+    }
+    .content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        padding: 8px 16px;
+        .image{
+            position: relative;
+            height: 55px;
+            width: 55px;
+            img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-size: cover;
+                object-fit: cover;
+            }
+        }
+        h4{
+            font-size: 1em;
+            font-weight: 400;
+        }
+    }
+}

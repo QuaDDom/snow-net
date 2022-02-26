@@ -1,0 +1,117 @@
+@import '../styles/colors/variables.scss';
+
+.suggestionsContainer{
+    width: 500px;
+    height: 100vh;
+    position: fixed;
+    top: 30px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .groups{
+        width: 400px;
+        min-height: 300px;
+        background: $black2;
+        border-radius: 10px;
+        margin-top: 75px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+        h3{
+            padding: 10px 0;
+            font-size: 1.3em;
+            font-weight: 500;
+            padding-bottom: 15px;
+        }
+        .groupGrid{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            .group{
+                position: relative;
+                border-radius: 10px;
+                display: flex;
+                background: $black3;
+                min-width: 350px;
+                height: 130px;
+                transition: 0.3s;
+                z-index: 3;
+                margin-top: 10px;
+                p{
+                    font-size: 1.1em;
+                    margin-top: 79px;
+                }
+                &:hover{
+                    background: $black3h;
+                }
+                &:hover .presentation img{
+                    border: 6px solid $black3h;
+                }
+                &:hover .presentation .banner{
+                    filter: brightness(1.2);
+                }
+                .presentation{
+                    padding: 5px;
+                    display: flex;
+                    align-items: center;
+                    .banner{
+                        transition: 0.3s;
+                        background: url(../img/noCover.jpg);
+                        object-fit: cover;
+                        background-size: cover;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 75px;
+                        z-index: -1;
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                    }
+                    img{
+                        width: 70px;
+                        height: 70px;
+                        display: block;
+                        transition: 0.3s;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        margin-top: 35px;
+                        margin-left: 7px;
+                        z-index: 1;
+                        border: 6px solid $black3;
+                    }
+                }
+            }
+        }
+    }
+    .follow{
+        width: 400px;
+        min-height: 300px;
+        background: $black2;
+        border-radius: 10px;
+        margin-top: 35px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h3{
+            padding: 10px 10px;
+            font-size: 1.3em;
+            font-weight: 500;
+            padding-bottom: 15px;
+            width: 100%;
+        }
+        .personList{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+    }
+}

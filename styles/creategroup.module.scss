@@ -1,0 +1,103 @@
+@import './colors/variables.scss';
+
+.createGroupContainer{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    .create{
+        width: 40vw;
+        height: 100%;
+        background: $black2;
+        padding: 55px 45px;
+        display: flex;
+        flex-direction: column;
+        h2{
+            font-size: 1.8em;
+            font-weight: 500;
+        }
+        .owner{
+            width: 100%;
+            height: 14vh;
+            display: flex;
+            align-items: center;
+            img{
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                object-fit: cover;
+                background-size: cover;
+            }
+            .info{
+                padding-left: 25px;
+                h5{
+                    font-weight: 400;
+                    font-size: 1.1em;
+                }
+                p{
+                    font-size: 0.9em;
+                    color: #999;
+                }
+            }
+        }
+        .inputs{
+            height: 60vh;
+            padding: 25px 0;
+            .selectContainer{
+                position: relative;
+                width: 420px;
+                height: 45px;
+                border: 2px solid #fff;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                span{
+                    height: 100%;
+                    width: 70px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1.6em;
+                }
+                select{
+                    border: none;
+                    outline: none;
+                    width: 100%;
+                    height: 100%;
+                    background: transparent;
+                    font-size: 1.2em;
+                    color: #fff;
+                    font-family: 'Poppins', sans-serif;
+                    option{
+                        background: #111;
+                        border: 2px solid #fff;
+                        border-radius: 0px;
+                    }
+                }
+            }
+            button{
+                margin-top: 150px;
+                width: 420px;
+                height: 40px;
+                border-radius: 10px;
+                background-color: $primary;
+                border: 2px solid $primary;
+                font-size: 1.1em;
+                filter: brightness(0.6);
+                transition: 0.2s;
+                cursor: pointer;
+                &:hover{
+                    filter: brightness(1);
+                    transform: translateY(-6px);
+                    box-shadow: 0 10px 10px 5px #00000050;
+                }
+            }
+        }
+    }
+    .preview{
+        width: 100%;
+        height: 100%;
+    }
+}

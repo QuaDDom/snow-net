@@ -1,0 +1,79 @@
+@import "../../styles/colors/variables.scss";
+
+.messageContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 10px 200px;
+    &.sended{
+        justify-content: end;
+        align-content: end;
+        height: auto;
+        .text{
+            background: #0084ff;
+            border-radius: 20px 0px 20px 20px;
+            width: auto;
+            max-width: 60%;
+            height: 100%;
+            &:hover{
+                background: #2998ff;
+            }
+            span{
+                color: #92d3ff;
+            }
+        }
+    }
+    &.received{
+        justify-content: start;
+        align-content: start;
+        height: auto;
+        .text{
+            background: $black3h;
+            width: auto;
+            max-width: 60%;
+            border-radius: 0px 20px 20px 20px;
+            height: 100%;
+            &:hover{
+                background: $black3;
+            }
+            span{
+                color: #ccc;
+            }
+        }
+    }
+    .text{
+        min-height: 40px;
+        min-width: 40px;
+        height: auto;
+        width: auto;
+        padding: 10px 40px;
+        padding-right: 70px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        transition: .3s;
+        opacity: 0;
+        animation: appear 0.4s forwards;
+        position: relative;
+        span{
+            position: absolute;
+            bottom: 3px;
+            right: 10px;
+            font-size: 0.8em;
+        }
+        img{
+            max-width: 90%;
+            border-radius: 15px;
+        }
+    }
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+        transform: translateY(250px);
+    } to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

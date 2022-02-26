@@ -1,0 +1,78 @@
+$primary: #8bffff;
+$secondary: #0099ff;
+
+.postOptionsContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    height: 45px;
+    font-size: 1.2em;
+    padding: 0 50px;
+    padding-bottom: 5px;
+    color: #777;
+    div{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.1s;
+        span{
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            padding: 5px;
+            transition: .2s;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        p{
+            font-size: 1em;
+            text-align: center;
+            padding-top: 2.5px;
+        }
+        &.likes{
+            .isLiked{
+                color: #ff4141;
+                transform: scale(0.1);
+                animation: liked 0.5s forwards;
+            }
+            p.liked{
+                color: #ff4141;
+            }
+        }
+        p{
+            font-size: 0.7em !important;
+            width: 10px;
+        }
+        &.comments:hover{
+            color: $primary;
+            span{
+                background: #8bffff30;
+            }
+        }
+        &.repost:hover{
+            color: #4bff87;
+            span{
+                background: #4bff8730;
+            }
+        }
+        &.likes:hover{
+            color: #ff4141;
+            span{
+                background: #ff414130;
+            }
+        }
+    }
+}
+
+@keyframes liked {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,98 @@
+@import '../../styles/colors/variables.scss';
+
+.imageModalContainer{
+    width: 100%;
+    height: 100%;
+    background: #00000099;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    .containerAll{
+        width: 80vw;
+        height: 80vh;
+        background: $black3;
+        padding: 10px 40px;
+        z-index: 15;
+        position: relative;
+        display: flex;
+        align-items: center;
+        clip-path: inset(0 0 100% 0);
+        animation: appear cubic-bezier(1,0,0,1) forwards 1s;
+        .userInfo{
+            display: flex;
+            align-items: center;
+            flex-direction: start;
+            width: 100%;
+            height: 80px;
+            z-index: 4;
+            .profilePic{
+                object-fit: cover;
+                background-size: cover;
+                height: 55px;
+                width: 55px;
+                border-radius: 50%;
+            }
+            div{
+                margin-left: 10px;
+                h4{
+                    font-size: 1.05em;
+                    color: #fff;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 400;
+                }
+                p{
+                    font-size: 0.9em;
+                    color: #999;
+                }
+            }
+        }
+        .image{
+            max-width: 60%;
+            max-height: 90%;
+            clip-path: inset(100% 0 0 0);
+            animation: appear2 cubic-bezier(1,0,0,1) forwards 0.9s;
+            animation-delay: 0.5s;
+        }
+        .options{
+            width: 100%; 
+            height: 90%;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            flex-direction: row;
+            span, a{
+                font-size: 2em;
+                padding: 0 20px;
+                color: #ccc;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover{
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+@keyframes appear {
+    from{
+        clip-path: inset(0 0 100% 0);
+    }
+    to{
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+@keyframes appear2 {
+    from{
+        clip-path: inset(100% 0 0 0);
+    }
+    to{
+        clip-path: inset(0 0 0 0);
+    }
+}

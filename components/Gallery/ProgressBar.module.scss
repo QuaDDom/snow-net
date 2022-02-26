@@ -1,0 +1,7 @@
+@import '../../styles/colors/variables.scss';
+
+.progressBar{
+    height: 5px;
+    background: $primary;
+    transition: 0.6s;
+}

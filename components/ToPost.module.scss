@@ -1,0 +1,156 @@
+@import '../styles/colors/variables.scss';
+
+.publicContainer{
+    background: $black2;
+    width: 40vw;
+    min-height: 8.5vw;
+    z-index: 5;
+    padding: 5px 18px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    flex-direction: column;
+    .imagePreview{
+        max-width: 100%;
+        max-height: 500px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+    .inputContainer{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        .image{
+            width: 60px;
+            height: 60px;
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-size: cover;
+                object-fit: cover;
+            }
+        }
+        .input{
+            position: relative;
+            display: block;
+            width: 27vw;
+            height: 50px;
+            margin-right: 130px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 5;
+            &.over{
+                border: dashed 2px $primary;
+                height: 55px;
+                width: 27.2vw;
+            }
+            .fileInput{
+                display: none;
+            }
+            img{
+                width: 60px;
+                height: 60px;
+                padding: 0 10px;
+                border-radius: 50%;
+                background-size: cover;
+                object-fit: cover;
+            }
+            input{
+                display: flex;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                border: none;
+                outline: none;
+                font-size: 1.1em;
+                font-family: 'Poppins', sans-serif;
+                color: #fff;
+                border-bottom: 2px solid #272727;
+                transition: 0.3s;
+                &:focus{
+                    border-bottom: 2px solid $primary;
+                }
+            }
+        }
+    }
+    .options{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        padding: 10px 25px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        .post{
+            cursor: pointer;
+            width: 102px;
+            height: 42px;
+            background: $aquah;
+            outline: none;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 30px;
+            font-weight: 800;
+            transition: 0.2s;
+            &:hover{
+                background: $aqua;
+            }
+        }
+        .emojiPicker{
+            position: absolute;
+            transition: .3s;
+            opacity: 0;
+            z-index: 17;
+            top: 50px;
+            left: -50px;
+            &.open{
+                opacity: 1;
+            }
+        }
+        .gifSearch{
+            position: absolute;
+            transition: .3s;
+            opacity: 0;
+            z-index: 17;
+            top: 50px;
+            left: -50px;
+            &.open{
+                opacity: 1;
+            }
+        }
+        .buttons{
+            display: flex;
+            padding: 0px 80px;
+            color: $aquah;
+            input[type="file"]{
+                display: none;
+            }
+            .button{
+                font-size: 1.5em;
+                margin-top: 5px;
+                width: 50px;
+                transition: color .2s;
+                cursor: pointer;
+                &:hover{
+                    color: $aqua;
+                }
+            }
+        }
+    }
+}

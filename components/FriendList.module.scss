@@ -1,0 +1,25 @@
+@import '../styles/colors/variables.scss';
+
+.friendListContainer{
+    width: 500px;
+    height: 100vh;
+    position: fixed;
+    top: 30px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .friendGrid{
+        background: $black2;
+        border-radius: 10px;
+        margin-top: 75px;
+        width: 400px;
+        h2{
+            margin-bottom: 20px;
+            margin-left: 5px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        padding: 20px;
+    }
+}

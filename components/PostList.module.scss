@@ -1,0 +1,15 @@
+.postListContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 20px;
+    div{
+        .postsContainer{
+            display: flex;
+            align-items: center;
+            flex-direction: column-reverse;
+            position: absolute;   
+        }
+    }
+}

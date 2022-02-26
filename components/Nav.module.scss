@@ -1,0 +1,58 @@
+$primary: #8bffff;
+$secondary: #0099ff;
+
+.navigation{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    display: flex;
+    background: #00000099;
+    backdrop-filter: blur(20px);
+    justify-content: space-between;
+    align-items: center;
+    z-index: 12;
+    .logo{
+        padding-left: 60px;
+        height: 100%;
+        width: 200px;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        align-items: center;
+        img{
+            height: 40px;
+            width: 40px;
+        }
+        p{
+            font-size: 2em;
+            font-weight: 600;
+            margin-left: 20px;
+            background: linear-gradient(90deg, $primary, $secondary);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+    nav{
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        padding-right: 60px;
+        ul{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            li{
+                font-size: 1.15em;
+                text-align: center;
+                list-style: none;
+                transition: 0.3s;
+                margin-right: 40px;
+                &:hover{
+                    color: $primary;
+                }
+            }
+        }
+    }
+}

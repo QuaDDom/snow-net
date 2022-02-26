@@ -1,0 +1,78 @@
+.galleryImageContainer{
+    position: relative;
+    overflow: hidden;
+    .containerImage{
+        position: relative;
+        overflow: hidden;
+        &:hover .image{
+            filter: brightness(0.7);
+        }
+        &:hover .userInfo{
+            transform: translateY(0);
+            opacity: 1;
+        }
+        &:hover .options{
+            transform: translateY(0);
+            opacity: 1;
+        }
+        img{
+            max-width: 100%;
+            transition: 0.4s;
+            cursor: pointer;
+            padding: 7px;
+        }
+        .options{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: auto;
+            height: 55px;
+            position: absolute;
+            color: #fff;
+            transition: .3s;
+            bottom: 10px;
+            right: 40px;
+            opacity: 0;
+            transform: translateY(10px);
+            z-index: 4;
+            span, a{
+                font-size: 1.4em;
+                padding: 10px;
+                cursor: pointer;
+                transition: 0.3s;
+                color: #ccc;
+                &:hover{
+                    color: #fff;
+                }
+            }
+        }
+        .userInfo{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: auto;
+            height: 55px;
+            position: absolute;
+            transition: 0.3s;
+            transform: translateY(10px);
+            opacity: 0;
+            bottom: 15px;
+            left: 20px;
+            z-index: 4;
+            img{
+                object-fit: cover;
+                background-size: cover;
+                height: 55px;
+                width: 55px;
+                border-radius: 50%;
+            }
+            p{
+                font-size: 1.05em;
+                margin-left: 5px;
+                color: #eee;
+                font-family: 'Segoe UI', sans-serif;
+            }
+        }
+    }
+}
+

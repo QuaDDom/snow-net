@@ -1,0 +1,54 @@
+$primary: #8bffff;
+$secondary: #0099ff;
+
+.textAreaContainer{
+    position: relative;
+    height: 200px;
+    width: 48vw;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    .textAreaComponent{
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 20px;
+        width: 100%;
+        font-size: 1.2em;
+        display: block;
+        height: 100%;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        outline: none;
+        resize: none;
+        border: 2px solid #fff;
+        transition: 0.35px;
+        background: transparent;
+        &:focus{
+            border: 2px solid $primary;
+        }
+        &:focus ~ label{
+            top: -20px;
+            left: 10px;
+            font-size: 1.2em;
+            color: #fff;
+        }
+        &:not(:placeholder-shown).textAreaComponent:not(:focus) + .labelComponent{
+            top: -20px;
+            left: 10px;
+            font-size: 1.2em;
+            color: $primary;
+        }
+    }
+    .labelComponent{
+        position: absolute;
+        display: block;
+        transition: .3s;
+        top: 12%;
+        left: 20px;
+        width: 60px;
+        text-align: center;
+        font-size: 1.4em;
+        color: #999;
+    }
+}

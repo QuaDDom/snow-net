@@ -1,0 +1,71 @@
+$primary: #8bffff;
+$secondary: #0099ff;
+
+.inputContainer{
+    position: relative;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;   
+    margin-bottom: 2.5rem;
+    .error{
+        color: #ff3b3b;
+        display: block;
+        width: 100%;
+        height: 20px;
+        font-size: 1.1em;
+        top: 50px;
+        left: 0;
+        position: absolute;
+        padding: 0;
+    }
+    .inputComponent{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        font-size: 1.3em;
+        display: block;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #fff;
+        outline: none;
+        transition: 0.35s;
+        padding: 0 10px;
+        &.error{
+            border-bottom: 2px solid #ff3b3b;
+        }
+        &.error:focus{
+            border-bottom: 2px solid #ff3b3b;
+        }
+        &:focus{
+            border-bottom: 2px solid $primary;
+        }
+        &:focus ~ label{
+            top: -20px;
+            font-size: 1.1em !important;
+            left: 0px;
+            color: #fff;
+        }
+        &:not(:placeholder-shown).inputComponent:not(:focus) + .labelComponent{
+            top: -20px;
+            font-size: 1.1em !important;
+            left: 0px;
+            color: $primary;
+        }
+
+    }
+    .labelComponent{
+        position: absolute;
+        display: block;
+        transition: .3s;
+        top: 12%;
+        left: 5px;
+        min-width: 65px;
+        text-align: center;
+        background: transparent;
+        color: #999;
+    }
+}

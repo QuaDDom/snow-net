@@ -1,9 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #050505;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+button{
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 a {
@@ -11,6 +30,22 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+.skeleton{
+  animation: skeletonLoading 1s linear infinite alternate;
 }
+
+.skeleton-text{
+  width: 100%;
+  height: .5rem;
+  margin-bottom: .2rem;
+}
+
+@keyframes skeletonLoading {
+  0%{
+      background-color: #4f575a;
+  }
+  100%{
+      background-color: #7a8286;
+  }
+}
+

@@ -34,7 +34,7 @@ a {
   animation: skeletonLoading 1s linear infinite alternate;
 }
 
-.skeleton-text{
+.skeletonText{
   width: 100%;
   height: .5rem;
   margin-bottom: .2rem;

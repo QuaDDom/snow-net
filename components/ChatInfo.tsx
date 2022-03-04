@@ -18,7 +18,7 @@ export default function ChatInfo({img, name, lastname}: Props) {
   return (
     <div className={styles.chatInfoContainer}>
           <div className={styles.personInfo}>
-              <img src={img} alt={name} />
+              <img src={img || 'noProfile.png'} alt={name} />
               <p>{`${name} ${lastname}`}</p>
           </div>
           <div className={styles.conf}>

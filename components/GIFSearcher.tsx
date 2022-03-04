@@ -9,10 +9,16 @@ interface Gif{
   images: any
 }
 
-export default function GIFSearcher() {
+interface Props{
+  setGif: React.Dispatch<React.SetStateAction<string>>
+}
+
+export default function GIFSearcher({setGif}: Props) {
 
   const {giphy, handleSubmit, handleChange, search, isLoading} = useGiphy();
-  console.log(isLoading)
+
+  const handleClick = (url: string)=> setGif(url);
+
   return (
       <div className={styles.gifContainer}>
           <div className={styles.inputContainer}>
@@ -37,7 +43,11 @@ export default function GIFSearcher() {
                 {
                 giphy && giphy.length >= 1 && giphy.map(({url, title, images}: Gif)=>(
                   <div className={styles.gif} key={url + title}>
-                    <img src={images.fixed_height.url} alt={title} />
+                    <img 
+                    src={images.fixed_height.url} 
+                    alt={title} 
+                    onClick={()=> handleClick(images.fixed_height.url)}
+                    />
                   </div>
                 ))
                 }

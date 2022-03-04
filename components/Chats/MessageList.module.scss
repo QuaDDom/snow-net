@@ -23,14 +23,37 @@
         z-index: 5;
         background: $black2;
         padding: 0;
-        h2{
-            text-align: start;
-            width: 100%;
-            padding-top: 30px;
-            padding-left: 25px;
-            padding-bottom: 5px;
-            font-family: 'Nunito Sans', sans-serif;
-            font-weight: 600;
+        .buttons{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h2{
+                text-align: start;
+                width: 100%;
+                padding-top: 30px;
+                padding-left: 25px;
+                padding-bottom: 5px;
+                font-family: 'Nunito Sans', sans-serif;
+                font-weight: 600;
+            }
+            div{
+                display: flex;
+                align-items: center;
+                padding-top: 50px;
+                padding-right: 15px;
+                button{
+                    background: transparent;
+                    color: #c9c9c9;
+                    font-size: 1.5em;
+                    border: none;
+                    outline: none;
+                    padding-right: 20px;
+                    transition: color 0.3s;
+                    &:hover{
+                        color: #fff;
+                    }
+                }
+            }
         }
         .searchInput{
             position: relative;

@@ -1,0 +1,142 @@
+@import '../../styles/colors/variables.scss';
+
+.createPollContainer{
+    background: $black2;
+    height: 0;
+    width: 29vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    clip-path: inset(0 0 100% 0);
+    animation: appear 0.9s forwards;
+    .form{
+        height: 17vh;
+        width: 100%;
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        button{
+            background: transparent;
+            color: #fff;
+            font-size: 1.7em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 2rem;
+            width: 2rem;
+            border: none;
+            border-radius: 50%;
+            transition: 0.3s;
+            position: absolute;
+            right: 20%;
+            bottom: 2rem;
+            &:hover{
+                background: #ffffff20;
+            }
+        }
+    }
+    .options{
+        min-height: 10vh;
+        width: 100%;
+        h4{
+            font-weight: 400;
+            text-align: start;
+            margin-left: 10px;
+        }
+        .selects{
+            width: 100%;
+            display: flex;
+            padding-top: 1vh;
+            .select{
+                display: flex;
+                width: 10vw;
+                flex-direction: column;
+                user-select: none;
+                .selected{
+                    width: 9vw;
+                    background: $black3;
+                    height: 5vh;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin-left: 10px;
+                    order: 0;
+                    cursor: pointer;
+                    position: relative;
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        top: 2.1vh;
+                        right: 2.5vh;
+                        color: #fff;
+                        background: url('./img/arrow.svg');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        height: 1vh;
+                        width: 20px;
+                        transition: 0.3s;
+                    }
+                    &.active::before{
+                        transform: rotateX(180deg);
+                    }
+                }
+                .optionsContainer{
+                    background: $black3;
+                    color: #fff;
+                    width: 9vw;
+                    transition: .4s;
+                    margin-left: 10px;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    max-height: 21vh;
+                    overflow-y: scroll;
+                    margin-top: 55px;
+                    height: 0;
+                    opacity: 0;
+                    order: 1;
+                    position: absolute;
+                    &.active{
+                        opacity: 1;
+                        min-height: 21vh;
+                    }
+                    &::-webkit-scrollbar{
+                        width: 4px;
+                    }
+                    &::-webkit-scrollbar-thumb{
+                        background: #ffffff60;
+                        transition: .3s;
+                        border-radius: 20px;
+                        &:hover{
+                            background: #ffffff99;
+                        }
+                    }
+                    .option{
+                        padding: 10px 20px;
+                        cursor: pointer;
+                        transition: background 0.25s;
+                        &:hover{
+                            background: $black3h;
+                        }
+                        label{
+                            cursor: pointer;
+                        }
+                        input[type="radio"]{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes appear {
+    from{
+        clip-path: inset(0 0 100% 0);
+    } to{
+        clip-path: inset(0 0 -100% 0);
+        height: 28vh;
+    }
+}

@@ -7,7 +7,7 @@
     height: 400px;
     max-height: 400px;
     max-width: 450px;
-    background: $black2;
+    background: $black3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,14 +43,14 @@
             margin-left: 50px;
             padding: 0 20px;
             display: block;
-            background: $black3;
+            background: $black3h;
             color: #fff;
             font-size: 1em;
             font-family: 'Nunito Sans', sans-serif;
             outline: none;
             transition: background .3s;
             &:focus{
-                background: $black3h;
+                background: #44505c;
             }
         }
         button{
@@ -116,7 +116,7 @@
                     left: 5px;
                     right: 5px;
                     bottom: 5px;
-                    background: $black2;
+                    background: $black3;
                     border-radius: 50%;
                 }
             }

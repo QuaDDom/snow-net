@@ -13,6 +13,7 @@ interface Props{
 
 export default function RownMsg({_id, members, loggedUser, setCurrentChat, setUser, user}: Props) {
     const ref = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
+    const [friend, setFriend] = useState<any>(null);
 
     useEffect(()=>{
         const friendId = members.find(id=> id !== loggedUser._id);
@@ -20,6 +21,7 @@ export default function RownMsg({_id, members, loggedUser, setCurrentChat, setUs
         const getFriend = async ()=>{
             try{
                 const res = await axios.get(`http://localhost:5000/api/users/${friendId}`);
+                setFriend(res.data);
                 setUser(res.data);
             } catch(err){
                 console.log(err);
@@ -30,8 +32,8 @@ export default function RownMsg({_id, members, loggedUser, setCurrentChat, setUs
     },[loggedUser?._id])
 
     const handleClick = (e: any)=>{
-        
         setCurrentChat({_id, members});
+        setUser(friend);
 
         let x = e.clientX - e.target.offsetLeft,
               y = e.clientY - e.target.offsetTop,
@@ -49,11 +51,11 @@ export default function RownMsg({_id, members, loggedUser, setCurrentChat, setUs
 
     return (
         <>
-       { user && <div className={styles.rowContainer} onClick={handleClick} ref={ref}>
+       { friend && <div className={styles.rowContainer} onClick={handleClick} ref={ref}>
             <div className={styles.ripple}/>
-            <img src={user.profilePic} alt={user.username} />
+            <img src={friend.profilePic || 'noProfile.png'} alt={friend.username} />
             <div className={styles.info}>
-                <h5>{`${user.name} ${user.lastname}`}</h5>
+                <h5>{`${friend.name} ${friend.lastname}`}</h5>
                 <p>{''}</p>
             </div>
             <div/>

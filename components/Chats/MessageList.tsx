@@ -6,6 +6,9 @@ import ChatInfo from '../ChatInfo';
 import { BsGearFill } from 'react-icons/bs';
 import Conversation from './Conversation';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { BiMessageAdd } from 'react-icons/bi';
+import { IoSettingsOutline } from 'react-icons/io5';
+import NewConversationModal from './NewConversationModal';
 
 interface Conversation{
   members: [string, string],
@@ -17,16 +20,32 @@ interface Props{
   conversations: any,
   currentChat: any,
   setCurrentChat: any,
-  socket: React.MutableRefObject<any>
+  socket: React.MutableRefObject<any>,
+  getChats: () => Promise<void>
 }
 
-export default function MessageList({conversations, loggedUser, currentChat, setCurrentChat, socket}: Props) {
+export default function MessageList({conversations, loggedUser, currentChat, setCurrentChat, socket, getChats}: Props) {
   const [user, setUser] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = ()=> setIsModalOpen(true);
 
   return (
+    <>
+    {isModalOpen && <NewConversationModal 
+    setIsModalOpen={setIsModalOpen} 
+    loggedUser={loggedUser} 
+    getChats={getChats}
+    />}
     <div className={styles.messageListContainer}>
       <div className={styles.peopleMsgContainer}>
-          <h2>Messages</h2>
+          <div className={styles.buttons}>
+            <h2>Messages</h2>
+              <div>
+                <button><IoSettingsOutline/></button>
+                <button onClick={handleOpenModal}><BiMessageAdd/></button>
+              </div>
+          </div>
           <div className={styles.searchInput}>
             <div className={styles.inputContainer}>
               <span><AiOutlineSearch/></span>
@@ -57,5 +76,6 @@ export default function MessageList({conversations, loggedUser, currentChat, set
        </div>
       }
     </div>
+    </>
   );
 }

@@ -34,15 +34,34 @@
             .options{
                 color: #999;
                 width: 8vw;
-                padding-left: 2vw;
-                padding-right: 4vw;
+                padding-left: 4vw;
                 display: flex;
                 align-items: center;
+                .currentImage{
+                    position: absolute;
+                    bottom: 84px;
+                    padding: 10px;
+                    overflow: hidden;
+                    left: 0;
+                    transition: .3s;
+                    opacity: 0; 
+                    width: 16vw;
+                    height: 33vh;
+                    background: $black2;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 15px;
+                    &.open{
+                        opacity: 1;
+                    }
+                }
                 .emojiPicker{
                     position: absolute;
                     bottom: 100px;
                     transition: .3s;
                     opacity: 0;
+                    right: 100px;
                     &.open{
                         opacity: 1;
                     }
@@ -50,6 +69,7 @@
                 .gifSearch{
                     position: absolute;
                     bottom: 100px;
+                    right: 100px;
                     transition: .3s;
                     opacity: 0;
                     &.open{
@@ -83,6 +103,7 @@
                     border-radius: 30px;
                     width: 45vw;
                     height: 50px;
+                    margin-left: 5vw;
                     background: $black2;
                     padding: 5px 30px;
                     outline: none;

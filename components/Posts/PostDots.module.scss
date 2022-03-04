@@ -6,6 +6,7 @@
     position: absolute;
     right: 0px;
     top: 20px;
+    z-index: 5;
     .dots{
         color: #777;
         font-size: 1.45em;
@@ -21,14 +22,14 @@
         width: 210px;
         height: auto;
         background: $black3;
-        animation: appear 0.3s;
+        animation: appear 0.4s;
         transform-origin: top;
         .option{
             display: flex;
             justify-content: center;
             align-items: center;
             height: 50px;
-            transition: background .2s;
+            transition: background .3s;
             cursor: pointer;
             &.delete{
                 color: #ff3939;
@@ -51,9 +52,9 @@
 
 @keyframes appear {
     from{
-        transform: scaleY(0);
+        opacity: 0;
     }
     to{
-        transform: scaleY(1);
+        opacity: 1;
     }
 }

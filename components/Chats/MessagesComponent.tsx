@@ -32,17 +32,19 @@ export default function MessagesComponent() {
     },[loggedUser?._id]);
 
 
-    useEffect(()=>{
-        const getChats = async ()=>{
-            try{
-                if(loggedUser) {
-                    const res = await axios.get(`http://localhost:5000/api/chats/${loggedUser._id}`);
-                    setConversations([...res.data]);
-                }
-            } catch(err){
-                console.log(err);
+    const getChats = async ()=>{
+        try{
+            if(loggedUser) {
+                const res = await axios.get(`http://localhost:5000/api/chats/${loggedUser._id}`);
+                setConversations([...res.data]);
+                console.log(res);
             }
+        } catch(err){
+            console.log(err);
         }
+    }
+
+    useEffect(()=>{
         getChats();
     },[loggedUser?._id]);
 
@@ -60,6 +62,7 @@ export default function MessagesComponent() {
             setCurrentChat={setCurrentChat}
             currentChat={currentChat}
             socket={socket}
+            getChats={getChats}
             />
         </div>
     </div>

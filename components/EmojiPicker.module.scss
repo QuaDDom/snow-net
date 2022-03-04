@@ -2,10 +2,10 @@
 
 .emojiPickerContainer{
     width: 450px;
-    height: 450px;
+    height: 350px;
     max-height: 400px;
-    max-width: 450px;
-    background: $black2;
+    max-width: 400px;
+    background: $black3;
     display: flex;
     border-radius: 15px;
     justify-content: center;
@@ -29,7 +29,7 @@
             button{
                 width: 50px;
                 height: 50px;
-                background: $black2;
+                background: $black3;
                 transition: 0.3s;
                 color: #777;
                 border: none;
@@ -40,7 +40,7 @@
                 font-size: 25px;
                 cursor: pointer;
                 &:hover{
-                    background: $black2h;
+                    background: $black3h;
                     color: $primary;
                 }
             }

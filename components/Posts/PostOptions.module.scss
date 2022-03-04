@@ -1,5 +1,4 @@
-$primary: #8bffff;
-$secondary: #0099ff;
+@import '../../styles/colors/variables.scss';
 
 .postOptionsContainer{
     width: 100%;
@@ -38,6 +37,11 @@ $secondary: #0099ff;
             }
             p.liked{
                 color: #ff4141;
+            }
+        }
+        &.repost{
+            .reposted{
+                color: #4bff87;
             }
         }
         p{

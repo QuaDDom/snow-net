@@ -5,33 +5,31 @@ import { RiUserFollowLine, RiVolumeMuteLine, RiDeleteBin5Line, RiEditLine } from
 import { MdBlock, MdOutlineReport } from 'react-icons/md';
 import { AiOutlinePushpin } from 'react-icons/ai';
 import axios from 'axios';
+import ConfirmDelete from './ConfirmDelete';
 
 interface Props{
     username: string,
     loggedUserId: string,
     userId: string,
     postId: string,
-    fetchData: () => Promise<void>
+    fetchData: () => Promise<void>,
+    handleModal: ()=> void,
+    deletePost: () => Promise<void>
 }
 
-export default function PostDots({username, userId, loggedUserId, postId, fetchData}: Props) {
+export default function PostDots({username, userId, loggedUserId, handleModal}: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = ()=> isOpen ? setIsOpen(false) : setIsOpen(true);
 
-    const deletePost = async ()=>{
-        console.log(userId, loggedUserId)
-        await axios.delete(`http://localhost:5000/api/posts/${postId}`, { data:{userId: loggedUserId} });
-        fetchData();
-    }
-
     return (
+    <>
         <div className={styles.postDotsContainer}>
             <span onClick={handleClick} className={styles.dots}><HiDotsHorizontal/></span>
             {
                 isOpen && userId === loggedUserId && 
                 <div className={styles.options}>
-                    <div className={`${styles.option} ${styles.delete}`} onClick={deletePost}>
+                    <div className={`${styles.option} ${styles.delete}`} onClick={handleModal}>
                         <span><RiDeleteBin5Line/></span>
                         <p>Delete post</p>
                     </div>
@@ -67,5 +65,6 @@ export default function PostDots({username, userId, loggedUserId, postId, fetchD
                 </div>
             }
         </div>
+    </>
     )
 }

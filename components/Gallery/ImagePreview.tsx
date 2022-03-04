@@ -3,10 +3,11 @@ import { useEffect } from 'react';
 import styles from './ImagePreview.module.scss';
 
 interface Props{
-    file: any
+    file?: any,
+    gif?: string
 }
 
-export default function ImagePreview({file}: Props) {
+export default function ImagePreview({file, gif}: Props) {
     const [preview, setPreview] = useState<string>('');
 
     useEffect(()=>{
@@ -22,6 +23,7 @@ export default function ImagePreview({file}: Props) {
     return (
         <div className={styles.imagePreviewContainer}>
             {file && <img src={preview} alt="Image Preview" />}
+            {gif && <img src={gif}/>}
         </div>
     )
 }

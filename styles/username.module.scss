@@ -7,7 +7,7 @@
         width: 100%;
         min-height: 53vh;
         background: $black2;
-        border-radius: 15px;
+        border-radius: 10px;
         position: relative;
         .banner{
             width: 100%;
@@ -60,9 +60,9 @@
         padding: 30px 0;
         position: relative;
         .photos{
-            width: 400px;
+            width: 450px;
             height: 300px;
-            border-radius: 20px;
+            border-radius: 10px;
             padding: 40px 30px;
             background: $black2;
             h4{
@@ -83,7 +83,7 @@
             h4{
                 font-size: 1.5em;
                 font-weight: 600;
-                width: 85.5%;
+                width: 90%;
                 text-align: start;
                 border-radius: 15px;
                 background: $black2;
@@ -100,9 +100,9 @@
             }
         }
         .bio{
-            width: 400px;
+            width: 450px;
             height: 300px;
-            border-radius: 15px;
+            border-radius: 10px;
             padding: 40px 30px;
             background: $black2;
             h4{

@@ -25,7 +25,7 @@ export default function Group() {
     },[]);
     return (
         <>
-        {group && <Layout>
+        {group && <Layout title={group.title + "- Snow"}>
         <div className={styles.groupContainer}>
             <div className={styles.profile}>
                 <div className={styles.banner}>

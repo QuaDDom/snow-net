@@ -18,8 +18,14 @@
             &:hover{
                 background: #2998ff;
             }
-            span{
-                color: #92d3ff;
+        }
+        span{
+            color: #92d3ff;
+        }
+        .message{
+            border-radius: 15px;
+            p{
+                background: #0084ff;
             }
         }
     }
@@ -27,6 +33,12 @@
         justify-content: start;
         align-content: start;
         height: auto;
+        .message{
+            border-radius: 15px;
+            p{
+                background: $black3h;
+            }
+        }
         .text{
             background: $black3h;
             width: auto;
@@ -36,9 +48,32 @@
             &:hover{
                 background: $black3;
             }
-            span{
-                color: #ccc;
-            }
+        }
+        span{
+            color: #ccc;
+        }
+    }
+    .message{
+        min-height: 100px;
+        min-width: 100px;
+        max-width: 70%;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        img{
+            width: 100%;
+            max-height: 40vh;
+            cursor: pointer;
+        }
+        p{
+            padding: 5px 20px;
+        }
+        span{
+            position: absolute;
+            bottom: 3px;
+            right: 10px;
+            font-size: 0.8em;
         }
     }
     .text{
@@ -61,19 +96,13 @@
             right: 10px;
             font-size: 0.8em;
         }
-        img{
-            max-width: 90%;
-            border-radius: 15px;
-        }
     }
 }
 
 @keyframes appear {
     from{
         opacity: 0;
-        transform: translateY(250px);
     } to{
         opacity: 1;
-        transform: translateY(0);
     }
 }

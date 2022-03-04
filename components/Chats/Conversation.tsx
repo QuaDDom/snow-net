@@ -18,6 +18,7 @@ interface Props{
 export default function Conversation({currentChat, loggedUser, user, socket}: Props) {
   const [allMessages, setAllMessages] = useState<any>(null);
   const [arrivalMessage, setArrivalMessage] = useState<any>(null);
+  const [gif, setGif] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
 
   
@@ -35,7 +36,7 @@ export default function Conversation({currentChat, loggedUser, user, socket}: Pr
   
   useEffect(()=>{
     getAllMessages();
-  },[]);
+  },[currentChat]);
   
   useEffect(()=>{
     socket.current.on("getMessage", (data: any)=>{
@@ -51,7 +52,6 @@ export default function Conversation({currentChat, loggedUser, user, socket}: Pr
   useEffect(()=>{
     arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) &&
                   setAllMessages((prev: any)=>[...prev, arrivalMessage]);
-    
   },[arrivalMessage])
 
   useEffect(() => {
@@ -80,6 +80,8 @@ export default function Conversation({currentChat, loggedUser, user, socket}: Pr
         chatId={currentChat._id} 
         getAllMessages={getAllMessages}
         socket={socket}
+        setGif={setGif}
+        gif={gif}
         />
     </div>
   )

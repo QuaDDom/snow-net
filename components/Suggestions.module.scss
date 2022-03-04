@@ -38,13 +38,31 @@
                 display: flex;
                 background: $black3;
                 min-width: 350px;
-                height: 130px;
+                height: 200px;
                 transition: 0.3s;
                 z-index: 3;
                 margin-top: 10px;
-                p{
-                    font-size: 1.1em;
-                    margin-top: 79px;
+                .info{
+                    margin-top: 125px;
+                    margin-left: 6px;
+                    .title{
+                        font-size: 1.1em;
+                    }
+                    div{
+                        display: flex;
+                        color: #999;
+                        font-size: 0.9em;
+                        .type{
+                            display: flex;
+                            margin-left: 9px;
+                            span{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                padding: 0 4px;
+                            }
+                        }
+                    }
                 }
                 &:hover{
                     background: $black3h;
@@ -61,26 +79,26 @@
                     align-items: center;
                     .banner{
                         transition: 0.3s;
-                        background: url(../img/noCover.jpg);
-                        object-fit: cover;
-                        background-size: cover;
                         position: absolute;
                         top: 0;
                         left: 0;
                         width: 100%;
-                        height: 75px;
+                        height: 120px;
                         z-index: -1;
                         border-top-left-radius: 10px;
                         border-top-right-radius: 10px;
+                        object-fit: cover;
+                        background-size: cover;
                     }
                     img{
-                        width: 70px;
-                        height: 70px;
+                        width: 80px;
+                        height: 80px;
                         display: block;
                         transition: 0.3s;
                         object-fit: cover;
+                        background-size: cover;
                         border-radius: 50%;
-                        margin-top: 35px;
+                        margin-top: 75px;
                         margin-left: 7px;
                         z-index: 1;
                         border: 6px solid $black3;

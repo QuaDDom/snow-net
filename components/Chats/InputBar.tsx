@@ -7,16 +7,19 @@ import styles from '../../styles/messages.module.scss';
 import EmojiPicker from '../EmojiPicker';
 import { projectStorage, projectFirestore, timestamp } from "../../config/firebase.config";
 import GIFSearcher from '../GIFSearcher';
+import ImagePreview from '../Gallery/ImagePreview';
 
 interface Props{
     loggedUser: any,
     chatId: any,
     getAllMessages: () => Promise<void>,
     socket: React.MutableRefObject<any>,
-    receiverId: any
+    receiverId: any,
+    setGif: React.Dispatch<React.SetStateAction<string>>,
+    gif: string
 }
 
-export default function InputBar({loggedUser, chatId, getAllMessages, socket, receiverId}: Props) {
+export default function InputBar({loggedUser, chatId, getAllMessages, socket, receiverId, setGif, gif}: Props) {
     const [gifOpen, setGifOpen] = useState(false);
     const [pickerOpen, setPickerOpen] = useState(false);
     const [message, setMessage] = useState('');
@@ -93,7 +96,26 @@ export default function InputBar({loggedUser, chatId, getAllMessages, socket, re
                 getAllMessages();
                 setMessage('');
             });
-        } else{
+        } else if(gif){
+            const messageToFetch = {
+                sender: loggedUser._id,
+                text: message,
+                chatId: chatId,
+                image: gif
+            }
+    
+            socket.current.emit("sendMessage", {
+                senderId: loggedUser._id,
+                receiverId,
+                text: message,
+                image: gif
+            });
+
+            await axios.post('http://localhost:5000/api/messages', messageToFetch);
+            getAllMessages();
+            setGif('');
+            setMessage('');
+        } else {
             const messageToFetch = {
                 sender: loggedUser._id,
                 text: message,
@@ -120,18 +142,6 @@ export default function InputBar({loggedUser, chatId, getAllMessages, socket, re
     return (
         <div className={styles.messages}>
             <div className={styles.msgInput}>
-            <div className={styles.options}>
-                <div className={`${styles.emojiPicker} ${pickerOpen && styles.open}`}>
-                    {pickerOpen && <EmojiPicker setMessage={setMessage} message={message}/>}
-                </div>
-                <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>
-                    {gifOpen && <GIFSearcher/>}
-                </div>
-                <p onClick={handleEmojiPickerButton} className={styles.button}><BiHappy/></p> 
-                <input type="file" name="file" id="file" className={styles.inputFile} onChange={handleFileChange}/>
-                <label className={styles.button} htmlFor="file"><BiImageAlt/></label>
-                <p onClick={handleGifButton} className={styles.button}><AiOutlineGif/></p> 
-                </div>
                 <div className={styles.inputContainer}>
                     <form onSubmit={handleSubmit} style={{display: 'flex'}}>
                         <input 
@@ -141,8 +151,26 @@ export default function InputBar({loggedUser, chatId, getAllMessages, socket, re
                         value={message}
                         onChange={handleChange}
                         />
-                        <button type='submit'><p><AiOutlineSend/></p></button>
+                        {/* <button type='submit'><p><AiOutlineSend/></p></button> */}
                     </form>
+                </div>
+            <div className={styles.options}>
+                <div className={`${styles.currentImage} ${gif || file ? styles.open : ''}`}>
+                    <div className={styles.imagePreview}>
+                        {file && <ImagePreview file={file}/>}
+                        {gif && <ImagePreview gif={gif}/>}
+                    </div>
+                </div>
+                <div className={`${styles.emojiPicker} ${pickerOpen && styles.open}`}>
+                    {pickerOpen && <EmojiPicker setMessage={setMessage} message={message}/>}
+                </div>
+                <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>
+                    {gifOpen && <GIFSearcher setGif={setGif}/>}
+                </div>
+                <p onClick={handleEmojiPickerButton} className={styles.button}><BiHappy/></p> 
+                <input type="file" name="file" id="file" className={styles.inputFile} onChange={handleFileChange}/>
+                <label className={styles.button} htmlFor="file"><BiImageAlt/></label>
+                <p onClick={handleGifButton} className={styles.button}><AiOutlineGif/></p> 
                 </div>
             </div>
         </div>

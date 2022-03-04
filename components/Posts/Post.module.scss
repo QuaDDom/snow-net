@@ -1,7 +1,6 @@
-@import '../styles/colors/variables.scss';
+@import '../../styles/colors/variables.scss';
 
 .postContainer{
-    position: relative;
     min-height: 80px;
     width: 40vw;
     z-index: 1;
@@ -13,6 +12,22 @@
     animation: appear 0.6s forwards;
     &:hover{
         background: $black2h;
+    }
+    .reposted{
+        height: 25px;
+        padding-top: 15px;
+        padding-left: 5px;
+        padding-bottom: 10px;
+        color: #999;
+        font-size: 0.9em;
+        display: flex;
+        span{
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            padding-top: 9px;
+            padding-right: 7px;
+        }
     }
     .user{
         width: 100%;
@@ -50,7 +65,6 @@
     }
     .post{
         width: 100%;
-        position: relative;
         .text{
             font-size: 0.95em;
             padding-left: 66.5px;
@@ -72,6 +86,26 @@
                 cursor: pointer;
             }
         }
+    }
+}
+
+.skeleton{
+    animation: skeletonLoading 1s linear infinite alternate;
+    min-width: 100px;
+}
+  
+.skeletonText{
+    width: 100%;
+    height: 10px;
+    padding-bottom: .5rem;
+}
+  
+@keyframes skeletonLoading {
+    0%{
+        background-color: #4f575a;
+    }
+    100%{
+        background-color: #7a8286;
     }
 }
 

@@ -2,14 +2,15 @@ import React, { useContext } from 'react'
 import styles from '../styles/username.module.scss';
 import AuthContext from '../context/AuthContext';
 import { usePosts } from '../hooks/usePosts';
-import Post from './Post';
+import Post from './Posts/Post';
 
 interface Post{
     _id: string,
     userId: string,
     text: string,
-    img: string,
+    image: string,
     likes: [],
+    createdAt: any
 }
 
 interface Props{
@@ -49,15 +50,16 @@ export default function UserProfileComponent({userData, username}: Props) {
                     <h4>Last Posts</h4>
                     <div className={styles.posts}>
                     {
-                        userData && userData.posts.map(({_id, text, img, userId, likes}: Post)=>(
+                        userData && userData.posts.map(({_id, text, image, userId, likes, createdAt}: Post)=>(
                             <Post 
                             _id={_id} 
                             text={text} 
-                            img={img} key={_id} 
+                            image={image} key={_id} 
                             userId={userId} 
                             likes={likes}
                             fetchData={fetchData}
                             loggedUser={loggedUser}
+                            createdAt={createdAt}
                             />
                         ))
                     }

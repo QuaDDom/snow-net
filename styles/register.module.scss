@@ -15,8 +15,8 @@ $secondary: #00d7df;
         background: #00000045;
         backdrop-filter: blur(5px);
         .register{
-            height: 78vh;
-            width: 56vw;
+            height: 60vh;
+            width: 35vw;
             position: relative;
             display: flex;
             justify-content: center;
@@ -33,8 +33,7 @@ $secondary: #00d7df;
                 padding-bottom: 40px;
                 h2{
                     font-weight: 400;
-                    font-size: 3.3em;
-                    letter-spacing: 7px;
+                    font-size: 2em;
                     background: linear-gradient(90deg, $primary, $secondary);
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
@@ -48,21 +47,37 @@ $secondary: #00d7df;
                     width: 100%;
                     .inputsCont{
                         display: flex;
-                        justify-content: center;
                         align-items: center;
-                        .separator{
-                            display: flex;
-                            width: 500px;
-                            justify-content: center;
-                            align-items: center;
-                            flex-direction: column;
-                        }
+                        padding-left: 50px;
+                        padding-top: 50px;
                     }
                     .centerContent{
                         display: flex;
                         justify-content: center;
                         padding-left: 80px;
                         flex-direction: column;
+                    }
+                }
+                .buttons{
+                    display: flex;
+                    width: 100%;
+                    height: 60px;
+                    button{
+                        background: transparent;
+                        color: $primary;
+                        font-size: 3em;
+                        border: none;
+                        outline: none;
+                    }
+                    .back{
+                        position: absolute;
+                        left: 60px;
+                        bottom: 60px;
+                    }
+                    .forward{
+                        position: absolute;
+                        right: 60px;
+                        bottom: 60px;
                     }
                 }
             }

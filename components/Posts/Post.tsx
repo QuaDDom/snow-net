@@ -9,6 +9,8 @@ import { format } from 'timeago.js';
 import ConfirmDelete from '../Posts/ConfirmDelete';
 import axios from 'axios';
 import Poll from './Poll';
+import { BsPinAngleFill } from 'react-icons/bs';
+import Comments from './Comments/Comments';
 
 interface Props{
   _id: string
@@ -24,7 +26,8 @@ interface Props{
   loggedUser: any,
   createdAt: any,
   repostedBy: any,
-  poll: [string]
+  poll: [string],
+  pinned: boolean
 }
 
 interface User{
@@ -36,13 +39,16 @@ interface User{
 }
 
 export default function Post({_id, image, text, userId, likes, fetchData,
-                              loggedUser, createdAt, repostedBy, poll}: Props) {
+                              loggedUser, createdAt, repostedBy, poll, pinned}: Props) {
   const [openImage, setOpenImage] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [showComments, setShowComments] = useState(false);
+
   const user: User = useGetUser(userId);
 
   const handleClick = ()=> setOpenImage(true);
   const handleModal = ()=> modalOpen ? setModalOpen(false) : setModalOpen(true);
+  const handleOpenComments = ()=> showComments ? setShowComments(false) : setShowComments(true);
 
   const handleImageClick = ()=>{
     Router.push('user/' + user.username);
@@ -59,6 +65,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
     {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen}/>}
     {user && loggedUser &&
       <div className={styles.postContainer}>
+      { pinned && <p className={styles.pinned}><span><BsPinAngleFill/></span> Pinned Post</p>}
         <div className={styles.user}>
           <img src={user.profilePic || 'noProfile.png'} alt={user.name} onClick={handleImageClick}/>
           <div className={styles.bothColumn}>
@@ -100,7 +107,14 @@ export default function Post({_id, image, text, userId, likes, fetchData,
         text={text}
         createdAt={createdAt}
         repostedBy={repostedBy}
+        setShowComments={setShowComments}
         />
+        {
+          showComments && <Comments 
+                          loggedUser={loggedUser}
+                          fetchData={fetchData}
+                          />
+        }
       </div>
       }
       {openImage && <OpenImage 

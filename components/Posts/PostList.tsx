@@ -17,7 +17,8 @@ interface Post{
   reposted: boolean,
   repostedPost: any,
   repostedBy: any,
-  poll: any
+  poll: any,
+  pinned: boolean
 }
 
 export default function PostList() {
@@ -31,7 +32,9 @@ export default function PostList() {
           <div className={styles.postsContainer}>
             {
               posts && 
-              posts.map(({_id, text, image, userId, likes, createdAt, reposted, repostedPost, repostedBy, poll}: Post)=>(
+              posts.map((
+                {_id, text, image, userId, likes, createdAt,
+                reposted, repostedPost, repostedBy, poll, pinned}: Post)=>(
                 <>
                 {
                   reposted ?
@@ -61,6 +64,7 @@ export default function PostList() {
                   createdAt={createdAt}
                   repostedBy={repostedBy}
                   poll={poll}
+                  pinned={pinned}
                   />
                 }
                 </>

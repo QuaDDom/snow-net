@@ -54,6 +54,12 @@ export default function Group() {
                 </div>
             </div>
             <div className={styles.groupContent}>
+                <div className={styles.photos}>
+                        <h4>Photos</h4>
+                        <div className="grid">
+
+                        </div>
+                </div>
                 <div className={styles.posts}>
 
                 </div>

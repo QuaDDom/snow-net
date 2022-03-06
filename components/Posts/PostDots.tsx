@@ -17,10 +17,18 @@ interface Props{
     deletePost: () => Promise<void>
 }
 
-export default function PostDots({username, userId, loggedUserId, handleModal}: Props) {
+export default function PostDots({username, userId, loggedUserId, handleModal, postId, fetchData}: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = ()=> isOpen ? setIsOpen(false) : setIsOpen(true);
+    const handlePin = async ()=> {
+        try{
+            await axios.put(`http://localhost:5000/api/posts/pin/${postId}`);
+            fetchData();
+        } catch(err){
+            console.log(err);
+        }
+    }
 
     return (
     <>
@@ -37,7 +45,7 @@ export default function PostDots({username, userId, loggedUserId, handleModal}: 
                         <span><RiEditLine/></span>
                         <p>Edit post</p>
                     </div>
-                    <div className={styles.option}>
+                    <div className={styles.option} onClick={handlePin}>
                         <span><AiOutlinePushpin/></span>
                         <p>Pin this post</p>
                     </div>

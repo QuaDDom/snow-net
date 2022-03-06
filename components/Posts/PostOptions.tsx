@@ -13,10 +13,12 @@ interface Props{
    image: string,
    text: string,
    createdAt: any,
-   repostedBy: any
+   repostedBy: any,
+   setShowComments: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function PostOptions({userId, likes, _id, fetchData, loggedUser, text, image, repostedBy}: Props) {
+export default function PostOptions({userId, likes, _id,
+    fetchData, loggedUser, text, image, repostedBy, setShowComments}: Props) {
 
    const handleLike = async ()=>{
       await axios.put(`http://localhost:5000/api/posts/${_id}/like`, {userId: loggedUser._id});
@@ -44,7 +46,7 @@ export default function PostOptions({userId, likes, _id, fetchData, loggedUser, 
    return (
          <div className={styles.postOptionsContainer}>
          <div className={styles.comments}>
-               <span><BiComment/></span>
+               <span onClick={()=> setShowComments(true)}><BiComment/></span>
                <p>0</p>
          </div>
             <div className={styles.repost} onClick={handleRepost}>

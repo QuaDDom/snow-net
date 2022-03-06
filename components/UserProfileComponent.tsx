@@ -3,6 +3,7 @@ import styles from '../styles/username.module.scss';
 import AuthContext from '../context/AuthContext';
 import { usePosts } from '../hooks/usePosts';
 import Post from './Posts/Post';
+import { useEffect } from 'react';
 
 interface Post{
     _id: string,
@@ -10,8 +11,13 @@ interface Post{
     text: string,
     image: string,
     likes: [],
-    createdAt: any
-}
+    createdAt: any,
+    reposted: boolean,
+    repostedPost: any,
+    repostedBy: any,
+    poll: any,
+    pinned: boolean
+  }
 
 interface Props{
     userData: any,
@@ -21,8 +27,6 @@ interface Props{
 export default function UserProfileComponent({userData, username}: Props) {
     const { loggedUser } = useContext<any>(AuthContext);
     const { fetchData } = usePosts({type: "all"});
-
-    console.log(userData);
 
     return (
         <>
@@ -50,7 +54,9 @@ export default function UserProfileComponent({userData, username}: Props) {
                     <h4>Last Posts</h4>
                     <div className={styles.posts}>
                     {
-                        userData && userData.posts.map(({_id, text, image, userId, likes, createdAt}: Post)=>(
+                        userData && userData.posts.map((
+                            {_id, text, image, userId, likes,
+                             createdAt, repostedBy, poll, pinned }: Post)=>(
                             <Post 
                             _id={_id} 
                             text={text} 
@@ -60,6 +66,9 @@ export default function UserProfileComponent({userData, username}: Props) {
                             fetchData={fetchData}
                             loggedUser={loggedUser}
                             createdAt={createdAt}
+                            repostedBy={repostedBy}
+                            poll={poll}
+                            pinned={pinned}
                             />
                         ))
                     }

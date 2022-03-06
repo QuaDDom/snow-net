@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import axios from 'axios';
-import Post from '../../components/Post';
 import { usePosts } from '../../hooks/usePosts';
 import { AuthProvider } from '../../context/AuthContext';
 import UserProfileComponent from '../../components/UserProfileComponent';
@@ -25,6 +24,7 @@ export default function UserProfile() {
         }
         fetchUserData();
     },[]);
+    
     userData && console.log(userData)
     return (
         <Layout title={`@${username} - Snow`}>

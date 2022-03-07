@@ -1,0 +1,9 @@
+
+.commentsContainer{
+    height: auto;
+    padding-bottom: 15px;
+    .comments{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

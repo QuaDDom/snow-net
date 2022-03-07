@@ -8,20 +8,17 @@ interface Props{
   username: string,
   loggedUserId: string,
   userId: string,
-  postId: string,
-  fetchData: () => Promise<void>,
   handleModal: ()=> void,
-  deletePost: () => Promise<void>
 }
 
-export default function CommentDots({username, userId, loggedUserId, handleModal, postId, fetchData}: Props) {
+export default function CommentDots({username, userId, loggedUserId, handleModal}: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = ()=> isOpen ? setIsOpen(false) : setIsOpen(true);
 
   return (
   <>
-      <div className={styles.postDotsContainer}>
+      <div className={styles.commentDotsContainer}>
           <span onClick={handleClick} className={styles.dots}><HiDotsHorizontal/></span>
           {
               isOpen && userId === loggedUserId && 

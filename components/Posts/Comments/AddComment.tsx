@@ -12,10 +12,11 @@ import styles from './AddComment.module.scss';
 
 interface Props{
     userData: any,
-    fetchData: () => Promise<void>
+    fetchData: () => Promise<void>,
+    postId: string
 }
 
-export default function AddComment({userData, fetchData}: Props) {
+export default function AddComment({userData, fetchData, postId}: Props) {
     const [text, setText] = useState('');
     const [gifOpen, setGifOpen] = useState(false);
     const [pickerOpen, setPickerOpen] = useState(false);
@@ -27,7 +28,6 @@ export default function AddComment({userData, fetchData}: Props) {
     const [isLoading, setIsLoading] = useState(false);
     const [gif, setGif] = useState('');
     const [pollOpen, setPollOpen] = useState(false);
-    const [poll, setPoll] = useState([]);
     const [isFocus, setIsFocus] = useState(false);
 
     const containerRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
@@ -53,16 +53,16 @@ export default function AddComment({userData, fetchData}: Props) {
 
     const handleGifButton = ()=> gifOpen ? setGifOpen(false) : setGifOpen(true);
     const handleEmojiPickerButton = ()=> pickerOpen ? setPickerOpen(false) : setPickerOpen(true);
-    const handlePollButton = ()=> pollOpen ? setPollOpen(false) : setPollOpen(true);
     const handleFocus = ()=> setIsFocus(true);
     const handleBlur = ()=> setIsFocus(false);
     
-    const onSubmit = (e: any)=>{
+    const onSubmit = async (e: any)=>{
         e.preventDefault();
         setIsLoading(true);
+        console.log('add')
         if(file){            
             const storageRef = projectStorage.ref(file.name); 
-            const collectionRef = projectFirestore.collection('postImages');
+            const collectionRef = projectFirestore.collection('postCommentsImage');
             
             storageRef.put(file).on("state_changed", (snap: any)=>{
                 let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
@@ -82,42 +82,39 @@ export default function AddComment({userData, fetchData}: Props) {
                 })
                 
                 const post = async ()=>{
-                    await axios.post('http://localhost:5000/api/posts', {
-                        userId: userData._id,
+                    await axios.put(`http://localhost:5000/api/posts/comment/${postId}`, {
                         text,
-                        image: url
+                        userId: userData._id,
+                        image: url,
+                        createdAt
                     })
-                    setText('');
-                    fetchData();
-                }
-        
+                } 
+                
                 post();
                 setUrl(url);
                 setIsLoading(false);
-                setFile(null);
-            });
+                fetchData();
+                setText('');
+                setFile(null)
+            });     
         } else if(gif){
-            const post = async ()=>{
-                await axios.post('http://localhost:5000/api/posts', {
-                    userId: userData._id,
-                    text,
-                    image: gif
-                })
-                setText('');
-                setGif('');
-                fetchData();
-            }
-            post();
+            await axios.put(`http://localhost:5000/api/posts/comment/${postId}`, {
+                text,
+                userId: userData._id,
+                createdAt: Date.now(),
+                image: gif
+            })
+            setText('')
+            setGif('')
+            fetchData()
         } else{
-            const post = async ()=>{
-                await axios.post('http://localhost:5000/api/posts', {
-                    userId: userData._id,
-                    text,
-                })
-                setText('');
-                fetchData();
-            }
-            post();
+            await axios.put(`http://localhost:5000/api/posts/comment/${postId}`, {
+                text,
+                userId: userData._id,
+                createdAt: Date.now()
+            })
+            setText('')
+            fetchData()
         }
     }
 
@@ -131,15 +128,18 @@ export default function AddComment({userData, fetchData}: Props) {
                     onClick={()=> Router.push(`/user/${userData.username}`)}
                     />
                 </div>
+                <form onSubmit={onSubmit}>
                 <div ref={containerRef} className={`${styles.input} ${isOver && styles.over || ''}`}>
                     <input 
                     type="text" 
                     name="public" 
-                    placeholder={`${pollOpen ? "Ask a question" : "What's happening " + userData.name}`}
+                    autoComplete='off'
+                    placeholder={"Add a Comment"}
                     value={text}
                     onChange={handleChange}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
+                    onSubmit={onSubmit}
                     />
                     <input 
                     type="file" 
@@ -147,7 +147,14 @@ export default function AddComment({userData, fetchData}: Props) {
                     id="inputFile" 
                     className={styles.fileInput}
                     />
+                    <div className={styles.buttons}>
+                        <p onClick={handleEmojiPickerButton} className={styles.button}><BiHappy/></p> 
+                        <p onClick={handleGifButton} className={styles.button}><AiOutlineGif/></p> 
+                        <input type="file" name="file" id="file" onChange={handleFileChange}/>
+                        <label htmlFor="file" className={styles.button}><BiImageAlt/></label>
+                    </div>
                 </div>
+                </form>
             </div>
             { file && <div className={styles.imagePreview}>
                 <ImagePreview file={file}/>
@@ -164,14 +171,6 @@ export default function AddComment({userData, fetchData}: Props) {
                 <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>
                     {gifOpen && <GIFSearcher setGif={setGif}/>}
                 </div>
-                <div className={styles.buttons}>
-                    <p onClick={handleEmojiPickerButton} className={styles.button}><BiHappy/></p> 
-                    <p onClick={handleGifButton} className={styles.button}><AiOutlineGif/></p> 
-                    <input type="file" name="file" id="file" onChange={handleFileChange}/>
-                    <label htmlFor="file" className={styles.button}><BiImageAlt/></label>
-                    <p onClick={handlePollButton} className={styles.button}><BiPoll/></p>
-                </div>
-                <button className={styles.post} onClick={onSubmit}>Post</button>
             </div>
         </div>
     )

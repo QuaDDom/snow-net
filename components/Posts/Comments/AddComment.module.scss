@@ -1,17 +1,16 @@
 @import '../../../styles/colors/variables.scss';
 
 .addCommentContainer{
-    background: $black2;
-    width: 35vw;
+    width: 100%;
     min-height: 5vw;
     z-index: 5;
-    padding: 3px 10px;
+    padding-left: 10px;
     padding-bottom: 30px;
+    padding-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    margin-bottom: 20px;
     position: relative;
     flex-direction: column;
     .imagePreview{
@@ -26,6 +25,9 @@
         overflow: hidden;
         border-radius: 15px;
     }
+    form{
+        width: 100%;
+    }
     .inputContainer{
         display: flex;
         width: 100%;
@@ -34,8 +36,10 @@
             width: 45px;
             height: 45px;
             img{
-                width: 100%;
-                height: 100%;
+                min-width: 45px;
+                min-height: 45px;
+                max-width: 45px;
+                max-height: 45px;
                 border-radius: 50%;
                 background-size: cover;
                 object-fit: cover;
@@ -45,13 +49,34 @@
         .input{
             position: relative;
             display: block;
-            width: 20vw;
-            height: 50px;
-            margin-right: 130px;
+            width: 80%;
+            height: 45px;
+            border-radius: 30px;
+            margin-left: 15px;
             display: flex;
             padding-left: 20px;
             align-items: center;
+            justify-content: space-between;
             z-index: 5;
+            background: $black3;
+            .buttons{
+                display: flex;
+                padding-top: 10px;
+                color: #777;
+                input[type="file"]{
+                    display: none;
+                }
+                .button{
+                    font-size: 1.3em;
+                    margin-bottom: 2px;
+                    width: 50px;
+                    transition: color .2s;
+                    cursor: pointer;
+                    &:hover{
+                        color: $aqua;
+                    }
+                }
+            }
             &.over{
                 border: dashed 2px $primary;
                 height: 55px;
@@ -59,14 +84,6 @@
             }
             .fileInput{
                 display: none;
-            }
-            img{
-                width: 60px;
-                height: 60px;
-                padding: 0 10px;
-                border-radius: 50%;
-                background-size: cover;
-                object-fit: cover;
             }
             input{
                 display: flex;
@@ -78,7 +95,7 @@
                 border: none;
                 outline: none;
                 padding-right: 20px;
-                font-size: 1em;
+                font-size: 0.95em;
                 font-family: 'Poppins', sans-serif;
                 color: #fff;
                 transition: 0.3s;
@@ -114,8 +131,8 @@
             transition: .3s;
             opacity: 0;
             z-index: 17;
-            top: 50px;
-            left: -50px;
+            top: 0px;
+            right: 20px;
             &.open{
                 opacity: 1;
             }
@@ -125,28 +142,10 @@
             transition: .3s;
             opacity: 0;
             z-index: 17;
-            top: 50px;
-            left: -50px;
+            top: 0px;
+            right: 20px;
             &.open{
                 opacity: 1;
-            }
-        }
-        .buttons{
-            display: flex;
-            padding: 0px 80px;
-            color: $aquah;
-            input[type="file"]{
-                display: none;
-            }
-            .button{
-                font-size: 1.5em;
-                margin-top: 5px;
-                width: 50px;
-                transition: color .2s;
-                cursor: pointer;
-                &:hover{
-                    color: $aqua;
-                }
             }
         }
     }

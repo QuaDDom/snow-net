@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGetUser } from '../../hooks/useGetUser';
 import OpenImage from '../OpenImage';
 import styles from './Post.module.scss';
@@ -43,6 +43,16 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const [openImage, setOpenImage] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [showComments, setShowComments] = useState(false);
+  const [comments, setComments] = useState<any>(null);
+
+  const getComments = async ()=>{
+    const commentsData = await axios.get(`http://localhost:5000/api/posts/comments/${_id}`)
+    setComments([...commentsData.data]);
+  }
+
+  useEffect(()=>{
+    getComments();
+  },[])
 
   const user: User = useGetUser(userId);
 
@@ -94,7 +104,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
             <img src={image} width="100%" onClick={handleClick}/>
           </div>}
           {
-            poll && <Poll poll={poll} loggedUser={loggedUser} _id={_id}/>
+            poll.length > 0 && <Poll poll={poll} loggedUser={loggedUser} _id={_id}/>
           }
         </div>
         <PostOptions 
@@ -108,11 +118,15 @@ export default function Post({_id, image, text, userId, likes, fetchData,
         createdAt={createdAt}
         repostedBy={repostedBy}
         setShowComments={setShowComments}
+        showComments={showComments}
+        comments={comments}
         />
         {
           showComments && <Comments 
                           loggedUser={loggedUser}
-                          fetchData={fetchData}
+                          postId={_id}
+                          comments={comments}
+                          getComments={getComments}
                           />
         }
       </div>

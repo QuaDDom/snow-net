@@ -7,7 +7,6 @@ import styles from './Comment.module.scss';
 import CommentDots from './CommentDots';
 
 interface Props{
-  _id: string
   hour?: {
     number: string,
     type: string
@@ -16,16 +15,11 @@ interface Props{
   image: string,
   userId: string,
   likes: any,
-  fetchData: () => Promise<void>,
   loggedUser: any,
-  createdAt: any,
-  repostedBy: any,
-  poll: [string],
-  pinned: boolean
+  createdAt: any
 }
 
-export default function Comment({_id, image, text, userId, likes, fetchData,
-  loggedUser, createdAt, repostedBy, poll, pinned}: Props) {
+export default function Comment({image, text, userId, likes, loggedUser, createdAt}: Props) {
     const [openImage, setOpenImage] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const user: any = useGetUser(userId);
@@ -37,13 +31,8 @@ export default function Comment({_id, image, text, userId, likes, fetchData,
       Router.push('user/' + user.username);
     }
 
-    const deletePost = async ()=>{
-        console.log(userId, loggedUser._id)
-        await axios.delete(`http://localhost:5000/api/posts/${_id}`, { data:{userId: loggedUser._id} });
-        fetchData();
-    }
     return (
-      <div className="commentContainer">
+      <div className={styles.commentContainer}>
           <div className={styles.user}>
             <img src={user.profilePic || 'noProfile.png'} alt={user.name} onClick={handleImageClick}/>
             <div className={styles.bothColumn}>
@@ -57,13 +46,16 @@ export default function Comment({_id, image, text, userId, likes, fetchData,
               <p className={styles.createdAt}>{format(createdAt)}</p>
             </div>
           </div>
+          <div className={styles.post}>
+          { text && <p className={styles.text}>{text}</p> }
+          { image && <div className={styles.imageContainer}>
+            <img src={image} width="100%" onClick={handleClick}/>
+          </div>}
+        </div>
           <CommentDots
           username={user.username}
           userId={userId}
           loggedUserId={loggedUser?._id}
-          postId={_id}
-          fetchData={fetchData}
-          deletePost={deletePost}
           handleModal={handleModal}
           />
       </div>

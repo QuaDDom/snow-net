@@ -44,10 +44,17 @@ export default function UserProfileComponent({userData, username}: Props) {
                 </div>
             </div>
             <div className={styles.about}>
-                <div className={styles.photos}>
-                    <h4>Photos</h4>
-                    <div className="grid">
+                <div className={styles.leftColumn}>
+                    <div className={styles.photos}>
+                        <h4>Photos</h4>
+                        <div className="grid">
 
+                        </div>
+                    </div>
+                    <div className={styles.friends}>
+                        <h4>Friends</h4>
+                        <div className="grid">
+                        </div>
                     </div>
                 </div>
                 <div className={styles.postsContainer}>

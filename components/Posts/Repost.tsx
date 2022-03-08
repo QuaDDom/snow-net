@@ -9,6 +9,7 @@ import { format } from 'timeago.js';
 import ConfirmDelete from '../Posts/ConfirmDelete';
 import axios from 'axios';
 import { BiRepost } from 'react-icons/bi';
+import Comments from './Comments/Comments';
 
 interface Props{
   _id: string
@@ -45,8 +46,10 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
   const [comments, setComments] = useState<any>(null);
 
   const getComments = async ()=>{
-    const commentsData = await axios.get(`http://localhost:5000/api/posts/comments/${post._id}`)
-    setComments([...commentsData.data]);
+    if(post){
+      const commentsData = await axios.get(`http://localhost:5000/api/posts/comments/${post._id}`)
+      setComments([...commentsData.data]);
+    }
   }
 
   useEffect(()=>{
@@ -57,8 +60,11 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
       setPostUser(userPost.data);
     }
     fetchData();
-    getComments();
   },[])
+
+  useEffect(()=>{
+    getComments();
+  },[post])
 
   const user: User = useGetUser(userId);
 
@@ -123,6 +129,14 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
         showComments={showComments}
         comments={comments}
         />
+        {
+          showComments && post &&  <Comments 
+                          loggedUser={loggedUser}
+                          postId={post._id}
+                          comments={comments}
+                          getComments={getComments}
+                          />
+        }
       </div>
       }
       {openImage && <OpenImage 

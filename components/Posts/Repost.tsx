@@ -41,6 +41,13 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
   const [modalOpen, setModalOpen] = useState(false);
   const [postUser, setPostUser] = useState<any>(null);
   const [post, setPost] = useState<any>(null)
+  const [showComments, setShowComments] = useState(false);
+  const [comments, setComments] = useState<any>(null);
+
+  const getComments = async ()=>{
+    const commentsData = await axios.get(`http://localhost:5000/api/posts/comments/${post._id}`)
+    setComments([...commentsData.data]);
+  }
 
   useEffect(()=>{
     const fetchData = async ()=>{
@@ -50,6 +57,7 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
       setPostUser(userPost.data);
     }
     fetchData();
+    getComments();
   },[])
 
   const user: User = useGetUser(userId);
@@ -103,14 +111,17 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
         </div>
         <PostOptions 
         userId={userId} 
-        likes={post.likes} 
-        _id={post._id} 
+        likes={likes} 
+        _id={_id} 
         fetchData={fetchData} 
         loggedUser={loggedUser}
         image={image}
-        text={post.text}
-        createdAt={post.createdAt}
-        repostedBy={post.repostedBy}
+        text={text}
+        createdAt={createdAt}
+        repostedBy={repostedBy}
+        setShowComments={setShowComments}
+        showComments={showComments}
+        comments={comments}
         />
       </div>
       }

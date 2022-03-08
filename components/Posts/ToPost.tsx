@@ -152,6 +152,7 @@ export default function ToPost({userData, fetchData}: Props) {
                     placeholder={`${pollOpen ? "Ask a question" : "What's happening " + userData.name}`}
                     value={text}
                     onChange={handleChange}
+                    autoComplete="off"
                     />
                     <input 
                     type="file" 

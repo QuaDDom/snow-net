@@ -58,7 +58,6 @@ export default function Post({_id, image, text, userId, likes, fetchData,
 
   const handleClick = ()=> setOpenImage(true);
   const handleModal = ()=> modalOpen ? setModalOpen(false) : setModalOpen(true);
-  const handleOpenComments = ()=> showComments ? setShowComments(false) : setShowComments(true);
 
   const handleImageClick = ()=>{
     Router.push('user/' + user.username);

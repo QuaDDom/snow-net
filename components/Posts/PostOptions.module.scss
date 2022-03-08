@@ -5,8 +5,8 @@
     display: flex;
     justify-content: space-between;
     align-items: end;
-    height: 45px;
-    font-size: 1.2em;
+    height: 48px;
+    font-size: 1.25em;
     padding: 0 50px;
     padding-bottom: 5px;
     color: #777;
@@ -19,13 +19,13 @@
             display: flex;
             justify-items: center;
             align-items: center;
-            padding: 5px;
+            padding: 6px;
             transition: .2s;
             border-radius: 50%;
             margin: 0 5px;
         }
         p{
-            font-size: 1em;
+            font-size: 1.2em;
             text-align: center;
             padding-top: 2.5px;
         }
@@ -51,19 +51,19 @@
         &.comments:hover{
             color: $primary;
             span{
-                background: #8bffff30;
+                background: #8bffff20;
             }
         }
         &.repost:hover{
             color: #4bff87;
             span{
-                background: #4bff8730;
+                background: #4bff8720;
             }
         }
         &.likes:hover{
             color: #ff4141;
             span{
-                background: #ff414130;
+                background: #ff414120;
             }
         }
     }

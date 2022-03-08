@@ -56,14 +56,17 @@
         height: auto;
         margin-top: 10px;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         padding: 30px 0;
         position: relative;
         .photos{
             width: 450px;
             height: 300px;
             border-radius: 10px;
+            position: sticky;
+            left: 60px;
             padding: 40px 30px;
+            top: 100px;
             background: $black2;
             h4{
                 font-size: 1.5em;
@@ -105,6 +108,9 @@
             border-radius: 10px;
             padding: 40px 30px;
             background: $black2;
+            top: 100px;
+            position: sticky;
+            right: 60px;
             h4{
                 font-size: 1.5em;
                 font-weight: 500;

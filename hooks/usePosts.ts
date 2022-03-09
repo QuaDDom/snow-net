@@ -18,6 +18,7 @@ export const usePosts = ({type}: Props)=>{
         setPosts((posts:any) => [...posts, ...data.data]);
         offset += 15;
         setLoader(false);
+        setLoader(false);
     };
     
     const handleScroll = (e: any)=>{
@@ -34,6 +35,7 @@ export const usePosts = ({type}: Props)=>{
 
     return {
         posts,
-        fetchData
+        fetchData,
+        loader
     }
 }

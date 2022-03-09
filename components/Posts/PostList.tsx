@@ -22,14 +22,22 @@ interface Post{
 }
 
 export default function PostList() {
-  const { posts, fetchData } = usePosts({type: "all"});
+  const { posts, fetchData, loader } = usePosts({type: "all"});
   const { loggedUser } = useContext<any>(AuthContext);
 
   return (
+    <>
       <div className={styles.postListContainer}>
         <div>
           <ToPost userData={loggedUser} fetchData={fetchData}/>
           <div className={styles.postsContainer}>
+            {loader && 
+            <div className={styles.loaderContainer}>
+              <div className={styles.loader}>  
+                <span></span>
+              </div>
+            </div>
+            }
             {
               posts && 
               posts.map((
@@ -73,5 +81,6 @@ export default function PostList() {
           </div>
         </div>
       </div>
+    </>
   );
 }

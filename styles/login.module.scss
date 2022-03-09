@@ -1,6 +1,4 @@
-$primary: #8bffff;
-$secondary: #00d7df;
-
+@import '../styles/colors/variables.scss';
 .loginContainer{
     height: 100vh;
     width: 100%;
@@ -15,8 +13,8 @@ $secondary: #00d7df;
         background: #00000045;
         backdrop-filter: blur(5px);
         .login{
-            height: 68vh;
-            width: 50vw;
+            height: 60vh;
+            width: 37vw;
             position: relative;
             display: flex;
             justify-content: center;
@@ -29,13 +27,12 @@ $secondary: #00d7df;
                 display: flex;
                 justify-content: start;
                 width: 86%;
-                padding-top: 20px;
-                padding-bottom: 40px;
+                padding-top: 40px;
+                padding-bottom: 10px;
                 h2{
-                    font-weight: 400;
-                    font-size: 3.3em;
-                    letter-spacing: 7px;
-                    background: linear-gradient(90deg, $primary, $secondary);
+                    font-weight: 700;
+                    font-size: 2.5em;
+                    background: #fff;
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
@@ -48,15 +45,24 @@ $secondary: #00d7df;
             form{
                 width: 100%;
                 display: flex;
-                justify-content: center;
                 flex-direction: column;
-                padding: 10px 75px;
-                padding-top: 50px;
+                padding: 0 55px;
+                padding-top: 40px;
                 div{
                     padding: 10px 0;
                 }
                 button{
-                    margin-top: 70px;
+                    margin-top: 20px;
+                }
+            }
+            p{
+                padding-left: 55px;
+                padding-top: 35px;
+                font-size: 1em;
+                letter-spacing: 0.8px;
+                a{
+                    color: #00aaff;
+                    text-decoration: underline;
                 }
             }
         }

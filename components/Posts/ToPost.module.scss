@@ -138,7 +138,8 @@
         }
         .buttons{
             display: flex;
-            padding: 0px 80px;
+            padding: 0px 60px;
+            padding-right: 70px;
             color: $aquah;
             input[type="file"]{
                 display: none;
@@ -146,11 +147,18 @@
             .button{
                 font-size: 1.5em;
                 margin-top: 5px;
-                width: 50px;
+                width: 35px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 10px;
+                border-radius: 50%;
                 transition: color .2s;
                 cursor: pointer;
+                transition: 0.2s;
                 &:hover{
-                    color: $aqua;
+                    background: #6dffff20;
                 }
             }
         }

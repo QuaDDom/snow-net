@@ -7,17 +7,29 @@ interface Props{
 
 export const usePosts = ({type}: Props)=>{
     const [posts, setPosts] = useState<any>([]);
+    const [loader, setLoader] = useState(false);
 
-    let data;
+    let data: any;
+
     const fetchData = async ()=>{
-        data = await axios.get('http://localhost:5000/api/posts/get/all');
-        setPosts([...data.data]);
+        setLoader(true)
+        let offset = 0;
+        data = await axios.get(`http://localhost:5000/api/posts/get/all/15/${offset}`);
+        setPosts((posts:any) => [...posts, ...data.data]);
+        offset += 15;
+        setLoader(false);
     };
     
-    useEffect(()=>{
-        if(type === "all"){
+    const handleScroll = (e: any)=>{
+        if(window.innerHeight + e.target.documentElement.scrollTop + 1
+        >= e.target.documentElement.scrollHeight){
             fetchData();
         }
+    }
+
+    useEffect(()=>{
+        fetchData();
+        window.addEventListener('scroll', handleScroll)
     },[])
 
     return {

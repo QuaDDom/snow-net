@@ -7,6 +7,7 @@ import Router from 'next/router';
 import { loginSchema } from '../validations/LoginValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import Link from 'next/link';
 
 
 export default function LoginComponent() {
@@ -37,7 +38,7 @@ export default function LoginComponent() {
                     type="email" 
                     name="email"
                     label="Email"
-                    size={{width: '37vw', height: 55, fontSize: 20}}
+                    size={{width: '25vw', height: 55, fontSize: 18}}
                     value={valuesLog.email}
                     handleChange={handleChangeLog}
                     inputRef={register}
@@ -48,7 +49,7 @@ export default function LoginComponent() {
                     type="password"
                     name="password"
                     label="Password"
-                    size={{width: '37vw', height: 55, fontSize: 20}}
+                    size={{width: '25vw', height: 55, fontSize: 18}}
                     value={valuesLog.password}
                     handleChange={handleChangeLog}
                     inputRef={register}
@@ -56,6 +57,7 @@ export default function LoginComponent() {
                     />
                     <Button>Login</Button>
                 </form>
+                <p>You don't have an account? <Link href="/register">Sign up</Link></p>
             </div>  
         </div>
         </div>

@@ -52,6 +52,13 @@
     }
 }
 
+@media (max-width: 1200px){
+    .postListContainer{
+        padding-top: 0;
+        height: 100%;
+    }
+}
+
 @keyframes spin{
     from{
         transform: rotate(0deg);

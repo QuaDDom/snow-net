@@ -10,9 +10,6 @@
     border-radius: 15px;
     transition: 0.25s;
     animation: appear 0.6s forwards;
-    &:hover{
-        background: $black2h;
-    }
     .reposted{
         height: 25px;
         padding-top: 15px;
@@ -133,11 +130,12 @@
                 margin-left: 13px;
                 h5{
                     font-size: 0.9em;
-                    width: 100%;
+
                 }
                 p{
-                    font-size: 0.9em;
+                    font-size: 0.8em;
                     margin: 0;
+                    margin-left: 4.5px;
                 }
             }
         }

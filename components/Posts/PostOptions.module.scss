@@ -45,7 +45,7 @@
             }
         }
         p{
-            font-size: 0.7em !important;
+            font-size: 0.7em ;
             width: 10px;
         }
         &.comments:hover{
@@ -64,6 +64,18 @@
             color: #ff4141;
             span{
                 background: #ff414120;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px){
+    .postOptionsContainer{
+        width: 100%;
+        padding: 0 5px;
+        div{
+            p{
+                font-size: 0.7em;
             }
         }
     }

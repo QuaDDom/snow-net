@@ -1,7 +1,7 @@
 @import '../../styles/colors/variables.scss';
 
 .postDotsContainer{
-    width: 100px;
+    width: 50px;
     height: 50px;
     position: absolute;
     right: 20px;
@@ -46,6 +46,17 @@
             &:hover{
                 background: $black3h;
             }
+        }
+    }
+}
+
+@media (max-width: 1200px){
+    .postDotsContainer{
+        top: 20px;
+        right: -15px;
+        .dots{
+            font-size: 1.1em;
+            transform: rotate(90deg);
         }
     }
 }

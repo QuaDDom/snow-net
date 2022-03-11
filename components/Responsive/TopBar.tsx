@@ -1,21 +1,19 @@
-import React from 'react'
-import SnowLogo from './img/snow-logo.svg';
+import React, { useContext } from 'react'
+import AuthContext from '../../context/AuthContext';
 import styles from './TopBar.module.scss';
 
-interface Props{
-
-}
 
 export default function TopBar() {
+  const { loggedUser } = useContext<any>(AuthContext);
   return (
-    <div className="topBarContainer">
-        <div className="icons">
-            <div className="snow">
-                <img src={SnowLogo} alt="snow" />
+    <div className={styles.topBarContainer}>
+        <div className={styles.icons}>
+            <div className={styles.snow}>
+                <img src='snow-logo.svg' alt="snow" />
             </div>
             <h3>SNOW</h3>
-            <div className="user">
-                <img src="" alt="" />
+            <div className={styles.user}>
+                {loggedUser && <img src={loggedUser.profilePic} alt={loggedUser.username} />}
             </div>
         </div>
     </div>

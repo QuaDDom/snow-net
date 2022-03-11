@@ -164,3 +164,24 @@
         }
     }
 }
+
+@media (max-width: 1200px){
+    .publicContainer{
+        width: 100vw;
+        border-radius: 0;
+        margin: 0;
+        height: 15vh;
+        .inputContainer{
+            justify-content: none;
+            .image{
+                width: 50px;
+                height: 50px;
+            }
+            width: 100%;
+            .input{
+                width: 80%;
+                margin: 0;
+            }
+        }
+    }
+}

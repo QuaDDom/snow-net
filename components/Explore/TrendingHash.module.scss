@@ -1,0 +1,31 @@
+@import '../../styles/colors/variables.scss';
+
+.trendingHashContainer{
+    height: 70px;
+    width: 360px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    margin-bottom: 1.1rem;
+    border-radius: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+    &:hover{
+        background: $black2h;
+    }
+    .hash{
+        width: 3vw;
+        font-size: 1.8em;
+        color: #999;
+    }
+    .info{
+        p{
+            color: #999;
+            font-size: 0.85em;
+        }
+        h5{
+            font-size: 1em;
+            padding: 3px 0;
+        }
+    }
+}

@@ -64,7 +64,6 @@
         }
         .bothColumn{
             display: flex;
-            justify-content: space-between;
             margin-left: 15px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             h5{
@@ -82,6 +81,7 @@
     }
     .post{
         width: 100%;
+        padding-bottom: 3px;
         .text{
             font-size: 0.95em;
             padding-left: 66.5px;
@@ -116,7 +116,45 @@
     height: 10px;
     padding-bottom: .5rem;
 }
-  
+
+//MEDIA
+
+@media (max-width: 1200px) {
+    .postContainer{
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        .user{
+            img{
+                height: 45px;
+                width: 45px;
+            }
+            .bothColumn{
+                margin-left: 13px;
+                h5{
+                    font-size: 0.9em;
+                    width: 100%;
+                }
+                p{
+                    font-size: 0.9em;
+                    margin: 0;
+                }
+            }
+        }
+        .post{
+            .text{
+                padding-left: 60px;
+            }
+            .imageContainer{
+                max-width: 100%;
+                img{
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
 @keyframes skeletonLoading {
     0%{
         background-color: #4f575a;

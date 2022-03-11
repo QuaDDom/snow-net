@@ -1,0 +1,22 @@
+
+.responsiveNav{
+    width: 100%;
+    height: 55px;
+    background: #08090a;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    .icons{
+        color: #fff;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        span{
+            font-size: 1.3em;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import AuthContext from '../../context/AuthContext';
 import { postList } from '../../db/post_list';
 import { usePosts } from '../../hooks/usePosts';
@@ -24,12 +25,12 @@ interface Post{
 export default function PostList() {
   const { posts, fetchData, loader } = usePosts({type: "all"});
   const { loggedUser } = useContext<any>(AuthContext);
-
+  const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
   return (
     <>
       <div className={styles.postListContainer}>
         <div>
-          <ToPost userData={loggedUser} fetchData={fetchData}/>
+          {isResponsive && <ToPost userData={loggedUser} fetchData={fetchData}/>}
           <div className={styles.postsContainer}>
             {loader && 
             <div className={styles.loaderContainer}>

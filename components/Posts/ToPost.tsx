@@ -30,6 +30,7 @@ export default function ToPost({userData, fetchData}: Props) {
     const [gif, setGif] = useState('');
     const [pollOpen, setPollOpen] = useState(false);
     const [poll, setPoll] = useState([]);
+    const [hashtags, setHashtags] = useState([]);
 
     const containerRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
 
@@ -116,11 +117,12 @@ export default function ToPost({userData, fetchData}: Props) {
                 })
                 setText('');
                 fetchData();
+                
             }
             post();
         } else{
             const post = async ()=>{
-                await axios.post('http://localhost:5000/api/posts', {
+                const postData = await axios.post('http://localhost:5000/api/posts', {
                     userId: userData._id,
                     text,
                 })
@@ -129,7 +131,6 @@ export default function ToPost({userData, fetchData}: Props) {
             }
             post();
         }
-
     }
 
 

@@ -3,9 +3,18 @@ import AuthContext from '../context/AuthContext';
 import styles from '../styles/profile.module.scss';
 import Input from './Input';
 import TextArea from './TextArea';
+import { useForm } from 'react-hook-form';
+import { editProfileSchema } from '../validations/EditProfileValidation';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 export default function EditProfile() {
     const { loggedUser } = useContext<any>(AuthContext);
+
+    const { register, handleSubmit: handleFormSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(editProfileSchema),
+        reValidateMode: "onChange",
+        mode: "onChange"
+    });
 
     return (
         <div className={styles.profileContainer}>
@@ -28,6 +37,8 @@ export default function EditProfile() {
                 size={{width: 520, height: 50, fontSize: 20}}
                 value=""
                 handleChange={()=>{}}
+                inputRef={register}
+                error={errors.lastname}
                 />
                 <Input 
                 type="text" 
@@ -36,30 +47,15 @@ export default function EditProfile() {
                 size={{width: 520, height: 45, fontSize: 20}}
                 value=""
                 handleChange={()=>{}}
-                />
-                </div>
-                <div className={styles.personalInfo}>
-                <Input 
-                type="email" 
-                name="email" 
-                label="Email" 
-                size={{width: 520, height: 50, fontSize: 20}}
-                value=""
-                handleChange={()=>{}}
-                />
-                <Input 
-                type="tel" 
-                name="phone" 
-                label="Phone Number" 
-                size={{width: 520, height: 50, fontSize: 20}}
-                value=""
-                handleChange={()=>{}}
+                inputRef={register}
+                error={errors.lastname}
                 />
                 </div>
             </div>
             <div className={styles.bio}>
                 <TextArea name="bio" label="Bio" bg="#050505" value=""
-                handleChange={()=>{}}/>
+                handleChange={()=>{}} inputRef={register}
+                error={errors.lastname}/>
             </div>
             </div>}
         </div>

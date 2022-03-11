@@ -11,6 +11,7 @@ import axios from 'axios';
 import Poll from './Poll';
 import { BsPinAngleFill } from 'react-icons/bs';
 import Comments from './Comments/Comments';
+import extract from 'mention-hashtag';
 
 interface Props{
   _id: string
@@ -44,6 +45,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const [modalOpen, setModalOpen] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState<any>(null);
+  const [hashtags, setHashtags] = useState<any>([]);
 
   const getComments = async ()=>{
     const commentsData = await axios.get(`http://localhost:5000/api/posts/comments/${_id}`)

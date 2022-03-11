@@ -3,6 +3,8 @@ import { AuthProvider } from '../context/AuthContext';
 import styles from './Layout.module.scss';
 import Head from 'next/head';
 import Nav from './Nav';
+import ResponsiveNav from './Responsive/ResponsiveNav';
+import {useMediaQuery} from 'react-responsive';
 
 interface Props{
   title?: string,
@@ -10,6 +12,7 @@ interface Props{
 }
 
 export default function Layout({title, children}: Props) {
+  const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
   return (
     <>
       <Head>
@@ -17,8 +20,9 @@ export default function Layout({title, children}: Props) {
       </Head>
       <div className={styles.layout}>
         <AuthProvider>
-          <Nav/>
+          {isResponsive && <Nav/>}
           {children}
+          {!isResponsive && <ResponsiveNav/>}
         </AuthProvider>
       </div>
     </>

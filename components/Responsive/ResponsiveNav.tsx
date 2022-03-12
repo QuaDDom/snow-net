@@ -3,15 +3,16 @@ import { BiConversation } from 'react-icons/bi'
 import { RiGalleryLine, RiSearchLine } from 'react-icons/ri'
 import { FaIgloo } from 'react-icons/fa';
 import styles from './ResponsiveNav.module.scss'
+import NavLink from 'next/link'; 
 
 export default function ResponsiveNav() {
   return (
     <div className={styles.responsiveNav}>
         <div className={styles.icons}>
-            <span><FaIgloo/></span>
-            <span><RiSearchLine/></span>
-            <span><BiConversation/></span>
-            <span><RiGalleryLine/></span>
+            <NavLink href="/"><FaIgloo/></NavLink>
+            <NavLink href="/explore"><RiSearchLine/></NavLink>
+            <NavLink href="/messages"><BiConversation/></NavLink>
+            <NavLink href="/gallery"><RiGalleryLine/></NavLink>
         </div>
     </div>
   )

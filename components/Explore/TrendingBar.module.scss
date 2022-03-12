@@ -24,3 +24,19 @@
         }
     }
 }
+
+@media (max-width: 1200px){
+    .trendingBarContainer{
+        width: 100%;
+        position: relative;
+        top: auto;
+        left: auto;
+        display: flex;
+        justify-items: center;
+        .trendingNow{
+            width: 100vw;
+            margin: 0;
+            border-radius: 0;
+        }
+    }
+}

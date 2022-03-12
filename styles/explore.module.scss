@@ -24,7 +24,6 @@
             margin-bottom: 20px;
             top: 70px;
             z-index: 10;
-            background: #08090a;
             .inputContainer{
                 display: flex;
                 align-items: center;
@@ -105,6 +104,27 @@
                         color: #cccccc;
                         font-weight: 700;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px){
+    .content{
+        flex-direction: column;
+        .exploreContainer{
+            width: 100%;
+            .searchInput{
+                width: 100%;
+            }
+            .trending{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                .worldNews{
+                    width: 95vw;
+                    height: 20vh;
                 }
             }
         }

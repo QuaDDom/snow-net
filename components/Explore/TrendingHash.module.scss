@@ -30,4 +30,12 @@
     }
 }
 
-@media (max-width: 1200px){}
+@media (max-width: 1200px){
+    .trendingHashContainer{
+        width: 100%;
+        .hash{
+            padding-right: 45px;
+            font-size: 1.4em;
+        }
+    }
+}

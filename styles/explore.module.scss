@@ -24,6 +24,7 @@
             margin-bottom: 20px;
             top: 70px;
             z-index: 10;
+            background: $darkblue;
             .inputContainer{
                 display: flex;
                 align-items: center;
@@ -117,14 +118,37 @@
             width: 100%;
             .searchInput{
                 width: 100%;
+                top: 40px;
+                height: 60px;
+                border: none;
+                .inputContainer{
+                    height: 40px;
+                    width: 100%;
+                    input{
+                        font-size: 1em;
+                    }
+                    span{
+                        font-size: 1.4em;
+                    }
+                }
             }
             .trending{
                 display: flex;
+                padding-top: 70px;
                 align-items: center;
                 flex-direction: column;
                 .worldNews{
                     width: 95vw;
                     height: 20vh;
+                    div{
+                        bottom: 2vh;
+                        h4{
+                            font-size: 1.1em;
+                        }
+                        p{
+                            font-size: 0.9em;
+                        }
+                    }
                 }
             }
         }

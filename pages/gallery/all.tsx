@@ -8,16 +8,17 @@ import GalleryColumn from '../../components/Gallery/GalleryColumn';
 import { AuthProvider } from '../../context/AuthContext';
 import { useFirestore } from '../../hooks/useFirestore';
 import Loader from '../../components/Gallery/Loader';
+import { useMediaQuery } from 'react-responsive';
 
 export default function all() {
-
     const {data, isLoading} = useFirestore('images');
-    console.log(data);
+    const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+
     return (
         <Layout title="Gallery - Snow">
             <div className={styles.galleryContainer}>
                 <AuthProvider>
-                <GalleryColumn/>
+                {isResponsive && <GalleryColumn/>}
                 <div className={styles.searchContainer}>
                     <div className={styles.search}>
                         <span><AiOutlineSearch/></span>

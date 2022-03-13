@@ -12,7 +12,7 @@ export default function ResponsiveNav() {
             <NavLink href="/"><FaIgloo/></NavLink>
             <NavLink href="/explore"><RiSearchLine/></NavLink>
             <NavLink href="/messages"><BiConversation/></NavLink>
-            <NavLink href="/gallery"><RiGalleryLine/></NavLink>
+            <NavLink href="/gallery/all"><RiGalleryLine/></NavLink>
         </div>
     </div>
   )

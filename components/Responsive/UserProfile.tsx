@@ -19,8 +19,8 @@ export default function UserProfile({loggedUser}: Props) {
                 <p>@{loggedUser.username}</p>
             </div>
             <div className={styles.followers}>
-                <p>{loggedUser.friendReqs.length} Followers</p>
-                <p>{loggedUser.friendReqsSend.length} Followings</p>
+                <p><span>{loggedUser.friendReqs.length}</span> Followers</p>
+                <p><span>{loggedUser.friendReqsSend.length}</span> Followings</p>
             </div>
         </div>
         <div className={styles.options}>

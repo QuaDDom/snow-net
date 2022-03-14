@@ -9,6 +9,7 @@
     top: 0;
     right: 0;
     padding: 20px 10px;
+    z-index: 15;
     .userInfo{
         width: 100%;
         padding: 0 5px;
@@ -33,6 +34,11 @@
             align-items: center;
             p{
                 padding-right: 10px;
+                span{
+                    font-weight: 600;
+                    color: #fff;
+                    padding-right: 4px;
+                }
             }
         }
     }

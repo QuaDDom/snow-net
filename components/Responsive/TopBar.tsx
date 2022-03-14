@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import AuthContext from '../../context/AuthContext';
 import styles from './TopBar.module.scss';
 
 
 export default function TopBar() {
+  const [isOpen, setIsOpen] = useState(false);
   const { loggedUser } = useContext<any>(AuthContext);
   return (
     <div className={styles.topBarContainer}>

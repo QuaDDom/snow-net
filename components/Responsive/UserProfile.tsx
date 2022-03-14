@@ -5,18 +5,22 @@ import { MdDarkMode } from 'react-icons/md';
 import { RiLogoutBoxLine } from 'react-icons/ri';
 import styles from './UserProfile.module.scss';
 
-export default function UserProfile() {
+interface Props{
+    loggedUser: any
+}
+
+export default function UserProfile({loggedUser}: Props) {
   return (
     <div className={styles.userProfileContainer}>
         <div className={styles.userInfo}>
             <div className={styles.info}>
-                <img src="" alt="" />
-                <h3></h3>
-                <p></p>
+                <img src={loggedUser.profilePic} alt={loggedUser.username} />
+                <h4>{loggedUser.name} {loggedUser.lastname}</h4>
+                <p>@{loggedUser.username}</p>
             </div>
             <div className={styles.followers}>
-                <p></p>
-                <p></p>
+                <p>{loggedUser.friendReqs.length} Followers</p>
+                <p>{loggedUser.friendReqsSend.length} Followings</p>
             </div>
         </div>
         <div className={styles.options}>

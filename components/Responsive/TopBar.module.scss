@@ -19,7 +19,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            img{
+            .logo{
                 width: 22px;
                 background-size: cover;
                 object-fit: cover;
@@ -36,7 +36,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            img{
+            .profile{
                 border-radius: 50%;
                 height: 32px;
                 width: 32px;

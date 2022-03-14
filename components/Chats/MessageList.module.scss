@@ -33,7 +33,6 @@
                 padding-top: 30px;
                 padding-left: 25px;
                 padding-bottom: 5px;
-                font-family: 'Nunito Sans', sans-serif;
                 font-weight: 600;
             }
             div{
@@ -110,4 +109,36 @@
         text-align: center;
         user-select: none;
     }
+}
+
+@media (max-width: 1200px){
+    .messageListContainer{
+        .peopleMsgContainer{
+            position: absolute;
+            width: 100vw;
+            top: 0px;
+            height: 100%;
+            bottom: auto;
+            margin-top: 35px;
+            .buttons{
+                h2{
+                    font-size: 1.4em;
+                }
+            }
+            .searchInput{
+                height: 50px;
+                padding: 10px;
+                .inputContainer{
+                    height: 45px;
+                    span{
+                        font-size: 1.4em;
+                    }
+                    input{
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+    }
+
 }

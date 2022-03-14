@@ -146,3 +146,47 @@
     }
 }
 
+@media (max-width: 1200px){
+    .messagesContainer {
+        width: 100vw;
+        .containerImp {
+            width: 100vw;
+            .background {
+                width: 100vw;
+            }
+        }
+        .messages{
+            width: 100vw;
+            height: 100%;
+            .msgInput{
+                width: 100vw;
+                bottom: 50px;
+                height: 70px;
+                .options{
+                    width: 5vw;
+                    padding-left: 0;
+                    .currentImage{
+                        bottom: 85px;
+                    }
+                    .emojiPicker{
+                        bottom: 85px;
+                    }
+                    .gifSearch{
+                        bottom: 85px;
+                    }
+                    .button{
+                        font-size: 1.4em;
+                        width: 45px;
+                    }
+                }
+                .inputContainer{
+                    padding-left: 1vw;
+                    .messageInput{
+                        width: 70vw;
+                        height: 45px;
+                    }
+                }
+            }
+        }
+    }
+}

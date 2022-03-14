@@ -28,3 +28,13 @@
         }
     }
 }
+
+@media (max-width: 1200px){
+    .conversationContainer{
+        width: 100vw;
+        .conversation{
+            width: 100vw;
+            height: 100%;
+        }
+    }
+}

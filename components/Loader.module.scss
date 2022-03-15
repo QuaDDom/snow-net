@@ -109,3 +109,22 @@
         left: 100%;
     }
 }
+
+@media (max-width: 1200px) {
+    .loaderContainer{
+        .bgBlack{
+            .logo{
+                justify-content: center;
+                img{
+                    width: 45px;
+                    height: 45px;
+                }
+                h2{
+                    padding: 0 15px;
+                    font-size: 3em;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import AuthContext from '../../context/AuthContext';
+import { useTouch } from '../../hooks/useTouch';
 import styles from './TopBar.module.scss';
 import UserProfile from './UserProfile';
 
@@ -7,7 +8,7 @@ import UserProfile from './UserProfile';
 export default function TopBar() {
   const [isOpen, setIsOpen] = useState(false);
   const { loggedUser } = useContext<any>(AuthContext);
-
+  
   const handleOpen = ()=> isOpen ? setIsOpen(false) : setIsOpen(true);
 
   return (

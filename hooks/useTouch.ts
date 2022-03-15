@@ -16,10 +16,8 @@ export const useTouch = ()=>{
     const handleTouchEnd = (e: any)=>{
         if(startingX + 100 < movingX){
             setTouch('right')
-            console.log('right')
         } else if(startingX - 100 > movingX){
             setTouch('left')
-            console.log('left')
         }
     }
 

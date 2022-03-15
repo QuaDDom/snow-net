@@ -4,8 +4,11 @@ import { useTouch } from '../../hooks/useTouch';
 import styles from './TopBar.module.scss';
 import UserProfile from './UserProfile';
 
+interface Props{
+  touch: string
+}
 
-export default function TopBar() {
+export default function TopBar({touch}: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const { loggedUser } = useContext<any>(AuthContext);
   
@@ -25,9 +28,7 @@ export default function TopBar() {
                 onClick={handleOpen}
                 className={styles.profile}
                 />}
-                { isOpen && 
-                  <UserProfile loggedUser={loggedUser}/>
-                }
+                <UserProfile loggedUser={loggedUser} touch={touch}/>
             </div>
         </div>
     </div>

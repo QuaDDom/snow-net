@@ -15,8 +15,8 @@ interface Props{
 
 export default function Layout({title, children}: Props) {
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
-  const { handleTouchStart, handleTouchMove, handleTouchEnd } = useTouch();
-
+  const { handleTouchStart, handleTouchMove, handleTouchEnd, touch } = useTouch();
+  console.log(touch)
   return (
     <>
       <Head>
@@ -28,7 +28,7 @@ export default function Layout({title, children}: Props) {
       onTouchEnd={handleTouchEnd}
       >
         <AuthProvider>
-          {!isResponsive && <TopBar/>}
+          {!isResponsive && <TopBar touch={touch}/>}
           {isResponsive && <Nav/>}
           {children}
           {!isResponsive && <ResponsiveNav/>}

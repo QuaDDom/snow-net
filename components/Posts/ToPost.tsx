@@ -173,10 +173,14 @@ export default function ToPost({userData, fetchData}: Props) {
             }
             <div className={styles.options}>
                 <div className={`${styles.emojiPicker} ${pickerOpen && styles.open}`}>
-                    {pickerOpen && <EmojiPicker setMessage={setText} message={text}/>}
+                    {pickerOpen && <EmojiPicker 
+                    setMessage={setText}
+                    message={text} 
+                    setPickerOpen={setPickerOpen}
+                    />}
                 </div>
                 <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>
-                    {gifOpen && <GIFSearcher setGif={setGif}/>}
+                    {gifOpen && <GIFSearcher setGif={setGif} setGifOpen={setGifOpen}/>}
                 </div>
                 <div className={styles.buttons}>
                     <p onClick={handleEmojiPickerButton} className={styles.button}><BiHappy/></p> 

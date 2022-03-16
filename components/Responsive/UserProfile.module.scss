@@ -1,5 +1,24 @@
 @import '../../styles/colors/variables.scss';
 
+.darkbg{
+    z-index: 14;
+    width: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: background 0.5s;
+    &.open{
+        width: 100vw;
+        background: #00000050;
+    }
+    &.close{
+        background: transparent;
+    }
+}
+
 .userProfileContainer{
     width: 75vw;
     background: $black;

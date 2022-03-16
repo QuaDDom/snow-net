@@ -10,17 +10,20 @@ interface Gif{
 }
 
 interface Props{
-  setGif: React.Dispatch<React.SetStateAction<string>>
+  setGif: React.Dispatch<React.SetStateAction<string>>,
+  setGifOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function GIFSearcher({setGif}: Props) {
+export default function GIFSearcher({setGif, setGifOpen}: Props) {
 
   const {giphy, handleSubmit, handleChange, search, isLoading} = useGiphy();
 
   const handleClick = (url: string)=> setGif(url);
 
   return (
-      <div className={styles.gifContainer}>
+    <>
+    <div className="closeOverlay" onClick={()=> setGifOpen(false)}/>
+    <div className={styles.gifContainer}>
           <div className={styles.inputContainer}>
             <form onSubmit={handleSubmit}>
                 <input 
@@ -61,5 +64,6 @@ export default function GIFSearcher({setGif}: Props) {
               }
             </div>
       </div>
+    </>
   );
 }

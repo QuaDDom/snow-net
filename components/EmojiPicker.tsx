@@ -15,21 +15,25 @@ import { CgCoffee } from 'react-icons/cg';
 import { GiPlantsAndAnimals } from 'react-icons/gi';
 import { VscSymbolOperator } from 'react-icons/vsc';
 import { memo } from 'react';
+import { useModal } from '../hooks/useModal';
 
 interface Props{
   setMessage: React.Dispatch<React.SetStateAction<string>>,
-  message: string
+  message: string,
+  setPickerOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const EmojiPicker = ({setMessage, message}: Props) => {
+const EmojiPicker = ({setMessage, message, setPickerOpen}: Props) => {
     const { activityList, peopleList, natureList, handleCategory,
           symbolList, foodList, objectList, travelList, currentCategory } = useEmojiPicker();
-  
+
     const handleClick = (emoji: string)=>{
       setMessage(`${message + emoji}`);
     }
   
     return (
+      <>
+      <div className="closeOverlay" onClick={()=> setPickerOpen(false)}/>
       <div className={styles.emojiPickerContainer}>
         <div className={styles.searchAndCategory}>
           <div className={styles.category}>
@@ -72,6 +76,7 @@ const EmojiPicker = ({setMessage, message}: Props) => {
           }
         </div>
       </div>
+      </>
     );
 }
 

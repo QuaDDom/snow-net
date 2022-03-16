@@ -22,3 +22,12 @@
         opacity: 0;
     }
 }
+
+@media (max-width: 1200px){
+    .loaderContainer{
+        h3{
+            font-size: 1.3em;
+            text-align: center;
+        }
+    }
+}

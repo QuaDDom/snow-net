@@ -1,7 +1,9 @@
+@import '../styles/colors/variables.scss';
+
 .profileContainer{
     position: absolute;
     width: 300px;
-    background: rgb(0, 41, 58);
+    background: $black3;
     top: 61px;
     right: -30px;
     transition: 1s cubic-bezier(1,0,0,1);
@@ -23,7 +25,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
-            border-bottom: 1px solid #04a4af;
+            border-bottom: 1px solid $black3h;
             img{
                 height: 60px;
                 width: 60px;
@@ -44,10 +46,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #04a4af;
+            border-bottom: 1px solid $black3h;
             transition: background 0.2s;
             &:hover{
-                background: #04a4af;
+                background: $black3h;
             }
         }
     }

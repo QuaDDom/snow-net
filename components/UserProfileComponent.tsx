@@ -1,10 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from '../styles/username.module.scss';
 import AuthContext from '../context/AuthContext';
 import { usePosts } from '../hooks/usePosts';
 import Post from './Posts/Post';
 import { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { RiMailSendLine } from 'react-icons/ri';
+import { AiOutlineConsoleSql } from 'react-icons/ai';
+import axios from 'axios';
 
 interface Post{
     _id: string,
@@ -29,6 +32,31 @@ export default function UserProfileComponent({userData, username}: Props) {
     const { loggedUser } = useContext<any>(AuthContext);
     const { fetchData } = usePosts({type: "all"});
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+    const [isFollowed, setIsFollowed] = useState(false);
+
+    const handleFollow = async ()=>{
+        try{
+            if(!isFollowed){
+                await axios.put(`http://localhost:5000/api/users/${userData.user._id}/follow`, {
+                    userId: loggedUser._id
+                });
+                setIsFollowed(true);
+            } else{
+                await axios.put(`http://localhost:5000/api/users/${userData.user._id}/unfollow`, {
+                    userId: loggedUser._id
+                });
+                setIsFollowed(false);
+            }
+        } catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect(()=>{
+        setIsFollowed(userData?.user.friendReqs.includes(loggedUser._id) ? true : false);
+        console.log(userData?.user.friendReqs.includes(loggedUser._id) ? true : false);
+        console.log(userData?.user.friendReqs)
+    },[userData, loggedUser])
 
     return (
         <>
@@ -42,7 +70,15 @@ export default function UserProfileComponent({userData, username}: Props) {
                     <div>
                         <h4>{`${userData.user.name} ${userData.user.lastname}`}</h4>
                         <p>{`@${username}`}</p>
-                        <p className={styles.bio}>{userData.user.bio}</p>
+                        {!isResponsive && <p className={styles.bio}>{userData.user.bio}</p>}
+                    </div>
+                    <div className={styles.buttons}>
+                        <button><RiMailSendLine/></button>
+                        <button 
+                        className={`${styles.follow} ${isFollowed && styles.followed}`}
+                        onClick={handleFollow}>
+                            {isFollowed ? 'Following' : 'Follow'}
+                        </button>
                     </div>
                 </div>
             </div>

@@ -49,6 +49,45 @@
                     color: #999;
                 }
             }
+            .buttons{
+                margin-bottom: 15px;
+                display: flex;
+                width: 300px;
+                button{
+                    height: 35px;
+                    min-width: 35px;
+                    display: block;
+                    border-radius: 20px;
+                    border: none;
+                    font-size: 1.3em;
+                    padding: 0 5px;
+                    margin: 0 7px;
+                    color: #fff;
+                    background: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: 0.35s;
+                    &:not(.follow):hover{
+                        background-color: #ffffff20;
+                    }
+                    &.follow{
+                        width: 100px;
+                        font-size: 1em;
+                        background: #fff;
+                        color: #000;
+                    }
+                    &.follow.followed{
+                        background: transparent;
+                        border: 2px solid #fff;
+                        background: transparent;
+                        color: #fff;
+                    }
+                    &.follow.followed:hover{
+                        background-color: #ffffff20;
+                    }
+                }
+            }
         }
     }
     .about{
@@ -179,6 +218,18 @@
                         color: #fff;
                         font-size: 1em;
                         padding-top: 10px;
+                    }
+                }
+                .buttons{
+                    width: 45vw;
+                    position: absolute;
+                    right: 20px;
+                    top: 60px;
+                    button{
+                        font-size: 1.2em;
+                        &.follow{
+                            padding: 5px 0;
+                        }
                     }
                 }
             }

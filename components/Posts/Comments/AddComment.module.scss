@@ -152,5 +152,29 @@
 }
 
 @media (max-width: 1200px) {
-    
+    .addCommentContainer{
+        .inputContainer{
+            .image{
+                width: 40px;
+                height: 40px;
+                img{
+                    min-width: 40px;
+                    min-height: 40px;
+                    max-width: 40px;
+                    max-height: 40px;
+                }
+            }
+            .input{
+                width: 90%;
+                height: 40px;
+                padding-left: 18px;
+                .buttons{
+                    padding-top: 8px;
+                    .button{
+                        width: 35px;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -4,6 +4,7 @@ import AuthContext from '../context/AuthContext';
 import { usePosts } from '../hooks/usePosts';
 import Post from './Posts/Post';
 import { useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 interface Post{
     _id: string,
@@ -27,6 +28,7 @@ interface Props{
 export default function UserProfileComponent({userData, username}: Props) {
     const { loggedUser } = useContext<any>(AuthContext);
     const { fetchData } = usePosts({type: "all"});
+    const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
 
     return (
         <>
@@ -40,6 +42,7 @@ export default function UserProfileComponent({userData, username}: Props) {
                     <div>
                         <h4>{`${userData.user.name} ${userData.user.lastname}`}</h4>
                         <p>{`@${username}`}</p>
+                        <p className={styles.bio}>{userData.user.bio}</p>
                     </div>
                 </div>
             </div>
@@ -81,10 +84,10 @@ export default function UserProfileComponent({userData, username}: Props) {
                     }
                     </div>
                 </div>
-                <div className={styles.bio}>
+             {isResponsive && <div className={styles.bio}>
                     <h4>Bio</h4>
                     <p>{userData.user.bio}</p>
-                </div>
+                </div>}
             </div>
         </div>}
         </>

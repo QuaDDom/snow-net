@@ -140,3 +140,97 @@
         }
     }
 }
+
+@media (max-width: 1200px){
+    .userProfileContainer{
+        max-width: 100vw;
+        margin: 0;
+        padding: 0;
+        .profile{
+            width: 100vw;
+            min-height: 45vh;
+            border-radius: 0;
+            .banner{
+                width: 100vw;
+                height: 20vh;
+                padding: 0;
+            }
+            .info{
+                padding: 0 10px;
+                top: 32vw;
+                width: 100vw;
+                justify-content: start;
+                flex-direction: column;
+                align-items: start;
+                img{
+                    height: 75px;
+                    width: 75px;
+                    padding: 4px;
+                }
+                div{
+                    padding-top: 7px;
+                    h4{
+                        font-size: 1.1em;
+                    }
+                    p{
+                        font-size: 0.95em;
+                    }
+                    .bio{
+                        color: #fff;
+                        font-size: 1em;
+                        padding-top: 10px;
+                    }
+                }
+            }
+        }
+        .about{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0;
+            padding: 0;
+            .leftColumn{
+                width: 100vw;
+                .photos{
+                    width: 100vw;
+                    height: 30vh;
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    margin: 0;
+                    border-radius: 0;
+                    h4{
+                        font-size: 1.35em;
+                    }
+                }
+                .friends{
+                    width: 100vw;
+                    height: 30vh;
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    margin: 0;
+                    border-radius: 0;
+                    h4{
+                        font-size: 1.35em;
+                    }
+                }
+            }
+            .postsContainer{
+                width: 100vw;
+                margin: 0;
+                padding: 0;
+                h4{
+                    font-size: 1.4em;
+                    width: 100vw;
+                    border-radius: 0;
+                    margin: 0;
+                }
+                .posts{
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

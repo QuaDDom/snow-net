@@ -5,6 +5,7 @@ import axios from 'axios';
 import { usePosts } from '../../hooks/usePosts';
 import { AuthProvider } from '../../context/AuthContext';
 import UserProfileComponent from '../../components/UserProfileComponent';
+import { useMediaQuery } from 'react-responsive';
 
 
 export default function UserProfile() {

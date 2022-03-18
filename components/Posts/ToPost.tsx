@@ -14,10 +14,11 @@ import CreatePoll from './CreatePoll';
 
 interface Props{
     userData: any,
-    fetchData: () => Promise<void>
+    fetchData: () => Promise<void>,
+    group?: object
 }
 
-export default function ToPost({userData, fetchData}: Props) {
+export default function ToPost({userData, fetchData, group}: Props) {
     const [text, setText] = useState('');
     const [gifOpen, setGifOpen] = useState(false);
     const [pickerOpen, setPickerOpen] = useState(false);
@@ -31,9 +32,7 @@ export default function ToPost({userData, fetchData}: Props) {
     const [pollOpen, setPollOpen] = useState(false);
     const [poll, setPoll] = useState([]);
     const [hashtags, setHashtags] = useState([]);
-
     const containerRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
-
     const { isOver } = useDragDrop({setFile, containerRef})
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
@@ -60,7 +59,20 @@ export default function ToPost({userData, fetchData}: Props) {
     const onSubmit = (e: any)=>{
         e.preventDefault();
         setIsLoading(true);
-        if(file){            
+        if(group){
+            const post = async ()=>{
+                await axios.post('http://localhost:5000/api/posts', {
+                    userId: userData._id,
+                    text,
+                    isGroupPost: true,
+                    groupData: group
+                })
+                setText('');
+                fetchData();
+            }
+            post();
+        }
+        else if(file){            
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('postImages');
             
@@ -131,6 +143,7 @@ export default function ToPost({userData, fetchData}: Props) {
             }
             post();
         }
+        
     }
 
 

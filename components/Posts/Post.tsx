@@ -27,7 +27,7 @@ interface Props{
   loggedUser: any,
   createdAt: any,
   repostedBy: any,
-  poll: [string],
+  poll?: [string],
   pinned: boolean
 }
 
@@ -105,7 +105,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
             <img src={image} width="100%" onClick={handleClick}/>
           </div>}
           {
-            poll.length > 0 && <Poll poll={poll} loggedUser={loggedUser} _id={_id}/>
+            poll && poll.length > 0 && <Poll poll={poll} loggedUser={loggedUser} _id={_id}/>
           }
         </div>
         <PostOptions 

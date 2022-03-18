@@ -48,6 +48,7 @@ export default function GroupComponent({group}: {group: any}) {
             });
         }
         fetchMembersData();
+        fetchData();
     },[group, loggedUser])
 
     return (
@@ -94,13 +95,27 @@ export default function GroupComponent({group}: {group: any}) {
                     </div>
                     <div className={styles.posts}>
                         <ToPost userData={loggedUser} fetchData={fetchData} group={group}/>
-                        {
-                            groupPosts.map((post: any)=>(
-                                <Post _id={''} text={''} image={''} userId={''} likes={undefined} fetchData={function (): Promise<void> {
-                                    throw new Error('Function not implemented.');
-                                } } loggedUser={undefined} createdAt={undefined} repostedBy={undefined} pinned={false}/>
+                        <div className={styles.postsContainer}>
+                            {
+                            groupPosts.map((
+                                {_id, text, image, userId, likes,
+                                createdAt, repostedBy, poll, pinned }: any)=>(
+                                <Post 
+                                _id={_id} 
+                                text={text} 
+                                image={image} key={_id} 
+                                userId={userId} 
+                                likes={likes}
+                                fetchData={fetchData}
+                                loggedUser={loggedUser}
+                                createdAt={createdAt}
+                                repostedBy={repostedBy}
+                                poll={poll}
+                                pinned={pinned}
+                                />
                             ))
-                        }
+                            }
+                        </div>
                     </div>
                     <div className={styles.about}>
                         <h4>About</h4>

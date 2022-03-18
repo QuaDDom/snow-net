@@ -1,0 +1,73 @@
+@import './colors/variables.scss';
+
+.successContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .bg{
+        background: url(https://images.pexels.com/photos/3998488/pexels-photo-3998488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+        object-fit: cover;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+    .content{
+        height: 70vh;
+        width: 50vw;
+        z-index: 1;
+        background: $black2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 50px;
+        .successImg{
+            width: 21vw; 
+            height: 21vh;
+            margin-bottom: 20px;
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+        p{
+            font-size: 1.7em;
+            padding-top: 50px;
+            width: 30vw;
+            text-align: center;
+        }
+        button{
+            width: 25vw;
+            height: 5vh;
+            margin-top: 100px;
+            border: 3px solid $primary;
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            color: $primary;
+            transition: .3s;
+            position: relative;
+            &:hover{
+                color: $black2;
+                background: $primary;
+            }
+            a {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,135 @@
+@import '../styles/colors/variables.scss';
+
+.suggestionsContainer{
+    width: 500px;
+    height: 100vh;
+    position: fixed;
+    top: 30px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .groups{
+        width: 400px;
+        min-height: 300px;
+        background: $black2;
+        border-radius: 10px;
+        margin-top: 75px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+        h3{
+            padding: 10px 0;
+            font-size: 1.3em;
+            font-weight: 700;
+            padding-bottom: 15px;
+        }
+        .groupGrid{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            .group{
+                position: relative;
+                border-radius: 10px;
+                display: flex;
+                background: $black3;
+                min-width: 350px;
+                height: 200px;
+                transition: 0.3s;
+                z-index: 3;
+                margin-top: 10px;
+                .info{
+                    margin-top: 125px;
+                    margin-left: 6px;
+                    .title{
+                        font-size: 1.1em;
+                    }
+                    div{
+                        display: flex;
+                        color: #999;
+                        font-size: 0.9em;
+                        .type{
+                            display: flex;
+                            margin-left: 9px;
+                            span{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                padding: 0 4px;
+                            }
+                        }
+                    }
+                }
+                &:hover{
+                    background: $black3h;
+                }
+                &:hover .presentation img{
+                    border: 6px solid $black3h;
+                }
+                &:hover .presentation .banner{
+                    filter: brightness(1.2);
+                }
+                .presentation{
+                    padding: 5px;
+                    display: flex;
+                    align-items: center;
+                    .banner{
+                        transition: 0.3s;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 120px;
+                        z-index: -1;
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                        object-fit: cover;
+                        background-size: cover;
+                    }
+                    img{
+                        width: 80px;
+                        height: 80px;
+                        display: block;
+                        transition: 0.3s;
+                        object-fit: cover;
+                        background-size: cover;
+                        border-radius: 50%;
+                        margin-top: 75px;
+                        margin-left: 7px;
+                        z-index: 1;
+                        border: 6px solid $black3;
+                    }
+                }
+            }
+        }
+    }
+    .follow{
+        width: 400px;
+        min-height: 300px;
+        background: $black2;
+        border-radius: 10px;
+        margin-top: 35px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h3{
+            padding: 10px 10px;
+            font-size: 1.3em;
+            font-weight: 700;
+            padding-bottom: 15px;
+            width: 100%;
+        }
+        .personList{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+    }
+}

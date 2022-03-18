@@ -1,0 +1,172 @@
+@import './colors/variables.scss';
+
+.groupContainer{
+    height: 100vh;
+    width: 100%;
+    .profile{
+        width: 100%;
+        min-height: 53vh;
+        background: $black2;
+        position: relative;
+        border-radius: 10px;
+        .members{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            position: absolute;
+            bottom: 50px;
+            left: 295px;
+            .member{
+                width: 30px;
+                height: 30px;
+                display: block;
+                .memberProfile{
+                    width: 45px;
+                    height: 45px;
+                    object-fit: cover;
+                    background-size: cover;
+                    border-radius: 50%;
+                    padding: 3px;
+                    background: $black2;
+                }
+            }
+        }
+        .banner{
+            width: 100%;
+            height: 320px;
+            padding: 0 100px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                background-size: cover;
+                background-position: center center;
+                background-attachment: fixed;
+                user-select: none;
+            }
+        }
+        .info{
+            padding: 0 100px;
+            position: absolute;
+            top: 250px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img{
+                width: 190px;
+                height: 190px;
+                border-radius: 50%;
+                background-size: cover;
+                object-fit: cover;
+                background: $black2;
+                padding: 7px;
+                user-select: none;
+            }
+            .textInfo{
+                padding: 0 10px;
+                padding-top: 50px;
+                h4{
+                    font-size: 1.8em;
+                    font-weight: 600;
+                    padding-bottom: 5px;
+                }
+                div{
+                    display: flex;
+                    p{
+                        color: #ccc;
+                        font-size: 1.2em;
+                        font-weight: 400;
+                        display: flex;
+                       padding-right: 10px;
+                        span{
+                            display: flex;
+                            align-items: center;
+                            font-size: 1.2em;
+                            padding-right: 5px;
+                        }
+                    }
+                    h5{
+                        color: #ccc;
+                        font-size: 1.2em;
+                        font-weight: 400;
+                        padding-left: 10px;
+                    }
+                }
+            }
+        }
+        .options{
+            position: absolute;
+            bottom: 50px;
+            right: 100px;
+            button{
+                width: 180px;
+                height: 40px;
+                background: #fff;
+                font-size: 1.1em;
+                font-family: 'Poppins', sans-serif;
+                border: none;
+                outline: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50px;
+                transition: 0.35s;
+                span{
+                    display: flex;
+                    align-items: center;
+                    font-size: 1.4em;
+                    padding-right: 10px;
+                }
+                &.joined{
+                    background: transparent;
+                    border: 2px solid #fff;
+                    background: transparent;
+                    color: #fff;
+                    &:hover{
+                        background: #ffffff20;
+                    }
+                }
+            }
+        }
+    }
+    .groupContent{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 30px;
+        .photos{
+            width: 450px;
+            height: 300px;
+            border-radius: 10px;
+            padding: 40px 30px;
+            position: sticky;
+            top: 100px;
+            left: 60px;
+            background: $black2;
+            h4{
+                font-size: 1.5em;
+                font-weight: 500;
+                padding-bottom: 10px;
+            }
+        }
+        .about{
+            width: 450px;
+            height: 300px;
+            border-radius: 10px;
+            padding: 40px 30px;
+            background: $black2;
+            top: 100px;
+            position: sticky;
+            right: 60px;
+            h4{
+                font-size: 1.5em;
+                font-weight: 500;
+                padding-bottom: 10px;
+            }
+            p{
+                font-size: 1em;
+            }
+        }
+    }
+}
+

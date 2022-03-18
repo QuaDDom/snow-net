@@ -1,0 +1,92 @@
+@import '../../styles/colors/variables.scss';
+
+.galleryColumnContainer{
+    display: flex;
+    position: absolute;
+    left: 56px;
+    top: 85px;
+    width: 21vw;
+    bottom: 0;
+    background: $black2;
+    padding: 30px 5px;
+    .uploadForm{
+        width: 100%;
+        height: 40vw;
+        padding-top: 20px;
+        form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            .imagePreview{
+                position: relative;
+                width: 75%;
+                justify-content: center;
+                align-items: center;
+                border: 3px solid #777;
+                min-height: 15vw;
+                max-height: 15vh;
+                max-width: 100%;
+                border-radius: 10px;
+                &::before{
+                    content: "Preview";
+                    font-family: 'Poppins', sans-serif;
+                    color: #777;
+                    font-size: 1.6em;
+                    font-weight: 500;
+                    position: absolute;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            h3{
+                font-size: 1.5em;
+                font-weight: 500;
+                padding-bottom: 25px;
+                text-align: start;
+                width: 75%;
+            }
+            input[type="file"]{
+                display: none;
+            }
+            label, button{
+                width: 75%;
+                height: 40px;
+                background: $secondary;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: .3s;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+                color: #fff;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                border: none;
+                &:hover{
+                    background: $secondaryh;
+                }
+                span{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1.3em;
+                    padding-right: 10px;
+                }
+            }
+            label{
+                padding-right: 10px;
+                margin-bottom: 15px;
+            }
+            button{
+                margin-top: 15px;
+                padding-right: 30px;
+            }
+        }
+    }
+}

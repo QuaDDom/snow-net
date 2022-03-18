@@ -1,0 +1,37 @@
+{"friendlist": [
+    {
+        "id": 1,
+        "image": "",
+        "name": "Jacob",
+        "lastname": "Space",
+        "status": "offline"
+    },
+    {
+        "id": 2,
+        "image": "",
+        "name": "Mateo",
+        "lastname": "Quadrelli",
+        "status": "online"
+    },
+    {
+        "id": 3,
+        "image": "",
+        "name": "Josefina",
+        "lastname": "Peréz",
+        "status": "disturb"
+    },
+    {
+        "id": 4,
+        "image": "",
+        "name": "Valentin",
+        "lastname": "Salomone",
+        "status": "online"
+    },
+    {
+        "id": 5,
+        "image": "",
+        "name": "Joaquín",
+        "lastname": "Sanz",
+        "status": "idle"
+    }
+]}

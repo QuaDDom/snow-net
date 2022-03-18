@@ -1,0 +1,33 @@
+.loaderContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 350px;
+    animation: disappear 1s forwards;
+    animation-delay: 2s;
+    h3{
+        font-size: 2.3em;
+        font-weight: 500;
+        color: #fff;
+    }
+}
+
+@keyframes disappear {
+    from{
+        opacity: 1;
+    } to{
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1200px){
+    .loaderContainer{
+        h3{
+            font-size: 1.3em;
+            text-align: center;
+        }
+    }
+}

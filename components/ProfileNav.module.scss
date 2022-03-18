@@ -1,0 +1,26 @@
+.profileNav{
+    position: relative;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .imageProfile{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            background-size: cover;
+            object-fit: cover;
+        }
+    }
+}

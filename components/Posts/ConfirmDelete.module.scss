@@ -1,0 +1,81 @@
+@import '../../styles/colors/variables.scss';
+
+.confirmDeleteContainer{
+    background: transparent;
+    position: fixed;
+    z-index: 25;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: appear 0.4s forwards;
+    backdrop-filter: blur(2px);
+    background: #ffffff20;
+    .modal{
+        width: 30vw;
+        height: 30vh;
+        background: $black2;
+        padding: 40px 70px;
+        border-radius: 15px;
+        h4{
+            font-size: 1.4em;
+            font-weight: 500;
+            padding-bottom: 15px;
+        }
+        p{
+            color: #999;
+            padding-bottom: 60px;
+        }
+        .buttons{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            button{
+                color: #fff;
+                width: 10vw;
+                border-radius: 30px;
+                height: 5vh;
+                border: none;
+                outline: none;
+                transition: .3s;
+                font-size: 1em;
+            }
+            .delete{
+                background: $delete;
+                &:hover{
+                    background: $deleteh;
+                }
+            }
+            .cancel{
+                background: $black3;
+                &:hover{
+                    background: $black3h;
+                }
+            }
+        }
+    }
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 1200px){
+    .confirmDeleteContainer{
+        .modal{
+            width: 90vw;
+            height: 35vh;
+        }
+    }
+}

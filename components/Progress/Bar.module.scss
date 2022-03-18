@@ -1,0 +1,16 @@
+@import '../../styles/colors/variables.scss';
+
+.progressBarContainer{
+    pointer-events: none;
+    z-index: 40;
+    .progressBar{
+        background: linear-gradient(90deg, $primary, $secondary);
+        height: 4px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 40;
+        opacity: 1;
+    }
+}

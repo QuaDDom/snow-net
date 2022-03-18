@@ -1,0 +1,192 @@
+@import './colors/variables.scss';
+
+.messagesContainer{
+    margin: 0;
+    padding: 0;
+    max-height: 100vh;
+    width: 100%;
+    .containerImp{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        .background{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 80%;
+            filter: brightness(0.6);
+        }
+    }
+    .messages{
+        height: 100%;
+        width: 100%;
+        .msgInput{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 74vw;
+            height: 90px;
+            background: $black2;
+            display: flex;
+            align-items: center;
+            .options{
+                color: #999;
+                width: 8vw;
+                padding-left: 4vw;
+                display: flex;
+                align-items: center;
+                .currentImage{
+                    position: absolute;
+                    bottom: 84px;
+                    padding: 10px;
+                    overflow: hidden;
+                    left: 0;
+                    transition: .3s;
+                    opacity: 0; 
+                    width: 16vw;
+                    height: 33vh;
+                    background: $black2;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 15px;
+                    &.open{
+                        opacity: 1;
+                    }
+                }
+                .emojiPicker{
+                    position: absolute;
+                    bottom: 100px;
+                    transition: .3s;
+                    opacity: 0;
+                    right: 100px;
+                    &.open{
+                        opacity: 1;
+                    }
+                }
+                .gifSearch{
+                    position: absolute;
+                    bottom: 100px;
+                    right: 100px;
+                    transition: .3s;
+                    opacity: 0;
+                    &.open{
+                        opacity: 1;
+                    }
+                }
+                .inputFile{
+                    display: none;
+                }
+                .button{
+                    font-size: 30px;
+                    margin-top: 5px;
+                    width: 50px;
+                    transition: color .2s;
+                    cursor: pointer;
+                    padding: 0 20px;
+                    z-index: 3;
+                    &:hover{
+                        color: $primary;
+                    }
+                }
+            }
+            .inputContainer{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 4.5vw;
+                .messageInput{
+                    display: block;
+                    border: 2px solid #9c9c9c;
+                    border-radius: 30px;
+                    width: 45vw;
+                    height: 50px;
+                    margin-left: 5vw;
+                    background: $black2;
+                    padding: 5px 30px;
+                    outline: none;
+                    font-size: 1.1em;
+                    color: #fff;
+                    transition: 0.3s;
+                    &:focus{
+                        border: 2px solid #cecece;
+                        background: $black2h;
+                    }
+                }
+                button{
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    margin-left: 10px;
+                    background: transparent;
+                    border: 2px solid #9c9c9c;
+                    transition: .3s;
+                    cursor: pointer;
+                    &:hover{
+                        border: 2px solid #cecece;
+                        background: $black2h;
+                    }
+                    &:hover p{
+                        margin-left: 6px;
+                        color: #fff;
+                    }
+                    p{
+                        color: #9c9c9c;
+                        font-size: 25px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: 0.2s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px){
+    .messagesContainer {
+        width: 100vw;
+        .containerImp {
+            width: 100vw;
+            .background {
+                width: 100vw;
+            }
+        }
+        .messages{
+            width: 100vw;
+            height: 100%;
+            .msgInput{
+                width: 100vw;
+                bottom: 50px;
+                height: 70px;
+                .options{
+                    width: 5vw;
+                    padding-left: 0;
+                    .currentImage{
+                        bottom: 85px;
+                    }
+                    .emojiPicker{
+                        bottom: 85px;
+                    }
+                    .gifSearch{
+                        bottom: 85px;
+                    }
+                    .button{
+                        font-size: 1.4em;
+                        width: 45px;
+                    }
+                }
+                .inputContainer{
+                    padding-left: 1vw;
+                    .messageInput{
+                        width: 70vw;
+                        height: 45px;
+                    }
+                }
+            }
+        }
+    }
+}

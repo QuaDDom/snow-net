@@ -1,0 +1,82 @@
+.profileContainer{
+    width: 100%;
+    position: relative;
+    padding: 100px 50px;
+    .options{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        width: 100%;
+        grid-gap: 150px;
+        .images{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 700px;
+            .banner{
+
+            }
+            .profile{
+                position: relative;
+                width: 225px;
+                height: 225px;
+                cursor: pointer;
+                &:hover::before{
+                    visibility: visible;
+                }
+                &::before{
+                    content: 'Change Profile';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: #00000080;
+                    z-index: 10;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 2em;
+                    text-align: center;
+                    text-transform: uppercase;
+                    visibility: hidden;
+                }
+                img{
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background-size: cover;
+                    object-fit: cover;
+                }
+            }
+            h3{
+                font-size: 2.5em;
+                font-weight: 400;
+                margin-left: 50px;
+            }
+        }
+        .info{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            grid-row: 1/3;
+            grid-column: 2/2;
+            margin-left: 80px;
+            .names, .personalInfo{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+        }
+        .bio{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+}

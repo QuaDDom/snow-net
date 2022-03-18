@@ -1,0 +1,94 @@
+@import '../../styles/colors/variables.scss';
+
+.postOptionsContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    height: 48px;
+    font-size: 1.25em;
+    padding: 0 50px;
+    padding-bottom: 5px;
+    color: #777;
+    div{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.1s;
+        span{
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            padding: 6px;
+            transition: .2s;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        p{
+            font-size: 1.2em;
+            text-align: center;
+            padding-top: 2.5px;
+        }
+        &.likes{
+            .isLiked{
+                color: #ff4141;
+                transform: scale(0.1);
+                animation: liked 0.5s forwards;
+            }
+            p.liked{
+                color: #ff4141;
+            }
+        }
+        &.repost{
+            .reposted{
+                color: #4bff87;
+            }
+        }
+        p{
+            font-size: 0.7em ;
+            width: 10px;
+        }
+        &.comments:hover{
+            color: $primary;
+            span{
+                background: #8bffff20;
+            }
+        }
+        &.repost:hover{
+            color: #4bff87;
+            span{
+                background: #4bff8720;
+            }
+        }
+        &.likes:hover{
+            color: #ff4141;
+            span{
+                background: #ff414120;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px){
+    .postOptionsContainer{
+        width: 100%;
+        padding: 0 5px;
+        div{
+            p{
+                font-size: 0.7em;
+            }
+        }
+    }
+}
+
+@keyframes liked {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

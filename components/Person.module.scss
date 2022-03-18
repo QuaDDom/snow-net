@@ -1,0 +1,70 @@
+@import '../styles/colors/variables.scss';
+
+.personContainer{
+    height: 70px;
+    width: 350px;
+    position: relative;
+    border-radius: 10px;
+    background: $black3;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 7;
+    &:hover{
+        background: $black3h;
+    }
+    .content{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        padding: 8px 16px;
+        .image{
+            position: relative;
+            height: 55px;
+            width: 55px;
+            img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-size: cover;
+                object-fit: cover;
+            }
+        }
+        .info{
+            margin-left: 15px;
+            h4{
+                font-size: 0.95em;
+                font-weight: 400;
+            }
+            p{
+                color: #999;
+                font-size: 0.9em;
+            }
+        }
+        button{
+            position: absolute;
+            top: 18px;
+            right: 30px;
+            border-radius: 50%;
+            height: 37px;
+            width: 37px;
+            border: none;
+            font-size: 1.4em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            transition: 0.3s;
+            color: $aquah;
+            &:hover{
+                background: #90ffff20;
+                color: $aquah;
+            }
+        }
+    }
+}

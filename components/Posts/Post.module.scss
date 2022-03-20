@@ -51,6 +51,9 @@
         justify-content: start;
         position: relative;
         padding-top: 20px;
+        &.groupStyle{
+            height: 70px;
+        }
         img{
             height: 50px;
             width: 50px;
@@ -58,11 +61,31 @@
             background-size: cover;
             object-fit: cover;
             cursor: pointer;
+            &.group{
+                border-radius: 17px;
+            }
+        }
+        .userGroup{
+            width: 33px;
+            height: 33px;
+            position: absolute;
+            top: 42px;
+            left: 23px;
+            background: $black2;
+            padding: 3px;
         }
         .bothColumn{
             display: flex;
             margin-left: 15px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            .groupUsername{
+                font-size: 0.9em;
+                color: #999;
+                font-weight: 600;
+                position: absolute;
+                top: 42px;
+                left: 58px;
+            }
             h5{
                 margin: 0;
                 font-size: 16px;

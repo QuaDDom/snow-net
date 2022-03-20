@@ -9,12 +9,14 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import ToPost from '../Posts/ToPost';
 import Post from '../Posts/Post';
+import { useMediaQuery } from 'react-responsive';
 
 export default function GroupComponent({group}: {group: any}) {
     const [isJoined, setIsJoined] = useState(false);
     const [membersProfile, setMembersProfile] = useState<any>([]);
     const [groupPosts, setGroupPosts] = useState<any>([]);
     const { loggedUser } = useContext<any>(AuthContext)
+    const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
 
     const fetchData = async ()=>{
         try{
@@ -99,7 +101,7 @@ export default function GroupComponent({group}: {group: any}) {
                             {
                             groupPosts.map((
                                 {_id, text, image, userId, likes,
-                                createdAt, repostedBy, poll, pinned }: any)=>(
+                                createdAt, repostedBy, poll, pinned, groupData }: any)=>(
                                 <Post 
                                 _id={_id} 
                                 text={text} 
@@ -112,15 +114,16 @@ export default function GroupComponent({group}: {group: any}) {
                                 repostedBy={repostedBy}
                                 poll={poll}
                                 pinned={pinned}
+                                group={groupData}
                                 />
                             ))
                             }
                         </div>
                     </div>
-                    <div className={styles.about}>
+                    {isResponsive && <div className={styles.about}>
                         <h4>About</h4>
                         <p>{group.description}</p>
-                </div>
+                    </div>}
             </div>
         </div>
     )

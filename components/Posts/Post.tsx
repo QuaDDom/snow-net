@@ -28,7 +28,8 @@ interface Props{
   createdAt: any,
   repostedBy: any,
   poll?: [string],
-  pinned: boolean
+  pinned: boolean,
+  group: any
 }
 
 interface User{
@@ -40,7 +41,7 @@ interface User{
 }
 
 export default function Post({_id, image, text, userId, likes, fetchData,
-                              loggedUser, createdAt, repostedBy, poll, pinned}: Props) {
+                              loggedUser, createdAt, repostedBy, poll, pinned, group}: Props) {
   const [openImage, setOpenImage] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [showComments, setShowComments] = useState(false);
@@ -74,18 +75,25 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   return (
     <>
     {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen}/>}
-    {user && loggedUser &&
+    {user && loggedUser && 
       <div className={styles.postContainer}>
       { pinned && <p className={styles.pinned}><span><BsPinAngleFill/></span> Pinned Post</p>}
-        <div className={styles.user}>
-          <img src={user.profilePic || 'noProfile.png'} alt={user.name} onClick={handleImageClick}/>
+        <div className={`${styles.user} ${group && styles.groupStyle}`}>
+          <img 
+          src={group?.groupPic || user.profilePic || 'noProfile.png'} 
+          alt={user.name} 
+          onClick={handleImageClick}
+          className={`${group && styles.group}`}
+          />
+          {group && user.profilePic && <img src={user.profilePic} className={styles.userGroup}/>}
           <div className={styles.bothColumn}>
             <h5 className={user.name || `${styles.skeleton} ${styles.skeletonText}`}>
-              {`${user.name} ${user.lastname}`}
+              {group ? `${group.title}` : `${user.name} ${user.lastname}`}
             </h5>
-            <p className={user.username || `${styles.skeleton} ${styles.skeletonText}`}>
+            {group && <p className={styles.groupUsername}>{`${user.name} ${user.lastname} · @${user.username}`}</p>}
+            {!group && <p className={user.username || `${styles.skeleton} ${styles.skeletonText}`}>
               {user.username && `@${user.username}`}
-            </p>
+            </p>}
             <p>·</p>
             <p className={styles.createdAt}>{format(createdAt)}</p>
           </div>
@@ -133,10 +141,11 @@ export default function Post({_id, image, text, userId, likes, fetchData,
       </div>
       }
       {openImage && <OpenImage 
-              img={image} 
-              openImage={openImage}
-              setOpenImage={setOpenImage}
-      />}
+                    img={image} 
+                    openImage={openImage}
+                    setOpenImage={setOpenImage}
+                    />
+      }
     </>
   );
 }

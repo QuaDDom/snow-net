@@ -19,7 +19,8 @@ interface Post{
   repostedPost: any,
   repostedBy: any,
   poll: any,
-  pinned: boolean
+  pinned: boolean,
+  groupData: any
 }
 
 export default function PostList() {
@@ -43,7 +44,7 @@ export default function PostList() {
               posts && 
               posts.map((
                 {_id, text, image, userId, likes, createdAt,
-                reposted, repostedPost, repostedBy, poll, pinned}: Post)=>(
+                reposted, repostedPost, repostedBy, poll, pinned, groupData}: Post)=>(
                 <>
                 {
                   reposted ?
@@ -74,6 +75,7 @@ export default function PostList() {
                   repostedBy={repostedBy}
                   poll={poll}
                   pinned={pinned}
+                  group={groupData}
                   />
                 }
                 </>

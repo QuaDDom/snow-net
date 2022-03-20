@@ -61,17 +61,74 @@ export default function ToPost({userData, fetchData, group}: Props) {
         setIsLoading(true);
         if(group){
             const post = async ()=>{
-                await axios.post('http://localhost:5000/api/posts', {
-                    userId: userData._id,
-                    text,
-                    isGroupPost: true,
-                    groupData: group
-                })
+                if(gif){
+                    const post = async ()=>{
+                        await axios.post('http://localhost:5000/api/posts', {
+                            userId: userData._id,
+                            text,
+                            image: gif,
+                            isGroupPost: true,
+                            groupData: group
+                        })
+
+                        setGif('');
+                    }
+                    post();
+                } else if(file){            
+                    const storageRef = projectStorage.ref(file.name); 
+                    const collectionRef = projectFirestore.collection('postImages');
+                    
+                    storageRef.put(file).on("state_changed", (snap: any)=>{
+                        let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+                        setProgress(percentage);
+                    }, (err: any)=>{
+                        setUploadError(err);
+                        console.log(err);
+                    }, async ()=>{
+                        const url = await storageRef.getDownloadURL();
+                        const createdAt = timestamp();
+                        collectionRef.add({
+                            url,
+                            user: {
+                                username: userData.username,
+                                name: `${userData.name} ${userData.lastname}`
+                            }
+                        })
+                        
+                        const post = async ()=>{
+                            await axios.post('http://localhost:5000/api/posts', {
+                                userId: userData._id,
+                                text,
+                                image: url,
+                                isGroupPost: true,
+                                groupData: group
+                            })
+                            setText('');
+                            fetchData();
+                        }
+                
+                        post();
+                        setUrl(url);
+                        setIsLoading(false);
+                        setFile(null);
+                    });
+                } else{
+                    const post = async ()=>{
+                        await axios.post('http://localhost:5000/api/posts', {
+                            userId: userData._id,
+                            text,
+                            isGroupPost: true,
+                            groupData: group
+                        })
+                    }
+                    post();
+                }
                 setText('');
                 fetchData();
             }
             post();
         }
+        
         else if(file){            
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('postImages');

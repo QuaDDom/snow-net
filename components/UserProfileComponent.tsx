@@ -8,6 +8,7 @@ import { useMediaQuery } from 'react-responsive';
 import { RiMailSendLine } from 'react-icons/ri';
 import { AiOutlineConsoleSql } from 'react-icons/ai';
 import axios from 'axios';
+import ToPost from './Posts/ToPost';
 
 interface Post{
     _id: string,
@@ -21,6 +22,7 @@ interface Post{
     repostedBy: any,
     poll: any,
     pinned: boolean
+    groupData: any
   }
 
 interface Props{
@@ -33,6 +35,8 @@ export default function UserProfileComponent({userData, username}: Props) {
     const { fetchData } = usePosts({type: "all"});
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     const [isFollowed, setIsFollowed] = useState(false);
+    const [isLoggedUser, setIsLoggedUser] = useState(false);
+
 
     const handleFollow = async ()=>{
         try{
@@ -54,8 +58,7 @@ export default function UserProfileComponent({userData, username}: Props) {
 
     useEffect(()=>{
         setIsFollowed(userData?.user.friendReqs.includes(loggedUser._id) ? true : false);
-        console.log(userData?.user.friendReqs.includes(loggedUser._id) ? true : false);
-        console.log(userData?.user.friendReqs)
+        setIsLoggedUser(loggedUser?._id === userData?.user._id ? true : false);
     },[userData, loggedUser])
 
     return (
@@ -73,11 +76,13 @@ export default function UserProfileComponent({userData, username}: Props) {
                         {!isResponsive && <p className={styles.bio}>{userData.user.bio}</p>}
                     </div>
                     <div className={styles.buttons}>
-                        <button><RiMailSendLine/></button>
+                        {isLoggedUser && <button><RiMailSendLine/></button>}
                         <button 
                         className={`${styles.follow} ${isFollowed && styles.followed}`}
                         onClick={handleFollow}>
-                            {isFollowed ? 'Following' : 'Follow'}
+                            {isLoggedUser 
+                            ? "Edit Profile"
+                            : isFollowed ? 'Following' : 'Follow'}
                         </button>
                     </div>
                 </div>
@@ -97,12 +102,15 @@ export default function UserProfileComponent({userData, username}: Props) {
                     </div>
                 </div>
                 <div className={styles.postsContainer}>
-                    <h4>Last Posts</h4>
+                    {isLoggedUser ?  <ToPost 
+                    userData={loggedUser} 
+                    fetchData={fetchData} 
+                    /> : <h4>Last Posts</h4>}
                     <div className={styles.posts}>
                     {
                         userData && userData.posts.map((
                             {_id, text, image, userId, likes,
-                             createdAt, repostedBy, poll, pinned }: Post)=>(
+                             createdAt, repostedBy, poll, pinned, groupData }: Post)=>(
                             <Post 
                             _id={_id} 
                             text={text} 
@@ -115,6 +123,7 @@ export default function UserProfileComponent({userData, username}: Props) {
                             repostedBy={repostedBy}
                             poll={poll}
                             pinned={pinned}
+                            group={groupData}
                             />
                         ))
                     }

@@ -12,6 +12,7 @@ import Poll from './Poll';
 import { BsPinAngleFill } from 'react-icons/bs';
 import Comments from './Comments/Comments';
 import extract from 'mention-hashtag';
+import HoverUserProfile from '../Hover/HoverUserProfile';
 
 interface Props{
   _id: string
@@ -38,6 +39,8 @@ interface User{
   name: string,
   lastname: string,
   profilePic: string,
+  bio: string,
+  coverPic: string
 }
 
 export default function Post({_id, image, text, userId, likes, fetchData,
@@ -47,6 +50,12 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState<any>(null);
   const [hashtags, setHashtags] = useState<any>([]);
+  const [isHover, setIsHover] = useState(false);
+
+  const handleHover = ()=>{
+    setIsHover(true);
+  } 
+
 
   const getComments = async ()=>{
     const commentsData = await axios.get(`http://localhost:5000/api/posts/comments/${_id}`)
@@ -77,6 +86,15 @@ export default function Post({_id, image, text, userId, likes, fetchData,
     {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen}/>}
     {user && loggedUser && 
       <div className={styles.postContainer}>
+        {isHover && 
+          <HoverUserProfile 
+          name={`${user.name} ${user.lastname}`} 
+          username={user.username}
+          bio={user.bio}
+          profilePic={user.profilePic}
+          bannerPic={user.coverPic}
+          />
+        }
       { pinned && <p className={styles.pinned}><span><BsPinAngleFill/></span> Pinned Post</p>}
         <div className={`${styles.user} ${group && styles.groupStyle}`}>
           <img 
@@ -84,6 +102,10 @@ export default function Post({_id, image, text, userId, likes, fetchData,
           alt={user.name} 
           onClick={handleImageClick}
           className={`${group && styles.group}`}
+          onMouseEnter={handleHover}
+          onMouseLeave={()=> setIsHover(false)}
+          onMouseDown={()=> setIsHover(false)}
+          onMouseOut={()=> setIsHover(false)}
           />
           {group && user.profilePic && <img src={user.profilePic} className={styles.userGroup}/>}
           <div className={styles.bothColumn}>

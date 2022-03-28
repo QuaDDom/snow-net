@@ -1,0 +1,15 @@
+
+.settingsContainer{
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+@media (max-width: 1200px){
+    .settingsContainer{
+        width: 100vw;
+        display: flex;
+        justify-content: none;
+    }
+}

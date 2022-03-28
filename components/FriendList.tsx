@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import AuthContext from '../context/AuthContext';
 import Friend from './Friend';
 import styles from './FriendList.module.scss';
 
-interface Friend{
-  id: number,
-  image: string,
-  name: string,
-  lastname: string,
-  status: string
-}
+
 
 const friendList = [
   {
@@ -49,6 +45,22 @@ const friendList = [
 ]
 
 export default function FriendList() {
+  const { loggedUser } = useContext<any>(AuthContext);
+  const [friendsData, setFriendsData] = useState<any>([]);
+
+  useEffect(()=>{
+    console.log(loggedUser)
+    const getFriendsData = async ()=>{
+      if(loggedUser){
+        const friends: any = await axios.get(`http://localhost:5000/api/users/${loggedUser?._id}/friends`)
+        friends.data.map(async (id: string)=>{
+            const data = await axios.get(`http://localhost:5000/api/users/${id}`);
+            setFriendsData([...friendsData, data.data]);
+        })
+      }
+    }
+    getFriendsData();
+  },[loggedUser])
 
   return (
       <div className={styles.friendListContainer}>
@@ -56,12 +68,12 @@ export default function FriendList() {
         <div className={styles.friendGrid}>
         <h2>Friends</h2>
             {
-              friendList.map(({id, name, lastname, image, status}: Friend, index: number)=>(
+              friendsData.map(({_id, name, lastname, profilePic, status}: any, index: number)=>(
                 <Friend 
-                id={id} 
+                id={_id} 
                 name={name} 
                 lastname={lastname} 
-                image={image}
+                image={profilePic}
                 status={status}
                 key={index}
                 />

@@ -84,7 +84,7 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
   return (
     <>
     {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen}/>}
-    {user && postUser && loggedUser &&
+    {user && postUser && loggedUser && post &&
       <div className={styles.postContainer}>
         <p className={styles.reposted}><span><BiRepost/></span> {user.name + ' ' + user.lastname} Reposted</p>
         <div className={styles.user}>

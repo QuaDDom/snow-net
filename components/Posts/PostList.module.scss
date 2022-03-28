@@ -8,10 +8,17 @@
     min-height: 100vh;
     padding-top: 20px;
     div{
+        overflow: visible;
+        &::-webkit-scrollbar{
+            width: 0px;
+        }
+        &::-webkit-scrollbar-thumb{
+            background: transparent;
+        }
         .postsContainer{
             display: flex;
             align-items: center;
-            flex-direction: column-reverse;
+            flex-direction: column;
             .loaderContainer{
                 width: 100%;
                 height: 90px;

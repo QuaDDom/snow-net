@@ -220,7 +220,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                     <input 
                     type="text" 
                     name="public" 
-                    placeholder={`${pollOpen ? "Ask a question" : "What's happening " + userData.name}`}
+                    placeholder={`${pollOpen ? "Ask a question" : "What's happening " + userData.name + "?"}`}
                     value={text}
                     onChange={handleChange}
                     autoComplete="off"

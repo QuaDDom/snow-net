@@ -8,25 +8,47 @@ interface Props{
 export const usePosts = ({type}: Props)=>{
     const [posts, setPosts] = useState<any>([]);
     const [loader, setLoader] = useState(false);
+    const [isLimit, setIsLimit] = useState(false);
+    const [offset, setOffset] = useState(10);
 
     let data: any;
 
     const fetchData = async ()=>{
         setLoader(true)
-        data = await axios.get(`http://localhost:5000/api/posts/get/all`);
+        data = await axios.get(`http://localhost:5000/api/posts/get/all/0/${offset}`);
+        if(data.data === "limit") {
+            setIsLimit(true);
+            return;
+        };
         setPosts([...data.data]);
         setLoader(false);
     };
+
+    const loadMorePosts = async ()=>{
+        console.log('loadMore')
+        setLoader(true)
+        data = await axios.get(`http://localhost:5000/api/posts/get/all/${10}/${offset}`);
+        if(data.data === "limit") {
+            setIsLimit(true);
+            return;
+        };
+        setPosts((oldPosts: any) => oldPosts.concat(data.data));
+        setLoader(false);
+    }
     
-
-
     useEffect(()=>{
-        fetchData();
-    },[])
+        if(isLimit) return;
+        loadMorePosts();
+    },[offset])
+
 
     return {
         posts,
         fetchData,
-        loader
+        loadMorePosts,
+        loader,
+        setOffset,
+        offset,
+        isLimit
     }
 }

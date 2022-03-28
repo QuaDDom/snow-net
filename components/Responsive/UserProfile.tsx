@@ -1,3 +1,4 @@
+import Router from 'next/router';
 import React from 'react'
 import { CgProfile } from 'react-icons/cg';
 import { IoLanguage, IoSettingsOutline } from 'react-icons/io5';
@@ -29,11 +30,11 @@ export default function UserProfile({loggedUser, touch}: Props) {
                     </div>
                 </div>
                 <div className={styles.options}>
-                    <button><span><CgProfile/></span> Profile</button>
-                    <button><span><IoLanguage/></span> Language</button>
-                    <button><span><IoSettingsOutline/></span> Settings</button>
-                    <button><span><MdDarkMode/></span> Theme</button>
-                    <button><span><RiLogoutBoxLine/></span> Log out</button>
+                    <button onClick={()=> Router.push('/')}><span><CgProfile/></span> Profile</button>
+                    <button onClick={()=> Router.push('/')}><span><IoLanguage/></span> Language</button>
+                    <button onClick={()=> Router.push('/settings')}><span><IoSettingsOutline/></span> Settings</button>
+                    <button onClick={()=> Router.push('/')}><span><MdDarkMode/></span> Theme</button>
+                    <button onClick={()=> Router.push('/')}><span><RiLogoutBoxLine/></span> Log out</button>
                 </div>
         </>
             }

@@ -36,6 +36,7 @@ export default function PostDots({username, userId, loggedUserId, handleModal, p
             <span onClick={handleClick} className={styles.dots}><HiDotsHorizontal/></span>
             {
                 isOpen && userId === loggedUserId && 
+                <>
                 <div className={styles.options}>
                     <div className={`${styles.option} ${styles.delete}`} onClick={handleModal}>
                         <span><RiDeleteBin5Line/></span>
@@ -50,6 +51,7 @@ export default function PostDots({username, userId, loggedUserId, handleModal, p
                         <p>Pin this post</p>
                     </div>
                 </div>
+                </>
             }
             {
                 isOpen && userId !== loggedUserId && 
@@ -76,3 +78,7 @@ export default function PostDots({username, userId, loggedUserId, handleModal, p
     </>
     )
 }
+function setPickerOpen(arg0: boolean): void {
+    throw new Error('Function not implemented.');
+}
+

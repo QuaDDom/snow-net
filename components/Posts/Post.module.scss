@@ -3,13 +3,14 @@
 .postContainer{
     min-height: 80px;
     width: 40vw;
-    z-index: 1;
     padding: 5px 20px 0 20px;
     background: $black2;
     margin-bottom: 15px;
     border-radius: 15px;
     transition: 0.25s;
     animation: appear 0.6s forwards;
+    position: relative;
+    z-index: 1;
     .reposted{
         height: 25px;
         padding-top: 15px;
@@ -50,6 +51,7 @@
         align-items: start;
         justify-content: start;
         position: relative;
+        z-index: 1;
         padding-top: 20px;
         &.groupStyle{
             height: 70px;

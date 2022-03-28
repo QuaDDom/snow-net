@@ -1,0 +1,77 @@
+@import '../../styles/colors/variables.scss';
+
+.sidebarContainer{
+    height: 91vh;
+    background: $black2;
+    width: 23vw;
+    animation: appear 0.8s;
+    h2{
+        padding: 0 40px;
+        padding-top: 50px;
+    }
+    .options{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 30px 30px;
+        .option{
+            width: 100%;
+            display: flex;
+            height: 70px;
+            margin-top: 5px;
+            align-items: center;
+            border-radius: 15px;
+            transition: 0.3s;
+            padding: 0 10px;
+            cursor: pointer;
+            &:hover{
+                background: $black2h;
+            }
+            &:hover .icon{
+                background: $black3h;
+            }
+            .icon{
+                height: 45px;
+                width: 45px;
+                background: $black3;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.8em;
+                transition: 0.3s;
+            }
+            .text{
+                padding-left: 15px;
+                h4{
+                    color: #fff;
+                }
+                p{
+                    color: #999;
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .sidebarContainer{
+        position: fixed;
+        top: 35px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100vw;
+    }
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+    } to{
+        opacity: 1;
+    }
+}

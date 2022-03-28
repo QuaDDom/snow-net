@@ -1,0 +1,37 @@
+@import '../../styles/colors/variables.scss';
+
+.photos{
+    width: 450px;
+    min-height: 300px;
+    border-radius: 10px;
+    padding: 40px 21px;
+    position: sticky;
+    top: 100px;
+    left: 60px;
+    background: $black2;
+    h4{
+        font-size: 1.5em;
+        font-weight: 500;
+        padding-bottom: 10px;
+        padding: 0 10px;
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        width: 390px;
+        height: 100%;
+        padding: 0 10px;
+        padding-top: 10px;
+        border-radius: 15px;
+        overflow: hidden;
+        grid-gap: 6px;
+        img{
+            position: relative;
+            height: 120px;
+            width: 120px;
+            object-fit: cover;
+            background-size: cover;
+            cursor: pointer;
+        }
+    }
+}

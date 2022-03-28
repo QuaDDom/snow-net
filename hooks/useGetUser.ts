@@ -6,7 +6,9 @@ interface User{
     name: string,
     lastname: string,
     profilePic: string,
-    username: string
+    username: string,
+    bio: string,
+    coverPic: string
 }
 
 export const useGetUser = (userId: string)=>{
@@ -15,7 +17,9 @@ export const useGetUser = (userId: string)=>{
         name: '',
         lastname: '',
         profilePic: '',
-        username: ''
+        username: '',
+        bio: '',
+        coverPic: ''
     });
 
     useEffect(()=>{

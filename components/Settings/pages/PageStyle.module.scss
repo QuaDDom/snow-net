@@ -1,0 +1,114 @@
+@import '../../../styles/colors/variables.scss';
+
+.pageContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 70px;
+    animation: appear 0.8s;
+    .title{
+        font-size: 2.6em;
+        padding-bottom: 20px;
+    }
+    .settings{
+        padding-top: 20px;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 20px;
+        .option{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 0.5px solid #21292f;
+            padding: 15px 20px;
+            height: 75px;
+            align-items: center;
+            h5{
+                font-size: 1em;
+                width: 33%;
+                display: flex;
+                align-items: center;
+                span{
+                    border-radius: 50%;
+                    background: $black3;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 35px;
+                    height: 35px;
+                    margin-right: 10px;
+                    font-size: 1.3em;
+                }
+            }
+            p{
+                width: 33%;
+            }
+            button{
+                width: 10%;
+                margin: 0 11.5%;
+                height: 40px;
+                background: $black3;
+                border: none;
+                color: #fff;
+                font-size: 1em;
+                border-radius: 10px;
+                margin-right: 3em;
+                transition: background 0.3s;
+                &:hover{
+                    background: $black3h;
+                }
+            }
+        }
+    }
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+    } to{
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1200px) {
+    .pageContainer{
+        width: 100vw;
+        height: 90vh;
+        padding: 30px 40px;
+        .back{
+            font-size: 1.5em;
+            color: #fff;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: start;
+        }
+        .title{
+            font-size: 1.4em;
+        }
+        .settings{
+            width: 100%;
+            .option{
+                padding: 10px 0px;
+                height: auto;
+                h5{
+                    font-size: 0.9em;
+                    width: 20%;
+                    span{
+                        font-size: 1.2em;
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+                p{
+                    font-size: 0.8em;
+                    border-image-width: 50%;
+                }
+                button{
+                    width: 20%;
+                    margin: 0;
+                    height: 30px;
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+}

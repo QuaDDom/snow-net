@@ -1,0 +1,96 @@
+@import '../../styles/colors/variables.scss';
+
+.pendingRequest{
+    min-height: 150px;
+    width: 57.5vw;
+    padding: 5px 20px 0 20px;
+    background: $black2;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    transition: 0.25s;
+    animation: appear 0.6s forwards;
+    .user{
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        position: relative;
+        padding-top: 20px;
+        img{
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            background-size: cover;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        h3{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin-left: 15px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        p{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin: 0;
+            font-size: 16px;
+            color: #777;
+            margin-left: 15px;
+            &.pending{
+                margin-left: 40vw;
+                color: $yellow;
+                span{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0 5px;
+                }
+            }
+        }
+    }
+    .content{
+        .text{
+            font-size: 0.95em;
+            padding-left: 70px;
+            font-weight: 300;
+        }
+    }
+    .options{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 25px 20px;
+        button{
+            width: 6.5vw;
+            height: 35px;
+            font-size: 1em;
+            border: none;
+            margin-left: 10px;
+            border-radius: 6px;
+            &.accept{
+                background: #8cfbff20;
+                color: #8cfbff;
+                transition: background 0.3s;
+                &:hover{
+                    background: #8cfbff30;
+                }
+            }
+            &.decline{
+                background: #ff646420;
+                color: #ff4d4d;
+                transition: background 0.3s;
+                &:hover{
+                    background: #ff646430;
+                }
+            }
+        }
+    }
+}

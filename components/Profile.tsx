@@ -20,16 +20,17 @@ export default function Profile({isOpen, userData}: Props) {
   return (
     <div className={`${styles.profileContainer} ${isOpen && styles.open}`}>
         {userData && <div className={styles.options}>
-            <div className={styles.profile}>
+            <div className={styles.profile} onClick={()=> Router.push(`/user/${userData.username}`)}>
               <img src={userData.profilePic || 'noProfile.png'} alt="" />
-              <p>{`${userData.name} ${userData.lastname}`}</p>
+              <div>
+                <h5>{`${userData.name} ${userData.lastname}`}</h5>
+                <p>@{userData.username}</p>
+              </div>
               <div/>
             </div>
             <div className={styles.option}>
                 <div className={styles.icon}></div>
-                <Link href="/editprofile">
                   <p className={styles.settings}>Profile</p>
-                </Link>
                 <div/>
             </div>
             <div className={styles.option}>
@@ -37,11 +38,9 @@ export default function Profile({isOpen, userData}: Props) {
                 <p>Lenguage</p>
                 <div/>
             </div>
-            <div className={styles.option}>
+            <div className={styles.option} onClick={()=> Router.push('/settings')}>
                 <div className={styles.icon}></div>
-                <Link href="/settings">
                   <p className={styles.settings}>Settings</p>
-                </Link>
                 <div/>
             </div>
             <div className={styles.option}>

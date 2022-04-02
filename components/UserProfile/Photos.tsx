@@ -12,7 +12,11 @@ export default function Photos({ userData }: Props) {
   const [dataImage, setDataImage] = useState([]);
 
   useEffect(()=>{
-    setDataImage(userData.posts.filter((post: any) => post.image).reverse().slice(0,6));
+    if(userData.posts){
+      setDataImage(userData.posts.filter((post: any) => post.image).reverse().slice(0,6));
+    } else{
+      setDataImage(userData.filter((post: any) => post.image).reverse().slice(0,6));
+    }
     console.log(dataImage)
   },[userData])
 

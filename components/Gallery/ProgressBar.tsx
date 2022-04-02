@@ -3,7 +3,7 @@ import React from 'react'
 
 interface Props{
     progress: number,
-    url: string
+    url?: string
 }
 
 export default function ProgressBar({url, progress}: Props) {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import AuthContext from '../../context/AuthContext';
 import { postList } from '../../db/post_list';
@@ -8,6 +8,8 @@ import styles from './PostList.module.scss';
 import Repost from './Repost';
 import ToPost from './ToPost';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import SlideFriends from '../Responsive/SlideFriends';
+import axios from 'axios';
 
 interface Post{
   _id: string,
@@ -27,7 +29,16 @@ interface Post{
 export default function PostList() {
   const { posts, fetchData, loader, setOffset, offset, isLimit } = usePosts({type: "all"});
   const { loggedUser } = useContext<any>(AuthContext);
+  const [randomUsersData, setRandomUsersData] = useState<any>([]);
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+
+  useEffect(()=>{
+    const getRandomUsers = async ()=>{
+      const data = await axios.get('http://localhost:5000/api/users/get/all/7/8');
+      setRandomUsersData([...data.data])
+    }
+    getRandomUsers();
+  },[])
 
   return (
     <>
@@ -41,6 +52,7 @@ export default function PostList() {
           >
           <div>
             {isResponsive && <ToPost userData={loggedUser} fetchData={fetchData}/>}
+            {!isResponsive && <SlideFriends users={randomUsersData}/>}
             <div className={styles.postsContainer}>
               {
                 posts && 

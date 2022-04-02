@@ -1,16 +1,18 @@
 import axios from 'axios';
 import Router from 'next/router';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import { MdPublic } from 'react-icons/md';
 import { RiGitRepositoryPrivateLine } from 'react-icons/ri';
 import Person from './Person';
 import styles from './Suggestions.module.scss';
 import noCover from '../img/noCover.jpg';
+import AuthContext from '../context/AuthContext';
 
 export default function Suggestions() {
   const [allUsers, setAllUsers] = useState<any>([]);
   const [group, setGroup] = useState<any>(null);
+  const { loggedUser } = useContext<any>(AuthContext);
 
   useEffect(()=>{
     const fetchData = async ()=>{
@@ -29,7 +31,7 @@ export default function Suggestions() {
             <div className={styles.groupList}>
               <h3>Suggested Groups</h3>
               <div className={styles.groupGrid}>
-                { group && <div className={styles.group}>
+                { group && <div className={styles.group} onClick={()=> Router.push(`/groups/${group._id}`)}>
                   <div className={styles.presentation}>
                     <div 
                     className={styles.banner} 
@@ -40,7 +42,6 @@ export default function Suggestions() {
                     <img 
                     src={group.groupPic} 
                     alt={group.title} 
-                    onClick={()=> Router.push(`/groups/${group._id}`)}
                     />
                   </div>
                   <div className={styles.info}>

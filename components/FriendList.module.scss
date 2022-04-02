@@ -2,7 +2,7 @@
 
 .friendListContainer{
     width: 500px;
-    height: 100vh;
+    height: 50vh;
     position: fixed;
     top: 30px;
     left: 0;
@@ -17,6 +17,7 @@
         h2{
             margin-bottom: 20px;
             margin-left: 5px;
+            font-size: 1.4em;
             font-weight: 700;
             letter-spacing: 1px;
         }

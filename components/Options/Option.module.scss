@@ -1,0 +1,24 @@
+@import '../../styles/colors/variables.scss';
+
+.optionContainer{
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover{
+        background: $black2h;
+    }
+    span{
+        font-size: 1.7em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    h5{
+        padding-left: 15px;
+        font-size: 1em;
+        font-weight: 500;
+    }
+}

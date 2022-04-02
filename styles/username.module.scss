@@ -86,6 +86,15 @@
                     &.follow.followed:hover{
                         background-color: #ffffff20;
                     }
+                    &.editProfile{
+                        background: transparent;
+                        color: #fff;
+                        border: 2px solid #fff;
+                        width: 120px;
+                        &:hover{
+                            background: #ffffff10;
+                        }
+                    }
                 }
             }
         }
@@ -127,7 +136,7 @@
         }
         .bio{
             width: 450px;
-            height: 300px;
+            height: 225px;
             border-radius: 10px;
             padding: 40px 30px;
             background: $black2;
@@ -141,6 +150,25 @@
             }
             p{
                 font-size: 1em;
+            }
+            .info{
+                position: absolute;
+                bottom: 30px;
+                p{
+                    font-size: 0.9em;
+                    color: #ccc;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    span{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 0 6px;
+                        padding-bottom: 2px;
+                        font-size: 1.1em;
+                    }
+                }
             }
         }
     }
@@ -195,6 +223,11 @@
                         font-size: 1.2em;
                         &.follow{
                             padding: 5px 0;
+                        }
+                        &.editProfile{
+                            background: transparent;
+                            border: 1px solid #fff;
+                            color: #fff;
                         }
                     }
                 }

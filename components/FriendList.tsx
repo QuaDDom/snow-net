@@ -68,7 +68,7 @@ export default function FriendList() {
         <div className={styles.friendGrid}>
         <h2>Friends</h2>
             {
-              friendsData.map(({_id, name, lastname, profilePic, status}: any, index: number)=>(
+              friendsData.map(({_id, name, lastname, profilePic, status, username}: any, index: number)=>(
                 <Friend 
                 id={_id} 
                 name={name} 
@@ -76,6 +76,7 @@ export default function FriendList() {
                 image={profilePic}
                 status={status}
                 key={index}
+                username={username}
                 />
               ))
             }

@@ -1,0 +1,37 @@
+
+.userContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 24vh;
+    width: 20vw;
+    position: relative;
+    img{
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+    }
+    .text{
+        padding: 3px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h5{
+            font-size: 0.9em;
+            font-weight: 400;
+        }
+        p{
+            font-size: 0.85em;
+            color: #999;
+        }
+    }
+    button{
+        width: 15%;
+        margin-top: 5px;
+        border-radius: 10px;
+        border: 1.5px solid #fff;
+        background: #fff;
+    }
+}

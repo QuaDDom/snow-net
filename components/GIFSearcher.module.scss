@@ -16,6 +16,8 @@
     position: relative;
     padding: 5px 20px;
     padding-top: 300px;
+    overflow: hidden !important;
+    overflow-y: scroll !important;
     &::-webkit-scrollbar{
         width: 8px;
     }

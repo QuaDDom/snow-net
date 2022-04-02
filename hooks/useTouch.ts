@@ -25,6 +25,7 @@ export const useTouch = ()=>{
         handleTouchStart,
         handleTouchMove,
         handleTouchEnd,
-        touch
+        touch,
+        setTouch
     };
 }

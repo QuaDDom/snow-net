@@ -1,6 +1,8 @@
 import Router from 'next/router';
 import React from 'react';
-import { RiMailSendLine } from 'react-icons/ri';
+import { AiFillPlusCircle } from 'react-icons/ai';
+import { FaUserPlus } from 'react-icons/fa';
+import { RiMailSendLine, RiUserAddLine } from 'react-icons/ri';
 import styles from './Person.module.scss'
 
 interface Props{
@@ -26,7 +28,7 @@ export default function Person({id, image, name, lastname, username}: Props) {
                 <h4 className={styles.friendName}>{`${name} ${lastname}`}</h4>
                 <p>@{username}</p>
               </div>
-              <button><RiMailSendLine/></button>
+              <button><RiUserAddLine/></button>
           </div>
       </div>
   );

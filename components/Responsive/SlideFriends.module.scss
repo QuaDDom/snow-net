@@ -1,0 +1,27 @@
+@import '../../styles/colors/variables.scss';
+.slideFriendsContainer{
+    width: 100vw;
+    height: 24vh;
+    background: $black2;
+    padding: 10px 0px;
+    h3{
+        padding: 0 20px;
+        padding-bottom: 0px;
+        font-weight: 400;
+        font-size: 1em;
+    }
+    .slide{
+        min-width: 90vw;
+        overflow: hidden;
+        height: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div{
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

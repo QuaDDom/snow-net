@@ -7,6 +7,8 @@ import Suggestions from '../components/Suggestions';
 import { AuthProvider } from '../context/AuthContext';
 import styles from '../styles/home.module.scss';
 import { useMediaQuery } from 'react-responsive';
+import OptionsBar from '../components/Options/OptionsBar';
+import SlideFriends from '../components/Responsive/SlideFriends';
 
 const Home: NextPage = () => {
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
@@ -15,7 +17,12 @@ const Home: NextPage = () => {
     <Layout title="Snow">
       <div className={styles.homeContainer}>
         <AuthProvider>
-          {isResponsive && <FriendList/>}
+          {isResponsive &&
+          <div>
+            <FriendList/>
+            <OptionsBar/>
+          </div> 
+          }
           <PostList/>
           {isResponsive && <Suggestions/>}
         </AuthProvider>

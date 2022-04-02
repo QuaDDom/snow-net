@@ -10,6 +10,8 @@ import { projectStorage, projectFirestore, timestamp } from "../../config/fireba
 import { useDragDrop } from '../../hooks/useDragDrop';
 import Router from 'next/router';
 import CreatePoll from './CreatePoll';
+import ProgressBar from '../Gallery/ProgressBar';
+import { useImageResizer } from '../../hooks/useImageResizer';
 
 
 interface Props{
@@ -33,7 +35,8 @@ export default function ToPost({userData, fetchData, group}: Props) {
     const [poll, setPoll] = useState([]);
     const [hashtags, setHashtags] = useState([]);
     const containerRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
-    const { isOver } = useDragDrop({setFile, containerRef})
+    const { isOver } = useDragDrop({setFile, containerRef});
+    const [blobImage, setBlobImage] = useState<any>(null)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
         setText(e.target.value);
@@ -56,7 +59,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
     const handleEmojiPickerButton = ()=> pickerOpen ? setPickerOpen(false) : setPickerOpen(true);
     const handlePollButton = ()=> pollOpen ? setPollOpen(false) : setPollOpen(true);
     
-    const onSubmit = (e: any)=>{
+    const onSubmit = async (e: any)=>{
         e.preventDefault();
         setIsLoading(true);
         if(group){
@@ -75,10 +78,12 @@ export default function ToPost({userData, fetchData, group}: Props) {
                     }
                     post();
                 } else if(file){            
+                    const resizedImage: any = await useImageResizer(file);
+                    console.log(resizedImage)
                     const storageRef = projectStorage.ref(file.name); 
                     const collectionRef = projectFirestore.collection('postImages');
                     
-                    storageRef.put(file).on("state_changed", (snap: any)=>{
+                    storageRef.put(resizedImage).on("state_changed", (snap: any)=>{
                         let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
                         setProgress(percentage);
                     }, (err: any)=>{
@@ -128,12 +133,13 @@ export default function ToPost({userData, fetchData, group}: Props) {
             }
             post();
         }
-        
-        else if(file){            
+        else if(file){
+            const resizedImage: any = await useImageResizer(file);
+            console.log(resizedImage)
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('postImages');
             
-            storageRef.put(file).on("state_changed", (snap: any)=>{
+            storageRef.put(resizedImage).on("state_changed", (snap: any)=>{
                 let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
                 setProgress(percentage);
             }, (err: any)=>{
@@ -264,6 +270,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
             <div className={styles.createPoll}>
                 {pollOpen && <CreatePoll setPoll={setPoll}/>}
             </div>
+            {isLoading && <ProgressBar progress={progress}/>}
         </div>}
         </>
     );

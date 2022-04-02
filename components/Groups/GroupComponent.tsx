@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../../styles/group.module.scss';
 import { RiGitRepositoryPrivateLine } from 'react-icons/ri'; 
-import { MdPublic } from 'react-icons/md'; 
+import { MdPeople, MdPublic } from 'react-icons/md'; 
 import { AiOutlineUsergroupAdd } from 'react-icons/ai';
 import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
@@ -10,6 +10,10 @@ import { useEffect } from 'react';
 import ToPost from '../Posts/ToPost';
 import Post from '../Posts/Post';
 import { useMediaQuery } from 'react-responsive';
+import Photos from '../UserProfile/Photos';
+import { BsCalendarDateFill, BsPeopleFill } from 'react-icons/bs';
+import dateFormat from 'dateformat';
+import GroupMembers from './GroupMembers';
 
 export default function GroupComponent({group}: {group: any}) {
     const [isJoined, setIsJoined] = useState(false);
@@ -68,7 +72,7 @@ export default function GroupComponent({group}: {group: any}) {
                                 ? <p><span><RiGitRepositoryPrivateLine/></span> Private</p>
                                 : <p><span><MdPublic/></span> Public</p>
                             }
-                            <h5>{`${group.members.length} Members`}</h5>
+                            <p><span><BsPeopleFill/></span> {`${group.members.length} Members`}</p>
                         </div>
                     </div>
                 </div>
@@ -89,11 +93,9 @@ export default function GroupComponent({group}: {group: any}) {
                 </div>
                 </div>
                 <div className={styles.groupContent}>
-                    <div className={styles.photos}>
-                            <h4>Photos</h4>
-                            <div className="grid">
-
-                            </div>
+                    <div>
+                        <Photos userData={groupPosts}/>
+                        <GroupMembers members={group.members}/>
                     </div>
                     <div className={styles.posts}>
                         <ToPost userData={loggedUser} fetchData={fetchData} group={group}/>
@@ -121,9 +123,13 @@ export default function GroupComponent({group}: {group: any}) {
                         </div>
                     </div>
                     {isResponsive && <div className={styles.about}>
-                        <h4>About</h4>
-                        <p>{group.description}</p>
-                    </div>}
+                    <h4>About</h4>
+                    <p>{group.description}</p>
+                    <div className={styles.info}>
+                        <p><span><BsPeopleFill/></span> {`${group.members.length} Members`}</p>
+                        <p><span><BsCalendarDateFill/></span>Created at {dateFormat(group.createdAt, "yyyy mmmm dS")}</p>
+                    </div>
+                </div>}
             </div>
         </div>
     )

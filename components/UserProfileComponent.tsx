@@ -10,7 +10,10 @@ import { AiOutlineConsoleSql } from 'react-icons/ai';
 import axios from 'axios';
 import ToPost from './Posts/ToPost';
 import Photos from './UserProfile/Photos';
+import dateFormat, { masks } from "dateformat";
 import MutualFriends from './UserProfile/MutualFriends';
+import { BsCalendarDateFill } from 'react-icons/bs';
+import { MdPeople } from 'react-icons/md';
 
 interface Post{
     _id: string,
@@ -79,9 +82,9 @@ export default function UserProfileComponent({userData, username}: Props) {
                         {!isResponsive && <p className={styles.bio}>{userData.user.bio}</p>}
                     </div>
                     <div className={styles.buttons}>
-                        {isLoggedUser && <button><RiMailSendLine/></button>}
+                        {!isLoggedUser && <button><RiMailSendLine/></button>}
                         <button 
-                        className={`${styles.follow} ${isFollowed && styles.followed}`}
+                        className={`${styles.follow} ${isLoggedUser && styles.editProfile}`}
                         onClick={handleFollow}>
                             {isLoggedUser 
                             ? "Edit Profile"
@@ -126,6 +129,9 @@ export default function UserProfileComponent({userData, username}: Props) {
              {isResponsive && <div className={styles.bio}>
                     <h4>Bio</h4>
                     <p>{userData.user.bio}</p>
+                    <div className={styles.info}>
+                        <p><span><BsCalendarDateFill/></span> Joined in: {dateFormat(userData.user.createdAt, "yyyy mmmm dS")}</p>
+                    </div>
                 </div>}
             </div>
         </div>}

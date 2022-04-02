@@ -1,0 +1,80 @@
+@import '../../styles/colors/variables.scss';
+
+.donationCard{
+    width: 20vw;
+    height: 52vh;
+    background: $black2h;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.5s;
+    &:hover{
+        transform: translateY(-20px);
+    }
+    .bgTop{
+        background: #98f6ff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 35%;
+        z-index: 0;
+        &.blue{
+            background: #98bfff;
+        }
+        &.violet{
+            background: #b098ff;
+        }
+    }
+    .icon{
+        z-index: 1;
+        width: 100px;
+        height: 100px;
+        background: $black2h;
+        border-radius: 50%;
+        margin-top: 26%;
+    }
+    .title{
+        font-size: 2em;
+        padding: 15px 0;
+        padding-top: 17px;
+    }
+    .info{
+        font-size: 1em;
+        width: 15vw;
+    }
+    .price{
+        font-size: 2.5em;
+        padding-top: 15px;
+    }
+    button{
+        margin-top: 15px;
+        height: 40px;
+        width: 10vw;
+        background: #98f6ff;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1em;
+        font-weight: 700;
+        transition: background 0.3s;
+        &:hover{
+            background: #c3faff;
+        }
+        &.blue{
+            background: #98bfff;
+            &:hover{
+                background: #b3d0ff;
+            }
+        }
+        &.violet{
+            background: #b098ff;
+            &:hover{
+                background: #c3b3f8;
+            }
+        }
+    }
+}

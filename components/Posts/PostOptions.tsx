@@ -3,6 +3,7 @@ import styles from './PostOptions.module.scss';
 import { HiOutlineHeart, HiHeart } from 'react-icons/hi'
 import { BiRepost, BiComment } from 'react-icons/bi';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 
 interface Props{
@@ -22,15 +23,27 @@ interface Props{
 
 export default function PostOptions({userId, likes, _id,
     fetchData, loggedUser, text, image, repostedBy, setShowComments, showComments, comments}: Props) {
+   const [isLiked, setIsLiked] = useState(false);
+   const [totalLikes, setTotalLikes] = useState(likes.length);
+   const [isReposted, setIsReposted] = useState(false);
+   const [totalReposts, setTotalReposts] = useState(repostedBy.length)
 
    const handleLike = async ()=>{
+      isLiked ? setIsLiked(false) : setIsLiked(true);
+      isLiked ? setTotalLikes(totalLikes - 1) : setTotalLikes(totalLikes + 1);
       await axios.put(`http://localhost:5000/api/posts/${_id}/like`, {userId: loggedUser._id});
-      fetchData();
    }   
+
+   useEffect(()=>{
+      likes.includes(loggedUser._id) && setIsLiked(true);
+      repostedBy.includes(loggedUser._id) && setIsReposted(true);
+   },[])
 
    const handleRepost = async ()=>{
       try{
-         await axios.post('http://localhost:5000/api/posts/repost', {
+         isReposted ? setIsReposted(false) : setIsReposted(true);
+         isReposted ? setTotalReposts(totalReposts - 1) : setTotalReposts(totalReposts + 1);
+         !isReposted &&  await axios.post('http://localhost:5000/api/posts/repost', {
             userId: loggedUser._id,
             text,
             image,
@@ -40,7 +53,6 @@ export default function PostOptions({userId, likes, _id,
             repostedBy,
             postId: _id
          }); 
-         fetchData();
       } catch(err){
          console.log(err);
       }
@@ -55,14 +67,14 @@ export default function PostOptions({userId, likes, _id,
                <p>{comments && comments.length}</p>
          </div>
             <div className={styles.repost} onClick={handleRepost}>
-               <span className={`${repostedBy.includes(loggedUser._id) && styles.reposted}`}><BiRepost/></span>
-               <p className={`${repostedBy.includes(loggedUser._id) && styles.reposted}`}>{repostedBy.length}</p>
+               <span className={`${isReposted && styles.reposted}`}><BiRepost/></span>
+               <p className={`${isReposted && styles.reposted}`}>{totalReposts}</p>
             </div>
             <div className={styles.likes}>
-               {likes.includes(loggedUser._id)
+               { isLiked 
                ? <span className={styles.isLiked}><HiHeart onClick={handleLike}/></span> 
                : <span><HiOutlineHeart onClick={handleLike}/></span>}
-               <p className={`${likes.includes(loggedUser._id) && styles.liked}`}>{likes.length}</p>
+               <p className={`${isLiked && styles.liked}`}>{totalLikes}</p>
             </div>
          </div>
    );

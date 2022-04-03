@@ -43,6 +43,9 @@
             .reposted{
                 color: #4bff87;
             }
+            span.reposted{
+                animation: reposted 0.5s;
+            }
         }
         p{
             font-size: 0.7em ;
@@ -78,6 +81,14 @@
                 font-size: 0.7em;
             }
         }
+    }
+}
+
+@keyframes reposted {
+    from{
+        transform: rotate(0);
+    } to{
+        transform: rotate(360deg);
     }
 }
 

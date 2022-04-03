@@ -32,7 +32,7 @@
             display: flex;
             align-items: center;
             .options{
-                color: #999;
+                color: #777;
                 width: 8vw;
                 padding-left: 4vw;
                 display: flex;
@@ -99,20 +99,19 @@
                 padding-left: 4.5vw;
                 .messageInput{
                     display: block;
-                    border: 2px solid #9c9c9c;
+                    border: none;
                     border-radius: 30px;
                     width: 45vw;
                     height: 50px;
                     margin-left: 5vw;
-                    background: $black2;
+                    background: $black3h;
                     padding: 5px 30px;
                     outline: none;
                     font-size: 1.1em;
                     color: #fff;
                     transition: 0.3s;
                     &:focus{
-                        border: 2px solid #cecece;
-                        background: $black2h;
+                        background: $black3h;
                     }
                 }
                 button{

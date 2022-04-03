@@ -1,16 +1,33 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { CgClose } from 'react-icons/cg';
 import styles from './Modals.module.scss';
 
 interface Props{
-  type: string,
+  type?: string,
   value: string,
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  title: string
+  title: string,
+  postId: string,
+  userId: string,
+  setText?: any
 }
 
-export default function EditModal({type, value, setIsOpen, title}: Props) {
+export default function EditModal({type, value, setIsOpen, title, userId, postId, setText}: Props) {
   const [inputVal, setInputVal] = useState(value);
+
+  const updatePost = async ()=>{
+    setText(inputVal);
+    try{
+      await axios.put(`http://localhost:5000/api/posts/${postId}`, {
+        userId,
+        text: inputVal
+      });
+      setIsOpen(false);
+    } catch(err){
+      console.log(err);
+    }
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
     setInputVal(e.target.value);
@@ -18,12 +35,14 @@ export default function EditModal({type, value, setIsOpen, title}: Props) {
 
   return (
     <div className={styles.modalContainer}>
-        <div className={styles.closeOverlay}></div>
+        {/* <div className={"closeOverlay"} onClick={()=> setIsOpen(false)}/> */}
         <div className={styles.editModal}>
-          <button className={styles.close} onClick={()=> setIsOpen(false)}><CgClose/></button>
             <h4 className={styles.title}>{title}</h4>
             <input type="text" value={inputVal} onChange={handleChange}/>
-            <button className={styles.save}>Save</button>
+            <div className={styles.buttons}>
+              <button className={styles.save} onClick={updatePost}>Save</button>
+              <button className={styles.cancel} onClick={()=> setIsOpen(false)}>Cancel</button>
+            </div>
         </div>
     </div>
   )

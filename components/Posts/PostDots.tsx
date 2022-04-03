@@ -14,10 +14,11 @@ interface Props{
     postId: string,
     fetchData: () => Promise<void>,
     handleModal: ()=> void,
-    deletePost: () => Promise<void>
+    deletePost: () => Promise<void>,
+    handleEdit: ()=> void,
 }
 
-export default function PostDots({username, userId, loggedUserId, handleModal, postId, fetchData}: Props) {
+export default function PostDots({username, userId, loggedUserId, handleModal, postId, fetchData, handleEdit}: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = ()=> isOpen ? setIsOpen(false) : setIsOpen(true);
@@ -42,7 +43,7 @@ export default function PostDots({username, userId, loggedUserId, handleModal, p
                         <span><RiDeleteBin5Line/></span>
                         <p>Delete post</p>
                     </div>
-                    <div className={styles.option}>
+                    <div className={styles.option} onClick={handleEdit}>
                         <span><RiEditLine/></span>
                         <p>Edit post</p>
                     </div>

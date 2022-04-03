@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useGetUser } from '../../hooks/useGetUser';
 import OpenImage from '../OpenImage';
 import styles from './Post.module.scss';
@@ -13,6 +13,7 @@ import { BsPinAngleFill } from 'react-icons/bs';
 import Comments from './Comments/Comments';
 import extract from 'mention-hashtag';
 import HoverUserProfile from '../Hover/HoverUserProfile';
+import EditModal from '../Settings/modals/EditModal';
 
 interface Props{
   _id: string
@@ -51,6 +52,8 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const [comments, setComments] = useState<any>(null);
   const [hashtags, setHashtags] = useState<any>([]);
   const [isHover, setIsHover] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [textState, setTextState] = useState(text)
 
   const handleHover = ()=>{
     setIsHover(true);
@@ -70,6 +73,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
 
   const handleClick = ()=> setOpenImage(true);
   const handleModal = ()=> modalOpen ? setModalOpen(false) : setModalOpen(true);
+  const handleEditModal = ()=> editModal ? setEditModal(false) : setEditModal(true);
 
   const handleImageClick = ()=>{
     Router.push('user/' + user.username);
@@ -77,13 +81,22 @@ export default function Post({_id, image, text, userId, likes, fetchData,
 
   const deletePost = async ()=>{
       console.log(userId, loggedUser._id)
-      await axios.delete(`http://localhost:5000/api/posts/${_id}`, { data:{userId: loggedUser._id} });
+      await axios.delete(`http://localhost:5000/api/posts/${_id}`, { data: { userId: loggedUser._id } });
       fetchData();
   }
 
   return (
     <>
     {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen}/>}
+    {editModal && <EditModal 
+                  setIsOpen={setEditModal}
+                  value={text}
+                  title="Edit Post"
+                  userId={loggedUser._id}
+                  postId={_id}
+                  setText={setTextState}
+                  />
+    }
     {user && loggedUser && 
       <div className={styles.postContainer}>
         {isHover && 
@@ -127,10 +140,11 @@ export default function Post({_id, image, text, userId, likes, fetchData,
            fetchData={fetchData}
            deletePost={deletePost}
            handleModal={handleModal}
+           handleEdit={handleEditModal}
           />
         </div>
         <div className={styles.post}>
-          { text && <p className={styles.text}>{text}</p> }
+          { text && <p className={styles.text}>{textState}</p> }
           { image && <div className={styles.imageContainer}>
             <img src={image} width="100%" onClick={handleClick}/>
           </div>}

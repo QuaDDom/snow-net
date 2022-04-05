@@ -37,6 +37,14 @@
         background: $black2h;
         border-radius: 50%;
         margin-top: 26%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{    
+            width: 80%;
+            height: 80%;
+        }
     }
     .title{
         font-size: 2em;

@@ -16,7 +16,7 @@ export default function PageOne({handleChange, values, register, errors}: Props)
          type="text" 
          label="Username" 
          name="username" 
-         size={{width: 520, height: 45, fontSize: 20}}
+         size={{width: '25vw', height: 55, fontSize: 18}}
          handleChange={handleChange}
          value={values.username}
          inputRef={register}
@@ -26,7 +26,7 @@ export default function PageOne({handleChange, values, register, errors}: Props)
             type="email" 
             label="Email" 
             name="email" 
-            size={{width: 520, height: 45, fontSize: 20}}
+            size={{width: '25vw', height: 55, fontSize: 18}}
             handleChange={handleChange}
             value={values.email}
             inputRef={register}

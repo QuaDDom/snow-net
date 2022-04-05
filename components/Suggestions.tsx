@@ -10,15 +10,15 @@ import noCover from '../img/noCover.jpg';
 import AuthContext from '../context/AuthContext';
 
 export default function Suggestions() {
-  const [allUsers, setAllUsers] = useState<any>([]);
+  const [randomUsersData, setRandomUsersData] = useState<any>([]);
   const [group, setGroup] = useState<any>(null);
   const { loggedUser } = useContext<any>(AuthContext);
 
   useEffect(()=>{
     const fetchData = async ()=>{
-      const usersData = await axios.get('http://localhost:5000/api/users/get/all');
+      const data = await axios.get('http://localhost:5000/api/users/get/all/3/8');
+      setRandomUsersData([...data.data])
       const randomGroup = await axios.get('http://localhost:5000/api/groups/random');
-      setAllUsers([usersData.data[0], usersData.data[1], usersData.data[3]]);
       setGroup({...randomGroup.data});
     }
     fetchData();
@@ -62,7 +62,7 @@ export default function Suggestions() {
             <h3>Who to follow</h3>
             <div className={styles.personList}>
               {
-                allUsers && allUsers.map((user: any)=>(
+                randomUsersData && randomUsersData.map((user: any)=>(
                   <Person 
                   name={user.name} 
                   lastname={user.lastname} 
@@ -70,6 +70,8 @@ export default function Suggestions() {
                   id={user._id}
                   key={user._id}
                   username={user.username}
+                  loggedUser={loggedUser}
+                  friendReqs={user.friendReqs}
                   />
                 ))
               }

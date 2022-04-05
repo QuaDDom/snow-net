@@ -25,9 +25,6 @@ export default function TextArea({name, label, bg, handleChange, value, error}: 
           <label 
           htmlFor={name} 
           className={styles.labelComponent}
-          style={{
-            background: bg
-          }}
           >{label}</label>
       </div>
   );

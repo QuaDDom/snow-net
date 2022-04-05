@@ -36,7 +36,7 @@ export default function EditModal({type, value, setIsOpen, title, userId, postId
   return (
     <div className={styles.modalContainer}>
         {/* <div className={"closeOverlay"} onClick={()=> setIsOpen(false)}/> */}
-        <div className={styles.editModal}>
+        <div className={styles.modal}>
             <h4 className={styles.title}>{title}</h4>
             <input type="text" value={inputVal} onChange={handleChange}/>
             <div className={styles.buttons}>

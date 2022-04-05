@@ -1,24 +1,29 @@
-import React from 'react'
-import styles from './Report.module.scss';
+import React, { useState } from 'react'
+import styles from '../Settings/modals/Modals.module.scss';
 
 interface Props{
-    deletePost: () => Promise<void>,
+    postId: string,
     setModalOpen: any
 }
 
-export default function Report({deletePost, setModalOpen}: Props) {
-  return (
-    <div className={styles.content}>
-        <div className={styles.confirmDeleteContainer}>
-            <div className={styles.modal}>
-                <h4>Delete Post?</h4>
-                <p>The post will be deleted, and this cannot be undone, are you sure you want to delete this post?</p>
+export default function Report({postId, setModalOpen}: Props) {
+    const [report, setReport] = useState('');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
+        setReport(e.target.value)
+    }
+
+    return (
+        <div className={styles.modalContainer}>
+            <div className={`${styles.modal} ${styles.reportModal}`}>
+                <h4 className={styles.title}>Report Post</h4>
+                <p>If you think this post may be harmful, do not hesitate to send us your report.</p>
+                <input type="text" value={report} onChange={handleChange} className={styles.reportInput}/>
                 <div className={styles.buttons}>
-                    <button className={styles.delete} onClick={deletePost}>Delete</button>
+                    <button className={styles.send}>Send</button>
                     <button className={styles.cancel} onClick={()=> setModalOpen(false)}>Cancel</button>
                 </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }

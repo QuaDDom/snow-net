@@ -50,6 +50,7 @@
         p{
             font-size: 0.7em ;
             width: 10px;
+            user-select: none;
         }
         &.comments:hover{
             color: $primary;

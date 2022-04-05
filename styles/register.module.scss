@@ -15,8 +15,8 @@ $secondary: #00d7df;
         background: #00000045;
         backdrop-filter: blur(5px);
         .register{
-            height: 60vh;
-            width: 45vw;
+            height: 55vh;
+            width: 35vw;
             position: relative;
             display: flex;
             justify-content: center;
@@ -29,12 +29,12 @@ $secondary: #00d7df;
                 display: flex;
                 justify-content: start;
                 width: 86%;
-                padding-top: 20px;
-                padding-bottom: 40px;
+                padding-top: 40px;
+                padding-bottom: 10px;
                 h2{
-                    font-weight: 400;
-                    font-size: 2em;
-                    background: linear-gradient(90deg, $primary, $secondary);
+                    font-weight: 700;
+                    font-size: 2.5em;
+                    background: #fff;
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
@@ -45,12 +45,11 @@ $secondary: #00d7df;
                 width: 100%;
                 form{
                     width: 100%;
-                    .inputsCont{
-                        display: flex;
-                        align-items: center;
-                        padding-left: 100px;
-                        padding-top: 50px;
-                    }
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0 55px;
+                    padding-top: 40px;
+
                     .centerContent{
                         display: flex;
                         justify-content: center;

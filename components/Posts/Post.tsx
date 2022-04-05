@@ -14,6 +14,7 @@ import Comments from './Comments/Comments';
 import extract from 'mention-hashtag';
 import HoverUserProfile from '../Hover/HoverUserProfile';
 import EditModal from '../Settings/modals/EditModal';
+import Report from '../Modals/Report';
 
 interface Props{
   _id: string
@@ -53,7 +54,8 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const [hashtags, setHashtags] = useState<any>([]);
   const [isHover, setIsHover] = useState(false);
   const [editModal, setEditModal] = useState(false);
-  const [textState, setTextState] = useState(text)
+  const [textState, setTextState] = useState(text);
+  const [reportModal, setReportModal] = useState(false);
 
   const handleHover = ()=>{
     setIsHover(true);
@@ -74,6 +76,8 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const handleClick = ()=> setOpenImage(true);
   const handleModal = ()=> modalOpen ? setModalOpen(false) : setModalOpen(true);
   const handleEditModal = ()=> editModal ? setEditModal(false) : setEditModal(true);
+  const handleReportModal = ()=> reportModal ? setReportModal(false) : setReportModal(true);
+
 
   const handleImageClick = ()=>{
     Router.push('user/' + user.username);
@@ -96,6 +100,12 @@ export default function Post({_id, image, text, userId, likes, fetchData,
                   postId={_id}
                   setText={setTextState}
                   />
+    }
+    {
+      reportModal && <Report
+                     postId={_id}
+                     setModalOpen={setReportModal}
+                     />
     }
     {user && loggedUser && 
       <div className={styles.postContainer}>
@@ -141,6 +151,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
            deletePost={deletePost}
            handleModal={handleModal}
            handleEdit={handleEditModal}
+           handleReport={handleReportModal}
           />
         </div>
         <div className={styles.post}>

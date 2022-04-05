@@ -8,13 +8,13 @@ interface Props{
   price: number
 }
 
-export default function DonationCard({title, info, price}: Props) {
+export default function DonationCard({title, info, price, icon}: Props) {
   const style = price === 10 && styles.violet || price === 20 && styles.blue;
   return (
     <div className={`${styles.donationCard}`}>
         <div className={`${styles.bgTop} ${style}`}/>
         <div className={styles.icon}>
-            <img src="" alt="" />
+            <img src={icon} alt="" />
         </div>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.info}>{info}</p>

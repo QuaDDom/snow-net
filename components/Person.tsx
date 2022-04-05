@@ -1,7 +1,9 @@
+import axios from 'axios';
 import Router from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { AiFillPlusCircle } from 'react-icons/ai';
-import { FaUserPlus } from 'react-icons/fa';
+import { FaUserCheck, FaUserClock, FaUserPlus } from 'react-icons/fa';
 import { RiMailSendLine, RiUserAddLine } from 'react-icons/ri';
 import styles from './Person.module.scss'
 
@@ -10,12 +12,42 @@ interface Props{
     image: string,
     name: string,
     lastname: string,
-    username: string
+    username: string,
+    loggedUser: any,
+    friendReqs: any
 }
 
-export default function Person({id, image, name, lastname, username}: Props) {
-
+export default function Person({id, image, name, lastname, username, loggedUser, friendReqs}: Props) {
+  const [isFollowed, setIsFollowed] = useState(false);
+  const [isFriend, setIsFriend] = useState(false)
   const handleClick = ()=> Router.push(`/user/${username}`)
+
+  const handleFollow = async ()=>{
+    try{
+        if(!isFollowed){
+            await axios.put(`http://localhost:5000/api/users/${id}/follow`, {
+                userId: loggedUser._id
+            });
+            setIsFollowed(true);
+        } else{
+            await axios.put(`http://localhost:5000/api/users/${id}/unfollow`, {
+                userId: loggedUser._id
+            });
+            setIsFollowed(false);
+        }
+    } catch(err){
+        console.log(err)
+    }
+}
+
+  useEffect(()=>{
+    if(friendReqs.includes(loggedUser?._id)){
+      setIsFollowed(true);
+    }
+    if(loggedUser?.friends.includes(id)){
+      setIsFriend(true)
+    }
+  },[loggedUser])
 
   return (
       <div className={styles.personContainer}>
@@ -28,7 +60,13 @@ export default function Person({id, image, name, lastname, username}: Props) {
                 <h4 className={styles.friendName}>{`${name} ${lastname}`}</h4>
                 <p>@{username}</p>
               </div>
-              <button><RiUserAddLine/></button>
+              <button onClick={handleFollow}>{!isFollowed
+               ?
+                <FaUserPlus/>
+               : 
+                isFriend 
+                ? <FaUserCheck style={{color: '#60d660'}}/> 
+                : <FaUserClock style={{color: '#efef1f'}}/>}</button>
           </div>
       </div>
   );

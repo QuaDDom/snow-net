@@ -14,16 +14,19 @@ export default function Donations() {
            title="Snowflake"
            info='Help the development of this project by donating, and getting the "Snowflake" badge as a reward!'
            price={5}
+           icon="snowflake.svg"
           />
           <DonationCard
            title="Snowman"
            info='Help the development of this project by donating, and getting the "Snowman" badge as a reward!'
            price={10}
+           icon="snowman.svg"
           />
           <DonationCard
            title="Snowstorm"
            info='Help the development of this project by donating, and getting the "Snowstorm" badge as a reward!'
            price={20}
+           icon="snowstorm.svg"
           />
         </div>
       </div>

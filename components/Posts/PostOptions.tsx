@@ -43,7 +43,7 @@ export default function PostOptions({userId, likes, _id,
       try{
          isReposted ? setIsReposted(false) : setIsReposted(true);
          isReposted ? setTotalReposts(totalReposts - 1) : setTotalReposts(totalReposts + 1);
-         !isReposted &&  await axios.post('http://localhost:5000/api/posts/repost', {
+         await axios.post('http://localhost:5000/api/posts/repost', {
             userId: loggedUser._id,
             text,
             image,
@@ -62,18 +62,18 @@ export default function PostOptions({userId, likes, _id,
 
    return (
          <div className={styles.postOptionsContainer}>
-         <div className={styles.comments}>
-               <span onClick={handleOpenComments}><BiComment/></span>
-               <p>{comments && comments.length}</p>
-         </div>
+            <div className={styles.comments}>
+                  <span onClick={handleOpenComments}><BiComment/></span>
+                  <p>{comments && comments.length}</p>
+            </div>
             <div className={styles.repost} onClick={handleRepost}>
                <span className={`${isReposted && styles.reposted}`}><BiRepost/></span>
                <p className={`${isReposted && styles.reposted}`}>{totalReposts}</p>
             </div>
-            <div className={styles.likes}>
+            <div className={styles.likes} onClick={handleLike}>
                { isLiked 
-               ? <span className={styles.isLiked}><HiHeart onClick={handleLike}/></span> 
-               : <span><HiOutlineHeart onClick={handleLike}/></span>}
+               ? <span className={styles.isLiked}><HiHeart/></span> 
+               : <span><HiOutlineHeart/></span>}
                <p className={`${isLiked && styles.liked}`}>{totalLikes}</p>
             </div>
          </div>

@@ -61,10 +61,22 @@
             background: transparent;
             transition: 0.3s;
             color: $aquah;
+            svg{
+                transition: 0.3s;
+                animation: appear 0.5s;
+            }
             &:hover{
                 background: #90ffff20;
                 color: $aquah;
             }
         }
+    }
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+    } to{
+        opacity: 1;
     }
 }

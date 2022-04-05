@@ -12,6 +12,7 @@ import PageOne from './PageOne';
 import PageTwo from './PageTwo';
 import PageThree from './PageThree';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
+import PageFour from './PageFour';
 
 
 export default function RegisterInputs() {
@@ -60,6 +61,14 @@ export default function RegisterInputs() {
                       handleChange={handleChange}
                       values={values}
                       />}
+                      {
+                        page === 4 && <PageFour
+                        register={register} 
+                        errors={errors} 
+                        handleChange={handleChange}
+                        values={values}
+                        />
+                      }
                 </div>
                 <div className={styles.buttons}>
                     { page >=2 && <button 
@@ -69,7 +78,7 @@ export default function RegisterInputs() {
                     >
                       <IoIosArrowBack/>
                     </button>}
-                    { page <=2 && <button 
+                    { page <=3 && <button 
                     onClick={()=> setPage(page + 1)} 
                     type="button"
                     className={styles.forward}

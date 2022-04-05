@@ -44,7 +44,8 @@ export const useFireStorage = (user: any)=>{
                     username: user.username,
                     profilePic: user.profilePic,
                     name: `${user.name} ${user.lastname}`
-                }
+                },
+                likes: 0
             })
             setUrl(url);
             setIsLoading(false);

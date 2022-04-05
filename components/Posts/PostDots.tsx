@@ -16,9 +16,11 @@ interface Props{
     handleModal: ()=> void,
     deletePost: () => Promise<void>,
     handleEdit: ()=> void,
+    handleReport: ()=> void
 }
 
-export default function PostDots({username, userId, loggedUserId, handleModal, postId, fetchData, handleEdit}: Props) {
+export default function PostDots({username, userId, loggedUserId, handleModal,
+                                 postId, fetchData, handleEdit, handleReport}: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = ()=> isOpen ? setIsOpen(false) : setIsOpen(true);
@@ -69,7 +71,7 @@ export default function PostDots({username, userId, loggedUserId, handleModal, p
                         <span><MdBlock/></span>
                         <p>Block @{username}</p>
                     </div>
-                    <div className={styles.option}>
+                    <div className={styles.option} onClick={handleReport}>
                         <span><MdOutlineReport/></span>
                         <p>Report this post</p>
                     </div>

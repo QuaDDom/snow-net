@@ -1,0 +1,106 @@
+@import './colors/variables.scss';
+.welcomeContainer{
+    width: 100vw;
+    height: 100vh;
+    background: #001220;
+    .containerAll{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .leftSide{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            .bg{
+                height: 100vh;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                user-select: none;
+                pointer-events: none;
+            }
+            .snow{
+                z-index: 5;
+                padding-bottom: 10vh;
+                display: flex;
+                align-items: center;
+                img{
+                    width: 100px;
+                    height: 100px;
+                }
+                h1{
+                    color: #fff;
+                    padding: 0 20px;
+                    font-size: 6.5em;
+                    font-weight: 800;
+                    background: linear-gradient(90deg, $primary, $secondary);
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+        .rightSide{
+            width: 45%;
+            height: 100vh;
+            display: flex;
+            align-items: start;
+            justify-content: center;
+            flex-direction: column;
+            .snowLogo{
+                top: 5vh;
+                display: flex;
+                position: absolute;
+                img{
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+            h2{
+                font-size: 4em;
+            }
+            h3{
+                font-size: 2.5em;
+                padding-top: 4vh;
+                color: $primary;
+                padding-bottom: 1vh;
+            }
+            .buttons{
+                button{
+                    width: 100%;
+                    height: 40px;
+                    background: #fff;
+                    border-radius: 30px;
+                    color: #001220;
+                    font-size: 1em;
+                    border: none;
+                    outline: none;
+                    margin: 10px 0;
+                    font-weight: 700;
+                    transition: 0.3s;
+                    &.register{
+                        margin-bottom: 2vh;
+                        &:hover{
+                            background: #ececec;
+                        }
+                    }
+                    &.login{
+                        border: 2px solid #fff;
+                        color: $primary;
+                        background: transparent;
+                        &:hover{
+                            background: #002b4b;
+                        }
+                    }
+                }
+                p{
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}

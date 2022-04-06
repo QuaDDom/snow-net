@@ -104,3 +104,42 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .welcomeContainer{
+        .containerAll{
+            width: 100vw;
+            max-height: 100vh;
+            .leftSide{
+                position: absolute;
+                bottom: 47vh;
+                left: 0;
+                .bg{
+                    width: 100vw;
+                    height: 48vh;
+                }
+            }
+            .rightSide{
+                z-index: 10;
+                width: 100vw;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                .snowLogo{
+                    top: 20vh;
+                    img{
+                        width: 70px;
+                        height: 70px;
+                    }
+                }
+                h2{
+                    font-size: 2.3em;
+                    text-align: center;
+                }
+                h3{
+                    font-size: 2.2em;
+                }
+            }
+        }
+    }
+}

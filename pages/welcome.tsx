@@ -1,18 +1,21 @@
 import React from 'react';
 import styles from '../styles/welcome.module.scss';
 import Router from 'next/router';
+import { useMediaQuery } from 'react-responsive';
 
 export default function welcome() {
+    const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     const handlePush = (route: string)=> Router.push(route);
+    
     return (
         <div className={styles.welcomeContainer}>
             <div className={styles.containerAll}>
                 <div className={styles.leftSide}>
                     <img src="wavesbg.svg" alt="" className={styles.bg} />
-                    <div className={styles.snow}>
+                    {isResponsive && <div className={styles.snow}>
                         <img src="snow-logo.svg" alt="" />
                         <h1>SNOW</h1>
-                    </div>
+                    </div>}
                 </div>
                 <div className={styles.rightSide}>
                     <div className={styles.snowLogo}>

@@ -15,7 +15,7 @@ $secondary: #00d7df;
         background: #00000045;
         backdrop-filter: blur(5px);
         .register{
-            height: 55vh;
+            height: 49vh;
             width: 35vw;
             position: relative;
             display: flex;
@@ -27,10 +27,11 @@ $secondary: #00d7df;
             background: #0f0f0f;
             .registerText{
                 display: flex;
-                justify-content: start;
-                width: 86%;
+                width: 100%;
                 padding-top: 40px;
-                padding-bottom: 10px;
+                padding: 0 105px;
+                padding-top: 40px;
+
                 h2{
                     font-weight: 700;
                     font-size: 2.5em;
@@ -46,6 +47,7 @@ $secondary: #00d7df;
                 form{
                     width: 100%;
                     display: flex;
+                    align-items: center;
                     flex-direction: column;
                     padding: 0 55px;
                     padding-top: 40px;

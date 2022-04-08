@@ -6,7 +6,7 @@ import Post from './Posts/Post';
 import { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { RiMailSendLine } from 'react-icons/ri';
-import { AiOutlineConsoleSql } from 'react-icons/ai';
+import { AiOutlineCamera, AiOutlineConsoleSql } from 'react-icons/ai';
 import axios from 'axios';
 import ToPost from './Posts/ToPost';
 import Photos from './UserProfile/Photos';
@@ -14,6 +14,8 @@ import dateFormat, { masks } from "dateformat";
 import MutualFriends from './UserProfile/MutualFriends';
 import { BsCalendarDateFill } from 'react-icons/bs';
 import { MdPeople } from 'react-icons/md';
+import { FaPen } from 'react-icons/fa';
+import UploadUserProfile from './Settings/modals/UploadUserProfile';
 
 interface Post{
     _id: string,
@@ -41,6 +43,7 @@ export default function UserProfileComponent({userData, username}: Props) {
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     const [isFollowed, setIsFollowed] = useState(false);
     const [isLoggedUser, setIsLoggedUser] = useState(false);
+    const [updatePfpModal, setUpdatePfpModal] = useState(false)
 
 
 
@@ -69,13 +72,26 @@ export default function UserProfileComponent({userData, username}: Props) {
 
     return (
         <>
+        {updatePfpModal && <UploadUserProfile 
+                            title="Upload Profile Picture"
+                            value=""
+                            userId={loggedUser._id}
+                            setIsOpen={setUpdatePfpModal}
+                           />}
         { userData && <div className={styles.userProfileContainer}>
             <div className={styles.profile}>
-                <div className={styles.banner}>
+                <div className={`${styles.banner} ${isLoggedUser && styles.logged}`}>
                     <img src={userData.user.coverPic || 'noCover.jpg'} alt="" />
                 </div>
                 <div className={styles.info}>
-                    <img src={userData.user.profilePic || 'noProfile.png'} />
+                    <div className={styles.profilePic}>
+                        <img src={userData.user.profilePic || 'noProfile.png'} />
+                        {isLoggedUser && 
+                        <span className={styles.editProfilePic} onClick={()=> setUpdatePfpModal(true)}>
+                            <span><AiOutlineCamera/></span>
+                        </span>
+                        }
+                    </div>
                     <div>
                         <h4>{`${userData.user.name} ${userData.user.lastname}`}</h4>
                         <p>{`@${username}`}</p>

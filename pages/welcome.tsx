@@ -3,6 +3,7 @@ import styles from '../styles/welcome.module.scss';
 import Router from 'next/router';
 import { useMediaQuery } from 'react-responsive';
 
+
 export default function welcome() {
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     const handlePush = (route: string)=> Router.push(route);

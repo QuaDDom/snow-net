@@ -12,10 +12,11 @@ interface Props{
   currentChat: any,
   loggedUser: any,
   user: any,
-  socket: React.MutableRefObject<any>
+  socket: React.MutableRefObject<any>,
+  setCurrentChat: any
 }
 
-export default function Conversation({currentChat, loggedUser, user, socket}: Props) {
+export default function Conversation({currentChat, loggedUser, user, socket, setCurrentChat}: Props) {
   const [allMessages, setAllMessages] = useState<any>(null);
   const [arrivalMessage, setArrivalMessage] = useState<any>(null);
   const [gif, setGif] = useState('');
@@ -60,7 +61,7 @@ export default function Conversation({currentChat, loggedUser, user, socket}: Pr
 
   return (
     <div className={styles.conversationContainer}>
-        <ChatInfo name={user.name} lastname={user.lastname} img={user.profilePic}/>
+        <ChatInfo name={user.name} lastname={user.lastname} img={user.profilePic} setCurrentChat={setCurrentChat}/>
         <div className={styles.conversation} ref={scrollRef}>
           {
             allMessages && allMessages.map(({text, createdAt, sender, image}: any, index: number)=>(

@@ -16,6 +16,8 @@ import { BsCalendarDateFill } from 'react-icons/bs';
 import { MdPeople } from 'react-icons/md';
 import { FaPen } from 'react-icons/fa';
 import UploadUserProfile from './Settings/modals/UploadUserProfile';
+import UploadUserCover from './Settings/modals/UploadUserCover';
+import Repost from './Posts/Repost';
 
 interface Post{
     _id: string,
@@ -44,6 +46,8 @@ export default function UserProfileComponent({userData, username}: Props) {
     const [isFollowed, setIsFollowed] = useState(false);
     const [isLoggedUser, setIsLoggedUser] = useState(false);
     const [updatePfpModal, setUpdatePfpModal] = useState(false)
+    const [newCoverPic, setNewCoverPic] = useState('');
+    const [updateCoverModal, setUpdateCoverModal] = useState(false);
 
 
 
@@ -73,15 +77,27 @@ export default function UserProfileComponent({userData, username}: Props) {
     return (
         <>
         {updatePfpModal && <UploadUserProfile 
-                            title="Upload Profile Picture"
-                            value=""
-                            userId={loggedUser._id}
-                            setIsOpen={setUpdatePfpModal}
+                                title="Upload Profile Picture"
+                                value=""
+                                userId={loggedUser._id}
+                                setIsOpen={setUpdatePfpModal}
                            />}
+        {updateCoverModal && <UploadUserCover
+                                title="Upload Cover Picture"
+                                value=""
+                                userId={loggedUser._id}
+                                setIsOpen={setUpdateCoverModal}
+                                setNewCoverPic={setNewCoverPic}
+                             />}
         { userData && <div className={styles.userProfileContainer}>
             <div className={styles.profile}>
-                <div className={`${styles.banner} ${isLoggedUser && styles.logged}`}>
-                    <img src={userData.user.coverPic || 'noCover.jpg'} alt="" />
+                <div 
+                className={`${styles.banner} ${isLoggedUser && styles.logged}`}
+                onClick={()=> isLoggedUser && setUpdateCoverModal(true)}
+                >
+                    <img 
+                    src={newCoverPic || userData.user.coverPic || 'noCover.jpg'} 
+                    />
                 </div>
                 <div className={styles.info}>
                     <div className={styles.profilePic}>
@@ -122,24 +138,44 @@ export default function UserProfileComponent({userData, username}: Props) {
                     <div className={styles.posts}>
                     {
                         userData && userData.posts.map((
-                            {_id, text, image, userId, likes,
-                             createdAt, repostedBy, poll, pinned, groupData }: Post)=>(
-                            <Post 
-                            _id={_id} 
-                            text={text} 
-                            image={image} key={_id} 
-                            userId={userId} 
-                            likes={likes}
-                            fetchData={fetchData}
-                            loggedUser={loggedUser}
-                            createdAt={createdAt}
-                            repostedBy={repostedBy}
-                            poll={poll}
-                            pinned={pinned}
-                            group={groupData}
-                            />
-                        ))
-                    }
+                            {_id, text, image, userId, likes, createdAt,
+                            reposted, repostedPost, repostedBy, poll, pinned, groupData}: Post, index: number)=>(
+                              <>
+                            {
+                              reposted ?
+                              <Repost 
+                              _id={_id} 
+                              text={text} 
+                              image={image} 
+                              key={_id} 
+                              userId={userId} 
+                              likes={likes}
+                              fetchData={fetchData}
+                              loggedUser={loggedUser}
+                              createdAt={createdAt}
+                              repostedPost={repostedPost}
+                              repostedBy={repostedBy}
+                              poll={poll}
+                              /> :
+                              <Post 
+                              _id={_id} 
+                              text={text} 
+                              image={image}
+                              key={_id} 
+                              userId={userId} 
+                              likes={likes}
+                              fetchData={fetchData}
+                              loggedUser={loggedUser}
+                              createdAt={createdAt}
+                              repostedBy={repostedBy}
+                              poll={poll}
+                              pinned={pinned}
+                              group={groupData}
+                              />
+                            }
+                            </>
+                          ))
+                        }
                     </div>
                 </div>
              {isResponsive && <div className={styles.bio}>

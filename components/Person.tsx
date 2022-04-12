@@ -66,7 +66,7 @@ export default function Person({id, image, name, lastname, username, loggedUser,
                : 
                 isFriend 
                 ? <FaUserCheck style={{color: '#60d660'}}/> 
-                : <FaUserClock style={{color: '#efef1f'}}/>}</button>
+                : <FaUserClock style={{color: '#FFD93D'}}/>}</button>
           </div>
       </div>
   );

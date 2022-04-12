@@ -134,3 +134,29 @@
         }
     }
 }
+
+@media (max-width: 1200px){
+    .newConversationContainer{
+        .modal{
+            height: 60vh;
+            width: 100vw;
+            padding: 22px 30px;
+        }
+        h3{
+            padding-left: 30px;
+        }
+        .inputSearch{
+            margin-top: 5px;
+        }
+        .people{
+            height: 45vh !important;
+            .user{
+                overflow: hidden;
+                .image{
+                    border-radius: 50%;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}

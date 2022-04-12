@@ -28,7 +28,7 @@ interface Post{
 
 export default function PostList() {
   const { posts, fetchData, loader, setOffset, offset, isLimit } = usePosts({type: "all"});
-  const { loggedUser } = useContext<any>(AuthContext);
+  const { loggedUser, setLoggedUser } = useContext<any>(AuthContext);
   const [randomUsersData, setRandomUsersData] = useState<any>([]);
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
 

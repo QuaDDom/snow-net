@@ -35,7 +35,7 @@ export default function MutualFriends({friends}: any) {
             <div className={styles.grid}>
                 {
                     friendsData.map(({profilePic, name, username}: any)=>(
-                        <div className={styles.friend} onClick={()=> Router.push(`profile/${username}`)}>
+                        <div className={styles.friend} onClick={()=> Router.push(`${username}`, undefined, {shallow: true})}>
                             <img src={profilePic}/>
                             <h6>{name}</h6>
                         </div>

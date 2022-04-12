@@ -60,21 +60,13 @@
                     position: absolute;
                     bottom: 100px;
                     transition: .3s;
-                    opacity: 0;
                     right: 100px;
-                    &.open{
-                        opacity: 1;
-                    }
                 }
                 .gifSearch{
                     position: absolute;
                     bottom: 100px;
                     right: 100px;
                     transition: .3s;
-                    opacity: 0;
-                    &.open{
-                        opacity: 1;
-                    }
                 }
                 .inputFile{
                     display: none;

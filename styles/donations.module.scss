@@ -17,3 +17,22 @@
         width: 80%;
     }
 }
+
+@media (max-width: 1200px){
+    .donationsPage{
+        max-width: 100vw;
+        overflow: hidden;
+        h2{
+            font-size: 3.7em;
+            letter-spacing: 4px;
+        }
+        .cards{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 3vh;
+        }
+    }
+}

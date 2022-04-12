@@ -10,10 +10,11 @@
         border-radius: 10px;
         position: relative;
         .banner{
-            width: 100%;
+            width: 1800px;
             height: 320px;
             padding: 0 100px;
             position: relative;
+            transition: 0.7s;
             &.logged::before{
                 content: '';
                 position: absolute;
@@ -232,36 +233,41 @@
         padding: 0;
         .profile{
             width: 100vw;
-            min-height: 45vh;
+            min-height: 32vh;
             border-radius: 0;
             .banner{
                 width: 100vw;
-                height: 20vh;
+                height: 17vh;
                 padding: 0;
             }
             .info{
                 padding: 0 10px;
-                top: 32vw;
+                top: 25vw;
                 width: 100vw;
                 justify-content: start;
                 flex-direction: column;
                 align-items: start;
-                img{
-                    height: 75px;
-                    width: 75px;
-                    padding: 4px;
+                .profilePic{
+                    width: 80px;
+                    height: 80px;
+                    img{
+                        width: 80px;
+                        height: 80px;
+                        padding: 4px;
+                    }
                 }
                 div{
-                    padding-top: 7px;
+                    padding-top: 0px;
                     h4{
-                        font-size: 1.1em;
+                        font-size: 1em;
+                        padding-top: 10px;
                     }
                     p{
                         font-size: 0.95em;
                     }
                     .bio{
                         color: #fff;
-                        font-size: 1em;
+                        font-size: 0.9em;
                         padding-top: 10px;
                     }
                 }
@@ -270,15 +276,23 @@
                     position: absolute;
                     right: 20px;
                     top: 60px;
+                    display: flex;
+                    align-items: center;
                     button{
                         font-size: 1.2em;
                         &.follow{
                             padding: 5px 0;
+                            font-size: 0.9em;
+                            height: 30px;
                         }
                         &.editProfile{
+                            font-size: 0.9em;
+                            height: 30px;
+                            width: 100px;
                             background: transparent;
                             border: 1px solid #fff;
                             color: #fff;
+                            margin-left: 60px;
                         }
                     }
                 }

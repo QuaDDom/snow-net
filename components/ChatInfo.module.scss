@@ -12,6 +12,15 @@
     top: 80px;
     right: 0;
     padding: 5px 30px;
+    .back{
+        font-size: 1.5em;
+        color: #fff;
+        background: transparent;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .personInfo{
         display: flex;
         justify-content: center;
@@ -25,9 +34,9 @@
             object-fit: cover;
         }
         p{
-            font-size: 1.2em;
+            font-size: 1.1em;
             width: 300px;
-
+            font-weight: 300;
         }
     }
     .conf{
@@ -89,7 +98,7 @@
             }
             p{
                 font-size: 1.1em;
-                font-weight: 600;
+                font-weight: 300;
                 width: 32vw;
             }
         }

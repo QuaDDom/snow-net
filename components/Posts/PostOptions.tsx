@@ -43,6 +43,7 @@ export default function PostOptions({userId, likes, _id,
       try{
          isReposted ? setIsReposted(false) : setIsReposted(true);
          isReposted ? setTotalReposts(totalReposts - 1) : setTotalReposts(totalReposts + 1);
+         const newRepostedBy = [...repostedBy];
          await axios.post('http://localhost:5000/api/posts/repost', {
             userId: loggedUser._id,
             text,
@@ -50,7 +51,7 @@ export default function PostOptions({userId, likes, _id,
             reposted: true,
             repostedPost: _id,
             likes,
-            repostedBy,
+            repostedBy: newRepostedBy,
             postId: _id
          }); 
       } catch(err){

@@ -71,7 +71,13 @@ export default function MessageList({conversations, loggedUser, currentChat, set
           </div>
       </div>}
       { currentChat
-       ? <Conversation currentChat={currentChat} loggedUser={loggedUser} user={user} socket={socket}/>
+       ? <Conversation 
+          currentChat={currentChat} 
+          loggedUser={loggedUser} 
+          user={user} 
+          socket={socket}
+          setCurrentChat={setCurrentChat}
+          />
        : 
        <>
  {       isResponsive && <div className={styles.notConversation}>

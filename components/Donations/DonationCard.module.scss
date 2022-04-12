@@ -86,3 +86,33 @@
         }
     }
 }
+
+@media (max-width: 1200px){
+    .donationCard{
+        width: 80vw;
+        height: 50vh;
+        margin-bottom: 30px;
+        &:hover{
+            transform: translateY(0);
+        }
+        .icon{
+            min-width: 70px;
+            min-height: 70px;
+            img{
+                width: 70%;
+            }
+        }
+        .title{
+            font-size: 1.4em;
+        }
+        .info{
+            width: 70vw;
+        }
+        .price{
+            font-size: 2.2em;
+        }
+        button{
+            width: 45vw;
+        }
+    }
+}

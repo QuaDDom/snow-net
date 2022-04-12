@@ -3,13 +3,20 @@
 .profileContainer{
     position: absolute;
     width: 300px;
-    background: $black3;
+    background: $bluegrey;
     top: 61px;
     right: -30px;
-    transition: 1s cubic-bezier(1,0,0,1);
-    clip-path: inset(0 0 100% 0);
+    transition: 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    border-radius: 20px;
+    overflow: hidden;
+    padding-bottom: 10px;
     &.open{
-        clip-path: inset(0 0 0 0);
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
     }
     .options{
         display: flex;
@@ -25,10 +32,9 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
-            border-bottom: 1px solid $black3h;
-            transition: background 0.2s;
+            transition: background 0.3s;
             &:hover{
-                background: $black3h;
+                background: $bluegreyh;
             }
             img{
                 height: 60px;
@@ -56,10 +62,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid $black3h;
-            transition: background 0.2s;
+            transition: background 0.3s;
+            .icon{
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                height: 30px;
+                width: 30px;
+                font-size: 1.3em;
+                width: 18%;
+            }
+            p{
+                text-align: left;
+                padding-left: 20px;
+                width: 80%;
+            }
             &:hover{
-                background: $black3h;
+                background: $bluegreyh;
             }
         }
     }

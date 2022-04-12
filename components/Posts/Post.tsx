@@ -58,7 +58,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const [reportModal, setReportModal] = useState(false);
 
   const handleHover = ()=>{
-    setIsHover(true);
+    setIsHover(true)
   } 
 
 
@@ -125,7 +125,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
           alt={user.name} 
           onClick={handleImageClick}
           className={`${group && styles.group}`}
-          onMouseEnter={handleHover}
+          onMouseMove={handleHover}
           onMouseLeave={()=> setIsHover(false)}
           onMouseDown={()=> setIsHover(false)}
           onMouseOut={()=> setIsHover(false)}

@@ -17,5 +17,5 @@ export const useLocalStorage = ()=>{
         }
     },[]);
 
-    if(loggedUser) return loggedUser;
+    return {loggedUser, setLoggedUser};
 }

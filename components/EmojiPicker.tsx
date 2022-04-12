@@ -20,10 +20,11 @@ import { useModal } from '../hooks/useModal';
 interface Props{
   setMessage: React.Dispatch<React.SetStateAction<string>>,
   message: string,
-  setPickerOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setPickerOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  pickerOpen: boolean
 }
 
-const EmojiPicker = ({setMessage, message, setPickerOpen}: Props) => {
+const EmojiPicker = ({setMessage, message, setPickerOpen, pickerOpen}: Props) => {
     const { activityList, peopleList, natureList, handleCategory,
           symbolList, foodList, objectList, travelList, currentCategory } = useEmojiPicker();
 
@@ -33,8 +34,8 @@ const EmojiPicker = ({setMessage, message, setPickerOpen}: Props) => {
   
     return (
       <>
-      <div className="closeOverlay" onClick={()=> setPickerOpen(false)}/>
-      <div className={styles.emojiPickerContainer}>
+      {pickerOpen && <div className="closeOverlay" onClick={()=> setPickerOpen(false)}/>}
+      <div className={`${styles.emojiPickerContainer} ${pickerOpen ? styles.open : styles.close}`}>
         <div className={styles.searchAndCategory}>
           <div className={styles.category}>
             <button onClick={()=> handleCategory('people')}><AiOutlineSmile/></button>

@@ -253,6 +253,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                     setMessage={setText}
                     message={text} 
                     setPickerOpen={setPickerOpen}
+                    pickerOpen={pickerOpen}
                     />}
                 </div>
                 <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>

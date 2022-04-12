@@ -21,6 +21,11 @@
         background: $black2;
         padding: 40px 70px;
         border-radius: 15px;
+        position: relative;
+        &.cover{
+            width: 45vw;
+            height: 45vh;
+        }
         &.reportModal{
             height: 37vh;
         }
@@ -58,6 +63,23 @@
                     height: 152px;
                     width: 152px;
                     border-radius: 50%;
+                    background-size: cover;
+                    object-fit: cover;
+                }
+            }
+            .imagePreviewCover{
+                height: 100%;
+                width: 100%;
+                z-index: 3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                left: 0;
+                position: absolute;
+                img{
+                    width: 900px;
+                    height: 160px;
                     background-size: cover;
                     object-fit: cover;
                 }

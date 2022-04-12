@@ -5,13 +5,12 @@
     z-index: 10;
     width: 22vw;
     height: 24vh;
-    background: $dark;
+    background: #1b212c;
     left: -9vw;
     top: -21.6vh;
     border-radius: 10px;
     overflow: hidden;
     animation: appear 0.4s;
-    border: 1px solid #ffffff60;
     .user{
         width: 100%;
         height: 100%;
@@ -32,7 +31,7 @@
                 z-index: 5;
                 .banner{
                     width: 100%;
-                    border-radius: 0;
+                    border-radius: 10px;
                     height: 10vh;
                     top: 0;
                     left: 0;
@@ -50,7 +49,7 @@
                 z-index: 10;
                 padding: 5px;
                 margin-top: 38px;
-                background: $dark;
+                background: #1b212c;
             }
         }
         .info{

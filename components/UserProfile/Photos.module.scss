@@ -36,3 +36,25 @@
         }
     }
 }
+
+@media (max-width: 1200px){
+    .photos{
+        width: 100vw;
+        height: 250px;
+        position: relative;
+        margin: 0;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+        h4{
+            font-size: 1.3em;
+        }
+        .grid{
+            width: 100%;
+            img{
+                height: 110px;
+                width: 110px;
+            }
+        }
+    }
+}

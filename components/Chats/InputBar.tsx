@@ -162,11 +162,12 @@ export default function InputBar({loggedUser, chatId, getAllMessages, socket, re
                     </div>
                 </div>
                 <div className={`${styles.emojiPicker} ${pickerOpen && styles.open}`}>
-                    {pickerOpen && <EmojiPicker 
+                    <EmojiPicker 
                     setMessage={setMessage} 
                     message={message}
                     setPickerOpen={setPickerOpen}
-                    />}
+                    pickerOpen={pickerOpen}
+                    />
                 </div>
                 <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>
                     {gifOpen && <GIFSearcher setGif={setGif} setGifOpen={setGifOpen}/>}

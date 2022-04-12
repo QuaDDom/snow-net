@@ -13,7 +13,7 @@ const AuthContext = createContext({});
 export const AuthProvider = ({children}: Props)=>{
     const {handleChange, handleSubmit, userData, values } = useRegister();
     const {handleChangeLog, handleSubmitLog, currentUser, valuesLog} = useLogin();
-    const loggedUser = useLocalStorage();
+    const {loggedUser, setLoggedUser} = useLocalStorage();
 
     useEffect(()=>{
         if(currentUser){
@@ -35,6 +35,7 @@ export const AuthProvider = ({children}: Props)=>{
         handleSubmitLog,
         loggedUser,
         valuesLog,
+        setLoggedUser
     }
 
     return (

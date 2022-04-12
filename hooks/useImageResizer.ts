@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Resizer from "react-image-file-resizer";
 
-export const useImageResizer = (file: File)=>(
+export const useImageResizer = (file: File, height?: number, width?: number)=>(
     new Promise((resolve)=>{
         Resizer.imageFileResizer(
             file,
-            650,
-            650,
+            width || 650,
+            height || 650,
             "JPEG",
             80,
             0,

@@ -249,15 +249,21 @@ export default function ToPost({userData, fetchData, group}: Props) {
             }
             <div className={styles.options}>
                 <div className={`${styles.emojiPicker} ${pickerOpen && styles.open}`}>
-                    {pickerOpen && <EmojiPicker 
+                    <EmojiPicker 
                     setMessage={setText}
                     message={text} 
                     setPickerOpen={setPickerOpen}
                     pickerOpen={pickerOpen}
-                    />}
+                    isTop={true}
+                    />
                 </div>
                 <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>
-                    {gifOpen && <GIFSearcher setGif={setGif} setGifOpen={setGifOpen}/>}
+                    <GIFSearcher 
+                    setGif={setGif} 
+                    setGifOpen={setGifOpen} 
+                    gifOpen={gifOpen}
+                    isTop={true}
+                    />
                 </div>
                 <div className={styles.buttons}>
                     <p onClick={handleEmojiPickerButton} className={styles.button}><BiHappy/></p> 
@@ -269,7 +275,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                 <button className={styles.post} onClick={onSubmit}>Post</button>
             </div>
             <div className={styles.createPoll}>
-                {pollOpen && <CreatePoll setPoll={setPoll}/>}
+                <CreatePoll setPoll={setPoll} pollOpen={pollOpen}/>
             </div>
             {isLoading && <ProgressBar progress={progress}/>}
         </div>}

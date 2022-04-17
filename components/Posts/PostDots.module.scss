@@ -6,7 +6,7 @@
     right: 20px;
     top: 20px;
     position: absolute;
-    z-index: 15 !important;
+    z-index: 20 !important;
     .dots{
         color: #777;
         font-size: 1.45em;
@@ -25,7 +25,7 @@
         animation: appear 0.4s;
         transform-origin: top;
         position: absolute;
-        right: -80px;
+        z-index: 20;
         border-radius: 15px;
         overflow: hidden;
         .option{
@@ -53,7 +53,41 @@
         }
     }
 }
-
+.options{
+    width: 210px;
+    height: auto;
+    background: $black3;
+    animation: appear 0.4s;
+    transform-origin: top;
+    position: absolute;
+    z-index: 20;
+    border-radius: 15px;
+    overflow: hidden;
+    .option{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        transition: background .3s;
+        cursor: pointer;
+        border-radius: 15px;
+        &.delete{
+            color: #ff3939;
+        }
+        span{
+            font-size: 1.35em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        p{
+            padding: 10px;
+        }
+        &:hover{
+            background: $black3h;
+        }
+    }
+}
 @media (max-width: 1200px){
     .postDotsContainer{
         top: 20px;

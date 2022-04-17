@@ -170,7 +170,7 @@ export default function InputBar({loggedUser, chatId, getAllMessages, socket, re
                     />
                 </div>
                 <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>
-                    {gifOpen && <GIFSearcher setGif={setGif} setGifOpen={setGifOpen}/>}
+                    <GIFSearcher setGif={setGif} setGifOpen={setGifOpen} gifOpen={gifOpen}/>
                 </div>
                 <p onClick={handleEmojiPickerButton} className={styles.button}><BiHappy/></p> 
                 <input type="file" name="file" id="file" className={styles.inputFile} onChange={handleFileChange}/>

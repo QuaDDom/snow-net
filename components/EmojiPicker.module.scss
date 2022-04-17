@@ -10,19 +10,22 @@
     border-radius: 15px;
     justify-content: center;
     align-items: center;
-    z-index: 10;
     flex-direction: column;
     transform-origin: bottom;
     position: relative;
     padding: 20px;
-    transition: 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
     &.open{
         transform: scale(1) translateY(0);
         opacity: 1;
+        z-index: 10;
     }
     &.close{
         transform: scale(0) translateY(50px);
         opacity: 0;
+    }
+    &.isTop{
+        transform-origin: top;
     }
     .searchAndCategory{
         width: 100%;

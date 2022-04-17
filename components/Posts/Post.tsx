@@ -15,6 +15,8 @@ import extract from 'mention-hashtag';
 import HoverUserProfile from '../Hover/HoverUserProfile';
 import EditModal from '../Settings/modals/EditModal';
 import Report from '../Modals/Report';
+import { MutableRefObject } from 'react';
+import PostDotsOptions from './PostDotsOptions';
 
 interface Props{
   _id: string
@@ -56,10 +58,16 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const [editModal, setEditModal] = useState(false);
   const [textState, setTextState] = useState(text);
   const [reportModal, setReportModal] = useState(false);
+  const [optionsPosition, setOptionsPosition] = useState<any>(null);
+  const [optionsOpen, setOptionsOpen] = useState(false);
+
+  const postRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
 
   const handleHover = ()=>{
     setIsHover(true)
   } 
+
+  const handleOpenOptions = ()=> optionsOpen ? setOptionsOpen(false) : setOptionsOpen(true);
 
 
   const getComments = async ()=>{
@@ -107,8 +115,22 @@ export default function Post({_id, image, text, userId, likes, fetchData,
                      setModalOpen={setReportModal}
                      />
     }
+    {
+      optionsOpen && <PostDotsOptions
+                      username={user.username}
+                      userId={userId}
+                      loggedUserId={loggedUser?._id}
+                      postId={_id}
+                      deletePost={deletePost}
+                      handleModal={handleModal}
+                      handleEdit={handleEditModal}
+                      isOpen={optionsOpen}
+                      setIsOpen={setOptionsOpen}
+                      postRef={postRef}
+                     />
+    }
     {user && loggedUser && 
-      <div className={styles.postContainer}>
+      <div className={styles.postContainer} ref={postRef}>
         {isHover && 
           <HoverUserProfile 
           name={`${user.name} ${user.lastname}`} 
@@ -152,6 +174,8 @@ export default function Post({_id, image, text, userId, likes, fetchData,
            handleModal={handleModal}
            handleEdit={handleEditModal}
            handleReport={handleReportModal}
+           isOpen={optionsOpen}
+           setIsOpen={setOptionsOpen}
           />
         </div>
         <div className={styles.post}>

@@ -21,10 +21,11 @@ interface Props{
   setMessage: React.Dispatch<React.SetStateAction<string>>,
   message: string,
   setPickerOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  pickerOpen: boolean
+  pickerOpen: boolean,
+  isTop: boolean
 }
 
-const EmojiPicker = ({setMessage, message, setPickerOpen, pickerOpen}: Props) => {
+const EmojiPicker = ({setMessage, message, setPickerOpen, pickerOpen, isTop}: Props) => {
     const { activityList, peopleList, natureList, handleCategory,
           symbolList, foodList, objectList, travelList, currentCategory } = useEmojiPicker();
 
@@ -34,8 +35,12 @@ const EmojiPicker = ({setMessage, message, setPickerOpen, pickerOpen}: Props) =>
   
     return (
       <>
-      {pickerOpen && <div className="closeOverlay" onClick={()=> setPickerOpen(false)}/>}
-      <div className={`${styles.emojiPickerContainer} ${pickerOpen ? styles.open : styles.close}`}>
+      
+      <div 
+      className={`
+      ${styles.emojiPickerContainer} 
+      ${pickerOpen ? styles.open : styles.close} ${isTop && styles.isTop}
+      `}>
         <div className={styles.searchAndCategory}>
           <div className={styles.category}>
             <button onClick={()=> handleCategory('people')}><AiOutlineSmile/></button>

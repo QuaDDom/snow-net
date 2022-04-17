@@ -120,18 +120,14 @@
             transition: .3s;
             z-index: 17;
             top: 50px;
-            left: -50px;
+            left: -90px;
         }
         .gifSearch{
             position: absolute;
             transition: .3s;
-            opacity: 0;
             z-index: 17;
             top: 50px;
             left: -50px;
-            &.open{
-                opacity: 1;
-            }
         }
         .buttons{
             display: flex;

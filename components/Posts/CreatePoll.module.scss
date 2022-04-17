@@ -10,7 +10,14 @@
     flex-direction: column;
     position: relative;
     clip-path: inset(0 0 100% 0);
-    animation: appear 0.9s forwards;
+    transition: 0.9s;
+    &.open{
+        clip-path: inset(0 0 -100% 0);
+        height: 28vh;
+    }
+    &.close{
+        clip-path: inset(0 0 100% 0);
+    }
     .form{
         height: 17vh;
         width: 100%;

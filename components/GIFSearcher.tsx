@@ -11,10 +11,12 @@ interface Gif{
 
 interface Props{
   setGif: React.Dispatch<React.SetStateAction<string>>,
-  setGifOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setGifOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  gifOpen: boolean,
+  isTop: boolean
 }
 
-export default function GIFSearcher({setGif, setGifOpen}: Props) {
+export default function GIFSearcher({setGif, setGifOpen, gifOpen, isTop}: Props) {
 
   const {giphy, handleSubmit, handleChange, search, isLoading} = useGiphy();
 
@@ -22,8 +24,10 @@ export default function GIFSearcher({setGif, setGifOpen}: Props) {
 
   return (
     <>
-    <div className="closeOverlay" onClick={()=> setGifOpen(false)}/>
-    <div className={styles.gifContainer}>
+    {gifOpen && <div className="closeOverlay" onClick={()=> setGifOpen(false)}/>}
+    <div 
+    className={`${styles.gifContainer} ${gifOpen ? styles.open : styles.close} ${isTop && styles.isTop}`}
+    >
           <div className={styles.inputContainer}>
             <form onSubmit={handleSubmit}>
                 <input 
@@ -44,8 +48,8 @@ export default function GIFSearcher({setGif, setGifOpen}: Props) {
                </div>
              : <div className={styles.grid}>
                 {
-                giphy && giphy.length >= 1 && giphy.map(({url, title, images}: Gif)=>(
-                  <div className={styles.gif} key={url + title}>
+                giphy && giphy.length >= 1 && giphy.map(({url, title, images}: Gif, index: number)=>(
+                  <div className={styles.gif} key={url + title + index}>
                     <img 
                     src={images.fixed_height.url} 
                     alt={title} 

@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { useGetUser } from '../../hooks/useGetUser';
 import OpenImage from '../OpenImage';
 import styles from './Post.module.scss';
@@ -10,6 +10,7 @@ import ConfirmDelete from '../Posts/ConfirmDelete';
 import axios from 'axios';
 import { BiRepost } from 'react-icons/bi';
 import Comments from './Comments/Comments';
+import PostDotsOptions from './PostDotsOptions';
 
 interface Props{
   _id: string
@@ -44,6 +45,13 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
   const [post, setPost] = useState<any>(null)
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState<any>(null);
+  const [optionsPosition, setOptionsPosition] = useState<any>(null);
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [textState, setTextState] = useState(text);
+  const [reportModal, setReportModal] = useState(false);
+
+  const postRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
 
   const getComments = async ()=>{
     if(post){
@@ -70,10 +78,13 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
 
   const handleClick = ()=> setOpenImage(true);
   const handleModal = ()=> modalOpen ? setModalOpen(false) : setModalOpen(true);
+  const handleEditModal = ()=> editModal ? setEditModal(false) : setEditModal(true);
+  const handleReportModal = ()=> reportModal ? setReportModal(false) : setReportModal(true);
 
   const handleImageClick = ()=>{
     Router.push('user/' + postUser.username);
   }
+
 
   const deletePost = async ()=>{
       console.log(userId, loggedUser._id)
@@ -83,9 +94,23 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
 
   return (
     <>
+      {
+      optionsOpen && <PostDotsOptions
+                      username={user.username}
+                      userId={userId}
+                      loggedUserId={loggedUser?._id}
+                      postId={_id}
+                      deletePost={deletePost}
+                      handleModal={handleModal}
+                      handleEdit={handleEditModal}
+                      isOpen={optionsOpen}
+                      setIsOpen={setOptionsOpen}
+                      postRef={postRef}
+                     />
+    }
     {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen}/>}
     {user && postUser && loggedUser && post &&
-      <div className={styles.postContainer}>
+      <div className={styles.postContainer} ref={postRef}>
         <p className={styles.reposted}><span><BiRepost/></span> {user.name + ' ' + user.lastname} Reposted</p>
         <div className={styles.user}>
           <img src={postUser.profilePic || 'noProfile.png'} alt={postUser.name} onClick={handleImageClick}/>
@@ -100,13 +125,17 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
             <p className={styles.createdAt}>{format(post.createdAt)}</p>
           </div>
           <PostDots
-           username={postUser.username}
+           username={user.username}
            userId={userId}
            loggedUserId={loggedUser?._id}
            postId={_id}
            fetchData={fetchData}
            deletePost={deletePost}
            handleModal={handleModal}
+           handleEdit={handleEditModal}
+           handleReport={handleReportModal}
+           isOpen={optionsOpen}
+           setIsOpen={setOptionsOpen}
           />
         </div>
         <div className={styles.post}>

@@ -18,6 +18,21 @@
     padding-top: 300px;
     overflow: hidden !important;
     overflow-y: scroll !important;
+    transform-origin: bottom;
+    transition: 0.3s;
+    &.open{
+        transform: scale(1) translateY(0);
+        z-index: 10;
+        opacity: 1;
+    }
+    &.close{
+        transform: scale(0) translateY(50px);
+        opacity: 0;
+        z-index: -1;
+    }
+    &.isTop{
+        transform-origin: top;
+    }
     &::-webkit-scrollbar{
         width: 8px;
     }
@@ -170,5 +185,15 @@
     }
     to{
         transform: rotate(360deg);
+    }
+}
+
+@keyframes pickerAppear {
+    from{
+        transform: scale(0) translateY(50px);
+        opacity: 0;
+    } to{
+        transform: scale(1) translateY(0);
+        opacity: 1;
     }
 }

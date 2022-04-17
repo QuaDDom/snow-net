@@ -5,7 +5,8 @@ import { IoMdAdd } from 'react-icons/io';
 import axios from 'axios';
 
 interface Props{
-    setPoll: React.Dispatch<React.SetStateAction<never[]>>
+    setPoll: React.Dispatch<React.SetStateAction<never[]>>,
+    pollOpen: boolean
 }
 
 const days = Array.from(Array(8).keys());
@@ -14,7 +15,7 @@ const minutes = Array.from(Array(60).keys());
 
 const initialChoices = [1,1]
 
-export default function CreatePoll({setPoll}: Props) {
+export default function CreatePoll({setPoll, pollOpen}: Props) {
     const [daysOpen, setDaysOpen] = useState(false);
     const [hoursOpen, setHoursOpen] = useState(false);
     const [minutesOpen, setMinutesOpen] = useState(false);
@@ -34,7 +35,7 @@ export default function CreatePoll({setPoll}: Props) {
     }
 
     return (
-        <div className={styles.createPollContainer}>
+        <div className={`${styles.createPollContainer} ${pollOpen ? styles.open : styles.close}`}>
             <div className={styles.form}>
                 <div className={styles.inputs}>
                     {

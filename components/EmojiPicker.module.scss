@@ -1,10 +1,8 @@
 @import '../styles/colors/variables.scss';
 
 .emojiPickerContainer{
-    width: 450px;
-    height: 350px;
-    max-height: 400px;
-    max-width: 400px;
+    width: 0;
+    height: 0;
     background: $black3;
     display: flex;
     border-radius: 15px;
@@ -14,11 +12,14 @@
     transform-origin: bottom;
     position: relative;
     padding: 20px;
-    transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.4s, transform 0.5s, height 0s 1s, width 0s 1s;
     &.open{
         transform: scale(1) translateY(0);
         opacity: 1;
         z-index: 10;
+        width: 400px;
+        height: 350px;
+        transition: opacity 0.4s, transform 0.5s;
     }
     &.close{
         transform: scale(0) translateY(50px);

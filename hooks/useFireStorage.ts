@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { projectStorage, projectFirestore, timestamp } from "../config/firebase.config";
+import { useImageResizer } from "./useImageResizer";
 
-export const useFireStorage = (user: any)=>{
+export const useFireStorage = (user: any, title?: string)=>{
     const [file, setFile] = useState<any>(null),
           [error, setError] = useState(''),
           [progress, setProgress] = useState(0),
@@ -22,13 +23,14 @@ export const useFireStorage = (user: any)=>{
         }
     }
 
-    const handleSubmit = (e: any)=>{
+    const handleSubmit = async (e: any)=>{
         e.preventDefault();
         setIsLoading(true);
+        const resizedImage: any = await useImageResizer(file, 720, 900);
         const storageRef = projectStorage.ref(file.name); 
         const collectionRef = projectFirestore.collection('images');
 
-        storageRef.put(file).on("state_changed", (snap: any)=>{
+        storageRef.put(resizedImage).on("state_changed", (snap: any)=>{
             let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
             setProgress(percentage);
         }, (err: any)=>{
@@ -45,7 +47,8 @@ export const useFireStorage = (user: any)=>{
                     profilePic: user.profilePic,
                     name: `${user.name} ${user.lastname}`
                 },
-                likes: 0
+                likes: 0,
+                title: title
             })
             setUrl(url);
             setIsLoading(false);

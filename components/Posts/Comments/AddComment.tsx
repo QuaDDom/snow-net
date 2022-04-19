@@ -166,14 +166,21 @@ export default function AddComment({userData, fetchData, postId}: Props) {
             }
             <div className={styles.options}>
                 <div className={`${styles.emojiPicker} ${pickerOpen && styles.open}`}>
-                    {pickerOpen && <EmojiPicker 
+                    <EmojiPicker 
                     setMessage={setText}
-                    message={text}
+                    message={text} 
                     setPickerOpen={setPickerOpen}
-                    />}
+                    pickerOpen={pickerOpen}
+                    isTop={true}
+                    />
                 </div>
                 <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>
-                    {gifOpen && <GIFSearcher setGif={setGif} setGifOpen={setGifOpen}/>}
+                    <GIFSearcher 
+                    setGif={setGif} 
+                    setGifOpen={setGifOpen} 
+                    gifOpen={gifOpen}
+                    isTop={true}
+                    />
                 </div>
             </div>
         </div>

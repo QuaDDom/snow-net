@@ -3,10 +3,8 @@
 .gifContainer{
     overflow: scroll;
     overflow-x: hidden;
-    width: 450px;
-    height: 400px;
-    max-height: 400px;
-    max-width: 450px;
+    height: 0;
+    width: 0;
     background: $black3;
     display: flex;
     justify-content: center;
@@ -19,11 +17,16 @@
     overflow: hidden !important;
     overflow-y: scroll !important;
     transform-origin: bottom;
-    transition: 0.3s;
+    transition: opacity 0.4s, transform 0.5s, height 0s 1s, width 0s 1s;
     &.open{
         transform: scale(1) translateY(0);
         z-index: 10;
         opacity: 1;
+        width: 450px;
+        height: 400px;
+        max-height: 400px;
+        max-width: 450px;
+        transition: opacity 0.4s, transform 0.5s;
     }
     &.close{
         transform: scale(0) translateY(50px);

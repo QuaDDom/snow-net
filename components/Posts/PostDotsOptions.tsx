@@ -42,7 +42,7 @@ export default function PostDotsOptions({
                     <div className={styles.options} style={{
                         position: 'absolute',
                         top: postRef.current.offsetTop + 50,
-                        right: postRef.current.offsetLeft - 35
+                        right: postRef.current.offsetLeft - 30
                     }}>
                         <div className={`${styles.option} ${styles.delete}`} onClick={handleModal}>
                             <span><RiDeleteBin5Line/></span>

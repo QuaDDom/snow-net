@@ -63,9 +63,7 @@
                 font-family: 'Poppins', sans-serif;
                 font-weight: 400;
                 border: none;
-                &:hover{
-                    background: $secondaryh;
-                }
+   
                 span{
                     display: flex;
                     justify-content: center;
@@ -77,10 +75,22 @@
             .label{
                 padding-right: 10px;
                 margin-bottom: 15px;
+                &:hover{
+                    background: $secondaryh;
+                }
             }
             .button{
                 margin-top: 5px;
                 padding-right: 30px;
+                opacity: 0.7;
+                cursor: not-allowed;
+                &.active{
+                    cursor: pointer;
+                    opacity: 1;
+                    &:hover{
+                        background: $secondaryh;
+                    }
+                }
             }
         }
     }

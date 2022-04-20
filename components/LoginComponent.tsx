@@ -9,8 +9,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 
+interface Props{
+    isWelcome?: boolean,
+    launch?: boolean
+}
 
-export default function LoginComponent() {
+export default function LoginComponent({ isWelcome, launch }: Props) {
     const { handleChangeLog, handleSubmitLog, valuesLog, loggedUser } = useContext<any>(AuthContext);
 
     const { register, handleSubmit: handleFormSubmit, formState: { errors } } = useForm({

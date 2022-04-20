@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import styles from './Countdown.module.scss';
 import Router from 'next/router';
 import StaggerTextReveal from '../TextReveal/StaggerText';
+import SnowWelcome from './SnowWelcome';
+import LoginComponent from '../LoginComponent';
 
 export default function Countdown() {
     const [days, setDays] = useState(0);
@@ -14,7 +16,7 @@ export default function Countdown() {
     let countdown: any = useRef();
 
     const handleTimerStart = ()=>{
-        const date = new Date('May 11 2022 13:00:00').getTime();
+        const date = new Date('April 20 2022 17:50:00').getTime();
 
         countdown = setInterval(()=>{
             const now = new Date().getTime();
@@ -24,7 +26,7 @@ export default function Countdown() {
             const minutesDate = Math.floor((distance  % (1000 * 60 * 60 )) / (1000 * 60));
             const secondsDate = Math.floor((distance  % (1000 * 60)) / 1000);
 
-            if(distance === 0){
+            if(distance <= 0){
                 clearInterval(countdown.current)
                 setLaunch(true);
             } else{
@@ -45,38 +47,43 @@ export default function Countdown() {
     },[])
 
     return (
-        <>
-        <div className={styles.countdownContainer} style={{background: "url('wavesbg2.svg')"}}>
-            <div className={styles.content}>
-                <h2>A new social network</h2>
-                <h1><span>Coming</span> soon</h1>
-                <div className={styles.countdown}>
-                    <div>
-                        <h3>{days}</h3>
-                        <p>Days</p>
+        <div className={styles.containerAll}>            
+            <div className={`${styles.bgWhite} ${launch && styles.launch}`}/>
+            <div className={`${styles.countdownContainer} ${launch && styles.launch}`}
+                 style={{background: "url('wavesbg2.svg')"}}>
+                <div className={styles.content}>
+                    <h2>A new social network</h2>
+                    <h1><span>Coming</span> soon</h1>
+                    <div className={styles.countdown}>
+                        <div>
+                            <h3>{days}</h3>
+                            <p>Days</p>
+                        </div>
+                        <span>:</span>
+                        <div>
+                            <h3>{hours}</h3>
+                            <p>Hours</p>
+                        </div>
+                        <span>:</span>
+                        <div>
+                            <h3>{minutes}</h3>
+                            <p>Minutes</p>
+                        </div>
+                        <span>:</span>
+                        <div>
+                            <h3>{seconds}</h3>
+                            <p>Seconds</p>
+                        </div>
                     </div>
-                    <span>:</span>
-                    <div>
-                        <h3>{hours}</h3>
-                        <p>Hours</p>
-                    </div>
-                    <span>:</span>
-                    <div>
-                        <h3>{minutes}</h3>
-                        <p>Minutes</p>
-                    </div>
-                    <span>:</span>
-                    <div>
-                        <h3>{seconds}</h3>
-                        <p>Seconds</p>
-                    </div>
+                    <button onClick={()=> Router.push('/register')}>Register Now</button>
                 </div>
-                <button onClick={()=> Router.push('/register')}>Register Now</button>
+                <div className={styles.snowLogo}>
+                    <img src='snow-logo.svg' alt="" />
+                </div>
             </div>
-            <div className={styles.snowLogo}>
-                <img src='snow-logo.svg' alt="" />
-            </div>
+            <SnowWelcome launch={launch}/>
+            <LoginComponent isWelcome={true} launch={launch}/>
         </div>
-        </>
+
     )
 }

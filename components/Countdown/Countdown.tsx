@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useEffect } from 'react';
 import styles from './Countdown.module.scss';
 import Router from 'next/router';
+import StaggerTextReveal from '../TextReveal/StaggerText';
 
 export default function Countdown() {
     const [days, setDays] = useState(0);
@@ -44,6 +45,7 @@ export default function Countdown() {
     },[])
 
     return (
+        <>
         <div className={styles.countdownContainer} style={{background: "url('wavesbg2.svg')"}}>
             <div className={styles.content}>
                 <h2>A new social network</h2>
@@ -75,5 +77,6 @@ export default function Countdown() {
                 <img src='snow-logo.svg' alt="" />
             </div>
         </div>
+        </>
     )
 }

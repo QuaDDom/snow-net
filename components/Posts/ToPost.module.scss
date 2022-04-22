@@ -111,7 +111,12 @@
             border-radius: 30px;
             font-weight: 800;
             transition: 0.2s;
-            &:hover{
+            &.notAllowed{
+                opacity: 0.6;
+                cursor: inherit;
+                pointer-events: none;
+            }
+            &:hover:not(.notAllowed){
                 background: $aqua;
             }
         }

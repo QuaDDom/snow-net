@@ -272,7 +272,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                     <label htmlFor="file" className={styles.button}><BiImageAlt/></label>
                     <p onClick={handlePollButton} className={styles.button}><BiPoll/></p>
                 </div>
-                <button className={styles.post} onClick={onSubmit}>Post</button>
+                <button className={`${styles.post} ${!text && styles.notAllowed}`} onClick={onSubmit}>Post</button>
             </div>
             <div className={styles.createPoll}>
                 <CreatePoll setPoll={setPoll} pollOpen={pollOpen}/>

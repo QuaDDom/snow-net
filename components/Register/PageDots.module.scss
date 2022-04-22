@@ -1,0 +1,54 @@
+@import '../../styles/colors/variables.scss';
+
+.dotsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15px;
+    padding-top: 35px;
+    .dot{
+        height: 19px;
+        width: 19px;
+        border: 2px solid #fff;
+        background: #fff;
+        margin: 0 15px;
+        border-radius: 50%;
+        color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.7em;
+        z-index: 5;
+        transition: 0.5s;
+        &.active{
+            border: 2px solid $primary;
+            background: $primary;
+        }
+    }
+    span{
+        width: 44%;
+        position: absolute;
+        height: 3px;
+        background: #fff;
+        z-index: 1;
+        &::before{
+            content: '';
+            width: 30%;
+            position: absolute;
+            transition: 0.5s;
+            height: 3px;
+            background: $primary;
+            z-index: 1;
+        }
+        &.one::before{
+            width: 30%;
+        }
+        &.two::before{
+            width: 45%;
+        }
+        &.three::before{
+            width: 70%;
+        }
+    }
+}

@@ -15,7 +15,7 @@ export default function PageTwo({handleChange, values, register, errors}: Props)
         type="password" 
         label="Password" 
         name="password" 
-        size={{width: '25vw', height: 55, fontSize: 18}}
+        size={{width: '20vw', height: 52, fontSize: 18}}
         handleChange={handleChange}
         value={values.password}
         inputRef={register}
@@ -25,7 +25,7 @@ export default function PageTwo({handleChange, values, register, errors}: Props)
         type="password" 
         label="Repeat Password" 
         name="reppassword" 
-        size={{width: '25vw', height: 55, fontSize: 18}}
+        size={{width: '20vw', height: 52, fontSize: 18}}
         handleChange={handleChange}
         value={values.repeatPassword}
         inputRef={register}

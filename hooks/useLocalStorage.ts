@@ -7,7 +7,6 @@ export const useLocalStorage = ()=>{
     useEffect(()=>{
         try{
             const userLocal = localStorage.getItem('userLog');
-            if(!userLocal && Router.pathname !== "/register") Router.push('/login');
             if(userLocal){
                 const user = JSON.parse(userLocal);
                 setLoggedUser(user); 

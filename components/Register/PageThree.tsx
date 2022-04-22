@@ -15,7 +15,7 @@ export default function PageThree({handleChange, values, register, errors}: Prop
         type="text" 
         label="Name" 
         name="name" 
-        size={{width: '25vw', height: 55, fontSize: 18}}
+        size={{width: '20vw', height: 52, fontSize: 18}}
         handleChange={handleChange}
         value={values.name}
         inputRef={register}
@@ -25,7 +25,7 @@ export default function PageThree({handleChange, values, register, errors}: Prop
         type="text" 
         label="Last Name" 
         name="lastname" 
-        size={{width: '25vw', height: 55, fontSize: 18}}
+        size={{width: '20vw', height: 52, fontSize: 18}}
         handleChange={handleChange}
         value={values.lastname}
         inputRef={register}

@@ -13,6 +13,7 @@ import PageTwo from './PageTwo';
 import PageThree from './PageThree';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import PageFour from './PageFour';
+import PageDots from './PageDots';
 
 
 export default function RegisterInputs() {
@@ -31,63 +32,59 @@ export default function RegisterInputs() {
     }
   },[loggedUser])
 
-  console.log(page)
-
   return (
     <div className={styles.registerContainer}>
     <div className={styles.containerAll}>
-      <div className={styles.register}>
-          <div className={styles.registerText}>
-            <h2>Create your account</h2>
-          </div>
-          <div className={styles.formContainer}>
-            <form onSubmit={handleFormSubmit(handleSubmit)}>
-                <div className={styles.inputsCont}>
-                      {page === 1 && <PageOne 
-                      register={register} 
-                      errors={errors} 
-                      handleChange={handleChange}
-                      values={values}
-                      />}
-                      {page === 2 && <PageTwo
-                      register={register} 
-                      errors={errors} 
-                      handleChange={handleChange}
-                      values={values}
-                      />}
-                      {page === 3 && <PageThree
-                      register={register} 
-                      errors={errors} 
-                      handleChange={handleChange}
-                      values={values}
-                      />}
-                      {
-                        page === 4 && <PageFour
+      <div className={styles.registerContent}>
+        <div className={styles.registerBackground}>
+          <img src="welcome-snow.svg" alt="" />
+        </div>
+        <div className={styles.register}>
+            <div className={styles.registerText}>
+              <h2>Get Started!</h2>
+            </div>
+            <PageDots page={page}/>
+            <div className={styles.formContainer}>
+              <form onSubmit={handleFormSubmit(handleSubmit)}>
+                  <div className={styles.inputsCont}>
+                        {page === 1 && <PageOne 
                         register={register} 
                         errors={errors} 
                         handleChange={handleChange}
                         values={values}
-                        />
-                      }
-                </div>
-                <div className={styles.buttons}>
-                    { page >=2 && <button 
-                    onClick={()=> setPage(page - 1)} 
-                    type="button"
-                    className={styles.back}
-                    >
-                      <IoIosArrowBack/>
-                    </button>}
-                    { page <=3 && <button 
-                    onClick={()=> setPage(page + 1)} 
-                    type="button"
-                    className={styles.forward}
-                    >
-                      <IoIosArrowForward/>
-                    </button>}
-                </div>
-            </form>
-          </div>  
+                        />}
+                        {page === 2 && <PageTwo
+                        register={register} 
+                        errors={errors} 
+                        handleChange={handleChange}
+                        values={values}
+                        />}
+                        {page === 3 && <PageThree
+                        register={register} 
+                        errors={errors} 
+                        handleChange={handleChange}
+                        values={values}
+                        />}
+                  </div>
+                  <div className={styles.buttons}>
+                      { page >=2 && <button 
+                      onClick={()=> setPage(page - 1)} 
+                      type="button"
+                      className={styles.back}
+                      >
+                        <IoIosArrowBack/>
+                      </button>}
+                      { page <=3 && <button 
+                      onClick={()=> setPage(page + 1)} 
+                      type="button"
+                      className={styles.forward}
+                      >
+                        <IoIosArrowForward/>
+                      </button>}
+                  </div>
+              </form>
+            </div>  
+        </div>
       </div>
     </div>
   </div>

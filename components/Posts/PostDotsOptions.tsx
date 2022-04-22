@@ -2,6 +2,7 @@ import React from 'react'
 import { AiOutlinePushpin } from 'react-icons/ai';
 import { MdBlock, MdOutlineReport } from 'react-icons/md';
 import { RiDeleteBin5Line, RiEditLine, RiUserFollowLine, RiVolumeMuteLine } from 'react-icons/ri';
+import { useMediaQuery } from 'react-responsive';
 import styles from './PostDots.module.scss';
 
 interface Props{
@@ -17,19 +18,12 @@ interface Props{
     postRef: React.MutableRefObject<HTMLDivElement>
 }
 
-export default function PostDotsOptions({
-                                        isOpen, 
-                                        userId, 
-                                        loggedUserId, 
-                                        handleModal,
-                                        handleEdit, 
-                                        setIsOpen, 
-                                        username,
-                                        postId,
-                                        postRef
+export default function PostDotsOptions({isOpen, userId, loggedUserId, 
+                                        handleModal,handleEdit, setIsOpen, username,postId,postRef
                                         }: Props
                                         ) {
-    
+                                            
+    const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     const handleClick = ()=> isOpen ? setIsOpen(false) : setIsOpen(true);
     const handlePin = async ()=> {
 
@@ -39,11 +33,11 @@ export default function PostDotsOptions({
                     {
                     isOpen && userId === loggedUserId && 
                     <>
-                    <div className={styles.options} style={{
+                    <div className={styles.options} style={isResponsive ? {
                         position: 'absolute',
                         top: postRef.current.offsetTop + 50,
                         right: postRef.current.offsetLeft - 30
-                    }}>
+                    } : {}}>
                         <div className={`${styles.option} ${styles.delete}`} onClick={handleModal}>
                             <span><RiDeleteBin5Line/></span>
                             <p>Delete post</p>
@@ -61,10 +55,11 @@ export default function PostDotsOptions({
                 }
                 {
                     isOpen && userId !== loggedUserId && 
-                    <div className={styles.options} style={{
+                    <div className={styles.options} style={isResponsive ? {
                         position: 'absolute',
                         top: postRef.current.offsetTop + 50,
-                        right: postRef.current.offsetLeft - 50}}>
+                        right: postRef.current.offsetLeft - 30
+                    } : {}}>
                         <div className={styles.option}>
                             <span><RiUserFollowLine/></span>
                             <p>Follow @{username}</p>

@@ -5,7 +5,8 @@ interface Props{
     handleChange: ()=> void,
     values: any,
     register: any,
-    errors: any
+    errors: any,
+    isResponsive: boolean
 }
 
 

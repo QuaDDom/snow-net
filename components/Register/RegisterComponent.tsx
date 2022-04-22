@@ -14,11 +14,13 @@ import PageThree from './PageThree';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import PageFour from './PageFour';
 import PageDots from './PageDots';
+import { useMediaQuery } from 'react-responsive';
 
 
 export default function RegisterInputs() {
   const [page, setPage] = useState(1);
   const { handleChange, handleSubmit, values, loggedUser } = useContext<any>(AuthContext);
+  const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
 
   const { register, handleSubmit: handleFormSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(registerSchema),
@@ -52,18 +54,21 @@ export default function RegisterInputs() {
                         errors={errors} 
                         handleChange={handleChange}
                         values={values}
+                        isResponsive={isResponsive}
                         />}
                         {page === 2 && <PageTwo
                         register={register} 
                         errors={errors} 
                         handleChange={handleChange}
                         values={values}
+                        isResponsive={isResponsive}
                         />}
                         {page === 3 && <PageThree
                         register={register} 
                         errors={errors} 
                         handleChange={handleChange}
                         values={values}
+                        isResponsive={isResponsive}
                         />}
                   </div>
                   <div className={styles.buttons}>

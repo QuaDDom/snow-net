@@ -25,6 +25,16 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
     
     const imageTypes = ["image/png", "image/jpeg", "image/jpg"];
 
+    useEffect(()=>{
+        if(file){
+            const reader = new FileReader();
+            reader.onloadend = () =>{
+                setPreview(reader.result as string)
+            };
+            reader.readAsDataURL(file);
+        }
+    },[file])
+
     const updateProfile = async ()=> {
         try{
             const resizedImage: any = await useImageResizer(file, 128);
@@ -67,24 +77,18 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
         
         if(selectedFile && imageTypes.includes(selectedFile.type)){
             setFile(selectedFile);
-            if(file){
-                const reader = new FileReader();
-                reader.onloadend = () =>{
-                    setPreview(reader.result as string)
-                };
-                reader.readAsDataURL(file);
-            }
         } else{
             setFile(null);
         }
     }
+
     return (
         <div className={styles.modalContainer}>
             {/* <div className={"closeOverlay"} onClick={()=> setIsOpen(false)}/> */}
             <div className={styles.modal}>
                 <h4 className={styles.title}>{title}</h4>
                 <div className={styles.uploadPhoto}>
-                  <input type="file" onChange={handleFileChange}/>
+                  <input type="file" onChange={handleFileChange} accept="image/png, image/jpg, image/jpeg"/>
                   <span><AiOutlineCamera/></span>
                   <div className={styles.imagePreview}>
                     {preview &&  <img src={preview} alt="" />}

@@ -87,6 +87,33 @@
     }
 }
 
+@media (max-width: 1200px) {
+    .emojiPickerContainer{
+        padding: 10px;
+        &.open{
+            width: 250px;
+            height: 260px;
+        }
+        .searchAndCategory{
+            padding: 0 10px;
+            margin-right: 20px;
+            .category{
+                button{
+                    width: 30px;
+                    height: 30px;
+                    font-size: 20px;
+                }
+            }
+        }
+        .emojiGrid{
+            padding: 0;
+            span{
+                font-size: 20px;
+            }
+        }
+    }
+}
+
 @keyframes appear{
     from{
         opacity: 0;

@@ -15,11 +15,13 @@ interface Props{
     setIsOpen: any,
     username: string,
     postId: string,
-    postRef: React.MutableRefObject<HTMLDivElement>
+    postRef: React.MutableRefObject<HTMLDivElement>,
+    reposted?: boolean
 }
 
 export default function PostDotsOptions({isOpen, userId, loggedUserId, 
-                                        handleModal,handleEdit, setIsOpen, username,postId,postRef
+                                        handleModal,handleEdit, setIsOpen, 
+                                        username, postId, postRef, reposted
                                         }: Props
                                         ) {
                                             
@@ -35,7 +37,7 @@ export default function PostDotsOptions({isOpen, userId, loggedUserId,
                     <>
                     <div className={styles.options} style={isResponsive ? {
                         position: 'absolute',
-                        top: postRef.current.offsetTop + 50,
+                        top: postRef.current.offsetTop + (!reposted ? 50 : 75),
                         right: postRef.current.offsetLeft - 30
                     } : {}}>
                         <div className={`${styles.option} ${styles.delete}`} onClick={handleModal}>

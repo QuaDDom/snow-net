@@ -78,6 +78,25 @@
     }
 }
 
+@media (max-width: 1200px) {
+    .imageModalContainer{
+        .containerAll{
+            width: 100vw;
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            .userInfo{
+                justify-content: center;
+                padding-bottom: 10px;
+            }
+            .image{
+                max-width: 85vw;
+                padding: 20px 0;
+            }
+        }
+    }
+}
+
 @keyframes appear {
     from{
         clip-path: inset(0 0 100% 0);

@@ -20,7 +20,7 @@ export default function CountdownComponent({launch, setLaunch}: Props) {
     let countdown: any = useRef();
 
     const handleTimerStart = ()=>{
-        const date = new Date('April 21 2022 19:51:50').getTime();
+        const date = new Date('April 23 2022 20:18:50').getTime();
 
         countdown = setInterval(()=>{
             const now = new Date().getTime();

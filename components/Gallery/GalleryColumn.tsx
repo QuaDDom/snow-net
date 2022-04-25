@@ -57,7 +57,7 @@ export default function GalleryColumn() {
                         </div>
                     }
                     {file && <div className={styles.imagePreview}>
-                        <ImagePreview file={file}/>
+                        <ImagePreview file={file} setFile={setFile}/>
                     </div>}
                     <button 
                     className={`${styles.button} ${file && title && styles.active}`} 

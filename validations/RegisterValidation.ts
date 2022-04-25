@@ -4,7 +4,8 @@ export const registerSchema = yup.object().shape({
     username: yup.string()
                 .required()
                 .min(3)
-                .max(13) ,
+                .max(13).
+                lowercase() ,
     name: yup.string()
                 .required()
                 .min(3)

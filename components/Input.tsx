@@ -37,13 +37,13 @@ export default function Input({type, label, name, bg, size, value, handleChange,
         }}
         />
         <label
-        className={styles.labelComponent}
+        className={`${styles.labelComponent} ${error?.message && styles.error}`}
         style={{
           background: bg,
           fontSize: size.fontSize
         }}
-        >{label}</label>
-        <span className={styles.error}>{ name === "reppasword" ? error && "Paswords should match!": error?.message}</span>
+        >{!error?.message ? label : error.message}</label>
+
       </div>
   );
 }

@@ -74,8 +74,16 @@
 @media (max-width: 1200px){
     .confirmDeleteContainer{
         .modal{
-            width: 90vw;
-            height: 35vh;
+            width: 100vw;
+            height: 30vh;
+            padding: 40px 50px;
+            .buttons{
+                height: 0px;
+                button{
+                    width: 25vw;
+                    height: 39px;
+                }
+            }
         }
     }
 }

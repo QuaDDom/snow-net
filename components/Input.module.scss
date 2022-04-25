@@ -40,7 +40,11 @@
             left: 10px;
             color: #999;
         }
-
+        &:-webkit-autofill:focus{
+            box-shadow: 0 0 0px 1000px $black3h inset;
+            -webkit-text-fill-color: #fff;
+            font-size: 1em;
+        }
     }
     .labelComponent{
         position: absolute;
@@ -52,5 +56,9 @@
         text-align: center;
         background: transparent;
         color: #999;
+    }
+    span{
+        z-index: 10;
+        color: #f00;
     }
 }

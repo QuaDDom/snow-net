@@ -1,15 +1,17 @@
 import React from 'react'
 import Input from '../Input'
+import styles from './PageThree.module.scss'
 
 interface Props{
     handleChange: ()=> void,
     values: any,
     register: any,
     errors: any,
-    isResponsive: boolean
+    isResponsive: boolean,
+    handleSubmit: any
 }
 
-export default function PageThree({handleChange, values, register, errors}: Props) {
+export default function PageThree({handleChange, values, register, errors, handleSubmit}: Props) {
   return (
     <div>
         <Input 
@@ -32,6 +34,7 @@ export default function PageThree({handleChange, values, register, errors}: Prop
         inputRef={register}
         error={errors.lastname}
         />
+        <button className={styles.register} type="submit">Register</button>
     </div>
   )
 }

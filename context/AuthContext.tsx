@@ -5,7 +5,7 @@ import { useLogin } from '../hooks/useLogin';
 import { useRegister } from '../hooks/useRegister';
 
 interface Props{
-    children: React.ReactNode
+    children: React.ReactNode 
 }
 
 const AuthContext = createContext({});

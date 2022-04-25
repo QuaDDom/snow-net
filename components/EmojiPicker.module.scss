@@ -110,6 +110,13 @@
             span{
                 font-size: 20px;
             }
+            &::-webkit-scrollbar{
+                width: 5px;
+            }
+            &::-webkit-scrollbar-thumb{
+                background: $primary;
+                border-radius: 20px;
+            }
         }
     }
 }

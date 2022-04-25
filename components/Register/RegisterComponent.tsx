@@ -24,8 +24,12 @@ export default function RegisterInputs() {
 
   const { register, handleSubmit: handleFormSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(registerSchema),
-    reValidateMode: "onChange",
-    mode: "onChange"
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
+    criteriaMode: "firstError",
+    shouldFocusError: true,
+    shouldUnregister: false,
+    shouldUseNativeValidation: false,
   });
     
   useEffect(()=>{
@@ -69,6 +73,7 @@ export default function RegisterInputs() {
                         handleChange={handleChange}
                         values={values}
                         isResponsive={isResponsive}
+                        handleSubmit={handleSubmit}
                         />}
                   </div>
                   <div className={styles.buttons}>
@@ -79,7 +84,7 @@ export default function RegisterInputs() {
                       >
                         <IoIosArrowBack/>
                       </button>}
-                      { page <=3 && <button 
+                      { page <=2 && <button 
                       onClick={()=> setPage(page + 1)} 
                       type="button"
                       className={styles.forward}

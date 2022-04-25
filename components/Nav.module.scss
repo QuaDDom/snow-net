@@ -12,7 +12,7 @@ $secondary: #0099ff;
     backdrop-filter: blur(20px);
     justify-content: space-between;
     align-items: center;
-    z-index: 12;
+    z-index: 30;
     .logo{
         padding-left: 60px;
         height: 100%;
@@ -21,6 +21,7 @@ $secondary: #0099ff;
         justify-content: space-between;
         position: relative;
         align-items: center;
+        cursor: pointer;
         img{
             height: 40px;
             width: 40px;
@@ -29,9 +30,18 @@ $secondary: #0099ff;
             font-size: 2em;
             font-weight: 800;
             margin-left: 20px;
-            background: linear-gradient(90deg, $primary, $secondary);
+            background: linear-gradient(90deg, $primary, $secondary, $primary);
+            background-size: 170%;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            transition: 1.2s;
+            &:hover{
+                background-size: 170%;
+                background: linear-gradient(90deg, $primary, $secondary, $primary);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: hover 0.8s infinite linear;
+            }
         }
     }
     nav{
@@ -43,16 +53,29 @@ $secondary: #0099ff;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 6;
             li{
                 font-size: 1.15em;
                 text-align: center;
                 list-style: none;
                 transition: 0.3s;
                 margin-right: 40px;
-                &:hover{
+                z-index: 6;
+                a{
+                    transition: 0.3s;
+                }
+                a:hover{
                     color: $primary;
                 }
             }
         }
+    }
+}
+
+@keyframes hover {
+    0%{
+        background-position-x: 0px;
+    } 100%{
+        background-position-x: 100px;
     }
 }

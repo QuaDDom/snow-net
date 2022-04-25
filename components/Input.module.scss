@@ -33,12 +33,18 @@
             font-size: 0.9em !important;
             left: 10px;
             color: $primary;
+            &.error{
+                color: rgb(255, 76, 76);
+            }
         }
         &:not(:placeholder-shown).inputComponent:not(:focus) + .labelComponent{
             top: 5px;
             font-size: 0.9em !important;
             left: 10px;
             color: #999;
+            &.error{
+                color: rgb(255, 76, 76);
+            }
         }
         &:-webkit-autofill:focus{
             box-shadow: 0 0 0px 1000px $black3h inset;
@@ -56,6 +62,9 @@
         text-align: center;
         background: transparent;
         color: #999;
+        &.error{
+            color: rgb(255, 82, 82);
+        }
     }
     span{
         z-index: 10;

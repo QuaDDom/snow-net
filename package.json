@@ -1,6 +1,7 @@
 {
   "name": "snow-net",
   "private": true,
+  "version": "1.0.0-beta",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

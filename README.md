@@ -1,4 +1,4 @@
-<a href="#"><img width="100%" height="auto" src="https://i.imgur.com/t0rJzA5.jpeg" height="175px"/></a>
+<a href="#"><img width="100%" height="auto" src="https://i.imgur.com/n737Fmc.jpg" height="175px"/></a>
 
 <div align="center"> 
   <img width="auto" height="auto" src="https://img.shields.io/github/stars/QuaDDom/snow-net?style=for-the-badge" />

@@ -1,0 +1,21 @@
+@import '../../../styles/colors/variables.scss';
+
+.newPostModal{
+    position: fixed;
+    top: 50px;
+    bottom: 50px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    .modal{
+        width: 100vw;
+        height: 60vh;
+        background: $black2;
+        padding: 40px 50px;
+    }
+}

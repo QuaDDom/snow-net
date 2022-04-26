@@ -21,6 +21,13 @@
 * [Mongoose.js](https://mongoosejs.com/)
 * [MongoDB](https://www.mongodb.com/)
 
+<div align="center"> 
+  <h2>Samples</h2>
+  <img width="100%" height="auto" src="https://i.imgur.com/QGs0qZ3.png" height="175px"/>
+  <img width="100%" height="auto" src="https://i.imgur.com/EfPHr7B.png" height="175px"/>
+  <img width="100%" height="auto" src="https://i.imgur.com/A2A16Rf.png" height="175px"/>
+</div>
+
 
 
 

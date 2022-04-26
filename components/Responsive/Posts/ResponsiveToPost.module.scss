@@ -1,0 +1,25 @@
+@import '../../../styles/colors/variables.scss';
+
+.responsiveToPost{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    .createPost{
+        width: 57px;
+        height: 57px;
+        color: #fff;
+        background: $secondary;
+        position: fixed;
+        bottom: 70px;
+        right: 20px;
+        border: none;
+        border-radius: 50%;
+        z-index: 40;
+        font-size: 1.7em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

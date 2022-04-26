@@ -1,7 +1,11 @@
 import React from 'react'
 import styles from './NewPostModal.module.scss';
 
-export default function NewPostModal() {
+interface Props{
+    loggedUser: any
+}
+
+export default function NewPostModal({ loggedUser }: Props) {
   return (
     <div className="newPostModal">
         <div className="modal">
@@ -12,7 +16,7 @@ export default function NewPostModal() {
 
             </div>
             <div className="options">
-                
+
             </div>
         </div>
     </div>

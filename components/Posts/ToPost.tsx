@@ -32,7 +32,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
     const [isLoading, setIsLoading] = useState(false);
     const [gif, setGif] = useState('');
     const [pollOpen, setPollOpen] = useState(false);
-    const [poll, setPoll] = useState([]);
+    const [poll, setPoll] = useState<any>([]);
     const [hashtags, setHashtags] = useState([]);
     const containerRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
     const { isOver } = useDragDrop({setFile, containerRef});
@@ -275,7 +275,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                 <button className={`${styles.post} ${!text && styles.notAllowed}`} onClick={onSubmit}>Post</button>
             </div>
             <div className={styles.createPoll}>
-                <CreatePoll setPoll={setPoll} pollOpen={pollOpen}/>
+                <CreatePoll setPoll={setPoll} pollOpen={pollOpen} poll={poll}/>
             </div>
             {isLoading && <ProgressBar progress={progress}/>}
         </div>}

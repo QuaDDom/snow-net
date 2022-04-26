@@ -5,8 +5,9 @@ import { IoMdAdd } from 'react-icons/io';
 import axios from 'axios';
 
 interface Props{
-    setPoll: React.Dispatch<React.SetStateAction<never[]>>,
-    pollOpen: boolean
+    setPoll: React.Dispatch<React.SetStateAction<any[]>>,
+    pollOpen: boolean,
+    poll: any
 }
 
 const days = Array.from(Array(8).keys());
@@ -15,7 +16,7 @@ const minutes = Array.from(Array(60).keys());
 
 const initialChoices = [1,1]
 
-export default function CreatePoll({setPoll, pollOpen}: Props) {
+export default function CreatePoll({setPoll, pollOpen, poll}: Props) {
     const [daysOpen, setDaysOpen] = useState(false);
     const [hoursOpen, setHoursOpen] = useState(false);
     const [minutesOpen, setMinutesOpen] = useState(false);
@@ -23,7 +24,9 @@ export default function CreatePoll({setPoll, pollOpen}: Props) {
     const [hoursState, setHoursState] = useState<any>('Hours');
     const [daysState, setDaysState] = useState<any>('Days');
     const [choices, setChoices] = useState(initialChoices);
-    
+    const [option, setOption] = useState('');
+    const [option2, setOption2] = useState('')
+
     const handleClick = ()=>{
         setChoices([...choices, 1])
     }
@@ -40,7 +43,11 @@ export default function CreatePoll({setPoll, pollOpen}: Props) {
                 <div className={styles.inputs}>
                     {
                         choices.map((choice, index)=>(
-                            <InputChoice label={`Choice ${index + 1}`} setPoll={setPoll} index={index}/>
+                            <InputChoice 
+                            label={`Choice ${index + 1}`} 
+                            setPoll={setPoll} 
+                            poll={poll}
+                            index={index}/>
                         ))
                     }
                 </div>

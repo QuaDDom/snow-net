@@ -3,15 +3,19 @@ import styles from './InputChoice.module.scss'
 
 interface Props{
   label: string,
-  setPoll: React.Dispatch<React.SetStateAction<never[]>>,
-  index: number
+  setPoll: React.Dispatch<React.SetStateAction<any[]>>,
+  index: number,
+  poll: [any]
 }
 
-export default function InputChoice({label, setPoll, index}: Props) {
+export default function InputChoice({label, setPoll, index, poll}: Props) {
   const [value, setValue] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
     setValue(e.target.value);
+    if(index === 1){
+      
+    }
   } 
 
   return (

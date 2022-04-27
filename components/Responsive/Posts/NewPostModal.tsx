@@ -12,7 +12,7 @@ export default function NewPostModal({ loggedUser }: Props) {
     <div className={styles.newPostModal}>
         <div className={styles.modal}>
             <div className={styles.user}>
-                <img src="" alt="" />
+                <img src={loggedUser._id} alt={loggedUser.username} />
             </div>
             <div className={styles.input}>
                 <input type="text" />

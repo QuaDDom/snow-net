@@ -6,16 +6,17 @@
     bottom: 50px;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     background: #ffffff20;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 20;
+    z-index: 10;
     .modal{
-        width: 100vw;
-        height: 60vh;
+        width: 95vw;
+        height: 40vh;
         background: $black2;
         padding: 40px 50px;
+        border-radius: 20px;
     }
 }

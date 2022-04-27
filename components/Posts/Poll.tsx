@@ -13,15 +13,24 @@ export default function Poll({poll, loggedUser, _id}: Props) {
     const [isVoted, setIsVoted] = useState(false);
     const [percentage, setPercentage] = useState<any>([]);
 
+    useEffect(()=>{
+        if(poll[0].votes.includes(loggedUser?.id)) setIsVoted(true);
+        else if(poll[1].votes.includes(loggedUser?.id)) setIsVoted(true);
+    },[loggedUser, poll])
+
 
     const handleVote = async (option: any, pollNumber: number)=>{
         if(isVoted) return;
-
+        const option1 = poll[0].votes.length;
+        const option2 = poll[1].votes.length;
+        const totalVotes = option1 + option2;
+        const percentage1 = Math.floor((option1 * 100) / totalVotes);
+        const percentage2 = Math.floor((option2 * 100) / totalVotes);
+        setPercentage([percentage1, percentage2]);
         const data = await axios.put(`http://localhost:5000/api/posts/poll/${_id}/${pollNumber}`, {
             userId: loggedUser._id
         });  
         console.log(data.data.poll)
-        
         setIsVoted(true)
     }
 
@@ -34,12 +43,12 @@ export default function Poll({poll, loggedUser, _id}: Props) {
                         {isVoted && <div style={{
                             position: "absolute",
                             height: "100%",
-                            width: 50 + "%",
+                            width: percentage[index] + "%",
                             top: 0,
                             left: 0,
                         }} className={styles.percentageSize}/>}
                         <span>{option.option}</span>
-                        {isVoted && <p>{`50%`}</p>}
+                        {isVoted && <p>{`${percentage[index]}%`}</p>}
                     </div>
                 ))}
             </div>

@@ -45,35 +45,75 @@
         .inputs{
             height: 60vh;
             padding: 25px 0;
+            display: flex;
             .selectContainer{
-                position: relative;
                 width: 420px;
-                height: 45px;
-                border: 2px solid #fff;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                span{
-                    height: 100%;
-                    width: 70px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 1.6em;
-                }
-                select{
-                    border: none;
-                    outline: none;
-                    width: 100%;
-                    height: 100%;
-                    background: transparent;
-                    font-size: 1.2em;
+                background: $black3;
+                height: 55px;
+                padding: 10px 20px;
+                border-radius: 10px;
+                order: 0;
+                cursor: pointer;
+                position: relative;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 2.1vh;
+                    right: 2.5vh;
                     color: #fff;
-                    font-family: 'Poppins', sans-serif;
-                    option{
-                        background: #111;
-                        border: 2px solid #fff;
-                        border-radius: 0px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    height: 1vh;
+                    width: 20px;
+                    transition: 0.3s;
+                }
+                &.active::before{
+                    transform: rotateX(180deg);
+                }
+                .optionsContainer{
+                    background: $black3;
+                    color: #fff;
+                    width: 420px;
+                    transition: .4s;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    overflow-y: scroll;
+                    margin-top: 55px;
+                    height: 0;
+                    opacity: 0;
+                    order: 1;
+                    position: absolute;
+                    &.active{
+                        opacity: 1;
+                        height: 110px;
+                    }
+                    &::-webkit-scrollbar{
+                        width: 4px;
+                    }
+                    &::-webkit-scrollbar-thumb{
+                        background: #ffffff60;
+                        transition: .3s;
+                        border-radius: 20px;
+                        &:hover{
+                            background: #ffffff99;
+                        }
+                    }
+                    .option{
+                        height: 55px;
+                        display: flex;
+                        align-items: center;
+                        padding-left: 20px;
+                        cursor: pointer;
+                        transition: background 0.25s;
+                        &:hover{
+                            background: $black3h;
+                        }
+                        label{
+                            cursor: pointer;
+                        }
+                        input[type="radio"]{
+                            display: none;
+                        }
                     }
                 }
             }

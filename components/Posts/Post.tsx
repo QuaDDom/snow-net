@@ -17,6 +17,7 @@ import EditModal from '../Settings/modals/EditModal';
 import Report from '../Modals/Report';
 import { MutableRefObject } from 'react';
 import PostDotsOptions from './PostDotsOptions';
+import { useMediaQuery } from 'react-responsive';
 
 interface Props{
   _id: string
@@ -60,7 +61,9 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const [reportModal, setReportModal] = useState(false);
   const [optionsPosition, setOptionsPosition] = useState<any>(null);
   const [optionsOpen, setOptionsOpen] = useState(false);
-
+  const [fullName, setFullName] = useState('')
+  
+  const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
   const postRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
 
   const handleHover = ()=>{
@@ -74,12 +77,15 @@ export default function Post({_id, image, text, userId, likes, fetchData,
     const commentsData = await axios.get(`http://localhost:5000/api/posts/comments/${_id}`)
     setComments([...commentsData.data]);
   }
+  const user: User = useGetUser(userId);
 
   useEffect(()=>{
     getComments();
   },[])
 
-  const user: User = useGetUser(userId);
+  useEffect(()=>{
+    setFullName(`${user.name} ${user.lastname}`);
+  },[user])
 
   const handleClick = ()=> setOpenImage(true);
   const handleModal = ()=> modalOpen ? setModalOpen(false) : setModalOpen(true);
@@ -155,11 +161,13 @@ export default function Post({_id, image, text, userId, likes, fetchData,
           {group && user.profilePic && <img src={user.profilePic} className={styles.userGroup}/>}
           <div className={styles.bothColumn}>
             <h5 className={user.name || `${styles.skeleton} ${styles.skeletonText}`}>
-              {group ? `${group.title}` : `${user.name} ${user.lastname}`}
+              {group ? `${group.title}` : `${isResponsive ? fullName : 
+                fullName.length > 12 ? fullName.substring(0, 12) + "..." : fullName} `}
             </h5>
             {group && <p className={styles.groupUsername}>{`${user.name} ${user.lastname} · @${user.username}`}</p>}
             {!group && <p className={user.username || `${styles.skeleton} ${styles.skeletonText}`}>
-              {user.username && `@${user.username}`}
+              {user.username && `@${isResponsive ? user.username : 
+                user.username.length > 8 ? user.username.substring(0, 8) + "..." : user.username}`}
             </p>}
             <p>·</p>
             <p className={styles.createdAt}>{format(createdAt)}</p>

@@ -26,6 +26,7 @@ export default function GroupComponent({group}: {group: any}) {
         try{
             const res = await axios.get(`http://localhost:5000/api/posts/group/${group._id}`);
             setGroupPosts([...res.data]);
+            console.log(res.data)
         } catch(err){
             console.log(err);
         }

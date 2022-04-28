@@ -8,6 +8,7 @@
     width: 100vw;
     height: 90vh;
     background: #ffffff20;
+    backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +17,31 @@
         width: 95vw;
         height: 40vh;
         background: $black2;
-        padding: 40px 50px;
+        padding: 35px;
         border-radius: 20px;
+        .space{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .user{
+                img{
+                    width: 58px;
+                    height: 58px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    background-repeat: cover;
+                }
+            }
+            .input{
+                width: 80%;
+                input{
+                    background: none;
+                    width: 100%;
+                    height: 50px;
+                    font-size: 1em;
+                    border: none;
+                }
+            }
+        }
     }
 }

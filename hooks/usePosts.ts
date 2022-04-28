@@ -14,14 +14,18 @@ export const usePosts = ({type}: Props)=>{
     let data: any;
 
     const fetchData = async ()=>{
-        setLoader(true)
-        data = await axios.get(`http://localhost:5000/api/posts/get/all/0/${offset}`);
-        if(data.data === "limit") {
-            setIsLimit(true);
-            return;
-        };
-        setPosts([...data.data]);
-        setLoader(false);
+        try{
+            setLoader(true)
+            data = await axios.get(`http://localhost:5000/api/posts/get/all/0/${offset}`);
+            if(data.data === "limit") {
+                setIsLimit(true);
+                return;
+            };
+            setPosts([...data.data]);
+            setLoader(false);
+        } catch(err){
+            console.log(err)
+        }
     };
 
     const loadMorePosts = async ()=>{

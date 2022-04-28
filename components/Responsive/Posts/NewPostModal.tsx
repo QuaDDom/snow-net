@@ -11,11 +11,13 @@ export default function NewPostModal({ loggedUser }: Props) {
   return (
     <div className={styles.newPostModal}>
         <div className={styles.modal}>
-            <div className={styles.user}>
-                <img src={loggedUser._id} alt={loggedUser.username} />
-            </div>
-            <div className={styles.input}>
-                <input type="text" />
+            <div className={styles.space}>
+                <div className={styles.user}>
+                    <img src={loggedUser.profilePic} alt={loggedUser.username} />
+                </div>
+                <div className={styles.input}>
+                    <input type="text" placeholder={`What's happening ${loggedUser.name}?`}/>
+                </div>
             </div>
             <div className={styles.options}>
                 <p onClick={()=>{}} className={styles.button}><BiHappy/></p> 

@@ -118,15 +118,19 @@ export default function ToPost({userData, fetchData, group}: Props) {
                         setFile(null);
                     });
                 } else{
-                    const post = async ()=>{
-                        await axios.post('http://localhost:5000/api/posts', {
-                            userId: userData._id,
-                            text,
-                            isGroupPost: true,
-                            groupData: group
-                        })
+                    try{
+                        const post = async ()=>{
+                            await axios.post('http://localhost:5000/api/posts', {
+                                userId: userData._id,
+                                text,
+                                isGroupPost: true,
+                                groupData: group
+                            })
+                        }
+                        post();
+                    } catch(err){
+                        console.log(err);
                     }
-                    post();
                 }
                 setText('');
                 fetchData();

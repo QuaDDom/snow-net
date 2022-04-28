@@ -24,14 +24,14 @@ export default function PageOne({handleChange, values, register, errors}: Props)
           error={errors.username}
         />
         <Input 
-            type="email" 
-            label="Email" 
-            name="email" 
-            size={{width: '20vw', height: 52, fontSize: 18}}
-            handleChange={handleChange}
-            value={values.email}
-            inputRef={register}
-            error={errors.email}
+          type="email" 
+          label="Email" 
+          name="email" 
+          size={{width: '20vw', height: 52, fontSize: 18}}
+          handleChange={handleChange}
+          value={values.email}
+          inputRef={register}
+          error={errors.email}
           />
     </div>
   )

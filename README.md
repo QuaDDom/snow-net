@@ -12,6 +12,8 @@
 
 ## About
 
+Snow is a social network developed by me, it all started as a small social network project, but I decided to take it to another level, so Snow was born. Here you can upload posts, polls and images in your own gallery, it has a real-time chat, emojis, gif search, news, groups and much more!
+
 ### Built With
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)

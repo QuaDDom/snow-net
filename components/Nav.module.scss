@@ -74,7 +74,7 @@ $secondary: #0099ff;
 
 @keyframes hover {
     0%{
-        background-position-x: 0px;
+        background-position-x: initial;
     } 100%{
         background-position-x: 100px;
     }

@@ -14,6 +14,15 @@ export default function CreateGroup() {
     const [description, setDescription] = useState('Description')
     const [selectOpen, setSelectOpen] = useState(false);
     const { loggedUser } = useContext<any>(AuthContext);
+    const { register, handleSubmit: handleFormSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(groupSchema),
+        mode: 'onSubmit',
+        reValidateMode: 'onChange',
+        criteriaMode: "firstError",
+        shouldFocusError: true,
+        shouldUnregister: false,
+        shouldUseNativeValidation: false,
+    });
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>, variable: string)=>{
         if(variable === 'title'){
@@ -25,15 +34,6 @@ export default function CreateGroup() {
 
     const handleOpen = ()=> selectOpen ? setSelectOpen(false ): setSelectOpen(true);
     
-    const { register, handleSubmit: handleFormSubmit, formState: { errors } } = useForm({
-        resolver: yupResolver(groupSchema),
-        mode: 'onSubmit',
-        reValidateMode: 'onChange',
-        criteriaMode: "firstError",
-        shouldFocusError: true,
-        shouldUnregister: false,
-        shouldUseNativeValidation: false,
-    });
 
     return (
         <>

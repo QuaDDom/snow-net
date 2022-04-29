@@ -1,6 +1,5 @@
 import React from 'react';
 import Slider from "react-slick";
-import { useTouch } from '../../hooks/useTouch';
 import User from './SlideContent/User';
 import styles from './SlideFriends.module.scss';
 
@@ -20,15 +19,15 @@ export default function SlideFriends({ users }: Props) {
     return (
         <div className={styles.slideFriendsContainer}>
             <h3>Who to follow</h3>
-            <div className={styles.slide}>
+            <div className={styles.slider}>
                 <Slider {...settings}>
                     {
-                        users.map(({profilePic, username, name, lastname}: any)=>(
+                        users.map(({profilePic, username, name, lastname, _id}: any, index: number)=>(
                             <User 
                             profilePic={profilePic} 
                             name={name + '' + lastname}
                             username={username}
-                            key={profilePic}
+                            key={_id}
                             />
                         ))
                     }

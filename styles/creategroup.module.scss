@@ -8,7 +8,7 @@
     align-items: center;
     position: relative;
     .create{
-        width: 40vw;
+        width: 36vw;
         height: 100%;
         background: $black2;
         padding: 55px 45px;
@@ -70,14 +70,54 @@
                 &.active::before{
                     transform: rotateX(180deg);
                 }
+                .selected{
+                    width: 420px;
+                    height: 55px;
+                    padding: 10px 20px;
+                    border-radius: 10px;
+                    order: 0;
+                    cursor: pointer;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        top: 42%;
+                        right: 2.5vh;
+                        color: #fff;
+                        background: url('./img/arrow.svg');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        height: 1vh;
+                        width: 20px;
+                        transition: 0.3s;
+                    }
+                    &.active::before{
+                        transform: rotateX(180deg);
+                    }
+                    p{
+                        display: flex;
+                        font-size: 17px;
+                        span{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding-right: 6px;
+                        }
+                    }
+                }
                 .optionsContainer{
                     background: $black3;
                     color: #fff;
                     width: 420px;
                     transition: .4s;
                     border-radius: 10px;
+                    left: 0;
                     overflow: hidden;
-                    overflow-y: scroll;
                     margin-top: 55px;
                     height: 0;
                     opacity: 0;
@@ -110,6 +150,14 @@
                         }
                         label{
                             cursor: pointer;
+                            font-size: 17px;
+                            display: flex;
+                            span{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding-right: 6px;
+                            }
                         }
                         input[type="radio"]{
                             display: none;

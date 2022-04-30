@@ -8,12 +8,17 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { groupSchema } from '../../validations/GroupValidation';
 import GroupPreview from './GroupPreview';
+import axios from 'axios';
+import Router from 'next/router';
 
 export default function CreateGroup() {
     const [title, setTitle] = useState('Title');
     const [description, setDescription] = useState('Description')
+    const [isPrivate, setIsPrivate] = useState(false);
     const [selectOpen, setSelectOpen] = useState(false);
+
     const { loggedUser } = useContext<any>(AuthContext);
+
     const { register, handleSubmit: handleFormSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(groupSchema),
         mode: 'onSubmit',
@@ -23,7 +28,24 @@ export default function CreateGroup() {
         shouldUnregister: false,
         shouldUseNativeValidation: false,
     });
-    
+
+
+    const handleSubmit = async ()=>{
+        try{
+            const bodyData = {
+                title,
+                description,
+                members: [loggedUser._id],
+                admins: [loggedUser._id],
+                groupPic: "https://source.boringavatars.com/marble/120/?colors=5FC9F3,2E79BA,1E549F,081F37,247881,43919B,30AADD,00FFC6,F7E2E2,61A4BC,5B7DB1,1A132F,201A1A40,20270082,207A0BC0,20FA58B6,B20600,FF5F00"
+            }
+            const data = await axios.post('http://localhost:5000/api/groups', bodyData);
+            Router.push('/groups/'+data.data._id)
+        } catch(err){
+            console.log(err);
+        }
+    }
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>, variable: string)=>{
         if(variable === 'title'){
             setTitle(e.target.value)
@@ -48,13 +70,13 @@ export default function CreateGroup() {
                     </div>
                 </div>
                 <div className={styles.inputs}>
-                    <form>
+                    <form onSubmit={handleFormSubmit(handleSubmit)}>
                         <Input 
                             inputRef={register}
                             type="text"
                             label="Group Name"
                             name="title"
-                            size={{ width: 420, height: 55, fontSize: 18 }}
+                            size={{ width: 420, height: 55, fontSize: 16.5 }}
                             handleChange={(e)=> handleChange(e, 'title')}
                             value={title}
                             error={errors.title}                        
@@ -63,22 +85,31 @@ export default function CreateGroup() {
                             type="text"
                             label="Description"
                             name="description"
-                            size={{ width: 420, height: 55, fontSize: 18 }}
+                            size={{ width: 420, height: 55, fontSize: 16.5 }}
                             handleChange={(e)=> handleChange(e, 'description')}
                             value={description}
                             inputRef={register}
                             error={errors.description}                        
                         />
                         <div className={styles.selectContainer} onClick={handleOpen}>
-                            <div className={`${styles.optionsContainer} ${selectOpen && styles.active}`}>
-                                <div className={styles.option}>
-                                    <input type="radio" id="title" name="title"/>
-                                    <label htmlFor="title">Public</label>
+                            <div 
+                            className={`${styles.optionsContainer} ${selectOpen && styles.active}`}
+                            onClick={()=>{}}
+                            >
+                                <div className={styles.option} onClick={()=> setIsPrivate(false)}>
+                                    <input type="radio" id="public" name="public"/>
+                                    <label htmlFor="public"><span><MdPublic/></span> Public</label>
                                 </div>
-                                <div className={styles.option}>
-                                    <input type="radio" id="title" name="title"/>
-                                    <label htmlFor="title">Private</label>
+                                <div className={styles.option} onClick={()=> setIsPrivate(true)}>
+                                    <input type="radio" id="private" name="private"/>
+                                    <label htmlFor="private"><span><RiGitRepositoryPrivateLine/></span> Private</label>
                                 </div>
+                            </div>
+                            <div className={`${styles.selected}`}>
+                                {!isPrivate 
+                                ? <p><span><MdPublic/></span> Public</p>
+                                : <p><span><RiGitRepositoryPrivateLine/></span> Private</p>
+                                }
                             </div>
                         </div>
                         <button type='submit'>Create</button>
@@ -88,8 +119,8 @@ export default function CreateGroup() {
             <div className={styles.preview}>
                 <GroupPreview 
                 title={title}
-                description={"skjfhsjkfhsjkfhjsdhf"}
-                groupType={'public'}
+                description={description}
+                groupType={isPrivate}
                 />
             </div>
         </div> } 

@@ -7,7 +7,7 @@
     align-items: center;   
     margin-bottom: 1.5rem;
     width: 20vw;
-    height: 6vh;
+    height: 7vh;
     .inputComponent{
         position: absolute;
         top: 0;
@@ -23,15 +23,15 @@
         outline: none;
         border-radius: 10px;
         transition: 0.35s;
-        padding: 0 10px;
-        padding-top: 15px;
+        padding: 0 18px;
+        padding-top: 16px;
         &:focus{
             background: $black3h;
         }
         &:focus ~ label{
             top: 5px;
-            font-size: 0.9em !important;
-            left: 10px;
+            font-size: 0.85em !important;
+            left: 18px;
             color: $primary;
             &.error{
                 color: rgb(255, 76, 76);
@@ -39,8 +39,8 @@
         }
         &:not(:placeholder-shown).inputComponent:not(:focus) + .labelComponent{
             top: 5px;
-            font-size: 0.9em !important;
-            left: 10px;
+            font-size: 0.85em !important;
+            left: 18px;
             color: #999;
             &.error{
                 color: rgb(255, 76, 76);

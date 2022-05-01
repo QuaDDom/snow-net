@@ -36,8 +36,7 @@ export default function CreateGroup() {
                 title,
                 description,
                 members: [loggedUser._id],
-                admins: [loggedUser._id],
-                groupPic: "https://source.boringavatars.com/marble/120/?colors=5FC9F3,2E79BA,1E549F,081F37,247881,43919B,30AADD,00FFC6,F7E2E2,61A4BC,5B7DB1,1A132F,201A1A40,20270082,207A0BC0,20FA58B6,B20600,FF5F00"
+                admins: [loggedUser._id]
             }
             const data = await axios.post('http://localhost:5000/api/groups', bodyData);
             Router.push('/groups/'+data.data._id)

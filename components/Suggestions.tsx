@@ -35,11 +35,11 @@ export default function Suggestions() {
                   <div className={styles.presentation}>
                     <div 
                     className={styles.banner} 
-                    style={{
-                      background: `url(${group.groupCover || noCover})`,
-                    }}
-                    />
+                    >
+                      <img src={`${group.groupCover || noCover}`} />
+                    </div>
                     <img 
+                    className={styles.groupPic}
                     src={group.groupPic} 
                     alt={group.title} 
                     />

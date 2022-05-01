@@ -8,7 +8,7 @@ import styles from './GroupsSlide.module.scss';
 let settings = {
     dots: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 2
 };
 
@@ -32,6 +32,7 @@ export default function PopularGroups() {
     return (
         <div className={styles.slideContainer}>
             <h3 className={styles.title}>Popular Groups</h3>
+            <p>The most popular groups, we think you might like them!</p>
             <div className={styles.slide}>
                 <Slider {...settings}>
                     {

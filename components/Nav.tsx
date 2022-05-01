@@ -32,6 +32,11 @@ export default function Nav() {
                 </ul>
                 <ul>
                     <li>
+                        <NavLink href="/groups/discover">Groups</NavLink>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
                         <NavLink href="/gallery/all">Gallery</NavLink>
                     </li>
                 </ul>

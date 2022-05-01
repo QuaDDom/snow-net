@@ -1,3 +1,4 @@
+import Router from 'next/router';
 import React from 'react'
 import { MdPublic } from 'react-icons/md';
 import { RiGitRepositoryPrivateLine } from 'react-icons/ri';
@@ -9,14 +10,15 @@ interface Props{
     groupPic: string,
     groupCover: string,
     groupPrivate: any,
-    members: [string]
+    members: [string],
+    _id: string
 }
 
 const noPic = "https://source.boringavatars.com/marble/120/?colors=5FC9F3,2E79BA,1E549F,081F37,247881,43919B,30AADD,00FFC6,F7E2E2,61A4BC,5B7DB1,1A132F,201A1A40,20270082,207A0BC0,20FA58B6,B20600,FF5F00";
 
-export default function GroupCard({title, description, groupPic, groupCover, groupPrivate, members}: Props) {
+export default function GroupCard({title, description, groupPic, groupCover, groupPrivate, members, _id}: Props) {
   return (
-    <div className={styles.groupCardContainer}>
+    <div className={styles.groupCardContainer} onClick={()=> Router.push('/groups/' + _id)}>
         <div className={styles.coverImg}>
             <img src={groupCover || 'noGroupPic.jpg'} alt={title} />
         </div>

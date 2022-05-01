@@ -104,7 +104,7 @@ export default function CreateGroup() {
                                     <label htmlFor="private"><span><RiGitRepositoryPrivateLine/></span> Private</label>
                                 </div>
                             </div>
-                            <div className={`${styles.selected}`}>
+                            <div className={`${styles.selected} ${selectOpen && styles.active}`}>
                                 {!isPrivate 
                                 ? <p><span><MdPublic/></span> Public</p>
                                 : <p><span><RiGitRepositoryPrivateLine/></span> Private</p>

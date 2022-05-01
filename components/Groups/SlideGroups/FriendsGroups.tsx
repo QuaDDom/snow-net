@@ -37,7 +37,7 @@ export default function FriendsGroups() {
           <Slider {...settings}>
               {
                   groups.map(({title, description, groupPic, groupCover,
-                               private: groupPrivate, members}: any)=>(
+                               private: groupPrivate, members, _id}: any)=>(
                       <GroupCard 
                           title={title} 
                           description={description} 
@@ -45,6 +45,8 @@ export default function FriendsGroups() {
                           groupCover={groupCover}
                           groupPrivate={groupPrivate}
                           members={members}
+                          _id={_id}
+                          key={_id}
                       />
                   ))
               }

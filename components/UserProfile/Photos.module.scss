@@ -26,6 +26,7 @@
         border-radius: 15px;
         overflow: hidden;
         grid-gap: 6px;
+        position: relative;
         img{
             position: relative;
             height: 120px;
@@ -33,6 +34,24 @@
             object-fit: cover;
             background-size: cover;
             cursor: pointer;
+        }
+    }
+    .noPhotos{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 50px;
+        padding-right: 25px;
+        color: #777;
+        span{
+            font-size: 3.5em;
+        }
+        p{
+            font-size: 1em;
         }
     }
 }

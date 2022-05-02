@@ -42,6 +42,23 @@
             width: 100%;
             height: 320px;
             padding: 0 100px;
+            position: relative;
+            &.logged::before{
+                cursor: pointer;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 88.8%;
+                height: 100%;
+                margin-left: 5.6%;
+                background: #000a1a30;
+                opacity: 0;
+                transition: 0.2s;
+            }
+            &:hover::before{
+                opacity: 1;
+            }
             img{
                 width: 100%;
                 height: 100%;
@@ -59,15 +76,50 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            img{
+            .groupPic{
+                margin: 0;
+                padding: 0;
                 width: 190px;
                 height: 190px;
                 border-radius: 50%;
-                background-size: cover;
-                object-fit: cover;
-                background: $black2;
-                padding: 7px;
-                user-select: none;
+                overflow: hidden;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: 190px;
+                    height: 190px;
+                    border-radius: 50%;
+                    background-size: cover;
+                    object-fit: cover;
+                    background: $black2;
+                    padding: 7px;
+                    user-select: none;
+                }
+                .editProfilePic{
+                    position: absolute;
+                    width: 183px;
+                    height: 183px;
+                    background: #000a1a80;
+                    z-index: 4;
+                    opacity: 0;
+                    border-radius: 50%;
+                    transition: 0.2s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    font-weight: 800;
+                    span{
+                        font-size: 3em;
+                        height: 40px;
+                    }
+                    cursor: pointer;
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
             }
             .textInfo{
                 padding: 0 10px;

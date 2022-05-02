@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from '../../styles/group.module.scss';
 import { RiGitRepositoryPrivateLine } from 'react-icons/ri'; 
 import { MdPeople, MdPublic } from 'react-icons/md'; 
-import { AiOutlineUsergroupAdd } from 'react-icons/ai';
+import { AiOutlineCamera, AiOutlineUsergroupAdd } from 'react-icons/ai';
 import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
 import axios from 'axios';
@@ -14,6 +14,8 @@ import Photos from '../UserProfile/Photos';
 import { BsCalendarDateFill, BsPeopleFill } from 'react-icons/bs';
 import dateFormat from 'dateformat';
 import GroupMembers from './GroupMembers';
+import UploadGroupCover from '../Settings/modals/UploadGroupCover';
+import UploadGroupProfile from '../Settings/modals/UploadGroupProfile';
 
 export default function GroupComponent({group}: {group: any}) {
     const [isJoined, setIsJoined] = useState(false);
@@ -21,6 +23,10 @@ export default function GroupComponent({group}: {group: any}) {
     const [groupPosts, setGroupPosts] = useState<any>([]);
     const { loggedUser } = useContext<any>(AuthContext)
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [updatePfpModal, setUpdatePfpModal] = useState(false)
+    const [newCoverPic, setNewCoverPic] = useState('');
+    const [updateCoverModal, setUpdateCoverModal] = useState(false);
 
     const fetchData = async ()=>{
         try{
@@ -45,7 +51,7 @@ export default function GroupComponent({group}: {group: any}) {
 
     useEffect(()=>{
         setIsJoined(group.members.includes(loggedUser?._id) ? true : false);
-        console.log(group.members)
+
         const fetchMembersData = ()=>{
             const profiles: any = [];
             group.members.map( async (userId: string) => {
@@ -54,18 +60,47 @@ export default function GroupComponent({group}: {group: any}) {
                 setMembersProfile([...profiles]);
             });
         }
+
+        if(group.admins.includes(loggedUser?._id)){
+            setIsAdmin(true)
+        }
+
         fetchMembersData();
         fetchData();
     },[group, loggedUser])
 
     return (
+        <>
+        {updatePfpModal && <UploadGroupProfile 
+                                title="Upload Group Picture"
+                                value=""
+                                userId={loggedUser._id}
+                                setIsOpen={setUpdatePfpModal}
+                            />}
+        {updateCoverModal && <UploadGroupCover
+                                title="Upload Cover Picture"
+                                value=""
+                                userId={loggedUser._id}
+                                setIsOpen={setUpdateCoverModal}
+                                setNewCoverPic={setNewCoverPic}
+                             />}
         <div className={styles.groupContainer}>
             <div className={styles.profile}>
-                <div className={styles.banner}>
+                <div 
+                className={`${styles.banner} ${isAdmin && styles.logged}`} 
+                onClick={()=> isAdmin && setUpdateCoverModal(true)}
+                >
                     <img src={group.groupCover || 'noCover.jpg'} alt="" />
                 </div>
                 <div className={styles.info}>
-                    <img src={group.groupPic || 'noProfile.png'} alt="" />
+                    <div className={styles.groupPic}>
+                        <img src={group.groupPic || 'noProfile.png'} alt="" />
+                        {isAdmin && 
+                            <span className={styles.editProfilePic} onClick={()=> setUpdatePfpModal(true)}>
+                                <span><AiOutlineCamera/></span>
+                            </span>
+                        }
+                    </div>
                     <div className={styles.textInfo}>
                         <h4>{group.title}</h4>
                         <div>
@@ -99,7 +134,7 @@ export default function GroupComponent({group}: {group: any}) {
                         <GroupMembers members={group.members}/>
                     </div>
                     <div className={styles.posts}>
-                        <ToPost userData={loggedUser} fetchData={fetchData} group={group}/>
+                        {isJoined && <ToPost userData={loggedUser} fetchData={fetchData} group={group}/>}
                         <div className={styles.postsContainer}>
                             {
                             groupPosts.map((
@@ -133,5 +168,6 @@ export default function GroupComponent({group}: {group: any}) {
                 </div>}
             </div>
         </div>
+        </>
     )
 }

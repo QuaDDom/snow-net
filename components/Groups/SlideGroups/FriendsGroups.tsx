@@ -9,7 +9,7 @@ let settings = {
   dots: true,
   speed: 500,
   slidesToShow: 3,
-  slidesToScroll: 3
+  slidesToScroll: 2
   };
 
 export default function FriendsGroups() {

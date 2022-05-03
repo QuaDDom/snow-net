@@ -12,6 +12,7 @@ interface Props{
     handleModal: ()=> void,
     deletePost: () => Promise<void>,
     handleEdit: ()=> void,
+    handleReportModal: ()=> void,
     setIsOpen: any,
     username: string,
     postId: string,
@@ -21,7 +22,7 @@ interface Props{
 
 export default function PostDotsOptions({isOpen, userId, loggedUserId, 
                                         handleModal,handleEdit, setIsOpen, 
-                                        username, postId, postRef, reposted
+                                        username, postId, postRef, reposted, handleReportModal
                                         }: Props
                                         ) {
                                             
@@ -74,7 +75,7 @@ export default function PostDotsOptions({isOpen, userId, loggedUserId,
                             <span><MdBlock/></span>
                             <p>Block @{username}</p>
                         </div>
-                        <div className={styles.option}>
+                        <div className={styles.option} onClick={handleReportModal}>
                             <span><MdOutlineReport/></span>
                             <p>Report this post</p>
                         </div>

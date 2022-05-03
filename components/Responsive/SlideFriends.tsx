@@ -19,7 +19,7 @@ export default function SlideFriends({ users }: Props) {
     return (
         <div className={styles.slideFriendsContainer}>
             <h3>Who to follow</h3>
-            <div className={styles.slider}>
+            <div className={styles.slide}>
                 <Slider {...settings}>
                     {
                         users.map(({profilePic, username, name, lastname, _id}: any, index: number)=>(

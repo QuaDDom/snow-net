@@ -29,8 +29,16 @@ export default function MessageList({conversations, loggedUser, currentChat, set
   const [user, setUser] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+  const [query, setQuery] = useState('');
 
   const handleOpenModal = ()=> setIsModalOpen(true);
+
+  const keys = ["name", "lastname", "username"];
+
+  console.log(conversations)
+
+ 
+
 
   return (
     <>

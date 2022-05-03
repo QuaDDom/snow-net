@@ -10,9 +10,18 @@
         font-weight: 400;
         font-size: 1em;
     }
-    .slider{
-        width: 100vw;
+    .slide{
+        min-width: 90vw;
+        overflow: hidden;
         height: 20vh;
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div{
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }

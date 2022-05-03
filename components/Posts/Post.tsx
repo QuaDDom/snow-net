@@ -130,6 +130,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
                       deletePost={deletePost}
                       handleModal={handleModal}
                       handleEdit={handleEditModal}
+                      handleReportModal={handleReportModal}
                       isOpen={optionsOpen}
                       setIsOpen={setOptionsOpen}
                       postRef={postRef}

@@ -137,9 +137,9 @@
                 font-size: 1em;
             }
             .send{
-                background: $yellow;
+                background: rgb(255, 99, 99);
                 &:hover{
-                    background: $yellowh;
+                    background: rgb(255, 65, 65);
                 }
             }
             .save{

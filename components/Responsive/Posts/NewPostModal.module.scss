@@ -19,6 +19,7 @@
         background: $black2;
         padding: 35px;
         border-radius: 20px;
+        position: relative;
         .space{
             display: flex;
             justify-content: space-between;
@@ -40,6 +41,78 @@
                     height: 50px;
                     font-size: 1em;
                     border: none;
+                    color: #fff;
+                }
+            }
+        }
+        .options{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            padding: 10px 25px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            .post{
+                cursor: pointer;
+                width: 102px;
+                height: 42px;
+                background: $aquah;
+                outline: none;
+                font-size: 1.1em;
+                border: none;
+                border-radius: 30px;
+                font-weight: 800;
+                transition: 0.2s;
+                &.notAllowed{
+                    opacity: 0.6;
+                    cursor: inherit;
+                    pointer-events: none;
+                }
+                &:hover:not(.notAllowed){
+                    background: $aqua;
+                }
+            }
+            .emojiPicker{
+                position: absolute;
+                transition: .3s;
+                z-index: 17;
+                top: 50px;
+                left: -90px;
+            }
+            .gifSearch{
+                position: absolute;
+                transition: .3s;
+                z-index: 17;
+                top: 50px;
+                left: -50px;
+            }
+            .buttons{
+                display: flex;
+                padding: 0px 60px;
+                padding-right: 70px;
+                color: $aquah;
+                input[type="file"]{
+                    display: none;
+                }
+                .button{
+                    font-size: 1.5em;
+                    margin-top: 5px;
+                    width: 35px;
+                    height: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 10px;
+                    border-radius: 50%;
+                    transition: color .2s;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    &:hover{
+                        background: #6dffff20;
+                    }
                 }
             }
         }

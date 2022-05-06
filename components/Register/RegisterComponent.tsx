@@ -19,7 +19,7 @@ import { useMediaQuery } from 'react-responsive';
 
 export default function RegisterInputs() {
   const [page, setPage] = useState(1);
-  const { handleChange, handleSubmit, values, loggedUser } = useContext<any>(AuthContext);
+  const { handleChange, handleSubmit, values, loggedUser, errors: handleErrors } = useContext<any>(AuthContext);
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
 
   const { register, handleSubmit: handleFormSubmit, formState: { errors } } = useForm({

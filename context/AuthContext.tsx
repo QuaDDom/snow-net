@@ -11,7 +11,7 @@ interface Props{
 const AuthContext = createContext({});
 
 export const AuthProvider = ({children}: Props)=>{
-    const {handleChange, handleSubmit, userData, values } = useRegister();
+    const {handleChange, handleSubmit, userData, values, errors }: any = useRegister();
     const {handleChangeLog, handleSubmitLog, currentUser, valuesLog} = useLogin();
     const {loggedUser, setLoggedUser} = useLocalStorage();
 
@@ -35,7 +35,8 @@ export const AuthProvider = ({children}: Props)=>{
         handleSubmitLog,
         loggedUser,
         valuesLog,
-        setLoggedUser
+        setLoggedUser,
+        errors
     }
 
     return (

@@ -13,7 +13,8 @@ export const useRegister = ()=>{
           [bio, setBio] = useState(''),
           [password, setPassword] = useState(''),
           [repeatPassword, setRepeatPassword] = useState(''),
-          [userData, setUserData] = useState({});
+          [userData, setUserData] = useState({}),
+          [errors, setErrors] = useState({});
 
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>, inputType: string)=>{
@@ -37,7 +38,10 @@ export const useRegister = ()=>{
     const handleSubmit = async (e: any)=>{
         e.preventDefault();
         try{
-            await axios.post("http://localhost:5000/api/auth/register", userData);
+            const data = await axios.post("http://localhost:5000/api/auth/register", userData);
+            if(data.data === 'This user already exists'){
+                setErrors({email: "This user already exists!"})
+            }
         } catch(err){
             console.log(err);
         } finally{
@@ -56,7 +60,8 @@ export const useRegister = ()=>{
             bio,
             email,
             password,
-            repeatPassword
-        }
+            repeatPassword,
+        },
+        errors
     }
 }

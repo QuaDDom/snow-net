@@ -32,8 +32,6 @@ export const useFollow = (loggedUser: any, id: string, friendReqs: any)=> {
             console.log(err)
         }
     }
-    
-    return{
 
-    }
+    return handleFollow;
 }

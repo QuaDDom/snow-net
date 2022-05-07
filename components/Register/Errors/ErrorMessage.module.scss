@@ -1,0 +1,49 @@
+
+.message{
+    width: 250px;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 9px;
+    background: #ffc5c5;
+    position: absolute;
+    position: relative;
+    z-index: 5;
+    top: -10px;
+    animation: appear 0.4s;
+    &::after{
+        content: '';
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        top: -10px;
+        left: 8px;
+        border-bottom: 15px solid #ffc5c5;
+        border-right: 7.5px solid transparent;
+        border-left: 7.5px solid transparent;
+    }
+    span{
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        font-size: 1.3em;
+        color: #fe4444;
+    }
+    p{
+        font-size: 1em;
+        color: #fe4444;
+        font-weight: 600;
+    }
+}  
+
+@keyframes appear{
+    from{
+        transform: translateY(-5px);
+        opacity: 0;
+    } to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

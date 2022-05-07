@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from '../Input'
+import ErrorMessage from './Errors/ErrorMessage'
 
 interface Props{
     handleChange: ()=> void,
@@ -21,8 +22,9 @@ export default function PageOne({handleChange, values, register, errors}: Props)
           handleChange={handleChange}
           value={values.username}
           inputRef={register}
-          error={errors.username}
+          error={{}}
         />
+        {errors.username && <ErrorMessage error={errors.username.message}/>}
         <Input 
           type="email" 
           label="Email" 
@@ -31,8 +33,9 @@ export default function PageOne({handleChange, values, register, errors}: Props)
           handleChange={handleChange}
           value={values.email}
           inputRef={register}
-          error={errors.email}
+          error={{}}
           />
+        {errors.email && <ErrorMessage error={errors.email.message}/>}
     </div>
   )
 }

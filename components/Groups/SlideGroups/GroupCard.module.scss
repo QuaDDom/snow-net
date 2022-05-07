@@ -100,3 +100,44 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .groupCardContainer{
+        width: 300px;
+        height: 200px;
+        margin: 0;
+        .coverImg{
+            width: 100%;
+        }
+        .content{
+            padding-top: 40px;
+            .groupPic{
+                width: 85px;
+                height: 85px;
+                img{
+                    width: 85px;
+                    height: 85px;
+                    padding: 6px;
+                }
+            }
+            .principal{
+                padding-top: 20px;
+                h4{
+                    font-size: 1em;
+                }
+                p{
+                    font-size: 0.8em;
+                }
+            }
+            .buttonContainer{
+                bottom: 10px;
+                right: 10px;
+                button{
+                    width: 90px;
+                    height: 25px;
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+}

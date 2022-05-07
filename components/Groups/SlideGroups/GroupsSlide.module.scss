@@ -14,3 +14,16 @@
         padding-left: 15px;
     }
 }
+
+@media (max-width: 1200px) {
+    .slideContainer{
+        width: 100vw;
+        height: 38vh;
+        h3{
+            font-size: 1.5em;
+        }
+        p{
+            font-size: 0.9em;
+        }
+    }
+}

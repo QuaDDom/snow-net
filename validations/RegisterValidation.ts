@@ -2,28 +2,28 @@ import * as yup from 'yup';
 
 export const registerSchema = yup.object().shape({
     username: yup.string()
-                .required()
+                .required("This field is required")
                 .min(3)
                 .max(13).
                 lowercase() ,
     name: yup.string()
-                .required()
+                .required("This field is required")
                 .min(3)
                 .max(13) ,
     lastname: yup.string()
-                .required()
+                .required("This field is required")
                 .min(3)
                 .max(13) ,
     email: yup.string()
-                .email()
-                .required() ,
+                .email("Must comply with the email format")
+                .required("This field is required") ,
     password: yup.string()
-                .required()
+                .required("This field is required")
                 .min(6)
                 .max(30) ,
     reppassword: yup.string()
-                .required()
-                .oneOf([yup.ref('password'), null]) ,
+                .required("This field is required")
+                .oneOf([yup.ref('password')], "Passwords must be equals!") ,
     bio:  yup.string()
-                .required()
+                .required("This field is required")
 });

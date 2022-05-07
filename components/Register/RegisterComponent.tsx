@@ -19,23 +19,44 @@ import { useMediaQuery } from 'react-responsive';
 
 export default function RegisterInputs() {
   const [page, setPage] = useState(1);
+  const [isErrors, setIsErrors] = useState(true);
   const { handleChange, handleSubmit, values, loggedUser, errors: handleErrors } = useContext<any>(AuthContext);
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
 
   const { register, handleSubmit: handleFormSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(registerSchema),
-    mode: 'onSubmit',
+    mode: 'onChange',
     reValidateMode: 'onChange',
-    criteriaMode: "firstError",
-    shouldFocusError: true,
-    shouldUnregister: false,
-    shouldUseNativeValidation: false,
+
   });
-    
+  
+  useEffect(()=>{
+    if(errors.email 
+      || errors.username 
+      ) setIsErrors(true); 
+      else setIsErrors(false);
+  },[errors])
+
+  const handleNext = (sum: boolean)=>{
+    if(page === 1){
+      if(errors.username || errors.mail) return;
+      else sum ? setPage(page-1) : setPage(page+1);
+    }
+    else if(page === 2){
+      if(errors.password || errors.reppassword) return;
+      else sum ? setPage(page-1) : setPage(page+1);
+    }
+    else if(page === 3){
+      if(errors.name || errors.lastname) return;
+      else sum ? setPage(page-1) : setPage(page+1);
+    }
+  }
+
   useEffect(()=>{
     if(loggedUser){
         Router.push('/')
     }
+    setIsErrors(true);
   },[loggedUser])
 
   return (
@@ -78,15 +99,13 @@ export default function RegisterInputs() {
                   </div>
                   <div className={styles.buttons}>
                       { page >=2 && <button 
-                      onClick={()=> setPage(page - 1)} 
-                      type="button"
+                      onClick={()=> !isErrors && handleNext(true)} 
                       className={styles.back}
                       >
                         <IoIosArrowBack/>
                       </button>}
                       { page <=2 && <button 
-                      onClick={()=> setPage(page + 1)} 
-                      type="button"
+                      onClick={()=> !isErrors && handleNext(false)} 
                       className={styles.forward}
                       >
                         <IoIosArrowForward/>

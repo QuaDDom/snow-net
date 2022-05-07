@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from '../Input'
+import ErrorMessage from './Errors/ErrorMessage'
 
 interface Props{
   handleChange: ()=> void,
@@ -20,8 +21,9 @@ export default function PageTwo({handleChange, values, register, errors}: Props)
         handleChange={handleChange}
         value={values.password}
         inputRef={register}
-        error={errors.password}
+        error={{}}
         />
+      {errors.password && <ErrorMessage error={errors.password.message}/>}
         <Input 
         type="password" 
         label="Repeat Password" 
@@ -30,8 +32,9 @@ export default function PageTwo({handleChange, values, register, errors}: Props)
         handleChange={handleChange}
         value={values.repeatPassword}
         inputRef={register}
-        error={errors.reppassword}
+        error={{}}
         />
+      {errors.reppassword && <ErrorMessage error={errors.reppassword.message}/>}
     </div>
   )
 }

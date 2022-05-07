@@ -1,3 +1,4 @@
+import Router from 'next/router';
 import React from 'react';
 import { BiSearch } from 'react-icons/bi';
 import styles from './SearchGroups.module.scss';
@@ -8,11 +9,11 @@ export default function SearchGroups() {
         <div className={styles.containerSearch}>
             <div className={styles.inputContainer}>
                 <span className={styles.icon}><BiSearch/></span>
-                <p>Search Groups...</p>
+                <p>Search Groups</p>
             </div>
         </div>
         <div className={styles.create}>
-            <button>Create</button>
+            <button onClick={()=> Router.push('/groups/create')}>Create</button>
         </div>
     </div>
   )

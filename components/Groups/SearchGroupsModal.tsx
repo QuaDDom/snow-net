@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
-import styles from './SearchGroupModal.module.scss'
+import { CgClose } from 'react-icons/cg';
+import styles from './SearchGroupsModal.module.scss'
 
 export default function SearchGroupsModal() {
   const [query, setQuery] = useState('');
@@ -21,11 +22,11 @@ export default function SearchGroupsModal() {
 
 
   return (
-    <div className="searchGroupsModal">
-        <div className="modal">
-          <button className="close"></button>
+    <div className={styles.searchGroupsModal}>
+        <div className={styles.modal}>
+          <button className={styles.close}><CgClose/></button>
           <h3>Search Groups</h3>
-          <div className="inputSearch">
+          <div className={styles.inputSearch}>
             <span><AiOutlineSearch/></span>
             <input 
             type="text" 
@@ -34,16 +35,16 @@ export default function SearchGroupsModal() {
             onChange={handleChange}
            	/>
           </div>
-          <div className="groups">
+          <div className={styles.groups}>
             {
-              allGroups.map((group: any)=>(
+              allGroups.map(({title, groupPic}: any)=>(
 				<div className={styles.group}>
 					<div className={styles.content}>
 						<div className={styles.groupPic}>
-							<img src="" alt="" />
+							<img src={groupPic} alt="" />
 						</div>
 						<div className={styles.text}>
-							<h5></h5>
+							<h5>{title}</h5>
 							<div>
 								<p></p>
 								<p></p>

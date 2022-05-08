@@ -1,0 +1,90 @@
+@import '../../styles/colors/variables.scss';
+
+.searchGroupsModal{
+    background: transparent;
+    position: fixed;
+    z-index: 25;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: appear 0.4s forwards;
+    backdrop-filter: blur(2px);
+    background: #ffffff20;
+    .modal{
+        height: 50vh;
+        width: 35vw;
+        background: $black2;
+        border-radius: 15px;
+        padding: 20px 70px;
+        position: relative;
+        .close{
+            font-size: 1.5em;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            border-radius: 50%;
+            transition: 0.2s;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover{
+                background: #ffffff20;
+            }
+        }
+        h3{
+            font-size: 1.2em;
+            font-weight: 500;
+            padding-bottom: 10px;
+        }
+        .inputSearch{
+            width: 100%;
+            background: $black2h;
+            height: 4vh;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            span{
+                font-size: 1.3em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-right: 15px;
+            }
+            input{
+                outline: none;
+                background: transparent;
+                color: #fff;
+                border: none;
+                height: 100%;
+                width: 100%;
+                font-size: 1em;
+            }
+        }
+        .groups{
+            height: 38vh;
+            margin-top: 10px;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                width: 5px;
+            }
+            &::-webkit-scrollbar-thumb{
+                background: #ffffff60;
+                transition: .3s;
+                border-radius: 20px;
+                &:hover{
+                    background: #ffffff99;
+                }
+            }
+        }
+    }
+}

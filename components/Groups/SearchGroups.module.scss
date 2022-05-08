@@ -13,12 +13,14 @@
         align-items: center;
         .inputContainer{
             display: flex;
+            z-index: 10;
             align-items: center;
             position: relative;
             width: 300px;
             height: 40px;
             background: $black3;
             border-radius: 10px;
+            cursor: pointer;
             .icon{
                 font-size: 1.5em;
                 color: #e9e9e9;

@@ -91,10 +91,20 @@
                 font-size: 1em;
                 background: none;
                 transition: 0.3s;
-                &:hover{
-                    background: #fff;
-                    color: #000;
-                    transform: translateY(-3px);
+                &.join{
+                    &:hover{
+                        background: #fff;
+                        color: #000;
+                        transform: translateY(-3px);
+                    }
+                }
+                &.joined{
+                    background: #ffffff10;
+                    &:hover{
+                        background: #ff000020;
+                        border: 2px solid #ff6b6b;
+                        color: #ff6b6b;
+                    }
                 }
             }
         }

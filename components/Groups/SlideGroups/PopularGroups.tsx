@@ -1,8 +1,9 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Slider from 'react-slick';
+import AuthContext from '../../../context/AuthContext';
 import GroupCard from './GroupCard';
 import styles from './GroupsSlide.module.scss';
 
@@ -16,6 +17,8 @@ let initialSettings = {
 export default function PopularGroups() {
     const [groups, setGroups] = useState<any>([])
     const [settings, setSettings] = useState<any>(initialSettings);
+    
+    const { loggedUser } = useContext<any>(AuthContext);
 
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     
@@ -55,6 +58,7 @@ export default function PopularGroups() {
                                 members={members}
                                 _id={_id}
                                 key={_id}
+                                userId={loggedUser._id}
                             />
                         ))
                     }

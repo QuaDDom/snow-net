@@ -18,7 +18,7 @@ export default function OptionsBar() {
         <Option title="Explore" Icon={RiSearchLine} href="/explore"/>
         <Option title="Messages" Icon={BiMessageDetail} href="/messages"/>
         <Option title="Gallery" Icon={RiGalleryLine} href="/gallery/all"/>
-        <Option title="Groups" Icon={BsPeopleFill} href="/groups/all"/>
+        <Option title="Groups" Icon={BsPeopleFill} href="/groups/discover"/>
         <Option title="Donations" Icon={FaHandsHelping} href="/donations"/>
       </div>
     </div>

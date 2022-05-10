@@ -3,9 +3,14 @@
 .register{
     width: 200px;
     height: 40px;
-    background: $primary;
+    background: #00f7ff;
     color: #000;
     border-radius: 10px;
     border: none;
     font-size: 1em;
+    margin-left: 185px;
+    transition: 0.3s;
+    &:hover{
+        background: $primary;
+    }
 }

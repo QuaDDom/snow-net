@@ -13,7 +13,7 @@ interface Props{
 
 export default function PageOne({handleChange, values, register, errors}: Props) {
   return (
-    <div>
+    <>
         <Input 
           type="text" 
           label="Username" 
@@ -36,6 +36,6 @@ export default function PageOne({handleChange, values, register, errors}: Props)
           error={{}}
           />
         {errors.email && <ErrorMessage error={errors.email.message}/>}
-    </div>
+    </>
   )
 }

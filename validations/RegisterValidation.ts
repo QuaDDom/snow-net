@@ -4,8 +4,8 @@ export const registerSchema = yup.object().shape({
     username: yup.string()
                 .required("This field is required")
                 .min(3)
-                .max(13).
-                lowercase() ,
+                .max(13)
+                .lowercase("Please put the username in lowercase") ,
     name: yup.string()
                 .required("This field is required")
                 .min(3)
@@ -24,6 +24,4 @@ export const registerSchema = yup.object().shape({
     reppassword: yup.string()
                 .required("This field is required")
                 .oneOf([yup.ref('password')], "Passwords must be equals!") ,
-    bio:  yup.string()
-                .required("This field is required")
 });

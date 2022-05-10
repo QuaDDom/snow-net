@@ -2,6 +2,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
+import { HiMinusSm } from 'react-icons/hi';
 import { MdPublic } from 'react-icons/md';
 import { RiGitRepositoryPrivateLine } from 'react-icons/ri';
 import styles from './GroupCard.module.scss';
@@ -34,6 +35,8 @@ export default function GroupCard({title, description, groupPic, groupCover, gro
         }
     }
 
+    const handleHoverButton = ()=> isHoverJoined ? setIsHoverJoined(false) : setIsHoverJoined(true);
+
     useEffect(()=>{
         setIsJoined(members.includes(userId) ? true : false);
     },[])
@@ -65,8 +68,9 @@ export default function GroupCard({title, description, groupPic, groupCover, gro
                     ? <button className={`${styles.button} ${styles.join}`}>Join</button> 
                     : <button 
                     className={`${styles.button} ${styles.joined}`} 
-                    onMouseEnter={()=>}
-                    >Joined</button>
+                    onMouseEnter={handleHoverButton}
+                    onMouseLeave={handleHoverButton}
+                    >{isHoverJoined ? <>Leave <span><HiMinusSm/></span></> : "Joined"}</button>
                     }
                 </div>
             </div>

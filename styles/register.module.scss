@@ -89,27 +89,27 @@
                             flex-direction: column;
                         }
                     }
-                    .buttons{
-                        display: flex;
-                        width: 100%;
-                        height: 60px;
-                        button{
-                            background: transparent;
-                            color: $primary;
-                            font-size: 3em;
-                            border: none;
-                            outline: none;
-                        }
-                        .back{
-                            position: absolute;
-                            left: 60px;
-                            bottom: 60px;
-                        }
-                        .forward{
-                            position: absolute;
-                            right: 60px;
-                            bottom: 60px;
-                        }
+                }
+                .buttons{
+                    display: flex;
+                    width: 100%;
+                    height: 60px;
+                    button{
+                        background: transparent;
+                        color: $primary;
+                        font-size: 3em;
+                        border: none;
+                        outline: none;
+                    }
+                    .back{
+                        position: absolute;
+                        left: 60px;
+                        bottom: 60px;
+                    }
+                    .forward{
+                        position: absolute;
+                        right: 60px;
+                        bottom: 60px;
                     }
                 }
         }

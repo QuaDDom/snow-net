@@ -12,7 +12,7 @@ interface Props{
 
 export default function PageTwo({handleChange, values, register, errors}: Props) {
   return (
-    <div>
+    <>
         <Input 
         type="password" 
         label="Password" 
@@ -35,6 +35,6 @@ export default function PageTwo({handleChange, values, register, errors}: Props)
         error={{}}
         />
       {errors.reppassword && <ErrorMessage error={errors.reppassword.message}/>}
-    </div>
+    </>
   )
 }

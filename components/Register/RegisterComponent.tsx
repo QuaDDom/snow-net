@@ -25,9 +25,8 @@ export default function RegisterInputs() {
 
   const { register, handleSubmit: handleFormSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(registerSchema),
-    mode: 'onChange',
-    reValidateMode: 'onChange',
-
+    mode: "onBlur",
+    reValidateMode: "onChange" && "onBlur"
   });
   
   useEffect(()=>{
@@ -97,21 +96,21 @@ export default function RegisterInputs() {
                         handleSubmit={handleSubmit}
                         />}
                   </div>
-                  <div className={styles.buttons}>
-                      { page >=2 && <button 
-                      onClick={()=> !isErrors && handleNext(true)} 
-                      className={styles.back}
-                      >
-                        <IoIosArrowBack/>
-                      </button>}
-                      { page <=2 && <button 
-                      onClick={()=> !isErrors && handleNext(false)} 
-                      className={styles.forward}
-                      >
-                        <IoIosArrowForward/>
-                      </button>}
-                  </div>
               </form>
+              <div className={styles.buttons}>
+                  { page >=2 && <button 
+                  onClick={()=> handleNext(true)} 
+                  className={styles.back}
+                  >
+                    <IoIosArrowBack/>
+                  </button>}
+                  { page <=2 && <button 
+                  onClick={()=> handleNext(false)} 
+                  className={styles.forward}
+                  >
+                    <IoIosArrowForward/>
+                  </button>}
+              </div>
             </div>  
         </div>
       </div>

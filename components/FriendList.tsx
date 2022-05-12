@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
+import { RiEmotionSadFill } from 'react-icons/ri';
 import AuthContext from '../context/AuthContext';
 import Friend from './Friend';
 import styles from './FriendList.module.scss';
@@ -68,7 +69,7 @@ export default function FriendList() {
         <div className={styles.friendGrid}>
         <h2>Friends</h2>
             {
-              friendsData.map(({_id, name, lastname, profilePic, status, username}: any, index: number)=>(
+              friendsData.length >= 1 ? friendsData.map(({_id, name, lastname, profilePic, status, username}: any, index: number)=>(
                 <Friend 
                 id={_id} 
                 name={name} 
@@ -78,7 +79,11 @@ export default function FriendList() {
                 key={index}
                 username={username}
                 />
-              ))
+              )) : 
+              <div className={styles.noFriends}>
+                <span><RiEmotionSadFill/></span>
+                <p>You don't have friends yet</p>
+              </div>
             }
         </div>
       </div>

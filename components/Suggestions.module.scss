@@ -137,3 +137,33 @@
         }
     }
 }
+
+//MEDIAS
+
+@media (max-width: 1500px) {
+    .suggestionsContainer{
+        width: 450px;
+        .groups{
+            width: 350px;
+            min-height: 270px;
+            h3{
+                padding: 5px 0px;
+            }
+            .groupGrid{
+                .group{
+                    min-width: 310px;
+                    max-width: 310px;
+                }
+            }
+        }
+        .follow{
+            h3{
+                padding: 10px 0;
+            }
+            width: 350px;
+            min-height: 320px;
+            max-height: 320px;
+            margin-top: 13px;
+        }
+    }
+}

@@ -142,6 +142,14 @@
 
 //MEDIA
 
+@media (max-width: 1500px) {
+    .postContainer{
+        width: 500px;
+        min-height: 60px;
+        padding: 3px 15px 0 15px;
+    }
+}
+
 @media (max-width: 1200px) {
     .postContainer{
         width: 100vw;

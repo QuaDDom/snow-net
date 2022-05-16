@@ -24,6 +24,14 @@
     }
 }
 
-@media (max-width: 1200px){
-    
+@media (max-width: 1500px){
+    .optionsBarContainer{
+        width: 450px;
+        .options{
+            width: 350px;
+            h2{
+                font-size: 0.95em;
+            }
+        }
+    }
 }

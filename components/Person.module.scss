@@ -80,3 +80,15 @@
         opacity: 1;
     }
 }
+
+@media (max-width: 1500px) {
+    .personContainer{
+        width: 290px;
+        .content{
+            .image{
+                height: 50px;
+                width: 50px;
+            }
+        }
+    }
+}

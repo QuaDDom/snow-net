@@ -163,6 +163,12 @@
     }
 }
 
+@media (max-width: 1500px) {
+    .publicContainer{
+        width: 500px;
+    }
+}
+
 @media (max-width: 1200px){
     .publicContainer{
         width: 100vw;

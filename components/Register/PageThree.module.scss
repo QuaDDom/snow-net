@@ -3,13 +3,15 @@
 .register{
     width: 20vw;
     height: 40px;
-    background: #00f7ff;
+    background: $primary;
     color: #000;
     border-radius: 10px;
     border: none;
     font-size: 1em;
     transition: 0.3s;
     &:hover{
-        background: $primary;
+        transform: translateY(-3px);
+        background: #59ffff;
+        box-shadow: 0 5px 20px #222c32;
     }
 }

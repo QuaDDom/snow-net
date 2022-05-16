@@ -2,7 +2,7 @@
 
 .friendListContainer{
     width: 500px;
-    height: 50vh;
+    height: 700px;
     position: fixed;
     top: 30px;
     left: 0;
@@ -47,5 +47,14 @@
             letter-spacing: 1px;
         }
         padding: 20px;
+    }
+}
+
+@media (max-width: 1500px){
+    .friendListContainer{
+        width: 425px;
+        .friendGrid{
+            width: 320px;
+        }
     }
 }

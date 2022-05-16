@@ -21,20 +21,20 @@
             overflow: hidden;
             background: #00000030;
             padding: 40px 58px;
-            padding-left: calc(25vw + 30px);
+            padding-left: calc(470px + 30px);
             position: relative;
             .registerBackground{
                 height: calc(50vh + 30px);
-                width: 32vw;
-                height: 60vh;
+                width: 600px;
+                height: 600px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 border-radius: 15px;
                 position: relative;
                 img{
-                    height: 56vh;
-                    width: 32vw;
+                    height: 520px;
+                    width: 700px;
                     border-radius: 25px;
                     background-size: cover;
                     object-fit: cover;
@@ -42,8 +42,8 @@
                 }
             }
             .register{
-                height: 56vh;
-                width: 25vw;
+                height: 520px;
+                width: 477px;
                 position: absolute;
                 left: 55px;
                 display: flex;

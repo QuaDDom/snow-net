@@ -4,6 +4,13 @@
     height: 100vh;
     width: 100%;
     .posts{
+        width: 50%;
+        padding: 0px 20px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
         .postsContainer{
             display: flex;
             align-items: center;
@@ -39,10 +46,11 @@
             }
         }
         .banner{
-            width: 100%;
-            height: 320px;
+            width: 92.5vw;
+            height: 33vh;
             padding: 0 100px;
             position: relative;
+            transition: 0.7s;
             &.logged::before{
                 cursor: pointer;
                 content: '';
@@ -243,6 +251,29 @@
                         font-size: 1.1em;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 1500px) {
+    .groupContainer{
+        .profile{
+            min-height: 410px;
+            max-height: 410px;
+            .members{
+                bottom: 45px;
+                .member{
+                    width: 25px;
+                    height: 25px;
+                    .memberProfile{
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+            }
+            .info{
+                top: 182px;
             }
         }
     }

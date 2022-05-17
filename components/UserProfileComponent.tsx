@@ -131,10 +131,10 @@ export default function UserProfileComponent({userData, username}: Props) {
                     <MutualFriends friends={userData.user.friends}/>
                 </div>
                 <div className={styles.postsContainer}>
-                    {isLoggedUser ?  <ToPost 
+                    {isLoggedUser && <ToPost 
                     userData={loggedUser} 
                     fetchData={fetchData} 
-                    /> : <h4>Last Posts</h4>}
+                    />}
                     <div className={styles.posts}>
                     {
                         userData && userData.posts.map((
@@ -180,7 +180,7 @@ export default function UserProfileComponent({userData, username}: Props) {
                 </div>
              {isResponsive && <div className={styles.bio}>
                     <h4>Bio</h4>
-                    <p>{userData.user.bio}</p>
+                    <p>{userData.user.bio || "This user doesn't have a bio yet!"}</p>
                     <div className={styles.info}>
                         <p><span><BsCalendarDateFill/></span> Joined in: {dateFormat(userData.user.createdAt, "yyyy mmmm dS")}</p>
                     </div>

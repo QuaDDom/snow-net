@@ -56,6 +56,19 @@
     }
 }
 
+@media (max-width: 1500px) {
+    .photos{
+        width: 350px;
+        min-height: 300px;
+        .grid{
+            img{
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+}
+
 @media (max-width: 1200px){
     .photos{
         width: 100vw;

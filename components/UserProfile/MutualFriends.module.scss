@@ -7,7 +7,7 @@
     padding: 40px 31px;
     position: sticky;
     margin-top: 30px;
-    top: 500px;
+    top: 450px;
     left: 60px;
     background: $black2;
     h4{
@@ -50,6 +50,14 @@
                 text-align: center;
             }
         }
+    }
+}
+
+@media (max-width: 1500px){
+    .friends{
+        width: 350px;
+        min-height: 300px;
+        top: 430px;
     }
 }
 

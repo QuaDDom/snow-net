@@ -356,7 +356,7 @@
             min-height: 410px;
             max-height: 410px;
             .info{
-                top: 175px;
+                top: 182px;
                 .profilePic{
                     width: 175px;
                     height: 175px;
@@ -364,6 +364,11 @@
                     img{
                         width: 175px;
                         height: 175px;
+                    }
+                }
+                div{
+                    h4{
+                        font-size: 1.6em;
                     }
                 }
             }

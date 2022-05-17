@@ -31,6 +31,7 @@
         width: 100%;
         justify-content: space-between;
         align-items: center;
+
         .image{
             width: 60px;
             height: 60px;
@@ -48,7 +49,7 @@
             display: block;
             width: 27vw;
             height: 50px;
-            margin-right: 130px;
+            margin-right: 120px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -166,6 +167,31 @@
 @media (max-width: 1500px) {
     .publicContainer{
         width: 500px;
+        .inputContainer{
+            .image{
+                width: 55px;
+                height: 55px;
+                img{
+                    height: 55px;
+                    width: 55px;
+                }
+            }
+            .input{
+                width: 300px;
+                padding-right: 10px;
+                margin-right: 100px;
+                height: 45px;
+            }
+        }
+        .options{
+            padding: 3px;
+            padding-right: 15px;
+            .post{
+                width: 100px;
+                height: 35px;
+                margin-bottom: 5px;
+            }
+        }
     }
 }
 

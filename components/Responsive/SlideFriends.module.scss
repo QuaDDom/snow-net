@@ -1,7 +1,7 @@
 @import '../../styles/colors/variables.scss';
 .slideFriendsContainer{
     width: 100vw;
-    height: 24vh;
+    height: 28vh;
     background: $black2;
     padding: 10px 0px;
     h3{
@@ -13,7 +13,7 @@
     .slide{
         min-width: 90vw;
         overflow: hidden;
-        height: 20vh;
+        height: 22vh;
         display: flex;
         align-items: center;
         justify-content: center;

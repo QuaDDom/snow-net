@@ -5,13 +5,13 @@
     width: 100%;
     .profile{
         width: 100%;
-        min-height: 53vh;
+        min-height: 530px;
         background: $black2;
         border-radius: 10px;
         position: relative;
         .banner{
-            width: 1800px;
-            height: 320px;
+            width: 92.5vw;
+            height: 33vh;
             padding: 0 100px;
             position: relative;
             transition: 0.7s;
@@ -344,6 +344,27 @@
                 .posts{
                     margin: 0;
                     padding: 0;
+                }
+            }
+        }
+    }
+}
+    
+@media (max-width: 1500px) {
+    .userProfileContainer{
+        .profile{
+            min-height: 410px;
+            max-height: 410px;
+            .info{
+                top: 175px;
+                .profilePic{
+                    width: 175px;
+                    height: 175px;
+                    margin-left: 5px;
+                    img{
+                        width: 175px;
+                        height: 175px;
+                    }
                 }
             }
         }

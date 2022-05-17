@@ -111,6 +111,27 @@
     }
 }
 
+@media (max-width: 1500px){
+    .content{
+        .exploreContainer{
+            .searchInput{
+                width: 550px;
+                height: 100px;
+                padding: 0 20px;
+            }
+            .trending{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+               .worldNews{
+                    height: 250px;
+                    width: 500px;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 1200px){
     .content{
         flex-direction: column;

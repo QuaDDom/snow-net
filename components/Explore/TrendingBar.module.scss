@@ -25,6 +25,15 @@
     }
 }
 
+@media (max-width: 1500px){
+    .trendingBarContainer{
+        width: 450px;
+        .trendingNow{
+            width: 350px;
+        }
+    }
+}
+
 @media (max-width: 1200px){
     .trendingBarContainer{
         width: 100%;

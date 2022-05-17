@@ -21,7 +21,8 @@ export default function Group() {
             }
         }
         fetchGroupData();
-    },[]);
+    },[id]);
+
     return (
         <>
         {group && <Layout title={group.title + "- Snow"}>

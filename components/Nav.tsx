@@ -1,4 +1,5 @@
 import NavLink from 'next/link';
+import Router from 'next/router';
 import React, { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 import styles from './Nav.module.scss';
@@ -10,7 +11,7 @@ export default function Nav() {
   return (
     <>
         <div className={styles.navigation}>
-            <div className={styles.logo}>
+            <div className={styles.logo} onClick={()=> Router.push('/')}>
                 <img src="snow-logo.svg"/>
                 <p>SNOW</p>
             </div>

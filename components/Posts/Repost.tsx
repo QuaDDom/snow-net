@@ -36,6 +36,7 @@ interface User{
   name: string,
   lastname: string,
   profilePic: string,
+  _id: string
 }
 
 export default function Post({_id, image, text, userId, likes, fetchData, loggedUser, createdAt, repostedPost,repostedBy}: Props) {
@@ -112,7 +113,7 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
     {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen}/>}
     {user && postUser && loggedUser && post &&
       <div className={styles.postContainer} ref={postRef}>
-        <p className={styles.reposted}><span><BiRepost/></span> {user.name + ' ' + user.lastname} Reposted</p>
+        <p className={styles.reposted} onClick={()=> Router.push('/user/' + user.username)}><span><BiRepost/></span> {user.name + ' ' + user.lastname} Reposted</p>
         <div className={styles.user}>
           <img src={postUser.profilePic || 'noProfile.png'} alt={postUser.name} onClick={handleImageClick}/>
           <div className={styles.bothColumn}>

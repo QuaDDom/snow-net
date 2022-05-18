@@ -4,6 +4,7 @@ import { MdBlock, MdOutlineReport } from 'react-icons/md';
 import { RiDeleteBin5Line, RiEditLine, RiUserFollowLine, RiVolumeMuteLine } from 'react-icons/ri';
 import { useMediaQuery } from 'react-responsive';
 import styles from './PostDots.module.scss';
+import Router from 'next/router';
 
 interface Props{
     userId: string,
@@ -33,54 +34,54 @@ export default function PostDotsOptions({isOpen, userId, loggedUserId,
     }
     return (
         <>
-                    {
-                    isOpen && userId === loggedUserId && 
-                    <>
-                    <div className={styles.options} style={isResponsive ? {
-                        position: 'absolute',
-                        top: postRef.current.offsetTop + (!reposted ? 50 : 75),
-                        right: postRef.current.offsetLeft - 30
-                    } : {}}>
-                        <div className={`${styles.option} ${styles.delete}`} onClick={handleModal}>
-                            <span><RiDeleteBin5Line/></span>
-                            <p>Delete post</p>
-                        </div>
-                        <div className={styles.option} onClick={handleEdit}>
-                            <span><RiEditLine/></span>
-                            <p>Edit post</p>
-                        </div>
-                        <div className={styles.option} onClick={handlePin}>
-                            <span><AiOutlinePushpin/></span>
-                            <p>Pin this post</p>
-                        </div>
-                    </div>
-                    </>
-                }
-                {
-                    isOpen && userId !== loggedUserId && 
-                    <div className={styles.options} style={isResponsive ? {
-                        position: 'absolute',
-                        top: postRef.current.offsetTop + 50,
-                        right: postRef.current.offsetLeft - 30
-                    } : {}}>
-                        <div className={styles.option}>
-                            <span><RiUserFollowLine/></span>
-                            <p>Follow @{username}</p>
-                        </div>
-                        <div className={styles.option}>
-                            <span><RiVolumeMuteLine/></span>
-                            <p>Mute @{username}</p>
-                        </div>
-                        <div className={styles.option}>
-                            <span><MdBlock/></span>
-                            <p>Block @{username}</p>
-                        </div>
-                        <div className={styles.option} onClick={handleReportModal}>
-                            <span><MdOutlineReport/></span>
-                            <p>Report this post</p>
-                        </div>
-                    </div>
-                }
+            {
+            isOpen && userId === loggedUserId && 
+            <>
+            <div className={styles.options} style={isResponsive ? {
+                position: 'absolute',
+                top: postRef.current.offsetTop + (!reposted ? 50 : 75),
+                right: postRef.current.offsetLeft - 30
+            } : {}}>
+                <div className={`${styles.option} ${styles.delete}`} onClick={handleModal}>
+                    <span><RiDeleteBin5Line/></span>
+                    <p>Delete post</p>
+                </div>
+                <div className={styles.option} onClick={handleEdit}>
+                    <span><RiEditLine/></span>
+                    <p>Edit post</p>
+                </div>
+                <div className={styles.option} onClick={handlePin}>
+                    <span><AiOutlinePushpin/></span>
+                    <p>Pin this post</p>
+                </div>
+            </div>
+            </>
+        }
+        {
+            isOpen && userId !== loggedUserId && 
+            <div className={styles.options} style={isResponsive ? {
+                position: 'absolute',
+                top: postRef.current.offsetTop + 50,
+                right: postRef.current.offsetLeft - 30
+            } : {}}>
+                <div className={styles.option} onClick={()=> Router.push('/user/' + username)}>
+                    <span><RiUserFollowLine/></span>
+                    <p>Follow @{username}</p>
+                </div>
+                <div className={styles.option}>
+                    <span><RiVolumeMuteLine/></span>
+                    <p>Mute @{username}</p>
+                </div>
+                <div className={styles.option}>
+                    <span><MdBlock/></span>
+                    <p>Block @{username}</p>
+                </div>
+                <div className={styles.option} onClick={handleReportModal}>
+                    <span><MdOutlineReport/></span>
+                    <p>Report this post</p>
+                </div>
+            </div>
+        }
         </>
     )
 }

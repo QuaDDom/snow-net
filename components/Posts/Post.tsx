@@ -61,7 +61,9 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const [reportModal, setReportModal] = useState(false);
   const [optionsPosition, setOptionsPosition] = useState<any>(null);
   const [optionsOpen, setOptionsOpen] = useState(false);
-  const [fullName, setFullName] = useState('')
+  const [fullName, setFullName] = useState('');
+  const [deleteComment, setDeleteComment] = useState(false);
+  const [editComent, setEditComent] = useState(false)
   
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
   const postRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;

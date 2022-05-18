@@ -16,8 +16,9 @@
     backdrop-filter: blur(2px);
     background: #ffffff20;
     .modal{
-        width: 30vw;
-        max-height: 45vh;
+        width: 585px;
+        min-height: 350px;
+        max-height: 475px;
         background: $black2;
         padding: 40px 70px;
         border-radius: 15px;

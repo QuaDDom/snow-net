@@ -25,6 +25,13 @@ $secondary: #0099ff;
         &:hover img{
             filter: brightness(1.4);
         }
+        &:hover p{
+            background-size: 170%;
+            background: linear-gradient(90deg, $primary, $secondary, $primary);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: hover 0.8s infinite linear;
+        }
         img{
             height: 40px;
             width: 40px;
@@ -39,13 +46,6 @@ $secondary: #0099ff;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             transition: 1.2s;
-            &:hover{
-                background-size: 170%;
-                background: linear-gradient(90deg, $primary, $secondary, $primary);
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-                animation: hover 0.8s infinite linear;
-            }
         }
     }
     nav{

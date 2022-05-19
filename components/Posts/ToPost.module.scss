@@ -4,7 +4,7 @@
     background: $black2;
     width: 40vw;
     min-height: 8.5vw;
-    z-index: 5;
+    z-index: 4;
     padding: 5px 18px;
     padding-bottom: 30px;
     display: flex;
@@ -31,7 +31,6 @@
         width: 100%;
         justify-content: space-between;
         align-items: center;
-
         .image{
             width: 60px;
             height: 60px;
@@ -47,7 +46,7 @@
         .input{
             position: relative;
             display: block;
-            width: 27vw;
+            width: 27.5vw;
             height: 50px;
             margin-right: 120px;
             display: flex;

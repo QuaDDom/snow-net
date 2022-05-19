@@ -5,7 +5,8 @@ import { useMediaQuery } from 'react-responsive';
 import styles from './PageStyle.module.scss';
 
 interface Props{
-    setPage: React.Dispatch<React.SetStateAction<number>>
+    setPage: React.Dispatch<React.SetStateAction<number>>,
+    loggedUser: any
 }
 
 export default function Security({setPage}: Props) {

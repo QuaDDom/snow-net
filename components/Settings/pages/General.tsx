@@ -5,10 +5,11 @@ import EditModal from '../modals/EditModal';
 import styles from './PageStyle.module.scss';
 
 interface Props{
-    setPage: React.Dispatch<React.SetStateAction<number>>
+    setPage: React.Dispatch<React.SetStateAction<number>>,
+    loggedUser: any
 }
 
-export default function General({ setPage }: Props) {
+export default function General({ setPage, loggedUser }: Props) {
     const [isOpen, setIsOpen] = useState(false);
     const [type, setType] = useState('');
     const [value, setValue] = useState('');
@@ -19,7 +20,7 @@ export default function General({ setPage }: Props) {
     };
     return (
         <div className={styles.pageContainer}>
-            {isOpen && <EditModal type={type} setIsOpen={setIsOpen} value={value}/>}
+            {isOpen && <EditModal type={type} setIsOpen={setIsOpen} value={value} title={''} postId={''} userId={''}/>}
             {!isResponsive && 
             <button onClick={()=> setPage(0)} className={styles.back}><AiOutlineArrowLeft/></button>
             }
@@ -28,17 +29,17 @@ export default function General({ setPage }: Props) {
             <div className={styles.settings}>
                 <div className={styles.option}>
                     <h5>Name</h5>
-                    <p>John Doe</p>
+                    <p>{loggedUser?.name} {loggedUser?.lastname}</p>
                     <button onClick={handleOpen}>Edit</button>
                 </div>
                 <div className={styles.option}>
                     <h5>Username</h5>
-                    <p>@johndoe</p>
+                    <p>@{loggedUser?.username}</p>
                     <button onClick={handleOpen}>Edit</button>
                 </div>
                 <div className={styles.option}>
                     <h5>Bio</h5>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, incidunt.</p>
+                    <p>{loggedUser?.bio}</p>
                     <button onClick={handleOpen}>Edit</button>
                 </div>
             </div>

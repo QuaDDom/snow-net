@@ -7,6 +7,8 @@ import Language from '../components/Settings/pages/Language';
 import Privacy from '../components/Settings/pages/Privacy';
 import Security from '../components/Settings/pages/Security';
 import SettingsBar from '../components/Settings/SettingsBar';
+import SettingsComponent from '../components/Settings/SettingsComponent';
+import { AuthProvider } from '../context/AuthContext';
 import styles from '../styles/settings.module.scss';
 
 export default function settings() {
@@ -24,18 +26,9 @@ export default function settings() {
       <div className={styles.settingsContainer}>
           {isResponsive && page === 0 && <SettingsBar setPage={setPage}/>}
           {!isResponsive && <SettingsBar setPage={setPage}/>}
-          {
-            page === 1 && <General setPage={setPage}/>
-          }
-          {
-            page === 2 && <Security setPage={setPage}/>
-          }
-          {
-            page === 3 && <Privacy setPage={setPage}/>
-          }
-          {
-            page === 4 && <Language setPage={setPage}/>
-          }
+          <AuthProvider>
+            <SettingsComponent page={page} setPage={setPage}/>
+          </AuthProvider>
       </div>
       </Layout>
   );

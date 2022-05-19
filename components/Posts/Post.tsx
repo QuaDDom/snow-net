@@ -18,6 +18,8 @@ import Report from '../Modals/Report';
 import { MutableRefObject } from 'react';
 import PostDotsOptions from './PostDotsOptions';
 import { useMediaQuery } from 'react-responsive';
+import DeleteCommentModal from '../Settings/modals/DeleteCommentModal';
+import EditCommentModal from '../Settings/modals/EditCommentModal';
 
 interface Props{
   _id: string
@@ -63,7 +65,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [fullName, setFullName] = useState('');
   const [deleteComment, setDeleteComment] = useState(false);
-  const [editComent, setEditComent] = useState(false)
+  const [editComment, setEditComment] = useState(false)
   
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
   const postRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
@@ -108,6 +110,12 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   return (
     <>
     {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen}/>}
+    {
+      deleteComment && <DeleteCommentModal/>
+    }
+    {
+      editComment && <EditCommentModal/>
+    }
     {editModal && <EditModal 
                   setIsOpen={setEditModal}
                   value={text}

@@ -22,9 +22,13 @@ $secondary: #0099ff;
         position: relative;
         align-items: center;
         cursor: pointer;
+        &:hover img{
+            filter: brightness(1.4);
+        }
         img{
             height: 40px;
             width: 40px;
+            transition: .3s;
         }
         p{
             font-size: 2em;

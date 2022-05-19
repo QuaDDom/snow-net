@@ -213,6 +213,33 @@
     }
 }
 
+
+@media (max-width: 1500px) {
+    .userProfileContainer{
+        .profile{
+            min-height: 410px;
+            max-height: 410px;
+            .info{
+                top: 182px;
+                .profilePic{
+                    width: 175px;
+                    height: 175px;
+                    margin-left: 5px;
+                    img{
+                        width: 175px;
+                        height: 175px;
+                    }
+                }
+                div{
+                    h4{
+                        font-size: 1.6em;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 1200px){
     .userProfileContainer{
         max-width: 100vw;
@@ -331,32 +358,6 @@
                 .posts{
                     margin: 0;
                     padding: 0;
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 1500px) {
-    .userProfileContainer{
-        .profile{
-            min-height: 410px;
-            max-height: 410px;
-            .info{
-                top: 182px;
-                .profilePic{
-                    width: 175px;
-                    height: 175px;
-                    margin-left: 5px;
-                    img{
-                        width: 175px;
-                        height: 175px;
-                    }
-                }
-                div{
-                    h4{
-                        font-size: 1.6em;
-                    }
                 }
             }
         }

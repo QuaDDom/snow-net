@@ -18,13 +18,13 @@ export const useRegister = ()=>{
 
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>, inputType: string)=>{
+        if(inputType === "name") setName(e.target.value);
+        if(inputType === "lastname") setLastname(e.target.value);
         if(inputType === "password") setPassword(e.target.value);
-        else if(inputType === "reppassword") setRepeatPassword(e.target.value);
-        else if(inputType === "bio") setBio(e.target.value);
-        else if(inputType === "email") setEmail(e.target.value);
-        else if(inputType === "name") setName(e.target.value);
-        else if(inputType === "lastname") setLastname(e.target.value);
-        else if (inputType === "username") setUsername(e.target.value);
+        if(inputType === "reppassword") setRepeatPassword(e.target.value);
+        if(inputType === "bio") setBio(e.target.value);
+        if(inputType === "email") setEmail(e.target.value);
+        if (inputType === "username") setUsername(e.target.value);
         setUserData({
             username,
             name,

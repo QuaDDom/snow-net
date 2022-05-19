@@ -12,11 +12,12 @@ interface Props{
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
     title: string,
     userId: string,
-    setText?: any
+    setText?: any,
+    setNewProfilePic: React.Dispatch<React.SetStateAction<string>>
 }
 
   
-export default function UploadUserProfile({type, value, setIsOpen, title, userId, setText}: Props) {
+export default function UploadUserProfile({type, value, setIsOpen, title, userId, setText, setNewProfilePic}: Props) {
     const [file, setFile] = useState<any>(null);
     const [preview, setPreview] = useState('');
     const [progress, setProgress] = useState(0);
@@ -61,7 +62,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
                         profilePic: url
                     })
                 }
-        
+                setNewProfilePic(url)
                 update();
                 setUrl(url);
                 setIsLoading(false);

@@ -47,6 +47,7 @@ export default function UserProfileComponent({userData, username}: Props) {
     const [isLoggedUser, setIsLoggedUser] = useState(false);
     const [updatePfpModal, setUpdatePfpModal] = useState(false)
     const [newCoverPic, setNewCoverPic] = useState('');
+    const [newProfilePic, setNewProfilePic] = useState('')
     const [updateCoverModal, setUpdateCoverModal] = useState(false);
 
 
@@ -81,6 +82,7 @@ export default function UserProfileComponent({userData, username}: Props) {
                                 value=""
                                 userId={loggedUser._id}
                                 setIsOpen={setUpdatePfpModal}
+                                setNewProfilePic={setNewProfilePic}
                            />}
         {updateCoverModal && <UploadUserCover
                                 title="Upload Cover Picture"
@@ -101,7 +103,7 @@ export default function UserProfileComponent({userData, username}: Props) {
                 </div>
                 <div className={styles.info}>
                     <div className={styles.profilePic}>
-                        <img src={userData.user.profilePic || 'noProfile.png'} />
+                        <img src={newCoverPic || userData.user.profilePic || 'noProfile.png'} />
                         {isLoggedUser && 
                         <span className={styles.editProfilePic} onClick={()=> setUpdatePfpModal(true)}>
                             <span><AiOutlineCamera/></span>

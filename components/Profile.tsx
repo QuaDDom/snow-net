@@ -32,7 +32,7 @@ export default function Profile({isOpen, userData}: Props) {
               </div>
               <div/>
             </div>
-            <div className={styles.option}>
+            <div className={styles.option} onClick={()=> Router.push(`/user/${userData.username}`)}>
                 <div className={styles.icon}><CgProfile/></div>
                   <p className={styles.settings}>Profile</p>
                 <div/>

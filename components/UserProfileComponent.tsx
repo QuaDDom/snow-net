@@ -13,11 +13,10 @@ import Photos from './UserProfile/Photos';
 import dateFormat, { masks } from "dateformat";
 import MutualFriends from './UserProfile/MutualFriends';
 import { BsCalendarDateFill } from 'react-icons/bs';
-import { MdPeople } from 'react-icons/md';
-import { FaPen } from 'react-icons/fa';
 import UploadUserProfile from './Settings/modals/UploadUserProfile';
 import UploadUserCover from './Settings/modals/UploadUserCover';
 import Repost from './Posts/Repost';
+import EditProfileModal from './Settings/modals/User/EditProfileModal';
 
 interface Post{
     _id: string,
@@ -49,6 +48,7 @@ export default function UserProfileComponent({userData, username}: Props) {
     const [newCoverPic, setNewCoverPic] = useState('');
     const [newProfilePic, setNewProfilePic] = useState('')
     const [updateCoverModal, setUpdateCoverModal] = useState(false);
+    const [editProfile, setEditProfile] = useState(false);
 
 
 
@@ -77,20 +77,27 @@ export default function UserProfileComponent({userData, username}: Props) {
 
     return (
         <>
-        {updatePfpModal && <UploadUserProfile 
-                                title="Upload Profile Picture"
-                                value=""
-                                userId={loggedUser._id}
-                                setIsOpen={setUpdatePfpModal}
-                                setNewProfilePic={setNewProfilePic}
-                           />}
-        {updateCoverModal && <UploadUserCover
-                                title="Upload Cover Picture"
-                                value=""
-                                userId={loggedUser._id}
-                                setIsOpen={setUpdateCoverModal}
-                                setNewCoverPic={setNewCoverPic}
-                             />}
+        {updatePfpModal && 
+            <UploadUserProfile 
+                title="Upload Profile Picture"
+                value=""
+                userId={loggedUser._id}
+                setIsOpen={setUpdatePfpModal}
+                setNewProfilePic={setNewProfilePic}               
+            />
+        }
+        {updateCoverModal && 
+            <UploadUserCover
+                title="Upload Cover Picture"
+                value=""
+                userId={loggedUser._id}
+                setIsOpen={setUpdateCoverModal}
+                setNewCoverPic={setNewCoverPic}                 
+            />
+        }
+        {
+            editProfile && <EditProfileModal userData={userData}/>
+        }
         { userData && <div className={styles.userProfileContainer}>
             <div className={styles.profile}>
                 <div 
@@ -119,7 +126,7 @@ export default function UserProfileComponent({userData, username}: Props) {
                         {!isLoggedUser && <button><RiMailSendLine/></button>}
                         <button 
                         className={`${styles.follow} ${isLoggedUser && styles.editProfile}`}
-                        onClick={handleFollow}>
+                        onClick={!isLoggedUser ? handleFollow : ()=> setEditProfile(true)}>
                             {isLoggedUser 
                             ? "Edit Profile"
                             : isFollowed ? 'Following' : 'Follow'}

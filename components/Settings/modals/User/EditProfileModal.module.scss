@@ -1,0 +1,224 @@
+@import '../../../../styles/colors/variables.scss';
+
+.modalContainer{
+    background: transparent;
+    position: fixed;
+    z-index: 25;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: appear 0.4s forwards;
+    backdrop-filter: blur(2px);
+    background: #ffffff20;
+    .modal{
+        width: 885px;
+        min-height: 500px;
+        max-height: 625px;
+        background: $black2;
+        padding: 40px 70px;
+        border-radius: 15px;
+        position: relative;
+        .info{
+            .text{
+                display: flex;
+                justify-content: space-between;
+                .inputs{
+                    width: 60%;
+                    padding-right: 20px;
+                }
+                textarea{
+                    width: 400px;
+                    height: 175px;
+                    background: $black3;
+                    border: none;
+                    outline: none;
+                    border-radius: 10px;
+                    margin-top: 14px;
+                    padding: 10px;
+                    font-size: 1em;
+                    color: #fff;
+                    resize: none;
+                }
+            }
+            .profilePhotos{
+                height: 185px;
+                .banner{
+                    width: 85%;
+                    height: 200px;
+                    position: absolute;
+                    filter: brightness(0.8);
+                    img{
+                        width: 100%;
+                        height: 155px;
+                        background-size: cover;
+                        object-fit: cover;
+                    }
+                }
+                .pfp{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    position: relative;
+                    z-index: 2;
+                    padding-top: 35px;
+                    img{
+                        width: 140px;
+                        height: 140px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        background-size: cover;
+                        background: $black2;
+                    }
+                }
+            }
+        }
+        &.cover{
+            width: 45vw;
+            height: 45vh;
+        }
+        &.reportModal{
+            height: 37vh;
+        }
+        .title{
+            font-size: 1.4em;
+            font-weight: 500;
+            padding-bottom: 15px;
+        }
+        p{
+            color: #999;
+            padding-bottom: 20px;
+        }
+        .uploadPhoto{
+            margin-top: 2vh;
+            background: $black3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            height: 20vh;
+            font-size: 3em;
+            width: 100%;
+            position: relative;
+            .imagePreview{
+                height: 100%;
+                width: 100%;
+                z-index: 3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                left: 0;
+                position: absolute;
+                img{
+                    height: 152px;
+                    width: 152px;
+                    border-radius: 50%;
+                    background-size: cover;
+                    object-fit: cover;
+                }
+            }
+            .imagePreviewCover{
+                height: 100%;
+                width: 100%;
+                z-index: 3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                left: 0;
+                position: absolute;
+                img{
+                    width: 900px;
+                    height: 160px;
+                    background-size: cover;
+                    object-fit: cover;
+                }
+            }
+            span{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 150px;
+                width: 150px;
+                border: 1px solid #fff;
+                border-radius: 50%;
+            }
+            input{
+                cursor: pointer;
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 4;
+            }
+        }
+        input{
+            width: 100%;
+            height: 5vh;
+            background: $black3;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            padding: 3px 10px;
+            font-size: 1em;
+            margin-top: 15px;
+            color: #fff;
+            &.reportInput{
+                margin-top: 0;
+                height: 7vh;
+            }
+        }
+        .buttons{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 45px;
+            button{
+                color: #fff;
+                width: 10vw;
+                border-radius: 30px;
+                height: 5vh;
+                border: none;
+                outline: none;
+                transition: .3s;
+                font-size: 1em;
+            }
+            .send{
+                background: rgb(255, 99, 99);
+                &:hover{
+                    background: rgb(255, 65, 65);
+                }
+            }
+            .save{
+                background: $secondary;
+                &:hover{
+                    background: $secondaryh;
+                }
+            }
+            .cancel{
+                background: $black3;
+                &:hover{
+                    background: $black3h;
+                }
+            }
+        }
+    }
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

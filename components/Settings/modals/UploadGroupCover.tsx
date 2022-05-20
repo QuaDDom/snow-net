@@ -98,8 +98,8 @@ export default function UploadGroupCover({type, value, setIsOpen, title, userId,
                   </div>
                 </div>
                 <div className={styles.buttons}>
-                <button className={styles.save} onClick={updateProfile}>Save</button>
-                <button className={styles.cancel} onClick={()=> setIsOpen(false)}>Cancel</button>
+                    <button className={styles.save} onClick={updateProfile}>Save</button>
+                    <button className={styles.cancel} onClick={()=> setIsOpen(false)}>Cancel</button>
                 </div>
                 {isLoading && <ProgressBar progress={progress}/>}
             </div>

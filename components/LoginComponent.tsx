@@ -8,6 +8,7 @@ import { loginSchema } from '../validations/LoginValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
+import Head from 'next/head';
 
 interface Props{
     isWelcome?: boolean,
@@ -30,6 +31,10 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
     },[loggedUser])
 
     return (
+        <>
+        <Head>
+        <title>Login - Snow</title>
+        </Head>
         <div className={styles.loginContainer}>
         <div className={styles.containerAll}>
         <div className={styles.login}>
@@ -63,8 +68,9 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
                 </form>
                 <p>You don't have an account? <Link href="/register">Sign up</Link></p>
             </div>  
+            </div>
+            </div>
         </div>
-        </div>
-    </div>
+        </>
     )
 }

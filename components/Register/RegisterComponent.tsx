@@ -11,6 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import PageOne from './PageOne';
 import PageTwo from './PageTwo';
 import PageThree from './PageThree';
+import Head from 'next/head';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import PageFour from './PageFour';
 import PageDots from './PageDots';
@@ -59,6 +60,10 @@ export default function RegisterInputs() {
   },[loggedUser])
 
   return (
+    <>
+    <Head>
+      <title>Register - Snow</title>
+    </Head>
     <div className={styles.registerContainer}>
     <div className={styles.containerAll}>
       <div className={styles.registerContent}>
@@ -112,9 +117,10 @@ export default function RegisterInputs() {
                   </button>}
               </div>
             </div>  
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    </>
   )
 }

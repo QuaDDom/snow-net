@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { AiOutlineCamera } from 'react-icons/ai';
+import { Oval } from 'react-loader-spinner';
 import { projectFirestore, projectStorage, timestamp } from '../../../config/firebase.config';
 import { useImageResizer } from '../../../hooks/useImageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
@@ -29,6 +30,7 @@ export default function UploadUserCover({type, value, setIsOpen, title, userId, 
 
     const updateProfile = async ()=> {
         try{
+            setIsLoading(true);
             const resizedImage: any = await useImageResizer(file, 660, 1400);
             console.log(resizedImage)
             const storageRef = projectStorage.ref(file.name); 
@@ -99,9 +101,22 @@ export default function UploadUserCover({type, value, setIsOpen, title, userId, 
                 </div>
                 <div className={styles.buttons}>
                 <button className={styles.cancel} onClick={()=> setIsOpen(false)}>Cancel</button>
-                <button className={styles.save} onClick={updateProfile}>Save</button>
+                <button className={styles.save} onClick={updateProfile}>
+                        {!isLoading ? "Save" :
+                        <div className={styles.loader}>
+                            <Oval
+                            ariaLabel="loading-profile"
+                            height={28}
+                            width={28}
+                            strokeWidth={15}
+                            strokeWidthSecondary={5}
+                            color="white"
+                            secondaryColor="none"
+                            />
+                        </div>
+                        }
+                    </button>
                 </div>
-                {isLoading && <ProgressBar progress={progress}/>}
             </div>
         </div>
     )

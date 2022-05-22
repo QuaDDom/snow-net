@@ -1,5 +1,6 @@
+import axios from 'axios';
 import Router from 'next/router';
-import React, { Children, createContext, useEffect } from 'react';
+import React, { Children, createContext, useEffect, useState } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useLogin } from '../hooks/useLogin';
 import { useRegister } from '../hooks/useRegister';
@@ -14,6 +15,7 @@ export const AuthProvider = ({children}: Props)=>{
     const {handleChange, handleSubmit, userData, values, errors }: any = useRegister();
     const {handleChangeLog, handleSubmitLog, currentUser, valuesLog} = useLogin();
     const {loggedUser, setLoggedUser} = useLocalStorage();
+    const [newUserData, setNewUserData] = useState<any>(null)
 
     useEffect(()=>{
         if(currentUser){
@@ -26,6 +28,16 @@ export const AuthProvider = ({children}: Props)=>{
         }
     },[currentUser, loggedUser]);
 
+    useEffect(()=>{
+        const getData = async ()=>{
+            if(loggedUser){
+                const data = await axios.get('http://localhost:5000/api/users/profile/' + loggedUser.username);
+                setNewUserData({...data.data})
+            }
+        }
+        getData();
+    },[loggedUser])
+
     const data = {
         handleChange,
         handleSubmit,
@@ -33,7 +45,7 @@ export const AuthProvider = ({children}: Props)=>{
         values,
         handleChangeLog,
         handleSubmitLog,
-        loggedUser,
+        loggedUser: newUserData,
         valuesLog,
         setLoggedUser,
         errors

@@ -54,6 +54,22 @@
                 }
             }
         }
+        .grid{
+            overflow-y: scroll;
+            max-height: 630px;
+            &::-webkit-scrollbar{
+                width: 5px;
+            }
+            &::-webkit-scrollbar-thumb{
+                background: #ffffff30;
+                transition: .3s;
+                border-radius: 20px;
+                width: 0;
+                &:hover{
+                    background: #ffffff99;
+                }
+            }
+        }
         .searchInput{
             position: relative;
             width: 100%;

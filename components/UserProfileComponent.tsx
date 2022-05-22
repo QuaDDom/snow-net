@@ -96,7 +96,11 @@ export default function UserProfileComponent({userData, username}: Props) {
             />
         }
         {
-            editProfile && <EditProfileModal userData={userData}/>
+            editProfile && 
+            <EditProfileModal 
+                userData={userData} 
+                setEditProfile={setEditProfile}
+            />
         }
         { userData && <div className={styles.userProfileContainer}>
             <div className={styles.profile}>
@@ -110,7 +114,7 @@ export default function UserProfileComponent({userData, username}: Props) {
                 </div>
                 <div className={styles.info}>
                     <div className={styles.profilePic}>
-                        <img src={newCoverPic || userData.user.profilePic || 'noProfile.png'} />
+                        <img src={newProfilePic || userData.user.profilePic || 'noProfile.png'} />
                         {isLoggedUser && 
                         <span className={styles.editProfilePic} onClick={()=> setUpdatePfpModal(true)}>
                             <span><AiOutlineCamera/></span>

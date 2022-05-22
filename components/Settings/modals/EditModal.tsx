@@ -40,8 +40,8 @@ export default function EditModal({type, value, setIsOpen, title, userId, postId
             <h4 className={styles.title}>{title}</h4>
             <input type="text" value={inputVal} onChange={handleChange}/>
             <div className={styles.buttons}>
-              <button className={styles.save} onClick={updatePost}>Save</button>
               <button className={styles.cancel} onClick={()=> setIsOpen(false)}>Cancel</button>
+              <button className={styles.save} onClick={updatePost}>Save</button>
             </div>
         </div>
     </div>

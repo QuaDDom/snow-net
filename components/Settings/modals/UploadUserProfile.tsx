@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { AiOutlineCamera } from 'react-icons/ai';
+import { Oval } from 'react-loader-spinner';
 import { projectFirestore, projectStorage, timestamp } from '../../../config/firebase.config';
 import { useImageResizer } from '../../../hooks/useImageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
@@ -38,7 +39,8 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
 
     const updateProfile = async ()=> {
         try{
-            const resizedImage: any = await useImageResizer(file, 128);
+            setIsLoading(true);
+            const resizedImage: any = await useImageResizer(file, 256);
             console.log(resizedImage)
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('profilePictures');
@@ -63,9 +65,10 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
                     })
                 }
                 setNewProfilePic(url)
+                setIsLoading(false);
+                setIsOpen(false);
                 update();
                 setUrl(url);
-                setIsLoading(false);
                 setFile(null);
             });
         } catch(err){
@@ -92,12 +95,26 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
                   <input type="file" onChange={handleFileChange} accept="image/png, image/jpg, image/jpeg"/>
                   <span><AiOutlineCamera/></span>
                   <div className={styles.imagePreview}>
-                    {preview &&  <img src={preview} alt="" />}
+                    {preview && <img src={preview}/>}
                   </div>
                 </div>
                 <div className={styles.buttons}>
-                <button className={styles.save} onClick={updateProfile}>Save</button>
-                <button className={styles.cancel} onClick={()=> setIsOpen(false)}>Cancel</button>
+                    <button className={styles.cancel} onClick={()=> setIsOpen(false)}>Cancel</button>
+                    <button className={styles.save} onClick={updateProfile}>
+                        {!isLoading ? "Save" :
+                        <div className={styles.loader}>
+                            <Oval
+                            ariaLabel="loading-profile"
+                            height={28}
+                            width={28}
+                            strokeWidth={15}
+                            strokeWidthSecondary={5}
+                            color="white"
+                            secondaryColor="none"
+                            />
+                        </div>
+                        }
+                    </button>
                 </div>
             </div>
         </div>

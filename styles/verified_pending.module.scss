@@ -19,8 +19,8 @@
         z-index: 0;
     }
     .content{
-        height: 70vh;
-        width: 50vw;
+        height: 570px;
+        width: 800px;
         z-index: 1;
         background: $black2;
         display: flex;
@@ -29,8 +29,8 @@
         flex-direction: column;
         padding-bottom: 50px;
         .pendingImg{
-            width: 21vw; 
-            height: 21vh;
+            width: 160px; 
+            height: 160px;
             margin-bottom: 20px;
             img{
                 height: 100%;
@@ -40,12 +40,12 @@
         p{
             font-size: 1.6em;
             padding-top: 50px;
-            width: 30vw;
+            width: 500px;
             text-align: center;
         }
         button{
-            width: 25vw;
-            height: 5vh;
+            width: 500px;
+            height: 50px;
             margin-top: 100px;
             border: 3px solid $primary;
             background: transparent;

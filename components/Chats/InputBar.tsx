@@ -49,6 +49,7 @@ export default function InputBar({loggedUser, chatId, getAllMessages, socket, re
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
+        if(message.length <= 0) return;
         setIsLoading(true);
         if(file){
             const storageRef = projectStorage.ref(file.name); 
@@ -163,14 +164,13 @@ export default function InputBar({loggedUser, chatId, getAllMessages, socket, re
                 </div>
                 <div className={`${styles.emojiPicker} ${pickerOpen && styles.open}`}>
                     <EmojiPicker 
-                    setMessage={setMessage} 
-                    message={message}
-                    setPickerOpen={setPickerOpen}
-                    pickerOpen={pickerOpen}
-                    />
+                            setMessage={setMessage}
+                            message={message}
+                            setPickerOpen={setPickerOpen}
+                            pickerOpen={pickerOpen} isTop={false}/>
                 </div>
                 <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>
-                    <GIFSearcher setGif={setGif} setGifOpen={setGifOpen} gifOpen={gifOpen}/>
+                    <GIFSearcher setGif={setGif} setGifOpen={setGifOpen} gifOpen={gifOpen} isTop={false}/>
                 </div>
                 <p onClick={handleEmojiPickerButton} className={styles.button}><BiHappy/></p> 
                 <input type="file" name="file" id="file" className={styles.inputFile} onChange={handleFileChange}/>

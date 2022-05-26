@@ -25,7 +25,7 @@ export default function Group() {
 
     return (
         <>
-        {group && <Layout title={group.title + "- Snow"}>
+        {group && <Layout title={group.title + " - Snow"}>
             <AuthProvider>
                 <GroupComponent group={group}/>
             </AuthProvider>

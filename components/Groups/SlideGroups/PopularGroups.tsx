@@ -58,7 +58,7 @@ export default function PopularGroups() {
                                 members={members}
                                 _id={_id}
                                 key={_id}
-                                userId={loggedUser._id}
+                                userId={loggedUser?._id}
                             />
                         ))
                     }

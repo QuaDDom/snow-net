@@ -11,7 +11,7 @@ interface User{
 export const useLogin = ()=> {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [currentUser, setCurrentUser] = useState<any>(null);
+    const [token, setToken] = useState<any>(null);
 
     const handleChangeLog = async (e: React.ChangeEvent<HTMLInputElement>, inputType: string)=>{
 
@@ -26,7 +26,7 @@ export const useLogin = ()=> {
                 email,
                 password
             });
-            setCurrentUser(res.data);
+            setToken(res.data);
         } catch(err){
             console.log(err);
         } finally{
@@ -37,7 +37,7 @@ export const useLogin = ()=> {
     return {
         handleChangeLog,
         handleSubmitLog,
-        currentUser,
+        token,
         valuesLog: {
             email,
             password

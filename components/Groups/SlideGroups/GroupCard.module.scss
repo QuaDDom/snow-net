@@ -1,8 +1,8 @@
 @import '../../../styles/colors/variables.scss';
 
 .groupCardContainer{
-    width: 25vw;
-    height: 29vh;
+    width: 450px;
+    height: 250px;
     position: relative;
     border-radius: 20px;
     overflow: hidden;
@@ -32,7 +32,7 @@
     .content{
         position: relative;
         z-index: 2;
-        padding-top: 4vw;
+        padding-top: 60px;
         display: flex;
         align-items: center;
         width: 100%;
@@ -56,7 +56,7 @@
         .principal{
             width: 100%;
             padding: 0 5px;
-            padding-top: 0px;
+            padding-top: 5px;
             .sub{
                 display: flex;
             }
@@ -119,6 +119,38 @@
                         color: #ff6b6b;
                     }
                 }
+            }
+        }
+    }
+}
+@media (max-width: 1500px){
+    .groupCardContainer{
+        width: 350px;
+        height: 230px;
+        padding: 0 8px;
+        margin: 0 15px;
+        .content{
+            .groupPic{
+                width: 100px;
+                height: 100px;
+                img{
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            .principal{
+                padding-top: 30px;
+                h4{
+                    font-size: 1.1em;
+                }
+            }
+        }
+        .buttonContainer{
+            margin-top: 5px;
+            bottom: 10px;
+            button{
+                width: 80px;
+                height: 30px;
             }
         }
     }

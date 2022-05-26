@@ -41,7 +41,7 @@ export default function GroupComponent({group}: {group: any}) {
     const handleJoin = async ()=>{
         try{
             await axios.put(`http://localhost:5000/api/groups/join/${group._id}`, {
-                userId: loggedUser._id
+                userId: loggedUser?._id
             });
             isJoined ? setIsJoined(false) : setIsJoined(true);
         } catch(err){
@@ -74,13 +74,13 @@ export default function GroupComponent({group}: {group: any}) {
         {updatePfpModal && <UploadGroupProfile 
                                 title="Upload Group Picture"
                                 value=""
-                                userId={loggedUser._id}
+                                groupId={group?._id}
                                 setIsOpen={setUpdatePfpModal}
                             />}
         {updateCoverModal && <UploadGroupCover
                                 title="Upload Cover Picture"
                                 value=""
-                                userId={loggedUser._id}
+                                groupId={group?._id}
                                 setIsOpen={setUpdateCoverModal}
                                 setNewCoverPic={setNewCoverPic}
                              />}

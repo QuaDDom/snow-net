@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { AiOutlineCamera } from 'react-icons/ai';
+import { Oval } from 'react-loader-spinner';
 import { projectFirestore, projectStorage, timestamp } from '../../../config/firebase.config';
 import { useImageResizer } from '../../../hooks/useImageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
@@ -11,12 +12,12 @@ interface Props{
     value: string,
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
     title: string,
-    userId: string,
+    groupId: string,
     setText?: any
 }
 
   
-export default function UploadUserProfile({type, value, setIsOpen, title, userId, setText}: Props) {
+export default function UploadUserProfile({type, value, setIsOpen, title, groupId, setText}: Props) {
     const [file, setFile] = useState<any>(null);
     const [preview, setPreview] = useState('');
     const [progress, setProgress] = useState(0);
@@ -37,6 +38,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
 
     const updateProfile = async ()=> {
         try{
+            setIsLoading(true);
             const resizedImage: any = await useImageResizer(file, 128);
             console.log(resizedImage)
             const storageRef = projectStorage.ref(file.name); 
@@ -52,12 +54,12 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
                 const createdAt = timestamp();
                 collectionRef.add({
                     url,
-                    userId
+                    groupId
                 })
                 
                 const update = async ()=>{
-                    await axios.put(`http://localhost:5000/api/users/${userId}`, {
-                        userId,
+                    await axios.put(`http://localhost:5000/api/groups/${groupId}`, {
+                        groupId,
                         profilePic: url
                     })
                 }
@@ -83,22 +85,40 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
     }
 
     return (
+        <>
         <div className={styles.modalContainer}>
-            {/* <div className={"closeOverlay"} onClick={()=> setIsOpen(false)}/> */}
-            <div className={styles.modal}>
-                <h4 className={styles.title}>{title}</h4>
-                <div className={styles.uploadPhoto}>
-                  <input type="file" onChange={handleFileChange} accept="image/png, image/jpg, image/jpeg"/>
-                  <span><AiOutlineCamera/></span>
-                  <div className={styles.imagePreview}>
-                    {preview &&  <img src={preview} alt="" />}
-                  </div>
-                </div>
-                <div className={styles.buttons}>
-                <button className={styles.cancel} onClick={()=> setIsOpen(false)}>Cancel</button>
-                <button className={styles.save} onClick={updateProfile}>Save</button>
+            <div className={styles.modalContainer}>
+                {/* <div className={"closeOverlay"} onClick={()=> setIsOpen(false)}/> */}
+                <div className={styles.modal}>
+                    <h4 className={styles.title}>{title}</h4>
+                    <div className={styles.uploadPhoto}>
+                    <input type="file" onChange={handleFileChange} accept="image/png, image/jpg, image/jpeg"/>
+                    <span><AiOutlineCamera/></span>
+                    <div className={styles.imagePreview}>
+                        {preview && <img src={preview}/>}
+                    </div>
+                    </div>
+                    <div className={styles.buttons}>
+                        <button className={styles.cancel} onClick={()=> setIsOpen(false)}>Cancel</button>
+                        <button className={styles.save} onClick={updateProfile}>
+                            {!isLoading ? "Save" :
+                            <div className={styles.loader}>
+                                <Oval
+                                ariaLabel="loading-profile"
+                                height={28}
+                                width={28}
+                                strokeWidth={15}
+                                strokeWidthSecondary={5}
+                                color="white"
+                                secondaryColor="none"
+                                />
+                            </div>
+                            }
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+        </>
     )
 }

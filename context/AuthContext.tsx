@@ -13,26 +13,34 @@ const AuthContext = createContext({});
 
 export const AuthProvider = ({children}: Props)=>{
     const {handleChange, handleSubmit, userData, values, errors }: any = useRegister();
-    const {handleChangeLog, handleSubmitLog, currentUser, valuesLog} = useLogin();
+    const {handleChangeLog, handleSubmitLog, token, valuesLog} = useLogin();
     const {loggedUser, setLoggedUser} = useLocalStorage();
     const [newUserData, setNewUserData] = useState<any>(null)
 
     useEffect(()=>{
-        if(currentUser){
+        if(token){
             try{
-                const {password, ...localUser} = currentUser;
-                localStorage.setItem('userLog', JSON.stringify(localUser));
+                localStorage.setItem('userLog', JSON.stringify(token));
             } catch(err){
                 console.log(err);
             }
         }
-    },[currentUser, loggedUser]);
+    },[token, loggedUser]);
 
     useEffect(()=>{
         const getData = async ()=>{
             if(loggedUser){
-                const data = await axios.get('http://localhost:5000/api/users/profile/' + loggedUser.username);
-                setNewUserData({...data.data})
+                try{
+                    const data = await axios.post('http://localhost:5000/api/auth/userdata', {}, {
+                        headers: {
+                            'Authorization' : 'Bearer ' + loggedUser.token
+                        }
+                    });
+                    console.log(data.data)
+                    setNewUserData({...data.data.user})
+                } catch(err){
+                    console.log(err);
+                }
             }
         }
         getData();

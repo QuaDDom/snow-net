@@ -68,6 +68,9 @@
         overflow-x: hidden;
         max-width: 100%;
         min-height: 90%;
+        display: grid;
+        padding-right: 25px;
+        grid-template-columns: repeat(8, 40px);
         span{
             cursor: pointer;
             user-select: none;

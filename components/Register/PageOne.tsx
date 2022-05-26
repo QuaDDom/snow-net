@@ -1,6 +1,8 @@
+import Link from 'next/link'
 import React from 'react'
 import Input from '../Input'
 import ErrorMessage from './Errors/ErrorMessage'
+import styles from './PageOne.module.scss'
 
 interface Props{
     handleChange: ()=> void,
@@ -36,6 +38,9 @@ export default function PageOne({handleChange, values, register, errors}: Props)
           error={{}}
           />
         {errors.email && <ErrorMessage error={errors.email.message}/>}
+        <div className={styles.link}>
+          <p>Have an account already? <Link href="/login">Log in</Link></p>
+        </div>
     </>
   )
 }

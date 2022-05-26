@@ -3,11 +3,11 @@
 .userProfileModal{
     position: absolute;
     z-index: 30;
-    width: 22vw;
-    height: 24vh;
+    width: 390px;
+    height: 200px;
     background: #1b212c;
-    left: -9vw;
-    top: -21.6vh;
+    left: -160px;
+    top: -206px;
     border-radius: 10px;
     overflow: hidden;
     animation: appear 0.4s;
@@ -21,13 +21,13 @@
         flex-direction: column;
         .images{
             width: 100%;
-            height: 14vh;
+            height: 130px;
             display: flex;
             justify-content: center;
             .banner{
                 position: absolute;
                 width: 100%;
-                height: 8vh;
+                height: 80px;
                 z-index: 5;
                 .banner{
                     width: 100%;

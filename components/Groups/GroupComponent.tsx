@@ -76,6 +76,7 @@ export default function GroupComponent({group}: {group: any}) {
                                 value=""
                                 groupId={group?._id}
                                 setIsOpen={setUpdatePfpModal}
+                                userId={loggedUser?._id}
                             />}
         {updateCoverModal && <UploadGroupCover
                                 title="Upload Cover Picture"
@@ -83,6 +84,7 @@ export default function GroupComponent({group}: {group: any}) {
                                 groupId={group?._id}
                                 setIsOpen={setUpdateCoverModal}
                                 setNewCoverPic={setNewCoverPic}
+                                userId={loggedUser?._id}
                              />}
         <div className={styles.groupContainer}>
             <div className={styles.profile}>

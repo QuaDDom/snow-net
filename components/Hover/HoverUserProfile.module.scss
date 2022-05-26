@@ -57,9 +57,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 129px;
+            margin-top: 127px;
+            font-size: 0.95em;
             h4{
-                font-size: 1.2em;
+                font-size: 1.1em;
                 font-weight: 600;
             }
             .dot{
@@ -67,11 +68,12 @@
             }
         }
         .bio{
-            margin-top: 3.2vh;
+            margin-top: 3vh;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 15px;
+            font-size: 0.9em;
         }
     }
 }

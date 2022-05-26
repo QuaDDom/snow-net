@@ -15,11 +15,12 @@ interface Props{
     title: string,
     groupId: string,
     setText?: any,
-    setNewCoverPic: React.Dispatch<React.SetStateAction<string>>
+    setNewCoverPic: React.Dispatch<React.SetStateAction<string>>,
+    userId: string
 }
 
   
-export default function UploadGroupCover({type, value, setIsOpen, title, groupId, setText, setNewCoverPic}: Props) {
+export default function UploadGroupCover({type, value, setIsOpen, title, groupId, setText, setNewCoverPic, userId}: Props) {
     const [file, setFile] = useState<any>(null);
     const [preview, setPreview] = useState('');
     const [progress, setProgress] = useState(0);
@@ -51,7 +52,7 @@ export default function UploadGroupCover({type, value, setIsOpen, title, groupId
                 
                 const update = async ()=>{
                     await axios.put(`http://localhost:5000/api/groups/${groupId}`, {
-                        groupId,
+                        userId,
                         coverPic: url
                     })
                 }

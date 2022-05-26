@@ -13,11 +13,12 @@ interface Props{
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
     title: string,
     groupId: string,
-    setText?: any
+    setText?: any,
+    userId: string
 }
 
   
-export default function UploadUserProfile({type, value, setIsOpen, title, groupId, setText}: Props) {
+export default function UploadUserProfile({type, value, setIsOpen, title, groupId, setText, userId}: Props) {
     const [file, setFile] = useState<any>(null);
     const [preview, setPreview] = useState('');
     const [progress, setProgress] = useState(0);
@@ -59,7 +60,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, groupI
                 
                 const update = async ()=>{
                     await axios.put(`http://localhost:5000/api/groups/${groupId}`, {
-                        groupId,
+                        userId,
                         profilePic: url
                     })
                 }
@@ -67,6 +68,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, groupI
                 update();
                 setUrl(url);
                 setIsLoading(false);
+                setIsOpen(false);
                 setFile(null);
             });
         } catch(err){

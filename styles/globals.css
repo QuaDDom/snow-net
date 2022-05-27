@@ -25,6 +25,15 @@ body {
   overflow-x: initial;
 }
 
+body::-webkit-scrollbar{
+  width: 8px;
+} 
+
+body::-webkit-scrollbar-thumb{
+  background: #ffffff80;
+  border-radius: 20px;
+}
+
 button{
   font-family: 'Manrope', sans-serif;
   font-weight: 600;

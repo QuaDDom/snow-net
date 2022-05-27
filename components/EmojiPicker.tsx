@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './EmojiPicker.module.scss';
 import { useEmojiPicker } from '../hooks/useEmojiPicker';
 import People from './Emojis/People';
@@ -22,13 +22,14 @@ interface Props{
   message: string,
   setPickerOpen: React.Dispatch<React.SetStateAction<boolean>>,
   pickerOpen: boolean,
-  isTop: boolean
+  isTop: boolean,
+  emojiRef: React.MutableRefObject<HTMLDivElement>
 }
 
 const EmojiPicker = ({setMessage, message, setPickerOpen, pickerOpen, isTop}: Props) => {
     const { activityList, peopleList, natureList, handleCategory,
-          symbolList, foodList, objectList, travelList, currentCategory } = useEmojiPicker();
-
+            symbolList, foodList, objectList, travelList, currentCategory, emojiRef } = useEmojiPicker();
+    
     const handleClick = (emoji: string)=>{
       setMessage(`${message + emoji}`);
     }
@@ -52,7 +53,7 @@ const EmojiPicker = ({setMessage, message, setPickerOpen, pickerOpen, isTop}: Pr
             <button onClick={()=> handleCategory('travel')}><MdOutlineTravelExplore/></button>
           </div>
         </div>
-        <div className={styles.emojiGrid}>
+        <div className={styles.emojiGrid} ref={emojiRef}>
           {
             currentCategory === "people"  && <People data={peopleList} handleClick={handleClick}/>
           }

@@ -248,7 +248,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
             </div> }
             {
                 gif && <div className={styles.imagePreview}>
-                    <ImagePreview gif={gif} />
+                    <ImagePreview gif={gif} setFile={setGif}/>
                 </div>
             }
             <div className={styles.options}>

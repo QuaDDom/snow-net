@@ -5,6 +5,8 @@ import { emojis } from '../data/emojis.data';
 export const useEmojiPicker = ()=>{
     const [currentCategory, setCurrentCategory] = useState<string>('people');
     
+    const emojiRef = useRef<HTMLDivElement>(null) as React.MutableRefObject<HTMLDivElement>;
+
     const activityList = emojis.filter((emoji) => emoji.category === "Activity"),
     peopleList = emojis.filter((emoji) => emoji.category === "Smileys & People"),
     natureList = emojis.filter((emoji) => emoji.category === "Animals & Nature"),
@@ -14,6 +16,7 @@ export const useEmojiPicker = ()=>{
     travelList = emojis.filter((emoji) => emoji.category === "Travel & Places");
     
     const handleCategory = (category: string) =>{
+        emojiRef.current.scrollTo(0, emojiRef.current.scrollHeight);
         if(category === "activity") setCurrentCategory("activity");
         else if(category === "people") setCurrentCategory("people");
         else if(category === "symbols") setCurrentCategory("symbols");
@@ -34,6 +37,7 @@ export const useEmojiPicker = ()=>{
         objectList,
         travelList,
         currentCategory,
-        handleCategory
+        handleCategory,
+        emojiRef
     };
 }

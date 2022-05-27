@@ -25,6 +25,7 @@ export const useFireStorage = (user: any, title?: string)=>{
 
     const handleSubmit = async (e: any)=>{
         e.preventDefault();
+    if(!file) return;
         setIsLoading(true);
         const resizedImage: any = await useImageResizer(file, 720, 900);
         const storageRef = projectStorage.ref(file.name); 

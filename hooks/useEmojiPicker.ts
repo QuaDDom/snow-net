@@ -16,7 +16,7 @@ export const useEmojiPicker = ()=>{
     travelList = emojis.filter((emoji) => emoji.category === "Travel & Places");
     
     const handleCategory = (category: string) =>{
-        emojiRef.current.scrollTo(0, emojiRef.current.scrollHeight);
+        emojiRef.current.scrollTo(100, emojiRef.current.scrollHeight);
         if(category === "activity") setCurrentCategory("activity");
         else if(category === "people") setCurrentCategory("people");
         else if(category === "symbols") setCurrentCategory("symbols");

@@ -142,7 +142,11 @@
 
 //MEDIA
 
-
+@media (max-width: 1400px){
+    .postContainer{
+        width: 36vw;
+    }
+}
 
 @media (max-width: 1200px) {
     .postContainer{

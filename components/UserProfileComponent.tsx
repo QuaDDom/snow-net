@@ -56,12 +56,12 @@ export default function UserProfileComponent({userData, username}: Props) {
         try{
             if(!isFollowed){
                 await axios.put(`http://localhost:5000/api/users/${userData.user._id}/follow`, {
-                    userId: loggedUser._id
+                    userId: loggedUser?._id
                 });
                 setIsFollowed(true);
             } else{
                 await axios.put(`http://localhost:5000/api/users/${userData.user._id}/unfollow`, {
-                    userId: loggedUser._id
+                    userId: loggedUser?._id
                 });
                 setIsFollowed(false);
             }
@@ -71,7 +71,7 @@ export default function UserProfileComponent({userData, username}: Props) {
     }
 
     useEffect(()=>{
-        setIsFollowed(userData?.user.friendReqs.includes(loggedUser._id) ? true : false);
+        setIsFollowed(userData?.user.friendReqs.includes(loggedUser?._id) ? true : false);
         setIsLoggedUser(loggedUser?._id === userData?.user._id ? true : false);
     },[userData, loggedUser])
 
@@ -81,7 +81,7 @@ export default function UserProfileComponent({userData, username}: Props) {
             <UploadUserProfile 
                 title="Upload Profile Picture"
                 value=""
-                userId={loggedUser._id}
+                userId={loggedUser?._id}
                 setIsOpen={setUpdatePfpModal}
                 setNewProfilePic={setNewProfilePic}               
             />
@@ -90,7 +90,7 @@ export default function UserProfileComponent({userData, username}: Props) {
             <UploadUserCover
                 title="Upload Cover Picture"
                 value=""
-                userId={loggedUser._id}
+                userId={loggedUser?._id}
                 setIsOpen={setUpdateCoverModal}
                 setNewCoverPic={setNewCoverPic}                 
             />

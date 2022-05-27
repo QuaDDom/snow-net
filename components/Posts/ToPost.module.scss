@@ -165,29 +165,44 @@
 
 @media (max-width: 1500px) {
     .publicContainer{
+        width: 36vw;
         .inputContainer{
             .image{
-                width: 55px;
-                height: 55px;
+                width: 52px;
+                height: 52px;
                 img{
-                    height: 55px;
-                    width: 55px;
+                    height: 52px;
+                    width: 52px;
                 }
             }
             .input{
                 width: 390px;
                 padding-right: 10px;
                 margin-right: 100px;
+                margin-left: 10px;
                 height: 45px;
+                font-size: 0.9em;
+                &::placeholder{
+                    font-size: 0.9em;
+                }
             }
         }
         .options{
             padding: 3px;
             padding-right: 15px;
+            .buttons{
+                padding: 0 70px;
+                .button{
+                    font-size: 1.25em;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
             .post{
                 width: 100px;
                 height: 35px;
                 margin-bottom: 5px;
+                font-size: 1em;
             }
         }
     }

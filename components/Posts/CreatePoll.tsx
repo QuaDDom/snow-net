@@ -29,7 +29,7 @@ export default function CreatePoll({setPoll, pollOpen, poll}: Props) {
     const handleClick = ()=>{};
 
     useEffect(()=>{
-        setPoll([{
+        if(option && option2) setPoll([{
             option: option,
             votes: [1]
         }, {

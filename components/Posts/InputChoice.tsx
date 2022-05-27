@@ -5,17 +5,15 @@ interface Props{
   label: string,
   setPoll: React.Dispatch<React.SetStateAction<any[]>>,
   index: number,
-  poll: [any]
+  poll: [any],
+  value: any,
+  setValue: any
 }
 
-export default function InputChoice({label, setPoll, index, poll}: Props) {
-  const [value, setValue] = useState('');
+export default function InputChoice({label, setPoll, index, poll, value, setValue}: Props) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
     setValue(e.target.value);
-    if(index === 1){
-      
-    }
   } 
 
   return (
@@ -24,8 +22,8 @@ export default function InputChoice({label, setPoll, index, poll}: Props) {
           type="text" 
           className={styles.inputComponent}
           placeholder=' '
-          value={value}
           onChange={handleChange}
+          value={value}
           />
           <label className={styles.labelComponent}>{label}</label>
     </div>

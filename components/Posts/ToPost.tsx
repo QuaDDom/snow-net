@@ -254,11 +254,11 @@ export default function ToPost({userData, fetchData, group}: Props) {
             <div className={styles.options}>
                 <div className={`${styles.emojiPicker} ${pickerOpen && styles.open}`}>
                     <EmojiPicker 
-                    setMessage={setText}
-                    message={text} 
-                    setPickerOpen={setPickerOpen}
-                    pickerOpen={pickerOpen}
-                    isTop={true}
+                        setMessage={setText}
+                        message={text}
+                        setPickerOpen={setPickerOpen}
+                        pickerOpen={pickerOpen}
+                        isTop={true}
                     />
                 </div>
                 <div className={`${styles.gifSearch} ${gifOpen && styles.open}`}>

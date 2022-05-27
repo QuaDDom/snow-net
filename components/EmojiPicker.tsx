@@ -23,7 +23,6 @@ interface Props{
   setPickerOpen: React.Dispatch<React.SetStateAction<boolean>>,
   pickerOpen: boolean,
   isTop: boolean,
-  emojiRef: React.MutableRefObject<HTMLDivElement>
 }
 
 const EmojiPicker = ({setMessage, message, setPickerOpen, pickerOpen, isTop}: Props) => {

@@ -3,6 +3,7 @@ import styles from './CreatePoll.module.scss';
 import InputChoice from './InputChoice';
 import { IoMdAdd } from 'react-icons/io';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 interface Props{
     setPoll: React.Dispatch<React.SetStateAction<any[]>>,
@@ -14,7 +15,6 @@ const days = Array.from(Array(8).keys());
 const hours = Array.from(Array(24).keys());
 const minutes = Array.from(Array(60).keys());
 
-const initialChoices = [1,1]
 
 export default function CreatePoll({setPoll, pollOpen, poll}: Props) {
     const [daysOpen, setDaysOpen] = useState(false);
@@ -23,13 +23,20 @@ export default function CreatePoll({setPoll, pollOpen, poll}: Props) {
     const [minutesState, setMinutesState] = useState<any>('Minutes');
     const [hoursState, setHoursState] = useState<any>('Hours');
     const [daysState, setDaysState] = useState<any>('Days');
-    const [choices, setChoices] = useState(initialChoices);
     const [option, setOption] = useState('');
     const [option2, setOption2] = useState('')
 
-    const handleClick = ()=>{
-        setChoices([...choices, 1])
-    }
+    const handleClick = ()=>{};
+
+    useEffect(()=>{
+        setPoll([{
+            option: option,
+            votes: [1]
+        }, {
+            option: option2,
+            votes: [1]
+        }])
+    },[option, option2])
 
     const handleSelects = (select: string)=>{
         if(select === "days") daysOpen ? setDaysOpen(false) : setDaysOpen(true);
@@ -41,15 +48,22 @@ export default function CreatePoll({setPoll, pollOpen, poll}: Props) {
         <div className={`${styles.createPollContainer} ${pollOpen ? styles.open : styles.close}`}>
             <div className={styles.form}>
                 <div className={styles.inputs}>
-                    {
-                        choices.map((choice, index)=>(
-                            <InputChoice 
-                            label={`Choice ${index + 1}`} 
-                            setPoll={setPoll} 
-                            poll={poll}
-                            index={index}/>
-                        ))
-                    }
+                    <InputChoice 
+                    label="Choice 1" 
+                    setPoll={setPoll} 
+                    poll={poll}
+                    index={1}
+                    value={option}
+                    setValue={setOption}
+                    />
+                    <InputChoice 
+                    label="Choice 2" 
+                    setPoll={setPoll} 
+                    poll={poll}
+                    index={2}
+                    value={option2}
+                    setValue={setOption2}
+                    />
                 </div>
                 <button onClick={handleClick}><IoMdAdd/></button>
             </div>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import Router from "next/router";
+import { useEffect } from "react";
 import { ChangeEvent, useState } from "react";
 
 
@@ -14,17 +15,45 @@ export const useRegister = ()=>{
           [password, setPassword] = useState(''),
           [repeatPassword, setRepeatPassword] = useState(''),
           [userData, setUserData] = useState({}),
-          [errors, setErrors] = useState({});
+          [errors, setErrors] = useState({}),
+          [isSubmit, setIsSubmit] = useState(false);
 
+    useEffect(()=>{
+        setUserData({
+            username,
+            name,
+            lastname,
+            email,
+            password,
+            bio
+        });
+    },[email, username, name, lastname, bio, password])
+
+    useEffect(()=>{console.log(userData)},[userData])
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>, inputType: string)=>{
-        if(inputType === "name") setName(e.target.value);
-        else if(inputType === "lastname") setLastname(e.target.value);
-        else if(inputType === "password") setPassword(e.target.value);
-        else if(inputType === "reppassword") setRepeatPassword(e.target.value);
-        else if(inputType === "bio") setBio(e.target.value);
-        else if(inputType === "email") setEmail(e.target.value);
-        else if (inputType === "username") setUsername(e.target.value);
+        switch(inputType){
+            case 'name':
+                setName(e.target.value);
+                break;
+            case 'lastname':
+                setLastname(e.target.value);
+                break;
+            case 'password':
+                setPassword(e.target.value);
+                break;
+            case 'reppassword':
+                setRepeatPassword(e.target.value);
+                break;
+            case 'email': 
+                setEmail(e.target.value);
+                break;
+            case 'username':
+                setUsername(e.target.value);
+                break;
+            case 'bio': 
+                setBio(e.target.value);
+        }
         setUserData({
             username,
             name,
@@ -37,14 +66,6 @@ export const useRegister = ()=>{
 
     const handleSubmit = async (e: any)=>{
         try{
-            setUserData({
-                username,
-                name,
-                lastname,
-                email,
-                password,
-                bio
-            });
             const data = await axios.post("http://localhost:5000/api/auth/register", userData);
             if(data.data === 'This user already exists'){
                 console.log('This user already exists')

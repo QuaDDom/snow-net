@@ -28,7 +28,7 @@ export default function PageThree({handleChange, values, register, errors, handl
         {errors.name && <ErrorMessage error={errors.name?.message}/>}
         <Input 
         type="text" 
-        label="Last Name" 
+        label="Lastname" 
         name="lastname" 
         size={{width: '384px', height: 52, fontSize: 18}}
         handleChange={handleChange}

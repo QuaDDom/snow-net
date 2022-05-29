@@ -12,7 +12,7 @@
     animation: appear 0.6s forwards;
     .user{
         width: 100%;
-        height: 50px;
+        height: 45px;
         display: flex;
         align-items: start;
         justify-content: start;
@@ -33,12 +33,12 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             h5{
                 margin: 0;
-                font-size: 0.95em;
+                font-size: 0.85em;
                 font-weight: 400;
             }
             p{
                 margin: 0;
-                font-size: 0.95em;
+                font-size: 0.85em;
                 color: #777;
                 margin-left: 7px;
             }
@@ -47,7 +47,7 @@
     .post{
         width: 80%;
         .text{
-            font-size: 0.9em;
+            font-size: 0.85em;
             padding-left: 58px;
             font-weight: 300;
         }

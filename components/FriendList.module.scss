@@ -55,6 +55,12 @@
         width: 450px;
         .friendGrid{
             width: 350px;
+            .noFriends{
+                top: 10px;
+                span{
+                    font-size: 4em;
+                }
+            }
         }
     }
 }

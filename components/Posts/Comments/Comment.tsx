@@ -39,9 +39,6 @@ export default function Comment({image, text, userId, likes, loggedUser, created
               <h5 className={user.name || `${styles.skeleton} ${styles.skeletonText}`}>
                 {`${user.name} ${user.lastname}`}
               </h5>
-              <p className={user.username || `${styles.skeleton} ${styles.skeletonText}`}>
-                {user.username && `@${user.username}`}
-              </p>
               <p>·</p>
               <p className={styles.createdAt}>{format(createdAt)}</p>
             </div>

@@ -2,6 +2,7 @@
   "name": "snow-net",
   "private": true,
   "version": "1.0.0-beta",
+  "proxy": "https://localhost:5000/api",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

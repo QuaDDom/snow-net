@@ -19,12 +19,12 @@ export const useRegister = ()=>{
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>, inputType: string)=>{
         if(inputType === "name") setName(e.target.value);
-        if(inputType === "lastname") setLastname(e.target.value);
-        if(inputType === "password") setPassword(e.target.value);
-        if(inputType === "reppassword") setRepeatPassword(e.target.value);
-        if(inputType === "bio") setBio(e.target.value);
-        if(inputType === "email") setEmail(e.target.value);
-        if (inputType === "username") setUsername(e.target.value);
+        else if(inputType === "lastname") setLastname(e.target.value);
+        else if(inputType === "password") setPassword(e.target.value);
+        else if(inputType === "reppassword") setRepeatPassword(e.target.value);
+        else if(inputType === "bio") setBio(e.target.value);
+        else if(inputType === "email") setEmail(e.target.value);
+        else if (inputType === "username") setUsername(e.target.value);
         setUserData({
             username,
             name,
@@ -37,6 +37,14 @@ export const useRegister = ()=>{
 
     const handleSubmit = async (e: any)=>{
         try{
+            setUserData({
+                username,
+                name,
+                lastname,
+                email,
+                password,
+                bio
+            });
             const data = await axios.post("http://localhost:5000/api/auth/register", userData);
             if(data.data === 'This user already exists'){
                 console.log('This user already exists')

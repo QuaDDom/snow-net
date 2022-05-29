@@ -11,13 +11,12 @@ export const useLocalStorage = ()=>{
                 const user = JSON.parse(userLocal);
                 setLoggedUser(user); 
             }
-            else if(!loggedUser && Router.pathname !== "/register"  
-            && Router.pathname !== "/countdown" 
+            else if(!loggedUser && Router.pathname !== "/register" && Router.pathname !== "/countdown" 
             && Router.pathname !== "/welcome"
             ){
                 Router.push('/login')
             }
-            else if(loggedUser && Router.pathname === "/register" || Router.pathname === "/login"){
+            else if(loggedUser && Router.pathname === "/register" || Router.pathname === "/login" || Router.pathname === "/welcome"){
                 Router.push('/')
             }
         } catch(err){

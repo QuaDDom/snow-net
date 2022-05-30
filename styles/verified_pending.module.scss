@@ -71,3 +71,23 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .pendingContainer{
+        .content{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            padding: 0;
+            p{
+                font-size: 1.5em;
+                width: 70vw;
+            }
+            button{
+                width: 80vw;
+            }
+        }
+    }
+}

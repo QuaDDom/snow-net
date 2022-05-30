@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './User.module.scss';
+import Image from 'next/image';
 
 interface Props{
     profilePic: string,
@@ -10,7 +11,7 @@ interface Props{
 export default function User({profilePic, name, username}: Props) {
   return (
     <div className={styles.userContent}>
-        <img src={profilePic || 'noProfile.png'} alt={username} />
+        <Image src={profilePic || 'noProfile.png'} alt={username} />
         <div className={styles.text}>
             <h5>{name}</h5>
             <p>@{username}</p>

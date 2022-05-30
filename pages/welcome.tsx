@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../styles/welcome.module.scss';
 import Router from 'next/router';
 import { useMediaQuery } from 'react-responsive';
+import Image from 'next/image';
 
 
 export default function Welcome() {
@@ -12,15 +13,15 @@ export default function Welcome() {
         <div className={styles.welcomeContainer}>
             <div className={styles.containerAll}>
                 <div className={styles.leftSide}>
-                    <img src="wavesbg.svg" alt="" className={styles.bg} />
+                    <Image src="wavesbg.svg" alt="" className={styles.bg} />
                     {isResponsive && <div className={styles.snow}>
-                        <img src="snow-logo.svg" alt="" />
+                        <Image src="snow-logo.svg" alt="" />
                         <h1>SNOW</h1>
                     </div>}
                 </div>
                 <div className={styles.rightSide}>
                     <div className={styles.snowLogo}>
-                        <img src="snow-logo.svg" alt="" />
+                        <Image src="snow-logo.svg" alt="" />
                     </div>
                     <h2>Welcome to Snow! <br /> A new social network</h2>
                     <h3>Join Snow</h3>

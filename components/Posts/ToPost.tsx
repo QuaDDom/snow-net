@@ -12,6 +12,7 @@ import Router from 'next/router';
 import CreatePoll from './CreatePoll';
 import ProgressBar from '../Gallery/ProgressBar';
 import { imageResizer } from '../assets/imageResizer';
+import Image from 'next/image';
 
 
 interface Props{
@@ -220,7 +221,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
         { userData && <div className={styles.publicContainer} style={ file || gif || pollOpen ? {paddingBottom: "70px"} : {}}>
             <div className={styles.inputContainer} style={ file || gif || pollOpen ? {padding: "30px 0"} : {}}>
                 <div className={styles.image}>
-                    <img 
+                    <Image 
                     src={userData.profilePic || 'noProfile.png'} 
                     alt="profilepic" 
                     onClick={()=> Router.push(`/user/${userData.username}`)}

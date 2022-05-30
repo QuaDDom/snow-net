@@ -5,6 +5,8 @@ import { CgClose } from 'react-icons/cg';
 import { MdPublic } from 'react-icons/md';
 import { RiGitRepositoryPrivateLine } from 'react-icons/ri';
 import styles from './SearchGroupsModal.module.scss'
+import Image from 'next/image';
+
 
 interface Props{
     setSearchModal: any
@@ -61,7 +63,7 @@ export default function SearchGroupsModal({ setSearchModal }: Props) {
                 <div className={styles.group} key={_id}>
                     <div className={styles.content}>
                     <div className={styles.groupPic}>
-                        <img src={groupPic} alt="" />
+                        <Image src={groupPic} alt="" />
                     </div>
                     <div className={styles.text}>
                         <h4>{title}</h4>

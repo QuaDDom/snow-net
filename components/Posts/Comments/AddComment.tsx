@@ -9,6 +9,7 @@ import EmojiPicker from '../../EmojiPicker'
 import ImagePreview from '../../Gallery/ImagePreview'
 import GIFSearcher from '../../GIFSearcher'
 import styles from './AddComment.module.scss';
+import Image from 'next/image';
 
 interface Props{
     userData: any,
@@ -122,7 +123,7 @@ export default function AddComment({userData, fetchData, postId}: Props) {
         <div className={styles.addCommentContainer} style={ file || gif || pollOpen ? {paddingBottom: "70px"} : {}}>
             <div className={styles.inputContainer} style={ file || gif || pollOpen ? {padding: "30px 0"} : {}}>
                 <div className={styles.image}>
-                    <img 
+                    <Image 
                     src={userData.profilePic || 'noProfile.png'} 
                     alt="profilepic" 
                     onClick={()=> Router.push(`/user/${userData.username}`)}

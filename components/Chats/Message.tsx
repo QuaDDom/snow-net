@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import OpenImage from '../OpenImage';
 import styles from './Message.module.scss';
+import Image from 'next/image';
 
 interface Props{
     text: string,
@@ -21,7 +22,7 @@ export default function Message({text, received, createdAt, image}: Props) {
         {
         image ? 
         <div className={styles.message}>
-          <img src={image} onClick={handleClick}/>
+          <Image src={image} onClick={handleClick}/>
           {text && <p>{text}</p>}
           <span>{createdAt}</span>
         </div>

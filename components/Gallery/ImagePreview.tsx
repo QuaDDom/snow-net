@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { CgClose } from 'react-icons/cg';
 import styles from './ImagePreview.module.scss';
+import Image from 'next/image';
+
 
 interface Props{
     file?: any,
@@ -31,8 +33,8 @@ export default function ImagePreview({file, gif, setFile}: Props) {
             <div className={styles.closeContainer}>
                 <button className={styles.close} onClick={handleClick}><CgClose/></button>
             </div>
-            {file && <img src={preview} alt="Image Preview" />}
-            {gif && <img src={gif}/>}
+            {file && <Image src={preview} alt="Image Preview" />}
+            {gif && <Image src={gif}/>}
         </div>
     )
 }

@@ -5,6 +5,7 @@ import { format } from 'timeago.js';
 import { useGetUser } from '../../../hooks/useGetUser';
 import styles from './Comment.module.scss';
 import CommentDots from './CommentDots';
+import Image from 'next/image';
 
 interface Props{
   hour?: {
@@ -34,7 +35,7 @@ export default function Comment({image, text, userId, likes, loggedUser, created
     return (
       <div className={styles.commentContainer}>
           <div className={styles.user}>
-            <img src={user.profilePic || 'noProfile.png'} alt={user.name} onClick={handleImageClick}/>
+            <Image src={user.profilePic || 'noProfile.png'} alt={user.name} onClick={handleImageClick}/>
             <div className={styles.bothColumn}>
               <h5 className={user.name || `${styles.skeleton} ${styles.skeletonText}`}>
                 {`${user.name} ${user.lastname}`}
@@ -46,7 +47,7 @@ export default function Comment({image, text, userId, likes, loggedUser, created
           <div className={styles.post}>
           { text && <p className={styles.text}>{text}</p> }
           { image && <div className={styles.imageContainer}>
-            <img src={image} width="100%" onClick={handleClick}/>
+            <Image src={image} width="100%" onClick={handleClick}/>
           </div>}
         </div>
           <CommentDots

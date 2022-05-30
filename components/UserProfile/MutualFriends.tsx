@@ -3,6 +3,7 @@ import Router from 'next/router';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import styles from './MutualFriends.module.scss';
+import Image from 'next/image';
 
 const friendTest = [
     {
@@ -36,7 +37,7 @@ export default function MutualFriends({friends}: any) {
                 {
                     friendsData.map(({profilePic, name, username, _id}: any, index:number)=>(
                         <div className={styles.friend} onClick={()=> Router.push(`${username}`, undefined, {shallow: true})} key={_id}>
-                            <img src={profilePic}/>
+                            <Image src={profilePic}/>
                             <h6>{name}</h6>
                         </div>
                     ))

@@ -17,6 +17,7 @@ import UploadUserProfile from './Settings/modals/UploadUserProfile';
 import UploadUserCover from './Settings/modals/UploadUserCover';
 import Repost from './Posts/Repost';
 import EditProfileModal from './Settings/modals/User/EditProfileModal';
+import Image from 'next/image';
 
 interface Post{
     _id: string,
@@ -49,8 +50,6 @@ export default function UserProfileComponent({userData, username}: Props) {
     const [newProfilePic, setNewProfilePic] = useState('')
     const [updateCoverModal, setUpdateCoverModal] = useState(false);
     const [editProfile, setEditProfile] = useState(false);
-
-
 
     const handleFollow = async ()=>{
         try{
@@ -108,13 +107,13 @@ export default function UserProfileComponent({userData, username}: Props) {
                 className={`${styles.banner} ${isLoggedUser && styles.logged}`}
                 onClick={()=> isLoggedUser && setUpdateCoverModal(true)}
                 >
-                    <img 
+                    <Image 
                     src={newCoverPic || userData.user.coverPic || 'noCover.jpg'} 
                     />
                 </div>
                 <div className={styles.info}>
                     <div className={styles.profilePic}>
-                        <img src={newProfilePic || userData.user.profilePic || 'noProfile.png'} />
+                        <Image src={newProfilePic || userData.user.profilePic || 'noProfile.png'} />
                         {isLoggedUser && 
                         <span className={styles.editProfilePic} onClick={()=> setUpdatePfpModal(true)}>
                             <span><AiOutlineCamera/></span>

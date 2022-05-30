@@ -1,6 +1,8 @@
 import axios from 'axios';
+import Image from 'next/image';
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import styles from './RowMsg.module.scss';
+
 
 interface Props{
     _id: string,
@@ -53,7 +55,7 @@ export default function RownMsg({_id, members, loggedUser, setCurrentChat, setUs
         <>
        { friend && <div className={styles.rowContainer} onClick={handleClick} ref={ref}>
             <div className={styles.ripple}/>
-            <img src={friend.profilePic || 'noProfile.png'} alt={friend.username} />
+            <Image src={friend.profilePic || 'noProfile.png'} alt={friend.username} />
             <div className={styles.info}>
                 <h5>{`${friend.name} ${friend.lastname}`}</h5>
                 <p>{''}</p>

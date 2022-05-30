@@ -6,6 +6,7 @@ import TextArea from './TextArea';
 import { useForm } from 'react-hook-form';
 import { editProfileSchema } from '../validations/EditProfileValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Image from 'next/image';
 
 export default function EditProfile() {
     const { loggedUser } = useContext<any>(AuthContext);
@@ -21,10 +22,10 @@ export default function EditProfile() {
           {  loggedUser && <div className={styles.options}>
             <div className={styles.images}>
                 <div className={styles.banner}>
-                <img src={loggedUser.coverPic} alt="" />
+                <Image src={loggedUser.coverPic} alt="" />
                 </div>
                 <div className={styles.profile}>
-                <img src={loggedUser.profilePic} alt="profilepicture" />
+                <Image src={loggedUser.profilePic} alt="profilepicture" />
                 </div>
                 <h3>{`${loggedUser.name} ${loggedUser.lastname}`}</h3>
             </div>

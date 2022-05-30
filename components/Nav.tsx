@@ -4,6 +4,7 @@ import React, { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 import styles from './Nav.module.scss';
 import ProfileNav from './ProfileNav';
+import Image from 'next/image';
 
 export default function Nav() {
   const { loggedUser } = useContext<any>(AuthContext);
@@ -12,7 +13,7 @@ export default function Nav() {
     <>
         <div className={styles.navigation}>
             <div className={styles.logo} onClick={()=> Router.push('/')}>
-                <img src="snow-logo.svg"/>
+                <Image src="snow-logo.svg"/>
                 <p>SNOW</p>
             </div>
             <nav>

@@ -7,6 +7,7 @@ import { imageResizer } from '../../assets/imageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
 import ProgressBar from '../../Gallery/ProgressBar';
 import styles from './Modals.module.scss';
+import Image from 'next/image';
 
 interface Props{
     type?: string,
@@ -97,7 +98,7 @@ export default function UploadGroupCover({type, value, setIsOpen, title, groupId
                   <input type="file" onChange={handleFileChange}/>
                   <span><AiOutlineCamera/></span>
                   <div className={styles.imagePreviewCover}>
-                    {preview &&  <img src={preview} alt="" />}
+                    {preview &&  <Image src={preview} alt="" />}
                   </div>
                 </div>
                 <div className={styles.buttons}>

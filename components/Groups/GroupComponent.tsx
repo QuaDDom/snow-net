@@ -16,6 +16,8 @@ import dateFormat from 'dateformat';
 import GroupMembers from './GroupMembers';
 import UploadGroupCover from '../Settings/modals/UploadGroupCover';
 import UploadGroupProfile from '../Settings/modals/UploadGroupProfile';
+import Image from 'next/image';
+
 
 export default function GroupComponent({group}: {group: any}) {
     const [isJoined, setIsJoined] = useState(false);
@@ -92,11 +94,11 @@ export default function GroupComponent({group}: {group: any}) {
                 className={`${styles.banner} ${isAdmin && styles.logged}`} 
                 onClick={()=> isAdmin && setUpdateCoverModal(true)}
                 >
-                    <img src={group.groupCover || 'noCover.jpg'} alt="" />
+                    <Image src={group.groupCover || 'noCover.jpg'} alt="" />
                 </div>
                 <div className={styles.info}>
                     <div className={styles.groupPic}>
-                        <img src={group.groupPic || 'noProfile.png'} alt="" />
+                        <Image src={group.groupPic || 'noProfile.png'} alt="" />
                         {isAdmin && 
                             <span className={styles.editProfilePic} onClick={()=> setUpdatePfpModal(true)}>
                                 <span><AiOutlineCamera/></span>
@@ -118,7 +120,7 @@ export default function GroupComponent({group}: {group: any}) {
                     {
                         membersProfile.map((profile:string)=>(
                             <div className={styles.member} key={profile}>
-                                <img src={profile} className={styles.memberProfile} />
+                                <Image src={profile} className={styles.memberProfile} />
                             </div>
                         ))
                     }

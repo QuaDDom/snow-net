@@ -20,6 +20,8 @@ import PostDotsOptions from './PostDotsOptions';
 import { useMediaQuery } from 'react-responsive';
 import DeleteCommentModal from '../Settings/modals/DeleteCommentModal';
 import EditCommentModal from '../Settings/modals/EditCommentModal';
+import Image from 'next/image';
+
 
 interface Props{
   _id: string
@@ -159,7 +161,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
         }
       { pinned && <p className={styles.pinned}><span><BsPinAngleFill/></span> Pinned Post</p>}
         <div className={`${styles.user} ${group && styles.groupStyle}`}>
-          <img 
+          <Image 
           src={group?.groupPic || user.profilePic || 'noProfile.png'} 
           alt={user.name} 
           onClick={handleImageClick}
@@ -169,7 +171,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
           onMouseDown={()=> setIsHover(false)}
           onMouseOut={()=> setIsHover(false)}
           />
-          {group && user.profilePic && <img src={user.profilePic} className={styles.userGroup}/>}
+          {group && user.profilePic && <Image src={user.profilePic} className={styles.userGroup}/>}
           <div className={styles.bothColumn}>
             <h5 className={user.name || `${styles.skeleton} ${styles.skeletonText}`}>
               {group ? `${group.title}` : `${isResponsive ? fullName : 
@@ -200,7 +202,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
         <div className={styles.post}>
           { text && <p className={styles.text}>{textState}</p> }
           { image && <div className={styles.imageContainer}>
-            <img src={image} width="100%" onClick={handleClick}/>
+            <Image src={image} width="100%" onClick={handleClick}/>
           </div>}
           {
             poll && poll.length > 0 && <Poll poll={poll} loggedUser={loggedUser} _id={_id}/>

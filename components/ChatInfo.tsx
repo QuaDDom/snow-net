@@ -3,6 +3,7 @@ import styles from './ChatInfo.module.scss';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
 import { AiOutlineArrowLeft, AiOutlineSearch } from 'react-icons/ai';
 import { useMediaQuery } from 'react-responsive';
+import Image from 'next/image';
 
 interface Props{
     img: string,
@@ -24,7 +25,7 @@ export default function ChatInfo({img, name, lastname, setCurrentChat}: Props) {
             <button onClick={()=> setCurrentChat('')} className={styles.back}><AiOutlineArrowLeft/></button>
           }
           <div className={styles.personInfo}>
-              <img src={img || 'noProfile.png'} alt={name} />
+              <Image src={img || 'noProfile.png'} alt={name} />
               <p>{`${name} ${lastname}`}</p>
           </div>
           <div className={styles.conf}>

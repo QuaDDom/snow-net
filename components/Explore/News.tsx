@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../../styles/explore.module.scss';
+import Image from 'next/image';
 
 interface Props{
     title: string,
@@ -10,7 +11,7 @@ interface Props{
 export default function News({title, img, topic}: Props) {
   return (
     <div className={styles.worldNews}>
-        <img src={img} alt={title} />
+        <Image src={img} alt={title} />
         <div>
             <p>{topic} News</p>
             <h4>{title}</h4>

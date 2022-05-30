@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './EditProfileModal.module.scss';
+import Image from 'next/image';
 
 interface Props{
     userData: any,
@@ -19,10 +20,10 @@ export default function EditProfileModal({ userData, setEditProfile }: Props) {
                 <div className={styles.info}>
                     <div className={styles.profilePhotos}>
                         <div className={styles.banner}>
-                            <img src={userData?.user.coverPic || 'noCover.jpg'} alt={userData.user.username} />
+                            <Image src={userData?.user.coverPic || 'noCover.jpg'} alt={userData.user.username} />
                         </div>
                         <div className={styles.pfp}>
-                            <img src={userData?.user.profilePic} alt={userData.user.username} />
+                            <Image src={userData?.user.profilePic} alt={userData.user.username} />
                         </div>
                     </div>
                     <div className={styles.text}>

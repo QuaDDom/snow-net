@@ -5,6 +5,7 @@ import { IoLanguage, IoSettingsOutline } from 'react-icons/io5';
 import { MdDarkMode } from 'react-icons/md';
 import { RiLogoutBoxLine } from 'react-icons/ri';
 import styles from './UserProfile.module.scss';
+import Image from 'next/image';
 
 interface Props{
     loggedUser: any,
@@ -20,7 +21,7 @@ export default function UserProfile({loggedUser, touch}: Props) {
         <>
             <div className={styles.userInfo}>
                     <div className={styles.info}>
-                        <img src={loggedUser.profilePic} alt={loggedUser.username} />
+                        <Image src={loggedUser.profilePic} alt={loggedUser.username} />
                         <h4>{loggedUser.name} {loggedUser.lastname}</h4>
                         <p>@{loggedUser.username}</p>
                     </div>

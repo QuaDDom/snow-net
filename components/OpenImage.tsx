@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './OpenImage.module.scss';
+import Image from 'next/image';
 
 interface Props{
     img?: string,
@@ -15,7 +16,7 @@ export default function OpenImage({img, openImage, setOpenImage}: Props) {
   }
   return (
       <div className={`${styles.openImageContainer} ${isClose && styles.close}`} onClick={handleClick}>
-          <img src={img} width="100%" className={`${isClose && styles.close}`}/>
+          <Image src={img || ''} width="100%" className={`${isClose && styles.close}`}/>
       </div>
   );
 }

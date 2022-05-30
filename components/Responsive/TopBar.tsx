@@ -3,6 +3,8 @@ import AuthContext from '../../context/AuthContext';
 import { useTouch } from '../../hooks/useTouch';
 import styles from './TopBar.module.scss';
 import UserProfile from './UserProfile';
+import Image from 'next/image';
+
 
 interface Props{
   touch: string
@@ -18,11 +20,11 @@ export default function TopBar({touch}: Props) {
     <div className={styles.topBarContainer}>
         <div className={styles.icons}>
             <div className={styles.snow}>
-                <img src='snow-logo.svg' alt="snow" className={styles.logo} />
+                <Image src='snow-logo.svg' alt="snow" className={styles.logo} />
             </div>
             <h3>SNOW</h3>
             <div className={styles.user}>
-                {loggedUser && <img 
+                {loggedUser && <Image 
                 src={loggedUser.profilePic} 
                 alt={loggedUser.username}
                 onClick={handleOpen}

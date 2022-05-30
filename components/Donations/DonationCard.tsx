@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './DonationCard.module.scss';
+import Image from 'next/image';
 
 interface Props{
   title: string,
@@ -14,7 +15,7 @@ export default function DonationCard({title, info, price, icon}: Props) {
     <div className={`${styles.donationCard}`}>
         <div className={`${styles.bgTop} ${style}`}/>
         <div className={styles.icon}>
-            <img src={icon} alt="" />
+            <Image src={icon} alt="" />
         </div>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.info}>{info}</p>

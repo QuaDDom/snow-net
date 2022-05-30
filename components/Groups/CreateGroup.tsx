@@ -10,6 +10,8 @@ import { groupSchema } from '../../validations/GroupValidation';
 import GroupPreview from './GroupPreview';
 import axios from 'axios';
 import Router from 'next/router';
+import Image from 'next/image';
+
 
 export default function CreateGroup() {
     const [title, setTitle] = useState('Title');
@@ -62,7 +64,7 @@ export default function CreateGroup() {
             <div className={styles.create}>
                 <h2>Create group</h2>
                 <div className={styles.owner}>
-                    <img src={loggedUser.profilePic} alt={loggedUser.username} />
+                    <Image src={loggedUser.profilePic} alt={loggedUser.username} />
                     <div className={styles.info}>
                         <h5>{`${loggedUser.name} ${loggedUser.lastname}`}</h5>
                         <p>Owner</p>

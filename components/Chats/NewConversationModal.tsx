@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { CgClose } from 'react-icons/cg';
 import styles from './NewConversationModal.module.scss';
+import Image from 'next/image';
 
 interface Props{
     setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
@@ -72,7 +73,7 @@ export default function NewConversationModal({setIsModalOpen, loggedUser, getCha
                             <div className={styles.user} onClick={()=> handleClick(_id)} key={_id}>
                                 <div className={styles.content}>
                                     <div className={styles.image}>
-                                        <img src={profilePic || 'noProfile.png'} alt={name}/>
+                                        <Image src={profilePic || 'noProfile.png'} alt={name}/>
                                         <div className={styles.status}/>
                                     </div>
                                     <div className={styles.info}>

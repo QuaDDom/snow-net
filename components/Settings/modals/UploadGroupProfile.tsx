@@ -6,6 +6,7 @@ import { projectFirestore, projectStorage, timestamp } from '../../../config/fir
 import { imageResizer } from '../../assets/imageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
 import styles from './Modals.module.scss';
+import Image from 'next/image';
 
 interface Props{
     type?: string,
@@ -97,7 +98,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, groupI
                     <input type="file" onChange={handleFileChange} accept="image/png, image/jpg, image/jpeg"/>
                     <span><AiOutlineCamera/></span>
                     <div className={styles.imagePreview}>
-                        {preview && <img src={preview}/>}
+                        {preview && <Image src={preview}/>}
                     </div>
                     </div>
                     <div className={styles.buttons}>

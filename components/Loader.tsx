@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Loader.module.scss';
 import snowLogo from '../img/snow-logo.svg';
+import Image from 'next/image';
 
 interface Props{
   isLoading: boolean
@@ -17,7 +18,7 @@ export default function Loader({isLoading} : Props) {
               <div className={styles.bgBlackSwipe}/>
             </div>
             <div className={styles.logo}>
-                <img src="snow-logo.svg" alt="snownetwork" />
+                <Image src="snow-logo.svg" alt="snownetwork" />
                 <h2>SNOW</h2>
             </div>
           </div>

@@ -4,6 +4,8 @@ import { BiHappy, BiImageAlt, BiPoll } from 'react-icons/bi'
 import { MdPublic } from 'react-icons/md'
 import { RiGitRepositoryPrivateLine } from 'react-icons/ri'
 import styles from './GroupPreview.module.scss'
+import Image from 'next/image';
+
 
 interface Props{
     groupType: boolean,
@@ -20,10 +22,10 @@ export default function GroupPreview({groupType, title, coverPic, groupPic, desc
             <h3>Preview</h3>
             <div className={styles.groupContainer}>
                 <div className={styles.banner}>
-                    <img src={coverPic}/>
+                    <Image src={coverPic || ''}/>
                 </div>
                 <div className={styles.info}>
-                    {groupPic && <img src={groupPic}/>}
+                    {groupPic && <Image src={groupPic}/>}
                     <div className={styles.textInfo}>
                         <h4>{title}</h4>
                         <div>

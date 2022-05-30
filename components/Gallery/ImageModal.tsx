@@ -4,6 +4,8 @@ import { BsDownload } from 'react-icons/bs';
 import { HiOutlineHeart } from 'react-icons/hi';
 import styles from './ImageModal.module.scss';
 import { projectStorage } from '../../config/firebase.config';
+import Image from 'next/image';
+
 
 
 interface Props{
@@ -24,13 +26,13 @@ export default function ImageModal({img, user, setModalOpen}: Props) {
     <div className={styles.imageModalContainer} onClick={handleClick}>
         <div className={styles.containerAll}>
           <div className={styles.userInfo}>
-            <img src={user.profilePic} className={styles.profilePic} />
+            <Image src={user.profilePic} className={styles.profilePic} />
             <div>
               <h4>{user.name}</h4>
               <p>@{user.username}</p>
             </div>
           </div>
-          <img src={img + '?alt=media'} className={styles.image}/>
+          <Image src={img + '?alt=media'} className={styles.image}/>
           <div className={styles.options}>
               <a href={img}><BsDownload/></a>
               <span><HiOutlineHeart/></span>

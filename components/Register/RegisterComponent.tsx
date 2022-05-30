@@ -16,6 +16,8 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import PageFour from './PageFour';
 import PageDots from './PageDots';
 import { useMediaQuery } from 'react-responsive';
+import Image from 'next/image';
+
 
 
 export default function RegisterInputs() {
@@ -68,7 +70,7 @@ export default function RegisterInputs() {
     <div className={styles.containerAll}>
       <div className={styles.registerContent}>
         <div className={styles.registerBackground}>
-          <img src="welcome-snow.svg" alt="" />
+          <Image src="welcome-snow.svg" alt="" />
         </div>
         <div className={styles.register}>
             <div className={styles.registerText}>

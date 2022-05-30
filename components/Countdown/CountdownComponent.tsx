@@ -5,6 +5,7 @@ import Router from 'next/router';
 import StaggerTextReveal from '../TextReveal/StaggerText';
 import SnowWelcome from './SnowWelcome';
 import LoginComponent from '../LoginComponent';
+import Image from 'next/image';
 
 interface Props{
     launch: boolean,
@@ -82,7 +83,7 @@ export default function CountdownComponent({launch, setLaunch}: Props) {
                 <button onClick={()=> Router.push('/register')}>Register Now</button>
             </div>
             <div className={styles.snowLogo}>
-                <img src='snow-logo.svg' alt="" />
+                <Image src='snow-logo.svg' alt="" />
             </div>
         </div>
         </>

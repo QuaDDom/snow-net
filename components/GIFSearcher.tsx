@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useGiphy } from '../hooks/useGiphy';
 import styles from './GIFSearcher.module.scss';
 import { BiSearch } from 'react-icons/bi';
+import Image from 'next/image';
 
 interface Gif{
   url: string,
@@ -50,7 +51,7 @@ export default function GIFSearcher({setGif, setGifOpen, gifOpen, isTop}: Props)
                 {
                 giphy && giphy.length >= 1 && giphy.map(({url, title, images}: Gif, index: number)=>(
                   <div className={styles.gif} key={url + title + index}>
-                    <img 
+                    <Image 
                     src={images.fixed_height.url} 
                     alt={title} 
                     onClick={()=> handleClick(images.fixed_height.url)}

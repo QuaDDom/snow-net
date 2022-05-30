@@ -1,4 +1,5 @@
 
+import Image from 'next/image';
 import Link from 'next/link';
 import Router from 'next/router';
 import React from 'react';
@@ -8,6 +9,7 @@ import { MdDarkMode } from 'react-icons/md';
 import { RiLogoutBoxLine } from 'react-icons/ri';
 import { profileData } from '../db/profile_data';
 import styles from './Profile.module.scss';
+
 
 interface Props{
   isOpen: boolean,
@@ -25,7 +27,7 @@ export default function Profile({isOpen, userData}: Props) {
     <div className={`${styles.profileContainer} ${isOpen && styles.open}`}>
         {userData && <div className={styles.options}>
             <div className={styles.profile} onClick={()=> Router.push(`/user/${userData.username}`)}>
-              <img src={userData.profilePic || 'noProfile.png'} alt="" />
+              <Image src={userData.profilePic || 'noProfile.png'} alt="" />
               <div>
                 <h5>{`${userData.name} ${userData.lastname}`}</h5>
                 <p>@{userData.username}</p>

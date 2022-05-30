@@ -4,7 +4,7 @@ import { AiOutlineGif } from 'react-icons/ai';
 import { BiHappy, BiImageAlt, BiPoll } from 'react-icons/bi';
 import { projectFirestore, projectStorage, timestamp } from '../../../config/firebase.config';
 import { useDragDrop } from '../../../hooks/useDragDrop';
-import { useImageResizer } from '../../../hooks/useImageResizer';
+import { imageResizer } from '../../assets/imageResizer';
 import styles from './NewPostModal.module.scss';
 
 interface Props{
@@ -54,7 +54,7 @@ export default function NewPostModal({loggedUser, fetchData, group}: Props) {
                     }
                     post();
                 } else if(file){            
-                    const resizedImage: any = await useImageResizer(file);
+                    const resizedImage: any = await imageResizer(file);
                     console.log(resizedImage)
                     const storageRef = projectStorage.ref(file.name); 
                     const collectionRef = projectFirestore.collection('postImages');
@@ -114,7 +114,7 @@ export default function NewPostModal({loggedUser, fetchData, group}: Props) {
             post();
         }
         else if(file){
-            const resizedImage: any = await useImageResizer(file);
+            const resizedImage: any = await imageResizer(file);
             console.log(resizedImage)
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('postImages');

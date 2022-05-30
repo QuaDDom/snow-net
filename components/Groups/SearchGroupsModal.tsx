@@ -57,8 +57,8 @@ export default function SearchGroupsModal({ setSearchModal }: Props) {
             </div>
             <div className={styles.groups}>
                 {
-                search().map(({title, groupPic, private: groupPrivate, members}: any)=>(
-                <div className={styles.group}>
+                search().map(({title, groupPic, private: groupPrivate, members, _id}: any)=>(
+                <div className={styles.group} key={_id}>
                     <div className={styles.content}>
                     <div className={styles.groupPic}>
                         <img src={groupPic} alt="" />

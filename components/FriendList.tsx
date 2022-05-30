@@ -82,7 +82,7 @@ export default function FriendList() {
               )) : 
               <div className={styles.noFriends}>
                 <span><RiEmotionSadFill/></span>
-                <p>You don't have friends yet</p>
+                <p>{"You don't have friends yet"}</p>
               </div>
             }
         </div>

@@ -72,10 +72,11 @@ export default function CreatePoll({setPoll, pollOpen, poll}: Props) {
                 <div className={styles.selects}>
                     <div className={styles.select}>
                         <div className={`${styles.optionsContainer} ${daysOpen && styles.active}`}>
-                            {days.map((time: number)=>(
+                            {days.map((time: number, index: number)=>(
                                 <div 
                                 className={styles.option} 
                                 onClick={()=>{ setDaysState(time); setDaysOpen(false)}}
+                                key={time + index}
                                 >
                                     <input type="radio" id={`${time}`} name={`${time}`}/>
                                     <label htmlFor={`${time}`}>{time}</label>
@@ -89,10 +90,11 @@ export default function CreatePoll({setPoll, pollOpen, poll}: Props) {
                     </div>
                     <div className={styles.select}>
                         <div className={`${styles.optionsContainer} ${hoursOpen && styles.active}`}>
-                            {hours.map((time: number)=>(
+                            {hours.map((time: number, index: number)=>(
                                 <div 
                                 className={styles.option} 
                                 onClick={()=>{ setHoursState(time); setHoursOpen(false)}}
+                                key={time + index}
                                 >
                                     <input type="radio" id={`${time}`} name={`${time}`}/>
                                     <label htmlFor={`${time}`}>{time}</label>
@@ -106,10 +108,11 @@ export default function CreatePoll({setPoll, pollOpen, poll}: Props) {
                     </div>
                     <div className={styles.select}>
                         <div className={`${styles.optionsContainer} ${minutesOpen && styles.active}`}>
-                            {minutes.map((time: number)=>(
+                            {minutes.map((time: number, index: number)=>(
                                 <div 
                                 className={styles.option} 
                                 onClick={()=>{ setMinutesState(time); setMinutesOpen(false)}}
+                                key={time + index}
                                 >
                                     <input type="radio" id={`${time}`} name={`${time}`}/>
                                     <label htmlFor={`${time}`}>{time}</label>

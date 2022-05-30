@@ -16,7 +16,7 @@ export const usePosts = ({type}: Props)=>{
     const fetchData = async ()=>{
         try{
             setLoader(true)
-            data = await axios.get(`/posts/get/all/0/${offset}`);
+            data = await axios.get(`http://localhost:5000/api/posts/get/all/0/${offset}`);
             if(data.data === "limit") {
                 setIsLimit(true);
                 return;

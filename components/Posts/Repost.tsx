@@ -36,7 +36,7 @@ interface User{
   name: string,
   lastname: string,
   profilePic: string,
-  _id: string
+  _id?: string
 }
 
 export default function Post({_id, image, text, userId, likes, fetchData, loggedUser, createdAt, repostedPost,repostedBy}: Props) {
@@ -95,20 +95,22 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
 
   return (
     <>
+    <div>
       {
       optionsOpen && <PostDotsOptions
-                      username={user.username}
-                      userId={userId}
-                      loggedUserId={loggedUser?._id}
-                      postId={_id}
-                      deletePost={deletePost}
-                      handleModal={handleModal}
-                      handleEdit={handleEditModal}
-                      isOpen={optionsOpen}
-                      setIsOpen={setOptionsOpen}
-                      postRef={postRef}
-                      reposted={true}
-                     />
+          username={user.username}
+          userId={userId}
+          loggedUserId={loggedUser?._id}
+          postId={_id}
+          deletePost={deletePost}
+          handleModal={handleModal}
+          handleEdit={handleEditModal}
+          isOpen={optionsOpen}
+          setIsOpen={setOptionsOpen}
+          postRef={postRef}
+          reposted={true} handleReportModal={function (): void {
+            throw new Error('Function not implemented.');
+          } }                     />
     }
     {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen}/>}
     {user && postUser && loggedUser && post &&
@@ -175,6 +177,7 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
               openImage={openImage}
               setOpenImage={setOpenImage}
       />}
+    </div>
     </>
   );
 }

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import styles from '../../styles/verified_pending.module.scss'
 
-export default function pending() {
+export default function Pending() {
   return (
     <div className={styles.pendingContainer}>
     <div className={styles.bg}/>

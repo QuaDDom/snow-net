@@ -66,7 +66,7 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
                     />
                     <Button>Login</Button>
                 </form>
-                <p>You don't have an account? <Link href="/register">Sign up</Link></p>
+                <p>{"You don't have an account?"} <Link href="/register">Sign up</Link></p>
             </div>  
             </div>
             </div>

@@ -43,11 +43,13 @@
         span{
             font-size: 1.35em;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 35%;
         }
         p{
             padding: 10px;
+            min-width: 75%;
         }
         &:hover{
             background: $black4h;

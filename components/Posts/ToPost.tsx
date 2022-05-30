@@ -11,7 +11,7 @@ import { useDragDrop } from '../../hooks/useDragDrop';
 import Router from 'next/router';
 import CreatePoll from './CreatePoll';
 import ProgressBar from '../Gallery/ProgressBar';
-import { useImageResizer } from '../../hooks/useImageResizer';
+import { imageResizer } from '../assets/imageResizer';
 
 
 interface Props{
@@ -78,7 +78,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                     }
                     post();
                 } else if(file){            
-                    const resizedImage: any = await useImageResizer(file);
+                    const resizedImage: any = await imageResizer(file);
                     console.log(resizedImage)
                     const storageRef = projectStorage.ref(file.name); 
                     const collectionRef = projectFirestore.collection('postImages');
@@ -138,7 +138,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
             post();
         }
         else if(file){
-            const resizedImage: any = await useImageResizer(file);
+            const resizedImage: any = await imageResizer(file);
             console.log(resizedImage)
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('postImages');

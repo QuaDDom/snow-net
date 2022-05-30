@@ -6,8 +6,10 @@ import ExploreContainer from '../components/ExploreContainer';
 import TrendingBar from '../components/Explore/TrendingBar';
 import { useMediaQuery } from 'react-responsive';
 
-export default function explore() {
+export default function Explore() {
+
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+
   return (
       <Layout title="Explore - Snow">
         <div className={styles.content}>

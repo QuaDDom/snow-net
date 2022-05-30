@@ -4,16 +4,16 @@ export const registerSchema = yup.object().shape({
     username: yup.string()
                 .required("This field is required")
                 .min(3)
-                .max(13)
+                .max(10)
                 .lowercase("Please put the username in lowercase") ,
     name: yup.string()
                 .required("This field is required")
                 .min(3)
-                .max(13) ,
+                .max(10) ,
     lastname: yup.string()
                 .required("This field is required")
                 .min(3)
-                .max(13) ,
+                .max(14) ,
     email: yup.string()
                 .email("Must comply with the email format")
                 .required("This field is required") ,

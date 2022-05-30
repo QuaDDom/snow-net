@@ -8,6 +8,7 @@ import Person from './Person';
 import styles from './Suggestions.module.scss';
 import noCover from '../img/noCover.jpg';
 import AuthContext from '../context/AuthContext';
+import Image from 'next/image';
 
 export default function Suggestions() {
   const [randomUsersData, setRandomUsersData] = useState<any>([]);
@@ -36,9 +37,9 @@ export default function Suggestions() {
                     <div 
                     className={styles.banner} 
                     >
-                      <img src={`${group.groupCover || noCover}`} />
+                      <Image src={`${group.groupCover || noCover}`} />
                     </div>
-                    <img 
+                    <Image 
                     className={styles.groupPic}
                     src={group.groupPic} 
                     alt={group.title} 

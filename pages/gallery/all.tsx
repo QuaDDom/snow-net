@@ -10,7 +10,7 @@ import { useFirestore } from '../../hooks/useFirestore';
 import Loader from '../../components/Gallery/Loader';
 import { useMediaQuery } from 'react-responsive';
 
-export default function all() {
+export default function AllGallery() {
     const {data, isLoading} = useFirestore('images');
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     const [query, setQuery] = useState('');

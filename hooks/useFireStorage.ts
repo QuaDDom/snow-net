@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { projectStorage, projectFirestore, timestamp } from "../config/firebase.config";
-import { useImageResizer } from "./useImageResizer";
+import { imageResizer } from "../components/assets/imageResizer";
 
 export const useFireStorage = (user: any, title?: string)=>{
     const [file, setFile] = useState<any>(null),
@@ -27,7 +27,7 @@ export const useFireStorage = (user: any, title?: string)=>{
         e.preventDefault();
     if(!file) return;
         setIsLoading(true);
-        const resizedImage: any = await useImageResizer(file, 720, 900);
+        const resizedImage: any = await imageResizer(file, 720, 900);
         const storageRef = projectStorage.ref(file.name); 
         const collectionRef = projectFirestore.collection('images');
 

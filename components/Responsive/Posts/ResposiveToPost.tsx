@@ -16,7 +16,9 @@ export default function ResposiveToPost() {
                 <RiQuillPenFill/>
             </button>
             {
-                isOpen && <NewPostModal loggedUser={loggedUser}/>
+                isOpen && <NewPostModal loggedUser={loggedUser} fetchData={function (): Promise<void> {
+                    throw new Error('Function not implemented.');
+                } }/>
             }
         </div>
     )

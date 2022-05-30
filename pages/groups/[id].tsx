@@ -14,7 +14,7 @@ export default function Group() {
     useEffect(()=>{
         const fetchGroupData = async ()=>{
             try{
-                const res = await axios.get(`/groups/${id}`);
+                const res = await axios.get(`http://localhost:5000/api/groups/${id}`);
                 setGroup(res.data);
             } catch(err){
                 console.log(err);

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineCamera } from 'react-icons/ai';
 import { Oval } from 'react-loader-spinner';
 import { projectFirestore, projectStorage, timestamp } from '../../../config/firebase.config';
-import { useImageResizer } from '../../../hooks/useImageResizer';
+import { imageResizer } from '../../assets/imageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
 import ProgressBar from '../../Gallery/ProgressBar';
 import styles from './Modals.module.scss';
@@ -32,7 +32,7 @@ export default function UploadGroupCover({type, value, setIsOpen, title, groupId
     const updateProfile = async ()=> {
         try{
             setIsLoading(true);
-            const resizedImage: any = await useImageResizer(file, 660, 1400);
+            const resizedImage: any = await imageResizer(file, 660, 1400);
             console.log(resizedImage)
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('coverPictures');

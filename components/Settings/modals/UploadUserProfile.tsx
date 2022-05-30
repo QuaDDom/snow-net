@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineCamera } from 'react-icons/ai';
 import { Oval } from 'react-loader-spinner';
 import { projectFirestore, projectStorage, timestamp } from '../../../config/firebase.config';
-import { useImageResizer } from '../../../hooks/useImageResizer';
+import { imageResizer } from '../../assets/imageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
 import styles from './Modals.module.scss';
 
@@ -37,10 +37,10 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
         }
     },[file])
 
-    const updateProfile = async ()=> {
+    const UpdateProfile = async ()=> {
         try{
             setIsLoading(true);
-            const resizedImage: any = await useImageResizer(file, 256);
+            const resizedImage: any = await imageResizer(file, 256);
             console.log(resizedImage)
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('profilePictures');
@@ -100,7 +100,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
                 </div>
                 <div className={styles.buttons}>
                     <button className={styles.cancel} onClick={()=> setIsOpen(false)}>Cancel</button>
-                    <button className={styles.save} onClick={updateProfile}>
+                    <button className={styles.save} onClick={UpdateProfile}>
                         {!isLoading ? "Save" :
                         <div className={styles.loader}>
                             <Oval

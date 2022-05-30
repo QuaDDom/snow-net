@@ -11,7 +11,7 @@ import SettingsComponent from '../components/Settings/SettingsComponent';
 import { AuthProvider } from '../context/AuthContext';
 import styles from '../styles/settings.module.scss';
 
-export default function settings() {
+export default function Settings() {
   const [page, setPage] = useState(1);
   const isResponsive = useMediaQuery({ query: '(max-width: 1200px)' });
 

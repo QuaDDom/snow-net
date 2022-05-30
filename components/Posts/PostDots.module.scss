@@ -22,7 +22,7 @@
 .options{
     width: 210px;
     height: auto;
-    background: $black3;
+    background: $black4;
     animation: appear 0.4s;
     transform-origin: top;
     position: absolute;
@@ -50,7 +50,7 @@
             padding: 10px;
         }
         &:hover{
-            background: $black3h;
+            background: $black4h;
         }
     }
 }

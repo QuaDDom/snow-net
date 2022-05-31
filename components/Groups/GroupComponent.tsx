@@ -94,11 +94,11 @@ export default function GroupComponent({group}: {group: any}) {
                 className={`${styles.banner} ${isAdmin && styles.logged}`} 
                 onClick={()=> isAdmin && setUpdateCoverModal(true)}
                 >
-                    <Image src={group.groupCover || 'noCover.jpg'} alt="" />
+                    <Image src={group.groupCover || 'noCover.jpg'} alt="" layout="fill"/>
                 </div>
                 <div className={styles.info}>
                     <div className={styles.groupPic}>
-                        <Image src={group.groupPic || 'noProfile.png'} alt="" />
+                        <Image src={group.groupPic || 'noProfile.png'} alt="" layout="fill"/>
                         {isAdmin && 
                             <span className={styles.editProfilePic} onClick={()=> setUpdatePfpModal(true)}>
                                 <span><AiOutlineCamera/></span>

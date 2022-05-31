@@ -13,7 +13,10 @@ export default function Nav() {
     <>
         <div className={styles.navigation}>
             <div className={styles.logo} onClick={()=> Router.push('/')}>
-                <Image src="snow-logo.svg"/>
+                <Image 
+                    src="/snow-logo.svg"
+                    layout="fill"
+                 />
                 <p>SNOW</p>
             </div>
             <nav>

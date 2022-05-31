@@ -222,9 +222,10 @@ export default function ToPost({userData, fetchData, group}: Props) {
             <div className={styles.inputContainer} style={ file || gif || pollOpen ? {padding: "30px 0"} : {}}>
                 <div className={styles.image}>
                     <Image 
-                    src={userData.profilePic || 'noProfile.png'} 
-                    alt="profilepic" 
-                    onClick={()=> Router.push(`/user/${userData.username}`)}
+                        src={userData.profilePic || 'noProfile.png'} 
+                        alt="profilepic" 
+                        onClick={()=> Router.push(`/user/${userData.username}`)}
+                        layout="fill"
                     />
                 </div>
                 <div ref={containerRef} className={`${styles.input} ${isOver && styles.over || ''}`}>

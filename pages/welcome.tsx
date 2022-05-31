@@ -15,7 +15,7 @@ export default function Welcome() {
                 <div className={styles.leftSide}>
                     <Image src="wavesbg.svg" alt="" className={styles.bg} />
                     {isResponsive && <div className={styles.snow}>
-                        <Image src="snow-logo.svg" alt="" />
+                        <Image src="snow-logo.svg" layout="fill" />
                         <h1>SNOW</h1>
                     </div>}
                 </div>

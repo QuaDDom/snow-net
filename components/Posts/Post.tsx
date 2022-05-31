@@ -162,14 +162,15 @@ export default function Post({_id, image, text, userId, likes, fetchData,
       { pinned && <p className={styles.pinned}><span><BsPinAngleFill/></span> Pinned Post</p>}
         <div className={`${styles.user} ${group && styles.groupStyle}`}>
           <Image 
-          src={group?.groupPic || user.profilePic || 'noProfile.png'} 
-          alt={user.name} 
-          onClick={handleImageClick}
-          className={`${group && styles.group}`}
-          onMouseMove={handleHover}
-          onMouseLeave={()=> setIsHover(false)}
-          onMouseDown={()=> setIsHover(false)}
-          onMouseOut={()=> setIsHover(false)}
+            src={group?.groupPic || user.profilePic || 'noProfile.png'} 
+            alt={user.name} 
+            onClick={handleImageClick}
+            className={`${group && styles.group}`}
+            onMouseMove={handleHover}
+            onMouseLeave={()=> setIsHover(false)}
+            onMouseDown={()=> setIsHover(false)}
+            onMouseOut={()=> setIsHover(false)}
+            layout="fill"
           />
           {group && user.profilePic && <Image src={user.profilePic} className={styles.userGroup}/>}
           <div className={styles.bothColumn}>
@@ -202,7 +203,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
         <div className={styles.post}>
           { text && <p className={styles.text}>{textState}</p> }
           { image && <div className={styles.imageContainer}>
-            <Image src={image} width="100%" onClick={handleClick}/>
+            <Image src={image} width="100%" onClick={handleClick} layout="fill"/>
           </div>}
           {
             poll && poll.length > 0 && <Poll poll={poll} loggedUser={loggedUser} _id={_id}/>

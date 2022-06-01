@@ -37,9 +37,9 @@ export default function Suggestions() {
                     <div 
                     className={styles.banner} 
                     >
-                      <Image src={`${group.groupCover || noCover}`} />
+                      <img src={`${group.groupCover || noCover}`} />
                     </div>
-                    <Image 
+                    <img 
                     className={styles.groupPic}
                     src={group.groupPic} 
                     alt={group.title} 

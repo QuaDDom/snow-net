@@ -9,6 +9,7 @@ import { RiLogoutBoxLine } from 'react-icons/ri';
 import { profileData } from '../db/profile_data';
 import styles from './Profile.module.scss';
 
+
 interface Props{
   isOpen: boolean,
   userData: any

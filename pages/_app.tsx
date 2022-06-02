@@ -10,6 +10,14 @@ import { useRouteLoading } from '../hooks/useRouteLoading';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      img: any
+    }
+  }
+}
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isLoading, setIsLoading] = useState(true);

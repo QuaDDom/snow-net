@@ -109,7 +109,8 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
           isOpen={optionsOpen}
           setIsOpen={setOptionsOpen}
           postRef={postRef}
-          reposted={true} handleReportModal={function (): void {
+          reposted={true} 
+          handleReportModal={function (): void {
             throw new Error('Function not implemented.');
           } }                     />
     }

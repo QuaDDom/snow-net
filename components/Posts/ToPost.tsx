@@ -63,6 +63,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
     const onSubmit = async (e: any)=>{
         e.preventDefault();
         setIsLoading(true);
+        if(!text.trim()) return;
         if(group){
             const post = async ()=>{
                 if(gif){
@@ -278,7 +279,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                     <label htmlFor="file" className={styles.button}><BiImageAlt/></label>
                     <p onClick={handlePollButton} className={styles.button}><BiPoll/></p>
                 </div>
-                <button className={`${styles.post} ${!text && styles.notAllowed}`} onClick={onSubmit}>Post</button>
+                <button className={`${styles.post} ${!text.trim() && styles.notAllowed}`} onClick={onSubmit}>Post</button>
             </div>
             <div className={styles.createPoll}>
                 <CreatePoll setPoll={setPoll} pollOpen={pollOpen} poll={poll}/>

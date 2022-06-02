@@ -29,6 +29,9 @@
     z-index: 20;
     border-radius: 15px;
     overflow: hidden;
+    &.reposted{
+        margin-top: 25px;
+    }
     .option{
         display: flex;
         justify-content: center;
@@ -43,13 +46,13 @@
         span{
             font-size: 1.35em;
             display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            width: 35%;
+            justify-content: center;
+            align-items: center;
         }
         p{
+            text-align: center;
+            display: flex;
             padding: 10px;
-            min-width: 75%;
         }
         &:hover{
             background: $black4h;

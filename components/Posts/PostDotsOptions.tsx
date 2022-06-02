@@ -32,14 +32,17 @@ export default function PostDotsOptions({isOpen, userId, loggedUserId,
     const handlePin = async ()=> {
 
     }
+
+    console.log(reposted)
+
     return (
         <>
             {
             isOpen && userId === loggedUserId && 
             <>
-            <div className={styles.options} style={isResponsive ? {
+            <div className={`${styles.options} ${reposted && styles.reposted}`} style={isResponsive ? {
                 position: 'absolute',
-                top: postRef.current.offsetTop + (!reposted ? 50 : 75),
+                top: postRef.current.offsetTop + (!reposted ? 50 : 80),
                 right: postRef.current.offsetLeft - 30
             } : {}}>
                 <div className={`${styles.option} ${styles.delete}`} onClick={handleModal}>

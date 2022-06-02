@@ -126,10 +126,12 @@
 @media (max-width: 1500px){
     .groupCardContainer{
         width: 350px;
-        height: 230px;
+        height: 235px;
         padding: 0 8px;
         margin: 0 15px;
+        position: relative;
         .content{
+            height: 100%;
             .groupPic{
                 width: 100px;
                 height: 100px;
@@ -139,22 +141,26 @@
                 }
             }
             .principal{
-                padding-top: 30px;
+                padding-top: 10px;
                 h4{
                     font-size: 1.1em;
                 }
             }
         }
         .buttonContainer{
-            margin-top: 5px;
-            bottom: 10px;
+            margin-top: 10px;
+            bottom: 0px;
             button{
+                position: absolute;
+                right: 0px;
+                bottom: -7px;
                 width: 80px;
                 height: 30px;
             }
         }
     }
 }
+
 
 @media (max-width: 1200px) {
     .groupCardContainer{

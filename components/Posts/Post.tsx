@@ -21,7 +21,7 @@ import { useMediaQuery } from 'react-responsive';
 import DeleteCommentModal from '../Settings/modals/DeleteCommentModal';
 import EditCommentModal from '../Settings/modals/EditCommentModal';
 import Image from 'next/image';
-
+import ReactMarkdown from 'react-markdown';
 
 interface Props{
   _id: string
@@ -201,7 +201,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
           />
         </div>
         <div className={styles.post}>
-          { text && <p className={styles.text}>{textState}</p> }
+          { text && <p className={styles.text}>{ <ReactMarkdown>{textState}</ReactMarkdown> }</p> }
           { image && <div className={styles.imageContainer}>
             <Image src={image} width="100%" onClick={handleClick} layout="fill"/>
           </div>}

@@ -33,8 +33,8 @@ export default function ImagePreview({file, gif, setFile}: Props) {
             <div className={styles.closeContainer}>
                 <button className={styles.close} onClick={handleClick}><CgClose/></button>
             </div>
-            {file && <Image src={preview} alt="Image Preview" />}
-            {gif && <Image src={gif}/>}
+            {file && <img src={preview} alt="Image Preview" />}
+            {gif && <img src={gif}/>}
         </div>
     )
 }

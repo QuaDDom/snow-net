@@ -15,7 +15,7 @@ export default function DonationCard({title, info, price, icon}: Props) {
     <div className={`${styles.donationCard}`}>
         <div className={`${styles.bgTop} ${style}`}/>
         <div className={styles.icon}>
-            <Image src={icon} alt="" />
+            <img src={icon} alt="" />
         </div>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.info}>{info}</p>

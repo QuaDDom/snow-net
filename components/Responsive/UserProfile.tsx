@@ -21,7 +21,7 @@ export default function UserProfile({loggedUser, touch}: Props) {
         <>
             <div className={styles.userInfo}>
                     <div className={styles.info}>
-                        <Image src={loggedUser.profilePic} alt={loggedUser.username} />
+                        <img src={loggedUser.profilePic} alt={loggedUser.username} />
                         <h4>{loggedUser.name} {loggedUser.lastname}</h4>
                         <p>@{loggedUser.username}</p>
                     </div>

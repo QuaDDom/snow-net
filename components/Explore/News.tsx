@@ -11,7 +11,7 @@ interface Props{
 export default function News({title, img, topic}: Props) {
   return (
     <div className={styles.worldNews}>
-        <Image src={img} alt={title} />
+        <img src={img} alt={title} />
         <div>
             <p>{topic} News</p>
             <h4>{title}</h4>

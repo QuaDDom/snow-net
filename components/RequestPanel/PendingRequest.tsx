@@ -7,7 +7,7 @@ export default function PendingRequest() {
   return (
     <div className={styles.pendingRequest}>
       <div className={styles.user}>
-        <Image src="https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+        <img src="https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
         <h3>John Doe</h3>
         <p>10:10</p>
         <p className={styles.pending}><span><MdOutlineWatchLater/></span>  Pending</p>

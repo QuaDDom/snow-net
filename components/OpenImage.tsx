@@ -16,7 +16,7 @@ export default function OpenImage({img, openImage, setOpenImage}: Props) {
   }
   return (
       <div className={`${styles.openImageContainer} ${isClose && styles.close}`} onClick={handleClick}>
-          <Image src={img || ''} width="100%" className={`${isClose && styles.close}`}/>
+          <img src={img || ''} width="100%" className={`${isClose && styles.close}`}/>
       </div>
   );
 }

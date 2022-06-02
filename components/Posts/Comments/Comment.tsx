@@ -35,7 +35,7 @@ export default function Comment({image, text, userId, likes, loggedUser, created
     return (
       <div className={styles.commentContainer}>
           <div className={styles.user}>
-            <Image src={user.profilePic || 'noProfile.png'} alt={user.name} onClick={handleImageClick}/>
+            <img src={user.profilePic || 'noProfile.png'} alt={user.name} onClick={handleImageClick}/>
             <div className={styles.bothColumn}>
               <h5 className={user.name || `${styles.skeleton} ${styles.skeletonText}`}>
                 {`${user.name} ${user.lastname}`}
@@ -47,7 +47,7 @@ export default function Comment({image, text, userId, likes, loggedUser, created
           <div className={styles.post}>
           { text && <p className={styles.text}>{text}</p> }
           { image && <div className={styles.imageContainer}>
-            <Image src={image} width="100%" onClick={handleClick}/>
+            <img src={image} width="100%" onClick={handleClick}/>
           </div>}
         </div>
           <CommentDots

@@ -119,7 +119,7 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
       <div className={styles.postContainer} ref={postRef}>
         <p className={styles.reposted} onClick={()=> Router.push('/user/' + user.username)}><span><BiRepost/></span> {user.name + ' ' + user.lastname} Reposted</p>
         <div className={styles.user}>
-          <Image src={postUser.profilePic || 'noProfile.png'} alt={postUser.name} onClick={handleImageClick}/>
+          <img src={postUser.profilePic || 'noProfile.png'} alt={postUser.name} onClick={handleImageClick}/>
           <div className={styles.bothColumn}>
             <h5 className={postUser.name || `${styles.skeleton} ${styles.skeletonText}`}>
               {`${postUser.name} ${postUser.lastname}`}
@@ -147,7 +147,7 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
         <div className={styles.post}>
           { text && <p className={styles.text}>{text}</p> }
           { image && <div className={styles.imageContainer}>
-            <Image src={image} width="100%" onClick={handleClick}/>
+            <img src={image} width="100%" onClick={handleClick}/>
           </div>}
         </div>
         <PostOptions 

@@ -63,7 +63,7 @@ export default function SearchGroupsModal({ setSearchModal }: Props) {
                 <div className={styles.group} key={_id}>
                     <div className={styles.content}>
                     <div className={styles.groupPic}>
-                        <Image src={groupPic} alt="" />
+                        <img src={groupPic} alt="" />
                     </div>
                     <div className={styles.text}>
                         <h4>{title}</h4>

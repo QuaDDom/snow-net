@@ -73,7 +73,7 @@ export default function NewConversationModal({setIsModalOpen, loggedUser, getCha
                             <div className={styles.user} onClick={()=> handleClick(_id)} key={_id}>
                                 <div className={styles.content}>
                                     <div className={styles.image}>
-                                        <Image src={profilePic || 'noProfile.png'} alt={name}/>
+                                        <img src={profilePic || 'noProfile.png'} alt={name}/>
                                         <div className={styles.status}/>
                                     </div>
                                     <div className={styles.info}>

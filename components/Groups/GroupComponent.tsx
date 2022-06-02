@@ -94,11 +94,11 @@ export default function GroupComponent({group}: {group: any}) {
                 className={`${styles.banner} ${isAdmin && styles.logged}`} 
                 onClick={()=> isAdmin && setUpdateCoverModal(true)}
                 >
-                    <Image src={group.groupCover || 'noCover.jpg'} alt="" layout="fill"/>
+                    <img src={group.groupCover || 'noCover.jpg'} alt="" layout="fill"/>
                 </div>
                 <div className={styles.info}>
                     <div className={styles.groupPic}>
-                        <Image src={group.groupPic || 'noProfile.png'} alt="" layout="fill"/>
+                        <img src={group.groupPic || 'noProfile.png'} alt="" layout="fill"/>
                         {isAdmin && 
                             <span className={styles.editProfilePic} onClick={()=> setUpdatePfpModal(true)}>
                                 <span><AiOutlineCamera/></span>
@@ -120,7 +120,7 @@ export default function GroupComponent({group}: {group: any}) {
                     {
                         membersProfile.map((profile:string)=>(
                             <div className={styles.member} key={profile}>
-                                <Image src={profile} className={styles.memberProfile} />
+                                <img src={profile} className={styles.memberProfile} />
                             </div>
                         ))
                     }

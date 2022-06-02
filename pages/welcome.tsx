@@ -13,15 +13,15 @@ export default function Welcome() {
         <div className={styles.welcomeContainer}>
             <div className={styles.containerAll}>
                 <div className={styles.leftSide}>
-                    <Image src="wavesbg.svg" alt="" className={styles.bg} />
+                    <img src="wavesbg.svg" alt="" className={styles.bg} />
                     {isResponsive && <div className={styles.snow}>
-                        <Image src="snow-logo.svg" layout="fill" />
+                        <img src="snow-logo.svg" layout="fill" />
                         <h1>SNOW</h1>
                     </div>}
                 </div>
                 <div className={styles.rightSide}>
                     <div className={styles.snowLogo}>
-                        <Image src="snow-logo.svg" alt="" />
+                        <img src="snow-logo.svg" alt="" />
                     </div>
                     <h2>Welcome to Snow! <br /> A new social network</h2>
                     <h3>Join Snow</h3>

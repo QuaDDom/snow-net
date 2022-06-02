@@ -26,13 +26,13 @@ export default function ImageModal({img, user, setModalOpen}: Props) {
     <div className={styles.imageModalContainer} onClick={handleClick}>
         <div className={styles.containerAll}>
           <div className={styles.userInfo}>
-            <Image src={user.profilePic} className={styles.profilePic} />
+            <img src={user.profilePic} className={styles.profilePic} />
             <div>
               <h4>{user.name}</h4>
               <p>@{user.username}</p>
             </div>
           </div>
-          <Image src={img + '?alt=media'} className={styles.image}/>
+          <img src={img + '?alt=media'} className={styles.image}/>
           <div className={styles.options}>
               <a href={img}><BsDownload/></a>
               <span><HiOutlineHeart/></span>

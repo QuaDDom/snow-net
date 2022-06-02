@@ -96,7 +96,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, userId
                   <input type="file" onChange={handleFileChange} accept="image/png, image/jpg, image/jpeg"/>
                   <span><AiOutlineCamera/></span>
                   <div className={styles.imagePreview}>
-                    {preview && <Image src={preview}/>}
+                    {preview && <img src={preview}/>}
                   </div>
                 </div>
                 <div className={styles.buttons}>

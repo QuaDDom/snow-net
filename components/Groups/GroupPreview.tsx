@@ -22,10 +22,10 @@ export default function GroupPreview({groupType, title, coverPic, groupPic, desc
             <h3>Preview</h3>
             <div className={styles.groupContainer}>
                 <div className={styles.banner}>
-                    <Image src={coverPic || ''}/>
+                    <img src={coverPic || ''}/>
                 </div>
                 <div className={styles.info}>
-                    {groupPic && <Image src={groupPic}/>}
+                    {groupPic && <img src={groupPic}/>}
                     <div className={styles.textInfo}>
                         <h4>{title}</h4>
                         <div>

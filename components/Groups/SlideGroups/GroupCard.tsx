@@ -47,11 +47,11 @@ export default function GroupCard({title, description, groupPic, groupCover, gro
     return (
         <div className={styles.groupCardContainer} onClick={()=> Router.push('/groups/' + _id)}>
             <div className={styles.coverImg}>
-                <Image src={groupCover || 'noGroupPic.jpg'} alt={title} />
+                <img src={groupCover || 'noGroupPic.jpg'} alt={title} />
             </div>
             <div className={styles.content}>
                 <div className={styles.groupPic}>
-                    <Image src={groupPic || noPic} alt={title} />
+                    <img src={groupPic || noPic} alt={title} />
                 </div>
                 <div className={styles.principal}>
                     <h4>{title}</h4>

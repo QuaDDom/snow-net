@@ -98,7 +98,7 @@ export default function UploadGroupCover({type, value, setIsOpen, title, groupId
                   <input type="file" onChange={handleFileChange}/>
                   <span><AiOutlineCamera/></span>
                   <div className={styles.imagePreviewCover}>
-                    {preview &&  <Image src={preview} alt="" />}
+                    {preview &&  <img src={preview} alt="" />}
                   </div>
                 </div>
                 <div className={styles.buttons}>

@@ -107,13 +107,13 @@ export default function UserProfileComponent({userData, username}: Props) {
                 className={`${styles.banner} ${isLoggedUser && styles.logged}`}
                 onClick={()=> isLoggedUser && setUpdateCoverModal(true)}
                 >
-                    <Image 
+                    <img 
                     src={newCoverPic || userData.user.coverPic || 'noCover.jpg'} 
                     />
                 </div>
                 <div className={styles.info}>
                     <div className={styles.profilePic}>
-                        <Image src={newProfilePic || userData.user.profilePic || 'noProfile.png'} />
+                        <img src={newProfilePic || userData.user.profilePic || 'noProfile.png'} />
                         {isLoggedUser && 
                         <span className={styles.editProfilePic} onClick={()=> setUpdatePfpModal(true)}>
                             <span><AiOutlineCamera/></span>

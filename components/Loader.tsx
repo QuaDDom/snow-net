@@ -18,7 +18,7 @@ export default function Loader({isLoading} : Props) {
               <div className={styles.bgBlackSwipe}/>
             </div>
             <div className={styles.logo}>
-                <Image 
+                <img 
                   src="/snow-logo.svg" 
                   alt="snownetwork" 
                   className={styles.snowLogo} 

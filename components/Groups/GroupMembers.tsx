@@ -33,7 +33,7 @@ export default function GroupMembers({ members }: Props) {
                 {
                     membersData.map((member: any)=>(
                         <div className={styles.member} key={member._id}>
-                            <Image src={member.profilePic} alt={member.username} />
+                            <img src={member.profilePic} alt={member.username} />
                             <div className={styles.info}>
                                 <h6>{member.name} {member.lastname}</h6>
                             </div>

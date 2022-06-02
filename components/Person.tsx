@@ -54,7 +54,7 @@ export default function Person({id, image, name, lastname, username, loggedUser,
       <div className={styles.personContainer}>
          <div className={styles.content}>
               <div className={styles.image}>
-                <Image src={image || 'noProfile.png'} alt={name} onClick={handleClick}/>
+                <img src={image || 'noProfile.png'} alt={name} onClick={handleClick}/>
                 <div className={styles.status}/>
               </div>
               <div className={styles.info}>

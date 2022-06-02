@@ -27,7 +27,7 @@ export default function Profile({isOpen, userData}: Props) {
     <div className={`${styles.profileContainer} ${isOpen && styles.open}`}>
         {userData && <div className={styles.options}>
             <div className={styles.profile} onClick={()=> Router.push(`/user/${userData.username}`)}>
-              <Image src={userData.profilePic || 'noProfile.png'} alt="" />
+              <img src={userData.profilePic || 'noProfile.png'} alt="" />
               <div>
                 <h5>{`${userData.name} ${userData.lastname}`}</h5>
                 <p>@{userData.username}</p>

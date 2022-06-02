@@ -55,7 +55,7 @@ export default function RownMsg({_id, members, loggedUser, setCurrentChat, setUs
         <>
        { friend && <div className={styles.rowContainer} onClick={handleClick} ref={ref}>
             <div className={styles.ripple}/>
-            <Image src={friend.profilePic || 'noProfile.png'} alt={friend.username} />
+            <img src={friend.profilePic || 'noProfile.png'} alt={friend.username} />
             <div className={styles.info}>
                 <h5>{`${friend.name} ${friend.lastname}`}</h5>
                 <p>{''}</p>

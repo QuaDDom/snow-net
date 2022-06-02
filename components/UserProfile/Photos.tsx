@@ -28,7 +28,7 @@ export default function Photos({ userData }: Props) {
         <div className={styles.grid}>
             {
                dataImage.map(({image}: any, index: number)=>(
-                    <Image src={image} key={image + index}/>
+                    <img src={image} key={image + index}/>
                 ))
             }
         </div>

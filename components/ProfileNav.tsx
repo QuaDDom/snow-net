@@ -16,7 +16,7 @@ export default function ProfileNav({userData}: Props) {
       <div className={styles.profileNav}>
           <div className={styles.imageProfile} onClick={handleClick}>
              { userData && 
-             <Image 
+             <img 
                 src={userData.profilePic || './noProfile.png'} 
                 alt={userData.username} 
                 layout="fill"

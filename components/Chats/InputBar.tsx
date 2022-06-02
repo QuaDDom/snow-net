@@ -158,8 +158,8 @@ export default function InputBar({loggedUser, chatId, getAllMessages, socket, re
             <div className={styles.options}>
                 <div className={`${styles.currentImage} ${gif || file ? styles.open : ''}`}>
                     <div className={styles.imagePreview}>
-                        {file && <ImagePreview file={file}/>}
-                        {gif && <ImagePreview gif={gif}/>}
+                        {file && <imgPreview file={file}/>}
+                        {gif && <imgPreview gif={gif}/>}
                     </div>
                 </div>
                 <div className={`${styles.emojiPicker} ${pickerOpen && styles.open}`}>

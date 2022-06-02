@@ -20,10 +20,10 @@ export default function EditProfileModal({ userData, setEditProfile }: Props) {
                 <div className={styles.info}>
                     <div className={styles.profilePhotos}>
                         <div className={styles.banner}>
-                            <Image src={userData?.user.coverPic || 'noCover.jpg'} alt={userData.user.username} />
+                            <img src={userData?.user.coverPic || 'noCover.jpg'} alt={userData.user.username} />
                         </div>
                         <div className={styles.pfp}>
-                            <Image src={userData?.user.profilePic} alt={userData.user.username} />
+                            <img src={userData?.user.profilePic} alt={userData.user.username} />
                         </div>
                     </div>
                     <div className={styles.text}>

@@ -83,7 +83,7 @@ export default function CountdownComponent({launch, setLaunch}: Props) {
                 <button onClick={()=> Router.push('/register')}>Register Now</button>
             </div>
             <div className={styles.snowLogo}>
-                <Image src='snow-logo.svg' alt="" />
+                <img src='snow-logo.svg' alt="" />
             </div>
         </div>
         </>

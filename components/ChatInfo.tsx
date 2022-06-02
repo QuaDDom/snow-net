@@ -25,7 +25,7 @@ export default function ChatInfo({img, name, lastname, setCurrentChat}: Props) {
             <button onClick={()=> setCurrentChat('')} className={styles.back}><AiOutlineArrowLeft/></button>
           }
           <div className={styles.personInfo}>
-              <Image src={img || 'noProfile.png'} alt={name} />
+              <img src={img || 'noProfile.png'} alt={name} />
               <p>{`${name} ${lastname}`}</p>
           </div>
           <div className={styles.conf}>

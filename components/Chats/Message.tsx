@@ -22,7 +22,7 @@ export default function Message({text, received, createdAt, image}: Props) {
         {
         image ? 
         <div className={styles.message}>
-          <Image src={image} onClick={handleClick}/>
+          <img src={image} onClick={handleClick}/>
           {text && <p>{text}</p>}
           <span>{createdAt}</span>
         </div>

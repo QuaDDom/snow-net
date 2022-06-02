@@ -22,10 +22,10 @@ export default function EditProfile() {
           {  loggedUser && <div className={styles.options}>
             <div className={styles.images}>
                 <div className={styles.banner}>
-                <Image src={loggedUser.coverPic} alt="" />
+                <img src={loggedUser.coverPic} alt="" />
                 </div>
                 <div className={styles.profile}>
-                <Image src={loggedUser.profilePic} alt="profilepicture" />
+                <img src={loggedUser.profilePic} alt="profilepicture" />
                 </div>
                 <h3>{`${loggedUser.name} ${loggedUser.lastname}`}</h3>
             </div>

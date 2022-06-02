@@ -108,6 +108,12 @@
             font-size: 0.95em;
             padding-left: 66.5px;
             font-weight: 300;
+            a{
+                color: #79DAE8;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
         }
         .imageContainer{
             max-width: 100%;

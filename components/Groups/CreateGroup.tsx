@@ -64,7 +64,7 @@ export default function CreateGroup() {
             <div className={styles.create}>
                 <h2>Create group</h2>
                 <div className={styles.owner}>
-                    <Image src={loggedUser.profilePic} alt={loggedUser.username} />
+                    <img src={loggedUser.profilePic} alt={loggedUser.username} />
                     <div className={styles.info}>
                         <h5>{`${loggedUser.name} ${loggedUser.lastname}`}</h5>
                         <p>Owner</p>

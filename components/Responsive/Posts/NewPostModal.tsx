@@ -215,7 +215,7 @@ export default function NewPostModal({loggedUser, fetchData, group}: Props) {
             <div className={styles.modal}>
                 <div className={styles.space}>
                     <div className={styles.user}>
-                        <Image src={loggedUser.profilePic} alt={loggedUser.username} />
+                        <img src={loggedUser.profilePic} alt={loggedUser.username} />
                     </div>
                     <div className={styles.input}>
                         <input type="text" placeholder={`What's happening ${loggedUser.name}?`}/>

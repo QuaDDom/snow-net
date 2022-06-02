@@ -20,11 +20,11 @@ export default function TopBar({touch}: Props) {
     <div className={styles.topBarContainer}>
         <div className={styles.icons}>
             <div className={styles.snow}>
-                <Image src='snow-logo.svg' alt="snow" className={styles.logo} />
+                <img src='snow-logo.svg' alt="snow" className={styles.logo} />
             </div>
             <h3>SNOW</h3>
             <div className={styles.user}>
-                {loggedUser && <Image 
+                {loggedUser && <img 
                 src={loggedUser.profilePic} 
                 alt={loggedUser.username}
                 onClick={handleOpen}

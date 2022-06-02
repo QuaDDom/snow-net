@@ -70,7 +70,7 @@ export default function RegisterInputs() {
     <div className={styles.containerAll}>
       <div className={styles.registerContent}>
         <div className={styles.registerBackground}>
-          <Image src="welcome-snow.svg" alt="" />
+          <img src="welcome-snow.svg" alt="" />
         </div>
         <div className={styles.register}>
             <div className={styles.registerText}>

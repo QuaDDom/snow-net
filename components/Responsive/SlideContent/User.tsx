@@ -11,7 +11,7 @@ interface Props{
 export default function User({profilePic, name, username}: Props) {
   return (
     <div className={styles.userContent}>
-        <Image src={profilePic || 'noProfile.png'} alt={username} />
+        <img src={profilePic || 'noProfile.png'} alt={username} />
         <div className={styles.text}>
             <h5>{name}</h5>
             <p>@{username}</p>

@@ -124,7 +124,7 @@ export default function AddComment({userData, fetchData, postId}: Props) {
         <div className={styles.addCommentContainer} style={ file || gif || pollOpen ? {paddingBottom: "70px"} : {}}>
             <div className={styles.inputContainer} style={ file || gif || pollOpen ? {padding: "30px 0"} : {}}>
                 <div className={styles.image}>
-                    <Image 
+                    <img 
                     src={userData.profilePic || 'noProfile.png'} 
                     alt="profilepic" 
                     onClick={()=> Router.push(`/user/${userData.username}`)}
@@ -159,11 +159,11 @@ export default function AddComment({userData, fetchData, postId}: Props) {
                 </form>
             </div>
             { file && <div className={styles.imagePreview}>
-                <ImagePreview file={file}/>
+                <imgPreview file={file}/>
             </div> }
             {
                 gif && <div className={styles.imagePreview}>
-                    <ImagePreview gif={gif}/>
+                    <imgPreview gif={gif}/>
                 </div>
             }
             <div className={styles.options}>

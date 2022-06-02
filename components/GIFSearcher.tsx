@@ -51,7 +51,7 @@ export default function GIFSearcher({setGif, setGifOpen, gifOpen, isTop}: Props)
                 {
                 giphy && giphy.length >= 1 && giphy.map(({url, title, images}: Gif, index: number)=>(
                   <div className={styles.gif} key={url + title + index}>
-                    <Image 
+                    <img 
                     src={images.fixed_height.url} 
                     alt={title} 
                     onClick={()=> handleClick(images.fixed_height.url)}

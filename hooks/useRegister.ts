@@ -66,7 +66,7 @@ export const useRegister = ()=>{
 
     const handleSubmit = async (e: any)=>{
         try{
-            const data = await axios.post("/auth/register", userData);
+            const data = await axios.post("http://localhost:5000/api/auth/register", userData);
             if(data.data === 'This user already exists'){
                 console.log('This user already exists')
                 setErrors({email: "This user already exists!"})

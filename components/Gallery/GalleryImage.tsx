@@ -22,7 +22,7 @@ export default function GalleryImage({img, user}: Props) {
 
   return (
     <>
-    {modalOpen && <imgModal img={img} user={user} setModalOpen={setModalOpen}/>}
+    {modalOpen && <ImageModal img={img} user={user} setModalOpen={setModalOpen}/>}
     <div className={styles.galleryImageContainer} onClick={handleClick}>
         <div className={styles.containerImage}>
           <img src={img} className={styles.image}/>

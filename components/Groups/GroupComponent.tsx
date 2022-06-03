@@ -32,7 +32,7 @@ export default function GroupComponent({group}: {group: any}) {
 
     const fetchData = async ()=>{
         try{
-            const res = await axios.get(`/posts/group/${group._id}`);
+            const res = await axios.get(`http://localhost:5000/api/posts/group/${group._id}`);
             setGroupPosts([...res.data]);
             console.log(res.data)
         } catch(err){
@@ -42,7 +42,7 @@ export default function GroupComponent({group}: {group: any}) {
 
     const handleJoin = async ()=>{
         try{
-            await axios.put(`/groups/join/${group._id}`, {
+            await axios.put(`http://localhost:5000/api/groups/join/${group._id}`, {
                 userId: loggedUser?._id
             });
             isJoined ? setIsJoined(false) : setIsJoined(true);

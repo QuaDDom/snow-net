@@ -159,11 +159,11 @@ export default function AddComment({userData, fetchData, postId}: Props) {
                 </form>
             </div>
             { file && <div className={styles.imagePreview}>
-                <imgPreview file={file}/>
+                <ImagePreview file={file}/>
             </div> }
             {
                 gif && <div className={styles.imagePreview}>
-                    <imgPreview gif={gif}/>
+                    <ImagePreview gif={gif}/>
                 </div>
             }
             <div className={styles.options}>

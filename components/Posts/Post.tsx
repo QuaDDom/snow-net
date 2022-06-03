@@ -23,6 +23,9 @@ import EditCommentModal from '../Settings/modals/EditCommentModal';
 import Image from 'next/image';
 import remarkGfm from 'remark-gfm'
 import ReactMarkdown from 'react-markdown';
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+
 
 interface Props{
   _id: string
@@ -203,7 +206,27 @@ export default function Post({_id, image, text, userId, likes, fetchData,
         </div>
         <div className={styles.post}>
           { text && <p className={styles.text}>{ 
-             <ReactMarkdown children={textState} remarkPlugins={[remarkGfm]}/>
+            <ReactMarkdown 
+            children={textState}
+            remarkPlugins={[[remarkGfm]]}
+            components={{
+              code({node, inline, className, children, ...props}) {
+                const match = /language-(\w+)/.exec(className || '')
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    children={String(textState).replace(/\n$/, '')}
+                    style={dracula}
+                    language={match[1]}
+                    PreTag="div"
+                  />
+                ) : (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                )
+              }
+            }}
+             />
           }</p> }
           { image && <div className={styles.imageContainer}>
             <img src={image} width="100%" onClick={handleClick} layout="fill"/>

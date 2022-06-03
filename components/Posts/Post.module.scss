@@ -108,6 +108,8 @@
             font-size: 0.95em;
             padding-left: 66.5px;
             font-weight: 300;
+            max-width: 35vw;
+            overflow-wrap: break-word;
             a{
                 color: #79DAE8;
                 &:hover{

@@ -63,5 +63,7 @@
     .members{
         width: 350px;
         min-height: 300px;
+        position: sticky;
+        top: 100px;
     }
 }

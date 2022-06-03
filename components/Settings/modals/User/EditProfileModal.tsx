@@ -13,6 +13,20 @@ export default function EditProfileModal({ userData, setEditProfile }: Props) {
     const [username, setUsername] = useState('@'+userData?.user.username)
     const [bio, setBio] = useState(userData?.user.bio)
 
+    const handleChange = (input: string, e: React.ChangeEvent<HTMLInputElement>)=>{
+        switch(input){
+            case 'name':
+                setName(e.target.value)
+                break;
+            case 'lastname':
+                setLastname(e.target.value)
+                break;
+            case 'username':
+                setUsername(e.target.value)
+                break;
+        }
+    }
+
     return (
         <div className={styles.modalContainer}>
             <div className={styles.modal}>
@@ -28,9 +42,9 @@ export default function EditProfileModal({ userData, setEditProfile }: Props) {
                     </div>
                     <div className={styles.text}>
                         <div className={styles.inputs}>
-                            <input type="text" value={name}/>
-                            <input type="text" value={lastname}/>
-                            <input type="text" value={username}/>
+                            <input type="text" value={name} onChange={(e:any)=> handleChange('name', e)}/>
+                            <input type="text" value={lastname} onChange={(e:any)=> handleChange('lastname', e)}/>
+                            <input type="text" value={username} onChange={(e:any)=> handleChange('username', e)}/>
                         </div>
                         <textarea name="" id="" value={bio} placeholder="Bio"></textarea>
                     </div>

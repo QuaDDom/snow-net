@@ -18,12 +18,12 @@ export const useFollow = (loggedUser: any, id: string, friendReqs: any)=> {
     const handleFollow = async ()=>{
         try{
             if(!isFollowed){
-                await axios.put(`/users/${id}/follow`, {
+                await axios.put(`http://localhost:5000/api/users/${id}/follow`, {
                     userId: loggedUser._id
                 });
                 setIsFollowed(true);
             } else{
-                await axios.put(`/users/${id}/unfollow`, {
+                await axios.put(`http://localhost:5000/api/users/${id}/unfollow`, {
                     userId: loggedUser._id
                 });
                 setIsFollowed(false);

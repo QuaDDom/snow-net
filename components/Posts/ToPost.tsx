@@ -39,7 +39,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
     const { isOver } = useDragDrop({setFile, containerRef});
     const [blobImage, setBlobImage] = useState<any>(null)
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>)=>{
         setText(e.target.value);
     }
 
@@ -232,8 +232,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                     />
                 </div>
                 <div ref={containerRef} className={`${styles.input} ${isOver && styles.over || ''}`}>
-                    <input 
-                    type="text" 
+                    <textarea 
                     name="public" 
                     placeholder={`${pollOpen ? "Ask a question" : "What's happening " + userData.name + "?"}`}
                     value={text}

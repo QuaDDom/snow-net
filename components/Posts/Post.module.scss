@@ -111,9 +111,17 @@
             max-width: 35vw;
             overflow-wrap: break-word;
             pre{
-                height: auto;
                 pre{
-                    height: auto;
+                    padding-bottom: 15px;
+                    display: flex;
+                    align-items: center;
+                    code{
+                        span{
+                            &:nth-child(1){
+                                display: none;
+                            }
+                        }
+                    }
                 }
                 overflow-wrap: break-word;
             }

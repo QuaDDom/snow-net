@@ -25,6 +25,7 @@ import remarkGfm from 'remark-gfm'
 import ReactMarkdown from 'react-markdown';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import Markdown from '../Markdown/Markdown';
 
 
 interface Props{
@@ -102,13 +103,11 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   const handleEditModal = ()=> editModal ? setEditModal(false) : setEditModal(true);
   const handleReportModal = ()=> reportModal ? setReportModal(false) : setReportModal(true);
 
-
   const handleImageClick = ()=>{
     Router.push('user/' + user.username);
   }
 
   const deletePost = async ()=>{
-      (userId, loggedUser._id)
       await axios.delete(`http://localhost:5000/api/posts/${_id}`, { data: { userId: loggedUser._id } });
       fetchData();
   }
@@ -219,9 +218,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
                     language={match[1]}
                   />
                 ) : (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
+                  <Markdown node={node} children={children}/>
                 )
               }
             }}

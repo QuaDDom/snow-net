@@ -60,7 +60,7 @@ export default function InputBar({loggedUser, chatId, getAllMessages, socket, re
                 setProgress(percentage);
             }, (err: any)=>{
                 setUploadError(err);
-                console.log(err);
+                (err);
             }, async ()=>{
                 const url = await storageRef.getDownloadURL();
                 const createdAt = timestamp();

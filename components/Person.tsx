@@ -37,7 +37,7 @@ export default function Person({id, image, name, lastname, username, loggedUser,
             setIsFollowed(false);
         }
     } catch(err){
-        console.log(err)
+        (err)
     }
 }
 

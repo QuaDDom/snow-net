@@ -33,7 +33,7 @@ export default function PostDotsOptions({isOpen, userId, loggedUserId,
 
     }
 
-    console.log(reposted)
+    (reposted)
 
     return (
         <>

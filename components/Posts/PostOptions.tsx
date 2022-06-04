@@ -55,7 +55,7 @@ export default function PostOptions({userId, likes, _id,
             postId: _id
          }); 
       } catch(err){
-         console.log(err);
+         (err);
       }
    }
 

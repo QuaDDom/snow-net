@@ -36,7 +36,7 @@ export const useFireStorage = (user: any, title?: string)=>{
             setProgress(percentage);
         }, (err: any)=>{
             setUploadError(err);
-            console.log(err);
+            (err);
         }, async ()=>{
             const url = await storageRef.getDownloadURL();
             const createdAt = timestamp();

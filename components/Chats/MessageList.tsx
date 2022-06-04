@@ -35,7 +35,7 @@ export default function MessageList({conversations, loggedUser, currentChat, set
 
   const keys = ["name", "lastname", "username"];
 
-  console.log(conversations)
+  (conversations)
 
  
 

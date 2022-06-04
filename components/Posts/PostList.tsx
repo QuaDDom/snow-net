@@ -63,33 +63,33 @@ export default function PostList() {
                   {
                     reposted ?
                     <Repost 
-                    _id={_id} 
-                    text={text} 
-                    image={image} 
-                    key={_id + index} 
-                    userId={userId} 
-                    likes={likes}
-                    fetchData={fetchData}
-                    loggedUser={loggedUser}
-                    createdAt={createdAt}
-                    repostedPost={repostedPost}
-                    repostedBy={repostedBy}
-                    poll={poll}
+                      _id={_id} 
+                      text={text} 
+                      image={image} 
+                      key={_id + index} 
+                      userId={userId} 
+                      likes={likes}
+                      fetchData={fetchData}
+                      loggedUser={loggedUser}
+                      createdAt={createdAt}
+                      repostedPost={repostedPost}
+                      repostedBy={repostedBy}
+                      poll={poll}
                     /> :
                     <Post 
-                    _id={_id} 
-                    text={text} 
-                    image={image}
-                    key={_id + index} 
-                    userId={userId} 
-                    likes={likes}
-                    fetchData={fetchData}
-                    loggedUser={loggedUser}
-                    createdAt={createdAt}
-                    repostedBy={repostedBy}
-                    poll={poll}
-                    pinned={pinned}
-                    group={groupData}
+                      _id={_id} 
+                      text={text} 
+                      image={image}
+                      key={_id} 
+                      userId={userId} 
+                      likes={likes}
+                      fetchData={fetchData}
+                      loggedUser={loggedUser}
+                      createdAt={createdAt}
+                      repostedBy={repostedBy}
+                      poll={poll}
+                      pinned={pinned}
+                      group={groupData}
                     />
                   }
                   </>

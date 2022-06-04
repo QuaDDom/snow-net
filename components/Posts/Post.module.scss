@@ -110,6 +110,13 @@
             font-weight: 300;
             max-width: 35vw;
             overflow-wrap: break-word;
+            pre{
+                height: auto;
+                pre{
+                    height: auto;
+                }
+                overflow-wrap: break-word;
+            }
             a{
                 color: #79DAE8;
                 &:hover{
@@ -161,7 +168,7 @@
         width: 100vw;
         margin: 0;
         border-radius: 0;
-        border-top: 2px solid rgb(20, 31, 35);
+        border-top: 2px solid #141f23;
         padding-bottom: 3px;
         .user{
             img{

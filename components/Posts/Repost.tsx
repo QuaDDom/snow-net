@@ -89,7 +89,7 @@ export default function Post({_id, image, text, userId, likes, fetchData, logged
 
 
   const deletePost = async ()=>{
-      console.log(userId, loggedUser._id)
+      (userId, loggedUser._id)
       await axios.delete(`http://localhost:5000/api/posts/${_id}`, { data:{userId: loggedUser._id} });
       fetchData();
   }

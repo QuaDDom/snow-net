@@ -29,7 +29,7 @@ export const useRegister = ()=>{
         });
     },[email, username, name, lastname, bio, password])
 
-    useEffect(()=>{console.log(userData)},[userData])
+    useEffect(()=>{(userData)},[userData])
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>, inputType: string)=>{
         switch(inputType){
@@ -68,12 +68,12 @@ export const useRegister = ()=>{
         try{
             const data = await axios.post("http://localhost:5000/api/auth/register", userData);
             if(data.data === 'This user already exists'){
-                console.log('This user already exists')
+                ('This user already exists')
                 setErrors({email: "This user already exists!"})
                 return;
             }
         } catch(err){
-            console.log(err);
+            (err);
         } finally{
             Router.push('/verified/pending');
         }

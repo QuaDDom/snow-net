@@ -19,7 +19,7 @@ export default function Photos({ userData }: Props) {
     } else{
       setDataImage(userData.filter((post: any) => post.image).reverse().slice(0,6));
     }
-    console.log(dataImage)
+    (dataImage)
   },[userData])
 
   return (

@@ -24,12 +24,12 @@ export const usePosts = ({type}: Props)=>{
             setPosts([...data.data]);
             setLoader(false);
         } catch(err){
-            console.log(err)
+            (err)
         }
     };
 
     const loadMorePosts = async ()=>{
-        console.log('loadMore')
+        ('loadMore')
         setLoader(true)
         data = await axios.get(`http://localhost:5000/api/posts/get/all/${10}/${offset}`);
         if(data.data === "limit") {

@@ -30,7 +30,7 @@ export default function Poll({poll, loggedUser, _id}: Props) {
         const data = await axios.put(`http://localhost:5000/api/posts/poll/${_id}/${pollNumber}`, {
             userId: loggedUser._id
         });  
-        console.log(data.data.poll)
+        (data.data.poll)
         setIsVoted(true)
     }
 

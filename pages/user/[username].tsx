@@ -20,13 +20,13 @@ export default function UserProfile() {
                 const user = await axios.get(`http://localhost:5000/api/users/profile/${username}`);
                 setUserData({user: user.data, posts: posts.data});
             } catch(err){
-                console.log(err);
+                (err);
             }
         }
         fetchUserData();
     },[username]);
     
-    userData && console.log(userData)
+    userData && (userData)
     return (
         <Layout title={`@${username} - Snow`}>
             <AuthProvider>

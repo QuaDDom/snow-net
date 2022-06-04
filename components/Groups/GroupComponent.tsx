@@ -34,9 +34,9 @@ export default function GroupComponent({group}: {group: any}) {
         try{
             const res = await axios.get(`http://localhost:5000/api/posts/group/${group._id}`);
             setGroupPosts([...res.data]);
-            console.log(res.data)
+            (res.data)
         } catch(err){
-            console.log(err);
+            (err);
         }
     }
 
@@ -47,7 +47,7 @@ export default function GroupComponent({group}: {group: any}) {
             });
             isJoined ? setIsJoined(false) : setIsJoined(true);
         } catch(err){
-            console.log(err);
+            (err);
         }
     }
 

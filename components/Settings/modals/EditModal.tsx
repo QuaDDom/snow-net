@@ -25,7 +25,7 @@ export default function EditModal({type, value, setIsOpen, title, userId, postId
       });
       setIsOpen(false);
     } catch(err){
-      console.log(err);
+      (err);
     }
   }
 

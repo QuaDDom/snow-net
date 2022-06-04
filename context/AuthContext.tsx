@@ -22,7 +22,7 @@ export const AuthProvider = ({children}: Props)=>{
             try{
                 localStorage.setItem('userLog', JSON.stringify(token));
             } catch(err){
-                console.log(err);
+                (err);
             }
         }
     },[token, loggedUser]);
@@ -36,10 +36,10 @@ export const AuthProvider = ({children}: Props)=>{
                             'Authorization' : 'Bearer ' + loggedUser.token
                         }
                     });
-                    console.log(data.data)
+                    (data.data)
                     setNewUserData({...data.data.user})
                 } catch(err){
-                    console.log(err);
+                    (err);
                 }
             }
         }

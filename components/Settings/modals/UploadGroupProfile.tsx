@@ -42,7 +42,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, groupI
         try{
             setIsLoading(true);
             const resizedImage: any = await imageResizer(file, 128);
-            console.log(resizedImage)
+            (resizedImage)
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('profilePictures');
             
@@ -50,7 +50,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, groupI
                 let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
                 setProgress(percentage);
             }, (err: any)=>{
-                console.log(err);
+                (err);
             }, async ()=>{
                 const url = await storageRef.getDownloadURL();
                 const createdAt = timestamp();
@@ -73,7 +73,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, groupI
                 setFile(null);
             });
         } catch(err){
-            console.log(err);
+            (err);
         }
     };
     

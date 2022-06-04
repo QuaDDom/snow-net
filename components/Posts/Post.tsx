@@ -108,7 +108,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
   }
 
   const deletePost = async ()=>{
-      console.log(userId, loggedUser._id)
+      (userId, loggedUser._id)
       await axios.delete(`http://localhost:5000/api/posts/${_id}`, { data: { userId: loggedUser._id } });
       fetchData();
   }
@@ -214,10 +214,9 @@ export default function Post({_id, image, text, userId, likes, fetchData,
                 const match = /language-(\w+)/.exec(className || '')
                 return !inline && match ? (
                   <SyntaxHighlighter
-                    children={String(textState).replace(/\n$/, '')}
+                    children={String(textState).replace(/\n$/, '').replace('~~~', '').replace('~~~', '').replace(match[1], '')}
                     style={dracula}
                     language={match[1]}
-                    PreTag="div"
                   />
                 ) : (
                   <code className={className} {...props}>

@@ -26,9 +26,9 @@ export default function PopularGroups() {
         try{
             const groupsData = await axios.get('http://localhost:5000/api/groups');
             setGroups([...groupsData.data]);
-            console.log(groupsData.data)
+            (groupsData.data)
         } catch(err){
-            console.log(err);
+            (err);
         }
     }
 

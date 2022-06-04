@@ -33,7 +33,7 @@ export default function GroupCard({title, description, groupPic, groupCover, gro
             });
             isJoined ? setIsJoined(false) : setIsJoined(true);
         } catch(err){
-            console.log(err);
+            (err);
         }
     }
 

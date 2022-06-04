@@ -61,7 +61,7 @@ export default function AddComment({userData, fetchData, postId}: Props) {
         e.preventDefault();
         setIsLoading(true);
         if(!text.trim()) return;
-        console.log('add')
+        ('add')
         if(file){            
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('postCommentsImage');
@@ -71,7 +71,7 @@ export default function AddComment({userData, fetchData, postId}: Props) {
                 setProgress(percentage);
             }, (err: any)=>{
                 setUploadError(err);
-                console.log(err);
+                (err);
             }, async ()=>{
                 const url = await storageRef.getDownloadURL();
                 const createdAt = timestamp();

@@ -50,7 +50,7 @@ export default function FriendList() {
   const [friendsData, setFriendsData] = useState<any>([]);
 
   useEffect(()=>{
-    console.log(loggedUser)
+    (loggedUser)
     const getFriendsData = async ()=>{
       if(loggedUser){
         const friends: any = await axios.get(`http://localhost:5000/api/users/${loggedUser?._id}/friends`)

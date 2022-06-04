@@ -34,7 +34,7 @@ export default function UploadGroupCover({type, value, setIsOpen, title, groupId
         try{
             setIsLoading(true);
             const resizedImage: any = await imageResizer(file, 660, 1400);
-            console.log(resizedImage)
+            (resizedImage)
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('coverPictures');
             
@@ -42,7 +42,7 @@ export default function UploadGroupCover({type, value, setIsOpen, title, groupId
                 let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
                 setProgress(percentage);
             }, (err: any)=>{
-                console.log(err);
+                (err);
             }, async ()=>{
                 const url = await storageRef.getDownloadURL();
                 const createdAt = timestamp();
@@ -66,7 +66,7 @@ export default function UploadGroupCover({type, value, setIsOpen, title, groupId
                 setFile(null);
             });
         } catch(err){
-            console.log(err);
+            (err);
         }
     };
     

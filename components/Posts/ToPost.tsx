@@ -81,7 +81,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                     post();
                 } else if(file){            
                     const resizedImage: any = await imageResizer(file);
-                    console.log(resizedImage)
+                    (resizedImage)
                     const storageRef = projectStorage.ref(file.name); 
                     const collectionRef = projectFirestore.collection('postImages');
                     
@@ -90,7 +90,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                         setProgress(percentage);
                     }, (err: any)=>{
                         setUploadError(err);
-                        console.log(err);
+                        (err);
                     }, async ()=>{
                         const url = await storageRef.getDownloadURL();
                         const createdAt = timestamp();
@@ -131,7 +131,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                         }
                         post();
                     } catch(err){
-                        console.log(err);
+                        (err);
                     }
                 }
                 setText('');
@@ -141,7 +141,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
         }
         else if(file){
             const resizedImage: any = await imageResizer(file);
-            console.log(resizedImage)
+            (resizedImage)
             const storageRef = projectStorage.ref(file.name); 
             const collectionRef = projectFirestore.collection('postImages');
             
@@ -150,7 +150,7 @@ export default function ToPost({userData, fetchData, group}: Props) {
                 setProgress(percentage);
             }, (err: any)=>{
                 setUploadError(err);
-                console.log(err);
+                (err);
             }, async ()=>{
                 const url = await storageRef.getDownloadURL();
                 const createdAt = timestamp();
@@ -201,6 +201,8 @@ export default function ToPost({userData, fetchData, group}: Props) {
                 
             }
             post();
+            setPoll(null);
+            setPollOpen(false);
         } else{
             const post = async ()=>{
                 const postData = await axios.post('http://localhost:5000/api/posts', {

@@ -15,7 +15,7 @@ let settings = {
 };
 
 export default function SlideFriends({ users }: Props) {
-    console.log(users)
+    (users)
     return (
         <div className={styles.slideFriendsContainer}>
             <h3>Who to follow</h3>

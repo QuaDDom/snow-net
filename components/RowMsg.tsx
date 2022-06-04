@@ -26,7 +26,7 @@ export default function RownMsg({_id, members, loggedUser, setCurrentChat, setUs
                 setFriend(res.data);
                 setUser(res.data);
             } catch(err){
-                console.log(err);
+                (err);
             }
         }
         

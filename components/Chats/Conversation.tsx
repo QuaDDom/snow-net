@@ -28,10 +28,10 @@ export default function Conversation({currentChat, loggedUser, user, socket, set
       if(currentChat){
         const res = await axios.get(`http://localhost:5000/api/messages/${currentChat._id}`);
         setAllMessages(res.data);
-        console.log(allMessages)
+        (allMessages)
       }
     } catch(err){
-      console.log(err);
+      (err);
     }
   }
   

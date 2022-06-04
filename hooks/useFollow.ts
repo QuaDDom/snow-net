@@ -29,7 +29,7 @@ export const useFollow = (loggedUser: any, id: string, friendReqs: any)=> {
                 setIsFollowed(false);
             }
         } catch(err){
-            console.log(err)
+            (err)
         }
     }
 

@@ -26,7 +26,7 @@ export default function MessagesComponent() {
         if(loggedUser?._id){
             socket.current.emit("addUser", loggedUser._id);
             socket.current.on("getUsers", (users: any)=> {
-                console.log(users);
+                (users);
             });
         }
     },[loggedUser?._id]);
@@ -37,10 +37,10 @@ export default function MessagesComponent() {
             if(loggedUser) {
                 const res = await axios.get(`http://localhost:5000/api/chats/${loggedUser._id}`);
                 setConversations([...res.data]);
-                console.log(res);
+                (res);
             }
         } catch(err){
-            console.log(err);
+            (err);
         }
     }
 

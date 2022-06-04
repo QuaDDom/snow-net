@@ -35,7 +35,7 @@ export default function PostDots({username, userId, loggedUserId, handleModal,
             await axios.put(`http://localhost:5000/api/posts/pin/${postId}`);
             fetchData();
         } catch(err){
-            console.log(err);
+            (err);
         }
     }
 

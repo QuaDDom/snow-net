@@ -213,7 +213,7 @@ export default function Post({_id, image, text, userId, likes, fetchData,
                 const match = /language-(\w+)/.exec(className || '')
                 return !inline && match ? (
                   <SyntaxHighlighter
-                    children={String(textState).replace(/\n$/, '').replace('~~~', '').replace('~~~', '').replace(match[1], '')}
+                    children={String(textState).replace(/\n$/, '').replace('~~~', '').replace('~~~', '').replace(match[1], '').replace('```', '').replace('```', '')}
                     style={dracula}
                     language={match[1]}
                   />

@@ -73,7 +73,7 @@ export const useRegister = ()=>{
                 return;
             }
         } catch(err){
-            (err);
+            console.log(err);
         } finally{
             Router.push('/verified/pending');
         }

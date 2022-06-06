@@ -43,7 +43,7 @@ export default function CreateGroup() {
             const data = await axios.post('http://localhost:5000/api/groups', bodyData);
             Router.push('/groups/'+data.data._id)
         } catch(err){
-            (err);
+            console.log(err);
         }
     }
 

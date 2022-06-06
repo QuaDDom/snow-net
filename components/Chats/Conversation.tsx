@@ -31,7 +31,7 @@ export default function Conversation({currentChat, loggedUser, user, socket, set
         (allMessages)
       }
     } catch(err){
-      (err);
+      console.log(err);
     }
   }
   

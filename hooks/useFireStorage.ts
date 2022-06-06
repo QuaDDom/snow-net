@@ -35,8 +35,8 @@ export const useFireStorage = (user: any, title?: string)=>{
             let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
             setProgress(percentage);
         }, (err: any)=>{
-            setUploadError(err);
-            (err);
+            setUploadErrorconsole.log(err);
+            console.log(err);
         }, async ()=>{
             const url = await storageRef.getDownloadURL();
             const createdAt = timestamp();

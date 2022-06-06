@@ -25,7 +25,7 @@ export default function FriendsGroups() {
             setGroups([...groupsData.data]);
             (groupsData.data)
         } catch(err){
-            (err);
+            console.log(err);
         }
     }
 

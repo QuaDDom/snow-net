@@ -20,7 +20,7 @@ export default function UserProfile() {
                 const user = await axios.get(`http://localhost:5000/api/users/profile/${username}`);
                 setUserData({user: user.data, posts: posts.data});
             } catch(err){
-                (err);
+                console.log(err);
             }
         }
         fetchUserData();

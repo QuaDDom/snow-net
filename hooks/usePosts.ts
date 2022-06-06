@@ -24,7 +24,7 @@ export const usePosts = ({type}: Props)=>{
             setPosts([...data.data]);
             setLoader(false);
         } catch(err){
-            (err)
+            console.log(err)
         }
     };
 

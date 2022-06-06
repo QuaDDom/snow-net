@@ -41,7 +41,7 @@ export default function UploadUserCover({type, value, setIsOpen, title, userId, 
                 let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
                 setProgress(percentage);
             }, (err: any)=>{
-                (err);
+                console.log(err);
             }, async ()=>{
                 const url = await storageRef.getDownloadURL();
                 const createdAt = timestamp();
@@ -65,7 +65,7 @@ export default function UploadUserCover({type, value, setIsOpen, title, userId, 
                 setFile(null);
             });
         } catch(err){
-            (err);
+            console.log(err);
         }
     };
     

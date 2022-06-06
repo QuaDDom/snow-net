@@ -17,12 +17,13 @@ export const AuthProvider = ({children}: Props)=>{
     const {loggedUser, setLoggedUser} = useLocalStorage();
     const [newUserData, setNewUserData] = useState<any>(null)
 
+
     useEffect(()=>{
         if(token){
             try{
                 localStorage.setItem('userLog', JSON.stringify(token));
             } catch(err){
-                (err);
+                console.log(err);
             }
         }
     },[token, loggedUser]);
@@ -39,7 +40,7 @@ export const AuthProvider = ({children}: Props)=>{
                     (data.data)
                     setNewUserData({...data.data.user})
                 } catch(err){
-                    (err);
+                    console.log(err);
                 }
             }
         }

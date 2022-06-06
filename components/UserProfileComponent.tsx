@@ -65,7 +65,7 @@ export default function UserProfileComponent({userData, username}: Props) {
                 setIsFollowed(false);
             }
         } catch(err){
-            (err)
+            console.log(err)
         }
     }
 

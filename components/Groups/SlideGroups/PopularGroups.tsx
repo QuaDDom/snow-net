@@ -28,7 +28,7 @@ export default function PopularGroups() {
             setGroups([...groupsData.data]);
             (groupsData.data)
         } catch(err){
-            (err);
+            console.log(err);
         }
     }
 

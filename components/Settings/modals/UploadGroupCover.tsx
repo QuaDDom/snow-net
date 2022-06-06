@@ -42,7 +42,7 @@ export default function UploadGroupCover({type, value, setIsOpen, title, groupId
                 let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
                 setProgress(percentage);
             }, (err: any)=>{
-                (err);
+                console.log(err);
             }, async ()=>{
                 const url = await storageRef.getDownloadURL();
                 const createdAt = timestamp();
@@ -66,7 +66,7 @@ export default function UploadGroupCover({type, value, setIsOpen, title, groupId
                 setFile(null);
             });
         } catch(err){
-            (err);
+            console.log(err);
         }
     };
     

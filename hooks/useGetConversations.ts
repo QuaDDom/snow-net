@@ -10,7 +10,7 @@ export const useGetConversations = (userId: string)=>{
                 const res = await axios.get('/api/chats/' + userId);
                 setConversations(res.data);
             } catch(err){
-                (err);
+                console.log(err);
             }
         }
     },[])

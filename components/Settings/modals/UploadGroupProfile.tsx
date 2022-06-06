@@ -50,7 +50,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, groupI
                 let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
                 setProgress(percentage);
             }, (err: any)=>{
-                (err);
+                console.log(err);
             }, async ()=>{
                 const url = await storageRef.getDownloadURL();
                 const createdAt = timestamp();
@@ -62,7 +62,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, groupI
                 const update = async ()=>{
                     await axios.put(`http://localhost:5000/api/groups/${groupId}`, {
                         userId,
-                        profilePic: url
+                        groupPic: url
                     })
                 }
         
@@ -73,7 +73,7 @@ export default function UploadUserProfile({type, value, setIsOpen, title, groupI
                 setFile(null);
             });
         } catch(err){
-            (err);
+            console.log(err);
         }
     };
     

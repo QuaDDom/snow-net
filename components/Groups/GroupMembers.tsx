@@ -20,7 +20,7 @@ export default function GroupMembers({ members }: Props) {
                     setMembersData([...membersData, data.data]);
                 })
             } catch(err){
-                (err)
+                console.log(err)
             }
         }
         fetchMembersData();

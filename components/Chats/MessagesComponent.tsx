@@ -40,7 +40,7 @@ export default function MessagesComponent() {
                 (res);
             }
         } catch(err){
-            (err);
+            console.log(err);
         }
     }
 

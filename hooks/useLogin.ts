@@ -28,7 +28,7 @@ export const useLogin = ()=> {
             });
             setToken(res.data);
         } catch(err){
-            (err);
+            console.log(err);
         } finally{
             Router.push('/');
         }

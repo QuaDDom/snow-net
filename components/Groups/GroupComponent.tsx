@@ -36,7 +36,7 @@ export default function GroupComponent({group}: {group: any}) {
             setGroupPosts([...res.data]);
             (res.data)
         } catch(err){
-            (err);
+            console.log(err);
         }
     }
 
@@ -47,7 +47,7 @@ export default function GroupComponent({group}: {group: any}) {
             });
             isJoined ? setIsJoined(false) : setIsJoined(true);
         } catch(err){
-            (err);
+            console.log(err);
         }
     }
 

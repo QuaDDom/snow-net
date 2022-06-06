@@ -20,7 +20,7 @@ export const useLocalStorage = ()=>{
                 Router.push('/')
             }
         } catch(err){
-            (err);
+            console.log(err);
         }
     },[]);
 

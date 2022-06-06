@@ -33,13 +33,14 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
     return (
         <>
         <Head>
-        <title>Login - Snow</title>
+            <title>Login - Snow</title>
         </Head>
         <div className={styles.loginContainer}>
         <div className={styles.containerAll}>
         <div className={styles.login}>
             <div className={styles.loginText}>
                 <h2>Log in</h2>
+                <p>{"You don't have an account?"} <Link href="/register">Sign up</Link></p>
             </div>
             <div className={styles.formContainer}>
                 <form onSubmit={handleFormSubmit(handleSubmitLog)}>
@@ -47,26 +48,27 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
                     type="email" 
                     name="email"
                     label="Email"
-                    size={{width: '25vw', height: 55, fontSize: 18}}
+                    size={{width: '400px', height: 50, fontSize: 18}}
                     value={valuesLog.email}
                     handleChange={handleChangeLog}
                     inputRef={register}
                     error={errors.email}
+                    bg={'#131b27'}
                     />
                     <div/>
                     <Input
                     type="password"
                     name="password"
                     label="Password"
-                    size={{width: '25vw', height: 55, fontSize: 18}}
+                    size={{width: '400px', height: 50, fontSize: 17}}
                     value={valuesLog.password}
                     handleChange={handleChangeLog}
                     inputRef={register}
                     error={errors.password}
+                    bg={'#131b27'}
                     />
                     <Button>Login</Button>
                 </form>
-                <p>{"You don't have an account?"} <Link href="/register">Sign up</Link></p>
             </div>  
             </div>
             </div>

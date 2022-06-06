@@ -33,13 +33,13 @@ export default function Input({type, label, name, bg, size, value, handleChange,
           onChange={(e)=> handleChange(e, name)}
           placeholder=' '
           style={{
-            fontSize: size.fontSize
+            fontSize: size.fontSize,
+            background: bg
           }}
         />
         <label
           className={`${styles.labelComponent} ${error?.message && styles.error}`}
           style={{
-            background: bg,
             fontSize: size.fontSize
         }}>
         {!error?.message ? label : error.message}</label>

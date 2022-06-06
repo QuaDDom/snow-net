@@ -4,7 +4,7 @@
     width: 100%;
     min-height: 5vw;
     z-index: 15;
-    padding-left: 10px;
+
     padding-bottom: 30px;
     padding-top: 30px;
     display: flex;
@@ -48,9 +48,9 @@
         .input{
             position: relative;
             display: block;
-            width: 80%;
+            width: 90%;
             height: 45px;
-            border-radius: 30px;
+            border-radius: 10px;
             margin-left: 15px;
             display: flex;
             padding-left: 20px;

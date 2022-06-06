@@ -3,7 +3,7 @@
 .registerContainer{
     height: 100vh;
     width: 100%;
-    background: url(./img/register-bg.jpeg);
+    background: url(./img/registerbg.svg);
     background-size: cover;
     font-family: 'Manrope', sans-serif !important;
     .containerAll{
@@ -12,15 +12,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #00000065;
-        backdrop-filter: blur(5px);
+        background: #00000035;
         .registerContent{
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 15px;
             overflow: hidden;
-            background: #00000030;
             padding: 27px 55px;
             padding-left: calc(470px + 30px);
             position: relative;
@@ -36,8 +34,9 @@
                 img{
                     height: 520px;
                     width: 700px;
-                    border-radius: 25px;
+                    border-radius: 10px;
                     background-size: cover;
+                    scale: 1.2;
                     object-fit: cover;
                 }
             }
@@ -50,7 +49,7 @@
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                border-radius: 25px 0px 0px 25px;
+                border-radius: 10px 0px 0px 10px;
                 z-index: 10;
                 padding: 15px 0;
                 background: $black2;

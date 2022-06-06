@@ -2,7 +2,7 @@
 .loginContainer{
     height: 100vh;
     width: 100%;
-    background: url(./img/register-bg.jpeg);
+    background: url(./img/loginbg.svg);
     background-size: cover;
     .containerAll{
         width: 100%;
@@ -10,31 +10,43 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #00000045;
-        backdrop-filter: blur(5px);
+        background: #00000035;
         .login{
-            height: 530px;
-            width: 700px;
+            height: 450px;
+            width: 600px;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            border-radius: 25px;
+            border-radius: 10px;
             padding: 15px 0;
-            background: #0f0f0f;
+            background: $black;
             .loginText{
                 display: flex;
                 justify-content: start;
                 width: 86%;
                 padding-top: 40px;
-                padding-bottom: 10px;
+                padding-bottom: 0px;
+                flex-direction: column;
+                padding-left: 5px;
                 h2{
                     font-weight: 700;
-                    font-size: 2.5em;
+                    font-size: 2em;
                     background: #fff;
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
+                }
+                p{
+                    padding-top: 15px;
+                    font-size: 0.95em;
+                    letter-spacing: 0.8px;
+                    text-align: start;
+                    color: rgb(155, 155, 155);
+                    a{
+                        color: #00aaff;
+                        text-decoration: underline;
+                    }
                 }
             }
         }
@@ -46,23 +58,13 @@
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                padding: 0 55px;
-                padding-top: 40px;
+                padding: 0 45px;
+                padding-top: 35px;
                 div{
-                    padding: 10px 0;
+                    padding: 2px 0;
                 }
                 button{
                     margin-top: 20px;
-                }
-            }
-            p{
-                padding-left: 55px;
-                padding-top: 35px;
-                font-size: 1em;
-                letter-spacing: 0.8px;
-                a{
-                    color: #00aaff;
-                    text-decoration: underline;
                 }
             }
         }

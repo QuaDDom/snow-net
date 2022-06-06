@@ -9,6 +9,7 @@ import styles from './Suggestions.module.scss';
 import noCover from '../img/noCover.jpg';
 import AuthContext from '../context/AuthContext';
 import Image from 'next/image';
+import SearchUsers from './Suggestions/SearchUsers';
 
 export default function Suggestions() {
   const [randomUsersData, setRandomUsersData] = useState<any>([]);
@@ -27,6 +28,7 @@ export default function Suggestions() {
 
   return (
       <div className={styles.suggestionsContainer}>
+        <SearchUsers/>
         <div className={styles.border}/>
           <div className={styles.groups}>
             <div className={styles.groupList}>

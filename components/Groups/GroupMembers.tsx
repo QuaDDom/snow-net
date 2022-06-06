@@ -15,9 +15,11 @@ export default function GroupMembers({ members }: Props) {
     useEffect(()=>{
         const fetchMembersData = async ()=>{
             try{
+                const membersGroup: any = [];
                 members.map(async (userId)=>{
                     const data = await axios.get(`http://localhost:5000/api/users/${userId}`);
-                    setMembersData([...membersData, data.data]);
+                    membersGroup.push(data.data)
+                    setMembersData([...membersGroup]);
                 })
             } catch(err){
                 console.log(err)

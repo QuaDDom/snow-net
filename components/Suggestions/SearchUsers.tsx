@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Router from 'next/router';
 import React, { useRef, useState } from 'react'
 import { useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -39,6 +40,8 @@ export default function SearchUsers() {
     };
 
     return (
+        <>
+        {query || userList.length >= 1 && <div className={styles.closeOverlay} onClick={()=> {setUserList([]); setQuery('')}}></div>}
         <div className={styles.searchUsersContainer}>
             <div className={styles.input}>
                 <div className={styles.inputBar}>
@@ -54,7 +57,7 @@ export default function SearchUsers() {
             {userList.length > 0 && <div className={styles.people}>
                 {
                     !isLoading ? userList.map((user: any)=>(
-                        <div className={styles.personContainer}>
+                        <div className={styles.personContainer} onClick={()=> Router.push('')}>
                             <div className={styles.content}>
                                 <div className={styles.image}>
                                 <img src={user.profilePic || 'noProfile.png'} alt={user.name}/>
@@ -72,5 +75,7 @@ export default function SearchUsers() {
                 } 
             </div>}
         </div>
+        </>
+
     )
 }

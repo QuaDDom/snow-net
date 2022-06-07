@@ -10,10 +10,15 @@ export default function SearchUsers() {
     const [query, setQuery] = useState('');
     const [userList, setUserList] = useState<any>([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [isFocus, setIsFocus] = useState(false);
 
     const debounceRef = useRef<NodeJS.Timeout>();
 
     //Handlers
+
+    useEffect(()=>{
+        
+    },[])
 
     const handleSubmit = async ()=>{
         try{
@@ -36,12 +41,12 @@ export default function SearchUsers() {
 
         debounceRef.current = setTimeout(()=>{
             handleSubmit();
-        },250)
+        },500)
     };
 
     return (
         <>
-        {query || userList.length >= 1 && <div className={styles.closeOverlay} onClick={()=> {setUserList([]); setQuery('')}}></div>}
+        {userList.length >= 1 && <div className={styles.closeOverlay} onClick={()=> {setUserList([]); setQuery('')}}></div>}
         <div className={styles.searchUsersContainer}>
             <div className={styles.input}>
                 <div className={styles.inputBar}>
@@ -51,21 +56,22 @@ export default function SearchUsers() {
                         onChange={handleChange} 
                         value={query} 
                         placeholder="Search Snow"
+                        onFocus={()=> setIsFocus(true)}
                     />
                 </div>
             </div>
-            {userList.length > 0 && <div className={styles.people}>
+            <div className={`${styles.people} ${isFocus && query && styles.active}`}>
                 {
                     !isLoading ? userList.map((user: any)=>(
                         <div className={styles.personContainer} onClick={()=> Router.push('')}>
                             <div className={styles.content}>
                                 <div className={styles.image}>
-                                <img src={user.profilePic || 'noProfile.png'} alt={user.name}/>
-                                <div className={styles.status}/>
+                                    <img src={user.profilePic || 'noProfile.png'} alt={user.name}/>
+                                    <div className={styles.status}/>
                                 </div>
                                 <div className={styles.info}>
-                                <h4 className={styles.friendName}>{`${user.name} ${user.lastname}`}</h4>
-                                <p>@{user.username}</p>
+                                    <h4 className={styles.friendName}>{`${user.name} ${user.lastname}`}</h4>
+                                    <p>@{user.username}</p>
                                 </div>
                             </div>
                      </div>
@@ -73,7 +79,7 @@ export default function SearchUsers() {
                         <div className={styles.progress}></div>
                     </div>
                 } 
-            </div>}
+            </div>
         </div>
         </>
 

@@ -46,10 +46,14 @@
     .people{
         background: $black3;
         border-radius: 20px;
-        min-height: 100px;
+        min-height: 80px;
         margin-top: 10px;
         position: relative;
         overflow: hidden;
+        visibility: hidden;
+        &.active{
+            visibility: visible;
+        }
         .loader{
             width: 100%;
             height: 5px;

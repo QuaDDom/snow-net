@@ -25,6 +25,14 @@
         transition: 0.35s;
         padding: 0 18px;
         padding-top: 16px;
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            box-shadow: 0 0 0 30px $black3 inset;
+            transition: background-color 5000s ease-in-out 0s;
+            -webkit-text-fill-color: #fff;
+        }
         &:focus{
             background: $black3h;
         }

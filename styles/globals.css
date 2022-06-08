@@ -4,89 +4,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 @import url('http://fonts.cdnfonts.com/css/noir');
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Manrope', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope', sans-serif;
 }
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: #0c1117;
-  color: #fff;
-  font-family: 'Manrope', sans-serif;
-  max-width: 100vw;
-  overflow-x: hidden;
-  overflow-x: initial;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+        Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background: #0c1117;
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    max-width: 100vw;
+    overflow-x: hidden;
+    overflow-x: initial;
 }
 
-body::-webkit-scrollbar{
-  width: 8px;
-} 
-
-body::-webkit-scrollbar-thumb{
-  background: #ffffff80;
-  border-radius: 20px;
+body::-webkit-scrollbar {
+    width: 8px;
 }
 
-button{
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
+body::-webkit-scrollbar-thumb {
+    background: #ffffff80;
+    border-radius: 20px;
+}
+
+button {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
-.closeOverlay{
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: transparent;
+.closeOverlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
 }
 
-.skeleton{
-  animation: skeletonLoading 1s linear infinite alternate;
+.skeleton {
+    animation: skeletonLoading 1s linear infinite alternate;
 }
 
-.skeletonText{
-  width: 100%;
-  height: .5rem;
-  margin-bottom: .2rem;
+.skeletonText {
+    width: 100%;
+    height: 0.5rem;
+    margin-bottom: 0.2rem;
 }
 
 @keyframes skeletonLoading {
-  0%{
-      background-color: #4f575a;
-  }
-  100%{
-      background-color: #7a8286;
-  }
+    0% {
+        background-color: #4f575a;
+    }
+    100% {
+        background-color: #7a8286;
+    }
 }
 
-.stagger-animation-text{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+.stagger-animation-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-.stagger-change-top, .stagger-change-bottom{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+.stagger-change-top,
+.stagger-change-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }

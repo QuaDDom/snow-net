@@ -317,13 +317,16 @@ export default function Post({
                         height={160}
                         backgroundColor={'#424a51'}
                         foregroundColor={'#77839a'}>
-                        <rect x="50" y="8" rx="3" ry="3" width="88" height="6" />
-                        <rect x="148" y="8" rx="3" ry="3" width="52" height="6" />
-                        <rect x="50" y="30" rx="3" ry="3" width="250" height="7" />
-                        <rect x="310" y="30" rx="3" ry="3" width="50" height="7" />
+                        <rect x="50" y="8" rx="3" ry="3" width="88" height="6.5" />
+                        <rect x="148" y="8" rx="3" ry="3" width="52" height="6.5" />
+                        <rect x="50" y="30" rx="3" ry="3" width="250" height="6" />
+                        <rect x="310" y="30" rx="3" ry="3" width="50" height="6" />
+                        <rect x="50" y="45" rx="3" ry="3" width="100" height="6" />
+                        <rect x="160" y="45" rx="3" ry="3" width="40" height="6" />
+                        <rect x="210" y="45" rx="3" ry="3" width="130" height="6" />
                         <rect x="0" y="72" rx="3" ry="3" width="380" height="6" />
                         <rect x="20" y="88" rx="3" ry="3" width="178" height="6" />
-                        <circle cx="20" cy="20" r="20" />
+                        <circle cx="22" cy="19" r="19" />
                     </ContentLoader>
                 </div>
             )}

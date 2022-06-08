@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function SentList() {
-  return (
-    <div>SentList</div>
-  )
+    return <div>SentList</div>;
 }

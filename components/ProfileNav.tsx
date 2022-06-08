@@ -4,25 +4,25 @@ import Profile from './Profile';
 import styles from './ProfileNav.module.scss';
 import Image from 'next/image';
 
-
-interface Props{
-    userData: any
+interface Props {
+    userData: any;
 }
 
-export default function ProfileNav({userData}: Props) {
-  const [isOpen, setIsOpen] = useState(false);
-  const handleClick = ()=> isOpen ? setIsOpen(false) : setIsOpen(true);
-  return (
-      <div className={styles.profileNav}>
-          <div className={styles.imageProfile} onClick={handleClick}>
-             { userData && 
-             <img 
-                src={userData.profilePic || './noProfile.png'} 
-                alt={userData.username} 
-                layout="fill"
-             />}
-          </div>
-          <Profile isOpen={isOpen} userData={userData}/>
-      </div>
-  );
+export default function ProfileNav({ userData }: Props) {
+    const [isOpen, setIsOpen] = useState(false);
+    const handleClick = () => (isOpen ? setIsOpen(false) : setIsOpen(true));
+    return (
+        <div className={styles.profileNav}>
+            <div className={styles.imageProfile} onClick={handleClick}>
+                {userData && (
+                    <img
+                        src={userData.profilePic || './noProfile.png'}
+                        alt={userData.username}
+                        layout="fill"
+                    />
+                )}
+            </div>
+            <Profile isOpen={isOpen} userData={userData} />
+        </div>
+    );
 }

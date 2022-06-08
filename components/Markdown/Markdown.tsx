@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 export default function Markdown({ node, children }: any) {
-    if (node.children[0].tagName === "img") {
+    if (node.children[0].tagName === 'img') {
         const image: any = node.children[0];
         return (
             <div className="image">

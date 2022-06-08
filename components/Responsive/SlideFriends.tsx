@@ -1,10 +1,10 @@
 import React from 'react';
-import Slider from "react-slick";
+import Slider from 'react-slick';
 import User from './SlideContent/User';
 import styles from './SlideFriends.module.scss';
 
-interface Props{
-    users: any
+interface Props {
+    users: any;
 }
 
 let settings = {
@@ -15,24 +15,24 @@ let settings = {
 };
 
 export default function SlideFriends({ users }: Props) {
-    (users)
+    users;
     return (
         <div className={styles.slideFriendsContainer}>
             <h3>Who to follow</h3>
             <div className={styles.slide}>
                 <Slider {...settings}>
-                    {
-                        users.map(({profilePic, username, name, lastname, _id}: any, index: number)=>(
-                            <User 
-                            profilePic={profilePic} 
-                            name={name + '' + lastname}
-                            username={username}
-                            key={_id}
+                    {users.map(
+                        ({ profilePic, username, name, lastname, _id }: any, index: number) => (
+                            <User
+                                profilePic={profilePic}
+                                name={name + '' + lastname}
+                                username={username}
+                                key={_id}
                             />
-                        ))
-                    }
+                        )
+                    )}
                 </Slider>
             </div>
         </div>
-    )
+    );
 }

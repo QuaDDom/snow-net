@@ -25,6 +25,7 @@ export default function Friend({id, image, name, lastname, status, username}: Pr
                 <h4 className={styles.friendName}>{`${name} ${lastname}`}</h4>
                 <p>@{username}</p>
               </div>
+            
               <button><RiMailSendLine/></button>
           </div>
       </div>

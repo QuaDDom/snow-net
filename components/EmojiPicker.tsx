@@ -17,73 +17,85 @@ import { VscSymbolOperator } from 'react-icons/vsc';
 import { memo } from 'react';
 import { useModal } from '../hooks/useModal';
 
-interface Props{
-  setMessage: React.Dispatch<React.SetStateAction<string>>,
-  message: string,
-  setPickerOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  pickerOpen: boolean,
-  isTop: boolean,
+interface Props {
+  setMessage: React.Dispatch<React.SetStateAction<string>>;
+  message: string;
+  setPickerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  pickerOpen: boolean;
+  isTop: boolean;
 }
 
-const EmojiPicker = ({setMessage, message, setPickerOpen, pickerOpen, isTop}: Props) => {
-    const { activityList, peopleList, natureList, handleCategory,
-            symbolList, foodList, objectList, travelList, currentCategory, emojiRef } = useEmojiPicker();
-    
-    const handleClick = (emoji: string)=>{
-      setMessage(`${message + emoji}`);
-    }
-  
-    return (
-      <>
-      {pickerOpen && <div className="closeOverlay" onClick={()=> setPickerOpen(false)}/>}
-      <div 
-      className={`
+const EmojiPicker = ({ setMessage, message, setPickerOpen, pickerOpen, isTop }: Props) => {
+  const {
+    activityList,
+    peopleList,
+    natureList,
+    handleCategory,
+    symbolList,
+    foodList,
+    objectList,
+    travelList,
+    currentCategory,
+    emojiRef
+  } = useEmojiPicker();
+
+  const handleClick = (emoji: string) => {
+    setMessage(`${message + emoji}`);
+  };
+
+  return (
+    <>
+      {pickerOpen && <div className="closeOverlay" onClick={() => setPickerOpen(false)} />}
+      <div
+        className={`
       ${styles.emojiPickerContainer} 
       ${pickerOpen ? styles.open : styles.close} ${isTop && styles.isTop}
       `}>
         <div className={styles.searchAndCategory}>
           <div className={styles.category}>
-            <button onClick={()=> handleCategory('people')}><AiOutlineSmile/></button>
-            <button onClick={()=> handleCategory('activity')}><BiFootball/></button>
-            <button onClick={()=> handleCategory('animals')}><GiPlantsAndAnimals/></button>
-            <button onClick={()=> handleCategory('food')}><CgCoffee/></button>
-            <button onClick={()=> handleCategory('symbols')}><VscSymbolOperator/></button>
-            <button onClick={()=> handleCategory('objects')}><MdOutlineEmojiObjects/></button>
-            <button onClick={()=> handleCategory('travel')}><MdOutlineTravelExplore/></button>
+            <button onClick={() => handleCategory('people')}>
+              <AiOutlineSmile />
+            </button>
+            <button onClick={() => handleCategory('activity')}>
+              <BiFootball />
+            </button>
+            <button onClick={() => handleCategory('animals')}>
+              <GiPlantsAndAnimals />
+            </button>
+            <button onClick={() => handleCategory('food')}>
+              <CgCoffee />
+            </button>
+            <button onClick={() => handleCategory('symbols')}>
+              <VscSymbolOperator />
+            </button>
+            <button onClick={() => handleCategory('objects')}>
+              <MdOutlineEmojiObjects />
+            </button>
+            <button onClick={() => handleCategory('travel')}>
+              <MdOutlineTravelExplore />
+            </button>
           </div>
         </div>
         <div className={styles.emojiGrid} ref={emojiRef}>
-          {
-            currentCategory === "people"  && <People data={peopleList} handleClick={handleClick}/>
-          }
-  
-          {
-            currentCategory === "animals" && <Animals data={natureList} handleClick={handleClick}/>
-          }
-  
-          {
-            currentCategory === "food" &&  <Food data={foodList} handleClick={handleClick}/>
-          }
-  
-          {
-            currentCategory === "objects" && <Objects data={objectList} handleClick={handleClick}/>
-          }
-  
-          {
-            currentCategory === "symbols" && <Symbols data={symbolList} handleClick={handleClick}/>
-          }
-  
-          {
-            currentCategory === "activity" && <Activity data={activityList} handleClick={handleClick}/>
-          }
-  
-          {
-            currentCategory === "travel" && <Travel data={travelList}/>
-          }
+          {currentCategory === 'people' && <People data={peopleList} handleClick={handleClick} />}
+
+          {currentCategory === 'animals' && <Animals data={natureList} handleClick={handleClick} />}
+
+          {currentCategory === 'food' && <Food data={foodList} handleClick={handleClick} />}
+
+          {currentCategory === 'objects' && <Objects data={objectList} handleClick={handleClick} />}
+
+          {currentCategory === 'symbols' && <Symbols data={symbolList} handleClick={handleClick} />}
+
+          {currentCategory === 'activity' && (
+            <Activity data={activityList} handleClick={handleClick} />
+          )}
+
+          {currentCategory === 'travel' && <Travel data={travelList} />}
         </div>
       </div>
-      </>
-    );
-}
+    </>
+  );
+};
 
-export default EmojiPicker
+export default EmojiPicker;

@@ -35,7 +35,7 @@ const EmojiPicker = ({setMessage, message, setPickerOpen, pickerOpen, isTop}: Pr
   
     return (
       <>
-      
+      {pickerOpen && <div className="closeOverlay" onClick={()=> setPickerOpen(false)}/>}
       <div 
       className={`
       ${styles.emojiPickerContainer} 

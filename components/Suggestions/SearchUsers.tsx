@@ -22,7 +22,7 @@ export default function SearchUsers() {
 
     const handleSubmit = async ()=>{
         try{
-            const users = await axios.get(`http://localhost:5000/api/users/search/${query}`);
+            const users = await axios.post(`http://localhost:5000/api/users/search`,{query: query});
             setUserList([...users.data]);
             setIsLoading(false);
         } catch(err){

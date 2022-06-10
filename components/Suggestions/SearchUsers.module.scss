@@ -1,6 +1,6 @@
 @import '../../styles/colors/variables.scss';
 
-.closeOverlay{
+.closeOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,13 +8,12 @@
     height: 100%;
 }
 
-
-.searchUsersContainer{
+.searchUsersContainer {
     position: absolute;
     top: 75px;
     z-index: 10;
-    .input{
-        .inputBar{
+    .input {
+        .inputBar {
             max-width: 400px;
             height: 50px;
             border-radius: 50px;
@@ -22,14 +21,14 @@
             display: flex;
             align-items: center;
             padding: 10px 40px;
-            span{
+            span {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 font-size: 1.6em;
                 color: #838383;
             }
-            input{
+            input {
                 font-size: 1.05em;
                 background: transparent;
                 color: #fff;
@@ -37,31 +36,32 @@
                 outline: none;
                 width: 300px;
                 padding-left: 10px;
-                &::placeholder{
+                &::placeholder {
                     color: #838383;
                 }
             }
         }
     }
-    .people{
+    .people {
         background: $black3;
         border-radius: 20px;
         min-height: 80px;
         margin-top: 10px;
+        padding-top: 10px;
         position: relative;
         overflow: hidden;
         visibility: hidden;
-        &.active{
+        &.active {
             visibility: visible;
         }
-        .loader{
+        .loader {
             width: 100%;
             height: 5px;
             overflow: hidden;
             top: 0;
             left: 0;
             position: relative;
-            .progress{
+            .progress {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -71,7 +71,7 @@
                 animation: loading 6s ease-in-out infinite;
             }
         }
-        .personContainer{
+        .personContainer {
             height: 70px;
             width: 100%;
             position: relative;
@@ -81,21 +81,21 @@
             transition: 0.3s;
             cursor: pointer;
             z-index: 7;
-            &:hover{
+            &:hover {
                 background: $black3h;
             }
-            .content{
+            .content {
                 display: flex;
                 align-items: center;
                 height: 100%;
                 width: 100%;
                 position: relative;
                 padding: 8px 16px;
-                .image{
+                .image {
                     position: relative;
                     height: 55px;
                     width: 55px;
-                    img{
+                    img {
                         position: absolute;
                         top: 0;
                         left: 0;
@@ -106,18 +106,18 @@
                         object-fit: cover;
                     }
                 }
-                .info{
+                .info {
                     margin-left: 15px;
-                    h4{
+                    h4 {
                         font-size: 0.95em;
                         font-weight: 400;
                     }
-                    p{
+                    p {
                         color: #999;
                         font-size: 0.9em;
                     }
                 }
-                button{
+                button {
                     position: absolute;
                     top: 18px;
                     right: 30px;
@@ -132,11 +132,11 @@
                     background: transparent;
                     transition: 0.3s;
                     color: $aquah;
-                    svg{
+                    svg {
                         transition: 0.3s;
                         animation: appear 0.5s;
                     }
-                    &:hover{
+                    &:hover {
                         background: #90ffff20;
                         color: $aquah;
                     }
@@ -147,14 +147,14 @@
 }
 
 @keyframes loading {
-    0%{
+    0% {
         width: 0;
         left: 0;
     }
-    50%{
+    50% {
         width: 100%;
     }
-    100%{
+    100% {
         width: 100%;
         left: 100%;
     }

@@ -6,7 +6,9 @@ import styles from './Modals.module.scss';
 interface Props {
     type?: string;
     value: string;
-    setIsOpen: React.Dispatch<React.SetStateAction<string>>;
+    setIsOpen:
+        | React.Dispatch<React.SetStateAction<string>>
+        | React.Dispatch<React.SetStateAction<any>>;
     title: string;
     postId: string;
     userId: string;

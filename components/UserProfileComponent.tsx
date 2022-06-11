@@ -6,7 +6,7 @@ import Post from './Posts/Post';
 import { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { RiMailSendLine } from 'react-icons/ri';
-import { AiOutlineCamera, AiOutlineConsoleSql } from 'react-icons/ai';
+import { AiOutlineCamera } from 'react-icons/ai';
 import axios from 'axios';
 import ToPost from './Posts/ToPost';
 import Photos from './UserProfile/Photos';
@@ -17,7 +17,6 @@ import UploadUserProfile from './Settings/modals/UploadUserProfile';
 import UploadUserCover from './Settings/modals/UploadUserCover';
 import Repost from './Posts/Repost';
 import EditProfileModal from './Settings/modals/User/EditProfileModal';
-import Image from 'next/image';
 
 interface Post {
     _id: string;

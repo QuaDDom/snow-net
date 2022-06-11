@@ -1,7 +1,6 @@
 import React from 'react';
-import { BsFillShieldLockFill } from 'react-icons/bs';
 import { IoLanguageSharp, IoSettingsOutline } from 'react-icons/io5';
-import { MdGroup, MdOutlineSort, MdPrivacyTip, MdShield } from 'react-icons/md';
+import { MdPrivacyTip, MdShield } from 'react-icons/md';
 import styles from './SettingsBar.module.scss';
 
 interface Props {

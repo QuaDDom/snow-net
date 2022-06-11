@@ -42,6 +42,7 @@ export default function PostDotsOptions({
 
     return (
         <>
+            {isOpen && <div className="closeOverlay" onClick={() => setIsOpen(false)} />}
             {isOpen && userId === loggedUserId && (
                 <>
                     <div

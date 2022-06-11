@@ -20,6 +20,9 @@ export default function EditProfileModal({ userData, setEditProfile }: Props) {
 
     const handleSubmit = async () => {
         try {
+            if (name.length <= 3) return;
+            if (lastname.length <= 3) return;
+            if (username.length <= 3) return;
             setLoading(true);
             await axios.put('http://localhost:5000/api/users/' + userData.user._id, {
                 name,

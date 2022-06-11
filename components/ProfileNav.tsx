@@ -22,7 +22,7 @@ export default function ProfileNav({ userData }: Props) {
                     />
                 )}
             </div>
-            <Profile isOpen={isOpen} userData={userData} />
+            <Profile isOpen={isOpen} userData={userData} setIsOpen={setIsOpen} />
         </div>
     );
 }

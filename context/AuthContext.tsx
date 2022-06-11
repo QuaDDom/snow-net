@@ -5,47 +5,50 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useLogin } from '../hooks/useLogin';
 import { useRegister } from '../hooks/useRegister';
 
-interface Props{
-    children: React.ReactNode 
+interface Props {
+    children: React.ReactNode;
 }
 
 const AuthContext = createContext({});
 
-export const AuthProvider = ({children}: Props)=>{
-    const {handleChange, handleSubmit, userData, values, errors }: any = useRegister();
-    const {handleChangeLog, handleSubmitLog, token, valuesLog} = useLogin();
-    const {loggedUser, setLoggedUser} = useLocalStorage();
-    const [newUserData, setNewUserData] = useState<any>(null)
+export const AuthProvider = ({ children }: Props) => {
+    const { handleChange, handleSubmit, userData, values, errors }: any = useRegister();
+    const { handleChangeLog, handleSubmitLog, token, valuesLog } = useLogin();
+    const { loggedUser, setLoggedUser } = useLocalStorage();
+    const [newUserData, setNewUserData] = useState<any>(null);
 
-
-    useEffect(()=>{
-        if(token){
-            try{
+    useEffect(() => {
+        if (token) {
+            try {
                 localStorage.setItem('userLog', JSON.stringify(token));
-            } catch(err){
+            } catch (err) {
                 console.log(err);
             }
         }
-    },[token, loggedUser]);
+    }, [token, loggedUser]);
 
-    useEffect(()=>{
-        const getData = async ()=>{
-            if(loggedUser){
-                try{
-                    const data = await axios.post('http://localhost:5000/api/auth/userdata', {}, {
-                        headers: {
-                            'Authorization' : 'Bearer ' + loggedUser.token
+    useEffect(() => {
+        const getData = async () => {
+            if (loggedUser) {
+                try {
+                    console.log('get');
+                    const data = await axios.post(
+                        'http://localhost:5000/api/auth/userdata',
+                        {},
+                        {
+                            headers: {
+                                Authorization: 'Bearer ' + loggedUser.token
+                            }
                         }
-                    });
-                    (data.data)
-                    setNewUserData({...data.data.user})
-                } catch(err){
+                    );
+                    setNewUserData({ ...data.data.user });
+                } catch (err) {
                     console.log(err);
                 }
             }
-        }
+        };
         getData();
-    },[loggedUser])
+    }, [loggedUser]);
 
     const data = {
         handleChange,
@@ -56,15 +59,11 @@ export const AuthProvider = ({children}: Props)=>{
         handleSubmitLog,
         loggedUser: newUserData,
         valuesLog,
-        setLoggedUser,
+        setLoggedUser: setNewUserData,
         errors
-    }
+    };
 
-    return (
-        <AuthContext.Provider value={data}>
-            { children }
-        </AuthContext.Provider>
-    )
-}
+    return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
+};
 
 export default AuthContext;

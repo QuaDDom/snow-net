@@ -72,7 +72,10 @@ export default function SearchUsers() {
                 <div className={`${styles.people} ${isFocus && query && styles.active}`}>
                     {!isLoading ? (
                         userList.map((user: any) => (
-                            <div className={styles.personContainer} onClick={() => Router.push('')}>
+                            <div
+                                className={styles.personContainer}
+                                onClick={() => Router.push('')}
+                                key={user._id}>
                                 <div className={styles.content}>
                                     <div className={styles.image}>
                                         <img

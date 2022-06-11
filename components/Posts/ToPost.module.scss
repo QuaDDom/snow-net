@@ -1,6 +1,6 @@
 @import '../../styles/colors/variables.scss';
 
-.publicContainer{
+.publicContainer {
     background: $black2;
     width: 40vw;
     min-height: 8.5vw;
@@ -14,7 +14,7 @@
     margin-bottom: 20px;
     position: relative;
     flex-direction: column;
-    .imagePreview{
+    .imagePreview {
         max-width: 100%;
         max-height: 500px;
         position: relative;
@@ -26,15 +26,15 @@
         overflow: hidden;
         border-radius: 15px;
     }
-    .inputContainer{
+    .inputContainer {
         display: flex;
         width: 100%;
         justify-content: space-between;
         align-items: center;
-        .image{
+        .image {
             width: 60px;
             height: 60px;
-            img{
+            img {
                 width: 100%;
                 height: 100%;
                 border-radius: 50%;
@@ -43,7 +43,7 @@
                 cursor: pointer;
             }
         }
-        .input{
+        .input {
             position: relative;
             display: block;
             width: 27.5vw;
@@ -53,15 +53,15 @@
             justify-content: space-between;
             align-items: center;
             z-index: 5;
-            &.over{
+            &.over {
                 border: dashed 2px $primary;
                 height: 55px;
                 width: 27.2vw;
             }
-            .fileInput{
+            .fileInput {
                 display: none;
             }
-            img{
+            img {
                 width: 60px;
                 height: 60px;
                 padding: 0 10px;
@@ -69,7 +69,7 @@
                 background-size: cover;
                 object-fit: cover;
             }
-            textarea{
+            textarea {
                 display: flex;
                 top: 0;
                 left: 0;
@@ -90,25 +90,25 @@
                 color: #fff;
                 border-bottom: 2px solid #1f2b42;
                 transition: 0.3s;
-                &::-webkit-scrollbar{
+                &::-webkit-scrollbar {
                     width: 0px;
                 }
-                &::-webkit-scrollbar-thumb{
+                &::-webkit-scrollbar-thumb {
                     background: #ffffff60;
-                    transition: .3s;
+                    transition: 0.3s;
                     border-radius: 20px;
                     width: 0;
-                    &:hover{
+                    &:hover {
                         background: #ffffff99;
                     }
                 }
-                &:focus{
+                &:focus {
                     border-bottom: 2px solid $primary;
                 }
             }
         }
     }
-    .options{
+    .options {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -118,7 +118,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        .post{
+        .post {
             cursor: pointer;
             width: 102px;
             height: 42px;
@@ -129,45 +129,45 @@
             border-radius: 30px;
             font-weight: 800;
             transition: 0.2s;
-            .loader{
+            .loader {
                 width: 100%;
                 height: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-            &.notAllowed{
+            &.notAllowed {
                 opacity: 0.6;
                 cursor: inherit;
                 pointer-events: none;
             }
-            &:hover:not(.notAllowed){
+            &:hover:not(.notAllowed) {
                 background: $aqua;
             }
         }
-        .emojiPicker{
+        .emojiPicker {
             position: absolute;
-            transition: .3s;
+            transition: 0.3s;
             z-index: 17;
             top: 50px;
             left: -90px;
         }
-        .gifSearch{
+        .gifSearch {
             position: absolute;
-            transition: .3s;
+            transition: 0.3s;
             z-index: 17;
             top: 50px;
             left: -50px;
         }
-        .buttons{
+        .buttons {
             display: flex;
             padding: 0px 60px;
             padding-right: 70px;
             color: $aquah;
-            input[type="file"]{
+            input[type='file'] {
                 display: none;
             }
-            .button{
+            .button {
                 font-size: 1.5em;
                 margin-top: 5px;
                 width: 35px;
@@ -177,10 +177,10 @@
                 align-items: center;
                 margin: 0 10px;
                 border-radius: 50%;
-                transition: color .2s;
+                transition: color 0.2s;
                 cursor: pointer;
                 transition: 0.2s;
-                &:hover{
+                &:hover {
                     background: #6dffff20;
                 }
             }
@@ -189,82 +189,80 @@
 }
 
 @media (max-width: 1500px) {
-    .publicContainer{
-        width: 36vw;
-        .inputContainer{
-            .image{
-                width: 52px;
-                height: 52px;
-                img{
-                    height: 52px;
-                    width: 52px;
+    .publicContainer {
+        .inputContainer {
+            height: 100px;
+            .image {
+                width: 55px;
+                height: 55px;
+                img {
+                    height: 55px;
+                    width: 55px;
                 }
             }
-            .input{
+            .input {
                 width: 390px;
                 padding-right: 10px;
-                margin-right: 100px;
-                margin-left: 10px;
+                margin-right: 85px;
                 height: 45px;
-                font-size: 0.9em;
-                &::placeholder{
-                    font-size: 0.9em;
+                textarea {
+                    &::placeholder {
+                        font-size: 0.95em;
+                    }
                 }
             }
         }
-        .options{
+        .options {
             padding: 3px;
-            padding-right: 15px;
-            .buttons{
-                padding: 0 70px;
-                .button{
-                    font-size: 1.25em;
-                    width: 20px;
-                    height: 20px;
+            padding-right: 19px;
+            .buttons {
+                padding-right: 65px;
+                padding-bottom: 5px;
+                .button {
+                    font-size: 1.4em;
                 }
             }
-            .post{
+            .post {
                 width: 100px;
                 height: 35px;
                 margin-bottom: 5px;
-                font-size: 1em;
             }
         }
     }
 }
 
-@media (max-width: 1200px){
-    .publicContainer{
+@media (max-width: 1200px) {
+    .publicContainer {
         width: 100vw;
         border-radius: 0;
         margin: 0;
         height: 15vh;
-        .inputContainer{
+        .inputContainer {
             width: 100%;
             justify-content: start;
-            .image{
+            .image {
                 width: 50px;
                 height: 50px;
             }
-            .input{
+            .input {
                 width: 70%;
                 margin: 0;
                 margin-left: 5%;
             }
         }
-        .options{
+        .options {
             width: 100vw;
             justify-content: start;
             padding: 0;
             padding-bottom: 5px;
-            .post{
+            .post {
                 width: 80px;
                 height: 30px;
                 font-size: 1em;
             }
-            .buttons{
+            .buttons {
                 padding: 0 50px;
-                .button{
+                .button {
                     font-size: 1.4em;
                     width: 25px;
                     height: 25px;

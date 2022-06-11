@@ -6,7 +6,7 @@ import styles from './Modals.module.scss';
 interface Props {
     type?: string;
     value: string;
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsOpen: React.Dispatch<React.SetStateAction<string>>;
     title: string;
     postId: string;
     userId: string;
@@ -31,7 +31,7 @@ export default function EditModal({
                 userId,
                 text: inputVal
             });
-            setIsOpen(false);
+            setIsOpen('');
         } catch (err) {
             console.log(err);
         }
@@ -48,7 +48,7 @@ export default function EditModal({
                 <h4 className={styles.title}>{title}</h4>
                 <input type="text" value={inputVal} onChange={handleChange} />
                 <div className={styles.buttons}>
-                    <button className={styles.cancel} onClick={() => setIsOpen(false)}>
+                    <button className={styles.cancel} onClick={() => setIsOpen('')}>
                         Cancel
                     </button>
                     <button className={styles.save} onClick={updatePost}>

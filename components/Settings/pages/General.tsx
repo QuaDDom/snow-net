@@ -17,9 +17,13 @@ export default function General({ setPage, loggedUser }: Props) {
     const [bio, setBio] = useState(loggedUser?.bio);
 
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+
+    const handleSubmit = () => {};
+
     const handleOpen = (value: string) => {
         modalOpen ? setModalOpen('') : setModalOpen(value);
     };
+
     return (
         <div className={styles.pageContainer}>
             {modalOpen === 'name' && (

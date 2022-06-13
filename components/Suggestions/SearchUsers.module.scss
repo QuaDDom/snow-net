@@ -146,6 +146,16 @@
     }
 }
 
+@media (max-width: 1500px) {
+    .searchUsersContainer {
+        .input {
+            .inputBar {
+                width: 350px;
+            }
+        }
+    }
+}
+
 @keyframes loading {
     0% {
         width: 0;

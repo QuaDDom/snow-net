@@ -4,7 +4,7 @@ import Input from './Input';
 import styles from '../styles/login.module.scss';
 import AuthContext from '../context/AuthContext';
 import Router from 'next/router';
-import { loginSchema } from '../validations/LoginValidation';
+import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
@@ -16,9 +16,27 @@ interface Props {
 }
 
 export default function LoginComponent({ isWelcome, launch }: Props) {
-    const { handleChangeLog, handleSubmitLog, valuesLog, loggedUser } = useContext<any>(
-        AuthContext
-    );
+    const {
+        handleChangeLog,
+        handleSubmitLog,
+        valuesLog,
+        loggedUser,
+        emailValidationApi
+    } = useContext<any>(AuthContext);
+
+    const loginSchema = yup.object().shape({
+        email: yup
+            .string()
+            .email('Not a valid email')
+            .required('Required')
+            .test('email_async_validation', 'Email Validation Error', async function(value) {
+                const message = await emailValidationApi(value);
+                console.log(message);
+                if (message) return this.resolve(this.createError({ message: 'Email not found!' }));
+                else return true;
+            }),
+        password: yup.string().required()
+    });
 
     const {
         register,

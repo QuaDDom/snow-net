@@ -1,46 +1,54 @@
-import axios from "axios";
-import Router, { useRouter } from "next/router";
-import React, { useEffect, useState } from "react"
+import axios from 'axios';
+import Router, { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 
-interface User{
-    email: string,
-    password: string
+interface User {
+    email: string;
+    password: string;
 }
 
-
-export const useLogin = ()=> {
+export const useLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [token, setToken] = useState<any>(null);
 
-    const handleChangeLog = async (e: React.ChangeEvent<HTMLInputElement>, inputType: string)=>{
+    const handleChangeLog = async (e: React.ChangeEvent<HTMLInputElement>, inputType: string) => {
+        if (inputType === 'email') setEmail(e.target.value);
+        else if (inputType === 'password') setPassword(e.target.value);
+    };
 
-        if(inputType === "email") setEmail(e.target.value);
-        else if(inputType === "password") setPassword(e.target.value);
+    const emailValidationApi = async () => {
+        try {
+            const message = await axios.post('http://localhost:5000/api/auth/email', { email });
+            if (message.data) return true;
+            else return false;
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
-    }
-
-    const handleSubmitLog = async (update: boolean, loggedUser: any)=> {
-        try{
+    const handleSubmitLog = async (update: boolean, loggedUser: any) => {
+        try {
             const res = await axios.post('http://localhost:5000/api/auth/login', {
                 email,
                 password
             });
             setToken(res.data);
-        } catch(err){
+        } catch (err) {
             console.log(err);
-        } finally{
+        } finally {
             Router.push('/');
         }
-    }
+    };
 
     return {
         handleChangeLog,
         handleSubmitLog,
         token,
+        emailValidationApi,
         valuesLog: {
             email,
             password
         }
-    }
-}
+    };
+};

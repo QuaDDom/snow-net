@@ -13,7 +13,7 @@ const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }: Props) => {
     const { handleChange, handleSubmit, userData, values, errors }: any = useRegister();
-    const { handleChangeLog, handleSubmitLog, token, valuesLog } = useLogin();
+    const { handleChangeLog, handleSubmitLog, token, valuesLog, emailValidationApi } = useLogin();
     const { loggedUser, setLoggedUser } = useLocalStorage();
     const [newUserData, setNewUserData] = useState<any>(null);
 
@@ -58,6 +58,7 @@ export const AuthProvider = ({ children }: Props) => {
         handleChangeLog,
         handleSubmitLog,
         loggedUser: newUserData,
+        emailValidationApi,
         valuesLog,
         setLoggedUser: setNewUserData,
         errors

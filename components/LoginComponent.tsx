@@ -21,7 +21,8 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
         handleSubmitLog,
         valuesLog,
         loggedUser,
-        emailValidationApi
+        emailValidationApi,
+        passwordValidationApi
     } = useContext<any>(AuthContext);
 
     const loginSchema = yup.object().shape({
@@ -31,11 +32,18 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
             .required('Required')
             .test('email_async_validation', 'Email Validation Error', async function(value) {
                 const message = await emailValidationApi(value);
-                console.log(message);
-                if (message) return this.resolve(this.createError({ message: 'Email not found!' }));
+                if (message) return this.resolve(this.createError({ message: 'Email not found' }));
                 else return true;
             }),
-        password: yup.string().required()
+        password: yup
+            .string()
+            .required()
+            .test('password_async_validation', 'Password Validation Error', async function(value) {
+                const isValid = await passwordValidationApi(value);
+                if (!isValid)
+                    return this.resolve(this.createError({ message: 'Incorrect Password' }));
+                else return true;
+            })
     });
 
     const {

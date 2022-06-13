@@ -27,6 +27,18 @@ export const useLogin = () => {
         }
     };
 
+    const passwordValidationApi = async () => {
+        try {
+            const isValid = await axios.post('http://localhost:5000/api/auth/password', {
+                email,
+                password
+            });
+            return isValid.data;
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     const handleSubmitLog = async (update: boolean, loggedUser: any) => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/login', {
@@ -46,6 +58,7 @@ export const useLogin = () => {
         handleSubmitLog,
         token,
         emailValidationApi,
+        passwordValidationApi,
         valuesLog: {
             email,
             password

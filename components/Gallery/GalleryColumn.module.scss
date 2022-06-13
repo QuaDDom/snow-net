@@ -1,6 +1,6 @@
 @import '../../styles/colors/variables.scss';
 
-.galleryColumnContainer{
+.galleryColumnContainer {
     display: flex;
     position: absolute;
     left: 56px;
@@ -9,23 +9,23 @@
     bottom: 0;
     background: $black2;
     padding: 30px 5px;
-    .uploadForm{
+    .uploadForm {
         width: 100%;
         height: 40vw;
         padding-top: 20px;
-        form{
+        form {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            .inputContainer{
+            .inputContainer {
                 width: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 padding-top: 10px;
             }
-            .imagePreview{
+            .imagePreview {
                 position: relative;
                 width: 75%;
                 display: flex;
@@ -37,17 +37,18 @@
                 border-radius: 10px;
                 margin-bottom: 20px;
             }
-            h3{
+            h3 {
                 font-size: 1.5em;
                 font-weight: 500;
                 padding-bottom: 25px;
                 text-align: start;
                 width: 75%;
             }
-            input[type="file"]{
+            input[type='file'] {
                 display: none;
             }
-            .label, .button{
+            .label,
+            .button {
                 width: 75%;
                 height: 45px;
                 background: $secondary;
@@ -56,15 +57,15 @@
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
-                transition: .3s;
+                transition: 0.3s;
                 margin-bottom: 10px;
                 font-size: 1.1em;
                 color: #fff;
                 font-family: 'Poppins', sans-serif;
                 font-weight: 400;
                 border: none;
-   
-                span{
+
+                span {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -72,24 +73,28 @@
                     padding-right: 10px;
                 }
             }
-            .label{
+            .label {
                 padding-right: 10px;
                 margin-bottom: 15px;
-                &:hover{
+                &:hover {
                     background: $secondaryh;
                 }
             }
-            .button{
+            .button {
                 margin-top: 5px;
                 padding-right: 30px;
                 opacity: 0.7;
                 cursor: not-allowed;
-                &.active{
+                &.active {
                     cursor: pointer;
                     opacity: 1;
-                    &:hover{
+                    &:hover {
                         background: $secondaryh;
                     }
+                }
+                &.loading {
+                    opacity: 0.7;
+                    pointer-events: none;
                 }
             }
         }

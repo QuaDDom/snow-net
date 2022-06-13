@@ -87,7 +87,9 @@ export default function GalleryColumn() {
                         </div>
                     )}
                     <button
-                        className={`${styles.button} ${file && title && styles.active}`}
+                        className={`${styles.button} ${file &&
+                            title &&
+                            styles.active} ${isLoading && styles.loading}`}
                         type="submit">
                         <span>
                             <MdFileUpload />

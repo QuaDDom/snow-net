@@ -1,7 +1,7 @@
 import NavLink from 'next/link';
 import Router from 'next/router';
 import React, { useContext } from 'react';
-import AuthContext from '../context/AuthContext';
+import AuthContext from '../../context/AuthContext';
 import styles from './Nav.module.scss';
 import ProfileNav from './ProfileNav';
 import Image from 'next/image';

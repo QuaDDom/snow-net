@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import AuthContext from '../context/AuthContext';
+import AuthContext from '../../context/AuthContext';
 import styles from '../styles/profile.module.scss';
-import Input from './Input';
-import TextArea from './TextArea';
+import Input from '../Input';
+import TextArea from '../TextArea';
 import { useForm } from 'react-hook-form';
-import { editProfileSchema } from '../validations/EditProfileValidation';
+import { editProfileSchema } from '../../validations/EditProfileValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 

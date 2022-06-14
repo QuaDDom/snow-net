@@ -1,6 +1,6 @@
-import { profileData } from '../db/profile_data';
+import { profileData } from '../../db/profile_data';
 import React, { useState } from 'react';
-import Profile from './Profile';
+import Profile from '../Profile';
 import styles from './ProfileNav.module.scss';
 import Image from 'next/image';
 

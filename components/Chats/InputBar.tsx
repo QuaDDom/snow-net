@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 import { AiOutlineGif, AiOutlineSend } from 'react-icons/ai';
 import { BiHappy, BiImageAlt } from 'react-icons/bi';
 import styles from '../../styles/messages.module.scss';
-import EmojiPicker from '../EmojiPicker';
+import EmojiPicker from '../Pickers/EmojiPicker';
 import { projectStorage, projectFirestore, timestamp } from '../../config/firebase.config';
-import GIFSearcher from '../GIFSearcher';
+import GIFSearcher from '../Pickers/GIFSearcher';
 import ImagePreview from '../Gallery/ImagePreview';
 
 interface Props {

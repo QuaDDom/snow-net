@@ -4,12 +4,12 @@ import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import { MdPublic } from 'react-icons/md';
 import { RiGitRepositoryPrivateLine } from 'react-icons/ri';
-import Person from './Person';
+import Person from '../Person';
 import styles from './Suggestions.module.scss';
 import noCover from '../img/noCover.jpg';
-import AuthContext from '../context/AuthContext';
+import AuthContext from '../../context/AuthContext';
 import Image from 'next/image';
-import SearchUsers from './Suggestions/SearchUsers';
+import SearchUsers from './SearchUsers';
 
 export default function Suggestions() {
     const [randomUsersData, setRandomUsersData] = useState<any>([]);

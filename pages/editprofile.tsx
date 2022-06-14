@@ -5,14 +5,14 @@ import { profileData } from '../db/profile_data';
 import Input from '../components/Input';
 import TextArea from '../components/TextArea';
 import { AuthProvider } from '../context/AuthContext';
-import EditProfile from '../components/EditProfile';
+import EditProfile from '../components/UserProfile/EditProfile';
 
 export default function profile() {
-  return (
-      <Layout title="Edit Profile - Snow">
-        <AuthProvider>
-          <EditProfile/>
-        </AuthProvider>
-      </Layout>
-  );
+    return (
+        <Layout title="Edit Profile - Snow">
+            <AuthProvider>
+                <EditProfile />
+            </AuthProvider>
+        </Layout>
+    );
 }

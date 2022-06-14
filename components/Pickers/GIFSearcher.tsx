@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import { useGiphy } from '../hooks/useGiphy';
+import { useGiphy } from '../../hooks/useGiphy';
 import styles from './GIFSearcher.module.scss';
 import { BiSearch } from 'react-icons/bi';
 import Image from 'next/image';

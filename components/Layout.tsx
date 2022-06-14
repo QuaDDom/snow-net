@@ -2,7 +2,7 @@ import React from 'react';
 import { AuthProvider } from '../context/AuthContext';
 import styles from './Layout.module.scss';
 import Head from 'next/head';
-import Nav from './Nav';
+import Nav from './Nav/Nav';
 import ResponsiveNav from './Responsive/ResponsiveNav';
 import { useMediaQuery } from 'react-responsive';
 import TopBar from './Responsive/TopBar';

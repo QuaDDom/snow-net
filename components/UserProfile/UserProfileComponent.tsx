@@ -1,22 +1,22 @@
 import React, { useContext, useState } from 'react';
 import styles from '../styles/username.module.scss';
-import AuthContext from '../context/AuthContext';
-import { usePosts } from '../hooks/usePosts';
-import Post from './Posts/Post';
+import AuthContext from '../../context/AuthContext';
+import { usePosts } from '../../hooks/usePosts';
+import Post from '../Posts/Post';
 import { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { RiMailSendLine } from 'react-icons/ri';
 import { AiOutlineCamera } from 'react-icons/ai';
 import axios from 'axios';
-import ToPost from './Posts/ToPost';
-import Photos from './UserProfile/Photos';
+import ToPost from '../Posts/ToPost';
+import Photos from './Photos';
 import dateFormat, { masks } from 'dateformat';
-import MutualFriends from './UserProfile/MutualFriends';
+import MutualFriends from './MutualFriends';
 import { BsCalendarDateFill } from 'react-icons/bs';
-import UploadUserProfile from './Settings/modals/UploadUserProfile';
-import UploadUserCover from './Settings/modals/UploadUserCover';
-import Repost from './Posts/Repost';
-import EditProfileModal from './Settings/modals/User/EditProfileModal';
+import UploadUserProfile from '../Settings/modals/UploadUserProfile';
+import UploadUserCover from '../Settings/modals/UploadUserCover';
+import Repost from '../Posts/Repost';
+import EditProfileModal from '../Settings/modals/User/EditProfileModal';
 
 interface Post {
     _id: string;

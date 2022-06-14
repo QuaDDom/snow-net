@@ -6,7 +6,7 @@ import { BiHappy, BiImageAlt } from 'react-icons/bi';
 import { projectFirestore, projectStorage, timestamp } from '../../../config/firebase.config';
 import { useDragDrop } from '../../../hooks/useDragDrop';
 import ImagePreview from '../../Gallery/ImagePreview';
-import GIFSearcher from '../../GIFSearcher';
+import GIFSearcher from '../../Pickers/GIFSearcher';
 import EmojiPicker from '../../Pickers/EmojiPicker';
 import styles from './AddComment.module.scss';
 

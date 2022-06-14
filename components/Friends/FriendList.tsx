@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { RiEmotionSadFill } from 'react-icons/ri';
-import AuthContext from '../context/AuthContext';
+import AuthContext from '../../context/AuthContext';
 import Friend from './Friend';
 import styles from './FriendList.module.scss';
 

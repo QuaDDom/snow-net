@@ -1,21 +1,19 @@
-import React, { useRef } from 'react';
-import styles from './EmojiPicker.module.scss';
-import { useEmojiPicker } from '../hooks/useEmojiPicker';
-import People from './Emojis/People';
-import Animals from './Emojis/Animals';
-import Food from './Emojis/Food';
-import Objects from './Emojis/Objects';
-import Symbols from './Emojis/Symbols';
-import Activity from './Emojis/Activity';
-import Travel from './Emojis/Travel';
-import { MdOutlineTravelExplore, MdOutlineEmojiObjects } from 'react-icons/md';
+import React from 'react';
 import { AiOutlineSmile } from 'react-icons/ai';
 import { BiFootball } from 'react-icons/bi';
 import { CgCoffee } from 'react-icons/cg';
 import { GiPlantsAndAnimals } from 'react-icons/gi';
+import { MdOutlineEmojiObjects, MdOutlineTravelExplore } from 'react-icons/md';
 import { VscSymbolOperator } from 'react-icons/vsc';
-import { memo } from 'react';
-import { useModal } from '../hooks/useModal';
+import { useEmojiPicker } from '../../hooks/useEmojiPicker';
+import Activity from '../Emojis/Activity';
+import Animals from '../Emojis/Animals';
+import Food from '../Emojis/Food';
+import Objects from '../Emojis/Objects';
+import People from '../Emojis/People';
+import Symbols from '../Emojis/Symbols';
+import Travel from '../Emojis/Travel';
+import styles from './EmojiPicker.module.scss';
 
 interface Props {
     setMessage: React.Dispatch<React.SetStateAction<string>>;

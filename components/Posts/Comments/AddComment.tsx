@@ -2,14 +2,13 @@ import axios from 'axios';
 import Router from 'next/router';
 import React, { MutableRefObject, useRef, useState } from 'react';
 import { AiOutlineGif } from 'react-icons/ai';
-import { BiHappy, BiImageAlt, BiPoll } from 'react-icons/bi';
+import { BiHappy, BiImageAlt } from 'react-icons/bi';
 import { projectFirestore, projectStorage, timestamp } from '../../../config/firebase.config';
 import { useDragDrop } from '../../../hooks/useDragDrop';
-import EmojiPicker from '../../EmojiPicker';
 import ImagePreview from '../../Gallery/ImagePreview';
 import GIFSearcher from '../../GIFSearcher';
+import EmojiPicker from '../../Pickers/EmojiPicker';
 import styles from './AddComment.module.scss';
-import Image from 'next/image';
 
 interface Props {
     userData: any;

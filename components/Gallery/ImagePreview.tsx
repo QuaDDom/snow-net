@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { CgClose } from 'react-icons/cg';
 import styles from './ImagePreview.module.scss';
-import Image from 'next/image';
 
 interface Props {
     file?: any;

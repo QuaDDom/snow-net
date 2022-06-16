@@ -5,7 +5,6 @@ import Router from 'next/router';
 import StaggerTextReveal from '../TextReveal/StaggerText';
 import SnowWelcome from './SnowWelcome';
 import LoginComponent from '../LoginComponent';
-import Image from 'next/image';
 
 interface Props {
     launch: boolean;

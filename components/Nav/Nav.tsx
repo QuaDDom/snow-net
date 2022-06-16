@@ -4,7 +4,6 @@ import React, { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
 import styles from './Nav.module.scss';
 import ProfileNav from './ProfileNav';
-import Image from 'next/image';
 
 export default function Nav() {
     const { loggedUser } = useContext<any>(AuthContext);

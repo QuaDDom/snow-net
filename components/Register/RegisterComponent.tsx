@@ -16,7 +16,6 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import PageFour from './PageFour';
 import PageDots from './PageDots';
 import { useMediaQuery } from 'react-responsive';
-import Image from 'next/image';
 
 export default function RegisterInputs() {
     const [page, setPage] = useState(1);

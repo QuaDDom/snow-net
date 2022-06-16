@@ -7,7 +7,6 @@ import { imageResizer } from '../../assets/imageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
 import ProgressBar from '../../Gallery/ProgressBar';
 import styles from './Modals.module.scss';
-import Image from 'next/image';
 
 interface Props {
     type?: string;

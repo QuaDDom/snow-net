@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './HoverUserProfile.module.scss';
-import Image from 'next/image';
 
 interface Props {
     name: string;

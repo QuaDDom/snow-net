@@ -1,4 +1,4 @@
-import PopularGroups from "./PopularGroups";
-import FriendsGroups from "./FriendsGroups";
+import PopularGroups from './PopularGroups';
+import FriendsGroups from './FriendsGroups';
 
-export {PopularGroups, FriendsGroups}
+export { PopularGroups, FriendsGroups };

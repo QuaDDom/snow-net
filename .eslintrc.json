@@ -1,7 +1,13 @@
 {
-  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended", "next/core-web-vitals"],
-  "rules": {
-    "react/no-children-prop": 0,
-    "react/react-in-jsx-scope": "off"
-  }
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "next/core-web-vitals"
+    ],
+    "rules": {
+        "react/no-children-prop": 0,
+        "react/react-in-jsx-scope": "off",
+        "no-unused-vars": "off"
+    }
 }

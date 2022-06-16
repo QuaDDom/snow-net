@@ -7,64 +7,65 @@ import axios from 'axios';
 import AuthContext from '../../context/AuthContext';
 import { io } from 'socket.io-client';
 
-const initialBg = 'https://images.pexels.com/photos/2519484/pexels-photo-2519484.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+const initialBg =
+    'https://images.pexels.com/photos/2519484/pexels-photo-2519484.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
 
 export default function MessagesComponent() {
     const [background, setBackground] = useState(initialBg);
     const [conversations, setConversations] = useState<any>([]);
     const [currentChat, setCurrentChat] = useState<any>(null);
     const [arrivalMessage, setArrivalMessage] = useState<any>(null);
-    const socket = useRef<any>(null); 
+    const socket = useRef<any>(null);
     const { loggedUser } = useContext<any>(AuthContext);
 
+    useEffect(() => {
+        socket.current = io('ws://localhost:8080');
+    }, []);
 
-    useEffect(()=>{
-        socket.current = io("ws://localhost:8080");
-    },[]);
-
-    useEffect(()=>{   
-        if(loggedUser?._id){
-            socket.current.emit("addUser", loggedUser._id);
-            socket.current.on("getUsers", (users: any)=> {
-                (users);
+    useEffect(() => {
+        if (loggedUser?._id) {
+            socket.current.emit('addUser', loggedUser._id);
+            socket.current.on('getUsers', (users: any) => {
+                users;
             });
         }
-    },[loggedUser?._id]);
+    }, [loggedUser?._id]);
 
-
-    const getChats = async ()=>{
-        try{
-            if(loggedUser) {
+    const getChats = async () => {
+        try {
+            if (loggedUser) {
                 const res = await axios.get(`http://localhost:5000/api/chats/${loggedUser._id}`);
                 setConversations([...res.data]);
-                (res);
+                res;
             }
-        } catch(err){
+        } catch (err) {
             console.log(err);
         }
-    }
+    };
 
-    useEffect(()=>{
+    useEffect(() => {
         getChats();
-    },[loggedUser?._id]);
-
+    }, [loggedUser?._id]);
 
     return (
-    <div className={styles.messagesContainer}>
-        <div className={styles.containerImp}>
-            <div className={styles.background} style={{
-            background: `url(${background})`,
-            backgroundSize: 'cover'
-            }}/>
-            <MessageList 
-            conversations={conversations} 
-            loggedUser={loggedUser} 
-            setCurrentChat={setCurrentChat}
-            currentChat={currentChat}
-            socket={socket}
-            getChats={getChats}
-            />
+        <div className={styles.messagesContainer}>
+            <div className={styles.containerImp}>
+                <div
+                    className={styles.background}
+                    style={{
+                        background: `url(${background})`,
+                        backgroundSize: 'cover'
+                    }}
+                />
+                <MessageList
+                    conversations={conversations}
+                    loggedUser={loggedUser}
+                    setCurrentChat={setCurrentChat}
+                    currentChat={currentChat}
+                    socket={socket}
+                    getChats={getChats}
+                />
+            </div>
         </div>
-    </div>
-    )
+    );
 }

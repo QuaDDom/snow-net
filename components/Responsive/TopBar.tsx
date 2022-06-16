@@ -3,7 +3,6 @@ import AuthContext from '../../context/AuthContext';
 import { useTouch } from '../../hooks/useTouch';
 import styles from './TopBar.module.scss';
 import UserProfile from './UserProfile';
-import Image from 'next/image';
 
 interface Props {
     touch: string;

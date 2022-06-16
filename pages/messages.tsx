@@ -6,14 +6,12 @@ import styles from '../styles/messages.module.scss';
 import { AuthProvider } from '../context/AuthContext';
 import MessagesComponent from '../components/Chats/MessagesComponent';
 
-
 export default function messages() {
-  
-  return (
-    <Layout title="Messages - Snow">
-      <AuthProvider>
-        <MessagesComponent/>
-      </AuthProvider>
-    </Layout>
-  );
+    return (
+        <Layout title="Messages - Snow">
+            <AuthProvider>
+                <MessagesComponent />
+            </AuthProvider>
+        </Layout>
+    );
 }

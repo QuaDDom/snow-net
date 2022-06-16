@@ -6,7 +6,6 @@ import { projectFirestore, projectStorage, timestamp } from '../../../config/fir
 import { imageResizer } from '../../assets/imageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
 import styles from './Modals.module.scss';
-import Image from 'next/image';
 
 interface Props {
     type?: string;

@@ -5,7 +5,6 @@ import { format } from 'timeago.js';
 import { useGetUser } from '../../../hooks/useGetUser';
 import styles from './Comment.module.scss';
 import CommentDots from './CommentDots';
-import Image from 'next/image';
 
 interface Props {
     hour?: {

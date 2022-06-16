@@ -1,7 +1,6 @@
 import React from 'react';
 import { MdOutlineWatchLater } from 'react-icons/md';
 import styles from './PendingRequest.module.scss';
-import Image from 'next/image';
 
 export default function PendingRequest() {
     return (

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './OpenImage.module.scss';
-import Image from 'next/image';
 
 interface Props {
     img?: string;

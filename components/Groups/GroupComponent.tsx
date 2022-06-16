@@ -16,7 +16,6 @@ import dateFormat from 'dateformat';
 import GroupMembers from './GroupMembers';
 import UploadGroupCover from '../Settings/modals/UploadGroupCover';
 import UploadGroupProfile from '../Settings/modals/UploadGroupProfile';
-import Image from 'next/image';
 
 export default function GroupComponent({ group }: { group: any }) {
     const [isJoined, setIsJoined] = useState(false);

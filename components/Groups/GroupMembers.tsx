@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import styles from './GroupMembers.module.scss';
-import Image from 'next/image';
 
 interface Props {
     members: [string];

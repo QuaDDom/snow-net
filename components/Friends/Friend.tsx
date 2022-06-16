@@ -2,7 +2,7 @@ import Router from 'next/router';
 import React from 'react';
 import { RiMailSendLine } from 'react-icons/ri';
 import styles from './Friend.module.scss';
-import Image from 'next/image';
+
 import ContentLoader from 'react-content-loader';
 
 interface Props {

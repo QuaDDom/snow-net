@@ -4,7 +4,6 @@ import { BsDownload } from 'react-icons/bs';
 import { HiOutlineHeart } from 'react-icons/hi';
 import styles from './ImageModal.module.scss';
 import { projectStorage } from '../../config/firebase.config';
-import Image from 'next/image';
 
 interface Props {
     img: string;

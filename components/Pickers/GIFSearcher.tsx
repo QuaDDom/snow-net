@@ -2,7 +2,8 @@ import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useGiphy } from '../../hooks/useGiphy';
 import styles from './GIFSearcher.module.scss';
 import { BiSearch } from 'react-icons/bi';
-import Image from 'next/image';
+
+import { SpinnerCircular } from 'spinners-react';
 
 interface Gif {
     url: string;
@@ -45,9 +46,14 @@ export default function GIFSearcher({ setGif, setGifOpen, gifOpen, isTop }: Prop
                 <div className={styles.gifsContainer}>
                     {isLoading ? (
                         <div className={styles.loaderContainer}>
-                            <div className={styles.loader}>
-                                <span></span>
-                            </div>
+                            <SpinnerCircular
+                                enabled={isLoading}
+                                size={50}
+                                color="#6dffff"
+                                secondaryColor="#2b3b4b50"
+                                thickness={150}
+                                speed={100}
+                            />
                         </div>
                     ) : (
                         <div className={styles.grid}>

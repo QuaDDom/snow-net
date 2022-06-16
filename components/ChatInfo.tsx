@@ -3,7 +3,6 @@ import styles from './ChatInfo.module.scss';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
 import { AiOutlineArrowLeft, AiOutlineSearch } from 'react-icons/ai';
 import { useMediaQuery } from 'react-responsive';
-import Image from 'next/image';
 
 interface Props {
     img: string;

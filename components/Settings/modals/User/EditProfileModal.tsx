@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './EditProfileModal.module.scss';
-import Image from 'next/image';
+
 import axios from 'axios';
 import { Oval } from 'react-loader-spinner';
 

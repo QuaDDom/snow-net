@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Image from 'next/image';
+
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import styles from './RowMsg.module.scss';
 

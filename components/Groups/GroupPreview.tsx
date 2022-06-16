@@ -4,7 +4,6 @@ import { BiHappy, BiImageAlt, BiPoll } from 'react-icons/bi';
 import { MdPublic } from 'react-icons/md';
 import { RiGitRepositoryPrivateLine } from 'react-icons/ri';
 import styles from './GroupPreview.module.scss';
-import Image from 'next/image';
 
 interface Props {
     groupType: boolean;

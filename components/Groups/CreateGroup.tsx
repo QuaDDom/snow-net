@@ -10,7 +10,6 @@ import { groupSchema } from '../../validations/GroupValidation';
 import GroupPreview from './GroupPreview';
 import axios from 'axios';
 import Router from 'next/router';
-import Image from 'next/image';
 
 export default function CreateGroup() {
     const [title, setTitle] = useState('Title');

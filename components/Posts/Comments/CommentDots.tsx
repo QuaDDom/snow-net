@@ -16,15 +16,9 @@ export default function CommentDots({ username, userId, loggedUserId, handleModa
 
     const handleClick = () => (isOpen ? setIsOpen(false) : setIsOpen(true));
 
-    const handleDelete = async () => {
-        try {
-        } catch {}
-    };
+    const handleDelete = async () => {};
 
-    const handleEdit = async () => {
-        try {
-        } catch {}
-    };
+    const handleEdit = async () => {};
 
     return (
         <>

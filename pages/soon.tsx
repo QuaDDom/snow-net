@@ -1,8 +1,6 @@
-import React from 'react'
-import Countdown from '../components/Countdown/Countdown'
+import React from 'react';
+import Countdown from '../components/Countdown/Countdown';
 
 export default function soon() {
-  return (
-    <Countdown/>
-  )
+    return <Countdown />;
 }

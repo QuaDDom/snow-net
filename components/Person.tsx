@@ -6,7 +6,7 @@ import { AiFillPlusCircle } from 'react-icons/ai';
 import { FaUserCheck, FaUserClock, FaUserPlus } from 'react-icons/fa';
 import { RiMailSendLine, RiUserAddLine } from 'react-icons/ri';
 import styles from './Person.module.scss';
-import Image from 'next/image';
+
 import ContentLoader from 'react-content-loader';
 
 interface Props {

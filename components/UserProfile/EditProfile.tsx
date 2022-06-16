@@ -6,7 +6,6 @@ import TextArea from '../TextArea';
 import { useForm } from 'react-hook-form';
 import { editProfileSchema } from '../../validations/EditProfileValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Image from 'next/image';
 
 export default function EditProfile() {
     const { loggedUser } = useContext<any>(AuthContext);

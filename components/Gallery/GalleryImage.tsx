@@ -5,7 +5,6 @@ import { BsDownload } from 'react-icons/bs';
 import { HiOutlineHeart } from 'react-icons/hi';
 import styles from './GalleryImage.module.scss';
 import ImageModal from './ImageModal';
-import Image from 'next/image';
 
 interface Props {
     img: string;

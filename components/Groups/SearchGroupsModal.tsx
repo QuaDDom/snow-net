@@ -5,7 +5,6 @@ import { CgClose } from 'react-icons/cg';
 import { MdPublic } from 'react-icons/md';
 import { RiGitRepositoryPrivateLine } from 'react-icons/ri';
 import styles from './SearchGroupsModal.module.scss';
-import Image from 'next/image';
 
 interface Props {
     setSearchModal: any;

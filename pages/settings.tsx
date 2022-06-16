@@ -12,24 +12,24 @@ import { AuthProvider } from '../context/AuthContext';
 import styles from '../styles/settings.module.scss';
 
 export default function Settings() {
-  const [page, setPage] = useState(1);
-  const isResponsive = useMediaQuery({ query: '(max-width: 1200px)' });
+    const [page, setPage] = useState(1);
+    const isResponsive = useMediaQuery({ query: '(max-width: 1200px)' });
 
-  useEffect(()=>{
-    if(isResponsive){
-      setPage(0)
-    }
-  },[isResponsive])
+    useEffect(() => {
+        if (isResponsive) {
+            setPage(0);
+        }
+    }, [isResponsive]);
 
-  return (
-      <Layout title="Settings - Snow">          
-      <div className={styles.settingsContainer}>
-          {isResponsive && page === 0 && <SettingsBar setPage={setPage}/>}
-          {!isResponsive && <SettingsBar setPage={setPage}/>}
-          <AuthProvider>
-            <SettingsComponent page={page} setPage={setPage}/>
-          </AuthProvider>
-      </div>
-      </Layout>
-  );
+    return (
+        <Layout title="Settings - Snow">
+            <div className={styles.settingsContainer}>
+                {isResponsive && page === 0 && <SettingsBar setPage={setPage} />}
+                {!isResponsive && <SettingsBar setPage={setPage} />}
+                <AuthProvider>
+                    <SettingsComponent page={page} setPage={setPage} />
+                </AuthProvider>
+            </div>
+        </Layout>
+    );
 }

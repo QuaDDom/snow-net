@@ -11,7 +11,6 @@ import axios from 'axios';
 import { BiRepost } from 'react-icons/bi';
 import Comments from './Comments/Comments';
 import PostDotsOptions from './PostDotsOptions';
-import Image from 'next/image';
 
 interface Props {
     _id: string;

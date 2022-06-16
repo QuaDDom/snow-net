@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './User.module.scss';
-import Image from 'next/image';
 
 interface Props {
     profilePic: string;

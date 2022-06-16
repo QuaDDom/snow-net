@@ -3,7 +3,6 @@ import Router from 'next/router';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import styles from './MutualFriends.module.scss';
-import Image from 'next/image';
 
 const friendTest = [
     {

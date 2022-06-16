@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Slider from 'react-slick';
@@ -15,30 +15,30 @@ let initialSettings = {
 };
 
 export default function PopularGroups() {
-    const [groups, setGroups] = useState<any>([])
+    const [groups, setGroups] = useState<any>([]);
     const [settings, setSettings] = useState<any>(initialSettings);
-    
+
     const { loggedUser } = useContext<any>(AuthContext);
 
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
-    
-    const fetchGroups = async ()=>{
-        try{
+
+    const fetchGroups = async () => {
+        try {
             const groupsData = await axios.get('http://localhost:5000/api/groups');
             setGroups([...groupsData.data]);
-            (groupsData.data)
-        } catch(err){
+            groupsData.data;
+        } catch (err) {
             console.log(err);
         }
-    }
+    };
 
-    useEffect(()=>{
-        !isResponsive && setSettings({...settings, slidesToShow: 1, slidesToScroll: 1})
-    },[isResponsive])
+    useEffect(() => {
+        !isResponsive && setSettings({ ...settings, slidesToShow: 1, slidesToScroll: 1 });
+    }, [isResponsive]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchGroups();
-    },[])
+    }, []);
 
     return (
         <div className={styles.slideContainer}>
@@ -46,12 +46,19 @@ export default function PopularGroups() {
             <p>The most popular groups, we think you might like them!</p>
             <div className={styles.slide}>
                 <Slider {...settings}>
-                    {
-                        groups.map(({title, description, groupPic, groupCover,
-                                     private: groupPrivate, members, _id}: any)=>(
-                            <GroupCard 
-                                title={title} 
-                                description={description} 
+                    {groups.map(
+                        ({
+                            title,
+                            description,
+                            groupPic,
+                            groupCover,
+                            private: groupPrivate,
+                            members,
+                            _id
+                        }: any) => (
+                            <GroupCard
+                                title={title}
+                                description={description}
                                 groupPic={groupPic}
                                 groupCover={groupCover}
                                 groupPrivate={groupPrivate}
@@ -60,10 +67,10 @@ export default function PopularGroups() {
                                 key={_id}
                                 userId={loggedUser?._id}
                             />
-                        ))
-                    }
+                        )
+                    )}
                 </Slider>
             </div>
         </div>
-    )
+    );
 }

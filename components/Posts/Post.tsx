@@ -20,7 +20,7 @@ import PostDotsOptions from './PostDotsOptions';
 import { useMediaQuery } from 'react-responsive';
 import DeleteCommentModal from '../Settings/modals/DeleteCommentModal';
 import EditCommentModal from '../Settings/modals/EditCommentModal';
-import Image from 'next/image';
+
 import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';

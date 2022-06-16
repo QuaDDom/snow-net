@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Loader.module.scss';
 import snowLogo from '../img/snow-logo.svg';
-import Image from 'next/image';
 
 interface Props {
     isLoading: boolean;

@@ -1,6 +1,6 @@
-@import '../styles/colors/variables.scss';
+@import '../../styles/colors/variables.scss';
 
-.emojiPickerContainer{
+.emojiPickerContainer {
     width: 0;
     height: 0;
     background: $black3;
@@ -13,7 +13,7 @@
     position: relative;
     padding: 20px;
     transition: opacity 0.4s, transform 0.5s, height 0s 1s, width 0s 1s;
-    &.open{
+    &.open {
         transform: scale(1) translateY(0);
         opacity: 1;
         z-index: 10;
@@ -21,14 +21,14 @@
         height: 350px;
         transition: opacity 0.4s, transform 0.5s;
     }
-    &.close{
+    &.close {
         transform: scale(0) translateY(50px);
         opacity: 0;
     }
-    &.isTop{
+    &.isTop {
         transform-origin: top;
     }
-    .searchAndCategory{
+    .searchAndCategory {
         width: 100%;
         height: 15%;
         display: flex;
@@ -37,11 +37,11 @@
         flex-direction: column;
         padding: 0px 20px;
         margin-right: 40px;
-        .category{
+        .category {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            button{
+            button {
                 width: 50px;
                 height: 50px;
                 background: $black3;
@@ -54,14 +54,14 @@
                 font-family: 'Poppins', sans-serif;
                 font-size: 25px;
                 cursor: pointer;
-                &:hover{
+                &:hover {
                     background: $black3h;
                     color: $primary;
                 }
             }
         }
     }
-    .emojiGrid{
+    .emojiGrid {
         font-size: 30px;
         padding: 10px 0px;
         overflow: scroll;
@@ -71,19 +71,19 @@
         display: grid;
         padding-right: 25px;
         grid-template-columns: repeat(8, 40px);
-        span{
+        span {
             cursor: pointer;
             user-select: none;
             transition: 0.2s;
             animation: appear 0.45s forwards;
-            &:hover{
+            &:hover {
                 filter: brightness(1.3);
             }
         }
-        &::-webkit-scrollbar{
+        &::-webkit-scrollbar {
             width: 8px;
         }
-        &::-webkit-scrollbar-thumb{
+        &::-webkit-scrollbar-thumb {
             background: $primary;
             border-radius: 20px;
         }
@@ -91,32 +91,32 @@
 }
 
 @media (max-width: 1200px) {
-    .emojiPickerContainer{
+    .emojiPickerContainer {
         padding: 10px;
-        &.open{
+        &.open {
             width: 250px;
             height: 260px;
         }
-        .searchAndCategory{
+        .searchAndCategory {
             padding: 0 10px;
             margin-right: 20px;
-            .category{
-                button{
+            .category {
+                button {
                     width: 30px;
                     height: 30px;
                     font-size: 20px;
                 }
             }
         }
-        .emojiGrid{
+        .emojiGrid {
             padding: 0;
-            span{
+            span {
                 font-size: 20px;
             }
-            &::-webkit-scrollbar{
+            &::-webkit-scrollbar {
                 width: 5px;
             }
-            &::-webkit-scrollbar-thumb{
+            &::-webkit-scrollbar-thumb {
                 background: $primary;
                 border-radius: 20px;
             }
@@ -124,21 +124,22 @@
     }
 }
 
-@keyframes appear{
-    from{
+@keyframes appear {
+    from {
         opacity: 0;
-    } to{
+    }
+    to {
         opacity: 1;
     }
 }
 
 @keyframes pickerAppear {
-    from{
+    from {
         transform: scale(0) translateY(80px);
         opacity: 0;
-    } to{
+    }
+    to {
         transform: scale(1) translateY(0);
         opacity: 1;
     }
 }
-

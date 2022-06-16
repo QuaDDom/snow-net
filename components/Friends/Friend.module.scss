@@ -1,6 +1,6 @@
-@import '../styles/colors/variables.scss';
+@import '../../styles/colors/variables.scss';
 
-.friendContainer{
+.friendContainer {
     height: 70px;
     width: 360px;
     position: relative;
@@ -10,21 +10,21 @@
     transition: 0.3s;
     cursor: pointer;
     z-index: 1;
-    &:hover{
+    &:hover {
         background: $black2h;
     }
-    .content{
+    .content {
         display: flex;
         align-items: center;
         height: 100%;
         width: 100%;
         position: relative;
         padding: 8px 10px;
-        .image{
+        .image {
             position: relative;
             height: 55px;
             width: 55px;
-            img{
+            img {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -35,18 +35,18 @@
                 object-fit: cover;
             }
         }
-        .info{
+        .info {
             margin-left: 15px;
-            h4{
+            h4 {
                 font-size: 0.95em;
                 font-weight: 400;
             }
-            p{
+            p {
                 color: #999;
                 font-size: 0.9em;
             }
         }
-        button{
+        button {
             position: absolute;
             top: 18px;
             right: 30px;
@@ -61,7 +61,7 @@
             background: transparent;
             transition: 0.3s;
             color: $aquah;
-            &:hover{
+            &:hover {
                 background: #90ffff20;
                 color: $aquah;
             }
@@ -69,11 +69,11 @@
     }
 }
 
-@media (max-width: 1500px){
-    .friendContainer{
+@media (max-width: 1500px) {
+    .friendContainer {
         width: 320px;
-        .content{
-            .image{
+        .content {
+            .image {
                 width: 50px;
                 height: 50px;
             }

@@ -10,6 +10,7 @@ import ToPost from './ToPost';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import SlideFriends from '../Responsive/SlideFriends';
 import axios from 'axios';
+import { SpinnerCircular } from 'spinners-react';
 
 interface Post {
     _id: string;
@@ -109,11 +110,14 @@ export default function PostList() {
                                     )
                                 )}
                             {loader && !isLimit && (
-                                <div className={styles.loaderContainer}>
-                                    <div className={styles.loader}>
-                                        <span></span>
-                                    </div>
-                                </div>
+                                <SpinnerCircular
+                                    enabled={true}
+                                    size={50}
+                                    color="#6dffff"
+                                    secondaryColor="#2b3b4b50"
+                                    thickness={150}
+                                    speed={100}
+                                />
                             )}
                         </div>
                     </div>

@@ -40,6 +40,7 @@
     "sass": "^1.49.8",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.4.1",
+    "spinners-react": "^1.0.7",
     "timeago.js": "^4.0.2",
     "yup": "^0.32.11",
     "zustand": "^3.7.0"

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import styles from '../styles/username.module.scss';
+import styles from '../../styles/username.module.scss';
 import AuthContext from '../../context/AuthContext';
 import { usePosts } from '../../hooks/usePosts';
 import Post from '../Posts/Post';

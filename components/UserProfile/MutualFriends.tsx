@@ -23,9 +23,14 @@ export default function MutualFriends({ friends }: any) {
 
     useEffect(() => {
         const getFriendsData = async () => {
+            const userFriends: any = [];
             friends.map(async (id: string) => {
-                const data = await axios.get(`http://localhost:5000/api/users/${id}`);
-                setFriendsData([...friendsData, data.data]);
+                const fetchFriendData = async () => {
+                    const data = await axios.get(`http://localhost:5000/api/users/${id}`);
+                    userFriends.push(data.data);
+                    setFriendsData([...userFriends]);
+                };
+                fetchFriendData();
             });
         };
         getFriendsData();

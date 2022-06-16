@@ -11,7 +11,7 @@ import OptionsBar from '../components/Options/OptionsBar';
 import SlideFriends from '../components/Responsive/SlideFriends';
 import ResposiveToPost from '../components/Responsive/Posts/ResposiveToPost';
 
-const Home: NextPage = () => {
+const Home = () => {
   const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
   return (
     <>

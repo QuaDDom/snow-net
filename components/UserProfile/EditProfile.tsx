@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
-import styles from '../styles/profile.module.scss';
+import styles from '../../styles/profile.module.scss';
 import Input from '../Input';
 import TextArea from '../TextArea';
 import { useForm } from 'react-hook-form';

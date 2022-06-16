@@ -5,9 +5,14 @@
         "plugin:prettier/recommended",
         "next/core-web-vitals"
     ],
+    "globals": {
+        "NodeJS": true
+    },
     "rules": {
         "react/no-children-prop": 0,
         "react/react-in-jsx-scope": "off",
-        "no-unused-vars": "off"
+        "no-unused-vars": "off",
+        "no-redeclare": "off",
+        "prettier/prettier": "off"
     }
 }

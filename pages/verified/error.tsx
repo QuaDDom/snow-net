@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function error() {
-  return (
-    <div>error</div>
-  )
+    return <div>error</div>;
 }

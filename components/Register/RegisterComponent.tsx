@@ -6,7 +6,6 @@ import TextArea from '../TextArea';
 import Button from '../Button';
 import Router from 'next/router';
 import { useForm } from 'react-hook-form';
-import { registerSchema } from '../../validations/RegisterValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PageOne from './PageOne';
 import PageTwo from './PageTwo';
@@ -16,6 +15,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import PageFour from './PageFour';
 import PageDots from './PageDots';
 import { useMediaQuery } from 'react-responsive';
+import * as yup from 'yup';
 
 export default function RegisterInputs() {
     const [page, setPage] = useState(1);
@@ -24,6 +24,38 @@ export default function RegisterInputs() {
         any
     >(AuthContext);
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+
+    const registerSchema = yup.object().shape({
+        username: yup
+            .string()
+            .required('This field is required')
+            .min(3)
+            .max(10)
+            .lowercase('Please put the username in lowercase'),
+        name: yup
+            .string()
+            .required('This field is required')
+            .min(3)
+            .max(10),
+        lastname: yup
+            .string()
+            .required('This field is required')
+            .min(3)
+            .max(14),
+        email: yup
+            .string()
+            .email('Must comply with the email format')
+            .required('This field is required'),
+        password: yup
+            .string()
+            .required('This field is required')
+            .min(6)
+            .max(30),
+        reppassword: yup
+            .string()
+            .required('This field is required')
+            .oneOf([yup.ref('password')], 'Passwords must be equals!')
+    });
 
     const {
         register,

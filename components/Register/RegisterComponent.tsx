@@ -26,7 +26,8 @@ export default function RegisterInputs() {
         values,
         loggedUser,
         errors: handleErrors,
-        emailValidationApi
+        emailValidation,
+        usernameValidation
     } = useContext<any>(AuthContext);
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
 
@@ -36,7 +37,15 @@ export default function RegisterInputs() {
             .required('This field is required')
             .min(3)
             .max(10)
-            .lowercase('Please put the username in lowercase'),
+            .lowercase('Please put the username in lowercase')
+            .test('username_async_validation', 'Username Validation Error', async function(value) {
+                const message = await usernameValidation(value);
+                if (message)
+                    return this.resolve(
+                        this.createError({ message: 'This username is already in use' })
+                    );
+                else return true;
+            }),
         name: yup
             .string()
             .required('This field is required')
@@ -52,8 +61,11 @@ export default function RegisterInputs() {
             .email('Not a valid email')
             .required('Required')
             .test('email_async_validation', 'Email Validation Error', async function(value) {
-                const message = await emailValidationApi(value);
-                if (message) return this.resolve(this.createError({ message: 'Email not found' }));
+                const message = await emailValidation(value);
+                if (message)
+                    return this.resolve(
+                        this.createError({ message: 'This email is already in use' })
+                    );
                 else return true;
             }),
         password: yup

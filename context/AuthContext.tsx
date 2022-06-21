@@ -12,7 +12,15 @@ interface Props {
 const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }: Props) => {
-    const { handleChange, handleSubmit, userData, values, errors }: any = useRegister();
+    const {
+        handleChange,
+        handleSubmit,
+        userData,
+        values,
+        errors,
+        emailValidation,
+        usernameValidation
+    }: any = useRegister();
     const {
         handleChangeLog,
         handleSubmitLog,
@@ -21,7 +29,9 @@ export const AuthProvider = ({ children }: Props) => {
         emailValidationApi,
         passwordValidationApi
     } = useLogin();
+
     const { loggedUser, setLoggedUser } = useLocalStorage();
+
     const [newUserData, setNewUserData] = useState<any>(null);
 
     useEffect(() => {
@@ -69,7 +79,9 @@ export const AuthProvider = ({ children }: Props) => {
         passwordValidationApi,
         valuesLog,
         setLoggedUser: setNewUserData,
-        errors
+        errors,
+        emailValidation,
+        usernameValidation
     };
 
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;

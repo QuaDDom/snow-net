@@ -117,6 +117,7 @@ export const useRegister = () => {
             repeatPassword
         },
         errors,
-        emailValidation
+        emailValidation,
+        usernameValidation
     };
 };

@@ -52,8 +52,8 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
         formState: { errors }
     } = useForm({
         resolver: yupResolver(loginSchema),
-        reValidateMode: 'onChange',
-        mode: 'onChange'
+        reValidateMode: 'onSubmit',
+        mode: 'onSubmit'
     });
 
     useEffect(() => {

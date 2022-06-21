@@ -59,7 +59,7 @@ export default function RegisterInputs() {
         email: yup
             .string()
             .email('Not a valid email')
-            .required('Required')
+            .required('This field is required')
             .test('email_async_validation', 'Email Validation Error', async function(value) {
                 const message = await emailValidation(value);
                 if (message)

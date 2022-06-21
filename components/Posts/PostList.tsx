@@ -94,7 +94,7 @@ export default function PostList() {
                                                     _id={_id}
                                                     text={text}
                                                     image={image}
-                                                    key={_id}
+                                                    key={_id + index}
                                                     userId={userId}
                                                     likes={likes}
                                                     fetchData={fetchData}

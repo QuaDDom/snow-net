@@ -20,9 +20,14 @@ import * as yup from 'yup';
 export default function RegisterInputs() {
     const [page, setPage] = useState(1);
     const [isErrors, setIsErrors] = useState(true);
-    const { handleChange, handleSubmit, values, loggedUser, errors: handleErrors } = useContext<
-        any
-    >(AuthContext);
+    const {
+        handleChange,
+        handleSubmit,
+        values,
+        loggedUser,
+        errors: handleErrors,
+        emailValidationApi
+    } = useContext<any>(AuthContext);
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
 
     const registerSchema = yup.object().shape({
@@ -44,8 +49,13 @@ export default function RegisterInputs() {
             .max(14),
         email: yup
             .string()
-            .email('Must comply with the email format')
-            .required('This field is required'),
+            .email('Not a valid email')
+            .required('Required')
+            .test('email_async_validation', 'Email Validation Error', async function(value) {
+                const message = await emailValidationApi(value);
+                if (message) return this.resolve(this.createError({ message: 'Email not found' }));
+                else return true;
+            }),
         password: yup
             .string()
             .required('This field is required')

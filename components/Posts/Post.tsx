@@ -5,7 +5,7 @@ import OpenImage from '../OpenImage';
 import styles from './Post.module.scss';
 import PostOptions from './PostOptions';
 import PostDots from '../Posts/PostDots';
-import { format } from 'timeago.js';
+import { format, register } from 'timeago.js';
 import ConfirmDelete from '../Posts/ConfirmDelete';
 import axios from 'axios';
 import Poll from './Poll';
@@ -20,7 +20,6 @@ import PostDotsOptions from './PostDotsOptions';
 import { useMediaQuery } from 'react-responsive';
 import DeleteCommentModal from '../Settings/modals/DeleteCommentModal';
 import EditCommentModal from '../Settings/modals/EditCommentModal';
-
 import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -125,6 +124,27 @@ export default function Post({
         fetchData();
     };
 
+    const localeFunc = (number: any, index: any, totalSec: any): any => {
+        return [
+            ['just now', 'right now'],
+            ['%ss', 'in %s seconds'],
+            ['1m', 'in 1 minute'],
+            ['%sm', 'in %s minutes'],
+            ['1h', 'in 1 hour'],
+            ['%sh', 'in %s hours'],
+            ['1d', 'in 1 day'],
+            ['%sd', 'in %s days'],
+            ['1w', 'in 1 week'],
+            ['%sw', 'in %s weeks'],
+            ['1m', 'in 1 month'],
+            ['%sm', 'in %s months'],
+            ['1y', 'in 1 year'],
+            ['%sy', 'in %s years']
+        ][index];
+    };
+
+    register('my-locale', localeFunc);
+
     return (
         <>
             {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen} />}
@@ -227,7 +247,7 @@ export default function Post({
                                 </p>
                             )}
                             <p>·</p>
-                            <p className={styles.createdAt}>{format(createdAt)}</p>
+                            <p className={styles.createdAt}>{format(createdAt, 'my-locale')}</p>
                         </div>
                         <PostDots
                             username={user.username}

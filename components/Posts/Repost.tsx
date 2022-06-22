@@ -5,7 +5,7 @@ import OpenImage from '../OpenImage';
 import styles from './Post.module.scss';
 import PostOptions from './PostOptions';
 import PostDots from '../Posts/PostDots';
-import { format } from 'timeago.js';
+import { format, register } from 'timeago.js';
 import ConfirmDelete from '../Posts/ConfirmDelete';
 import axios from 'axios';
 import { BiRepost } from 'react-icons/bi';
@@ -161,7 +161,9 @@ export default function Post({
                                     {postUser.username && `@${postUser.username}`}
                                 </p>
                                 <p>·</p>
-                                <p className={styles.createdAt}>{format(post.createdAt)}</p>
+                                <p className={styles.createdAt}>
+                                    {format(post.createdAt, 'my-locale')}
+                                </p>
                             </div>
                             <PostDots
                                 username={user.username}

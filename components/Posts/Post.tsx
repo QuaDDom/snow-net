@@ -313,8 +313,8 @@ export default function Post({
                     <ContentLoader
                         viewBox="0 0 380 70"
                         speed={2}
-                        width={570}
-                        height={160}
+                        width={!isResponsive ? 570 : 470}
+                        height={!isResponsive ? 160 : 140}
                         backgroundColor={'#424a51'}
                         foregroundColor={'#77839a'}>
                         <rect x="50" y="8" rx="3" ry="3" width="88" height="6.5" />

@@ -74,7 +74,7 @@ export default function SearchUsers() {
                         userList.map((user: any) => (
                             <div
                                 className={styles.personContainer}
-                                onClick={() => Router.push('')}
+                                onClick={() => Router.push('/user/' + user.username)}
                                 key={user._id}>
                                 <div className={styles.content}>
                                     <div className={styles.image}>

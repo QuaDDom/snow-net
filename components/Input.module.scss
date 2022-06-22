@@ -1,14 +1,14 @@
 @import '../styles/colors/variables.scss';
 
-.inputContainer{
+.inputContainer {
     position: relative;
     padding: 5px 20px;
     display: flex;
-    align-items: center;   
+    align-items: center;
     margin-bottom: 1.5rem;
     width: 20vw;
     height: 7vh;
-    .inputComponent{
+    .inputComponent {
         position: absolute;
         top: 0;
         left: 0;
@@ -33,48 +33,50 @@
             transition: background-color 5000s ease-in-out 0s;
             -webkit-text-fill-color: #fff;
         }
-        &:focus{
+        &:focus {
             background: $black3h;
         }
-        &:focus ~ label{
+        &:focus ~ label {
             top: 5px;
             font-size: 0.85em !important;
             left: 18px;
             color: $primary;
-            &.error{
+            &.error {
                 color: rgb(255, 76, 76);
             }
         }
-        &:not(:placeholder-shown).inputComponent:not(:focus) + .labelComponent{
+        &:not(:placeholder-shown).inputComponent:not(:focus) + .labelComponent {
             top: 5px;
             font-size: 0.85em !important;
             left: 18px;
             color: #999;
-            &.error{
+            &.error {
                 color: rgb(255, 76, 76);
             }
         }
-        &:-webkit-autofill:focus{
+        &:-webkit-autofill:focus {
             box-shadow: 0 0 0px 1000px $black3h inset;
             -webkit-text-fill-color: #fff;
             font-size: 1em;
         }
     }
-    .labelComponent{
+    .labelComponent {
         position: absolute;
         display: block;
-        transition: .3s;
+        transition: 0.3s;
         top: 27%;
         left: 20px;
         font-size: 1.05em;
         text-align: center;
         background: transparent;
+        user-select: none;
+        pointer-events: none;
         color: #999;
-        &.error{
+        &.error {
             color: rgb(255, 82, 82);
         }
     }
-    span{
+    span {
         z-index: 10;
         color: #f00;
     }

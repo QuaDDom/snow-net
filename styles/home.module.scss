@@ -1,6 +1,16 @@
-.homeContainer{
+.homeContainer {
     height: 100vh;
     display: flex;
     width: 100%;
     z-index: 14;
+    .bar {
+        position: fixed;
+        top: 0px;
+        left: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        overflow-y: auto;
+    }
 }

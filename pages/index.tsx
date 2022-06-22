@@ -19,7 +19,7 @@ const Home = () => {
       <div className={styles.homeContainer}>
         <AuthProvider>
           {isResponsive &&
-          <div>
+          <div className={styles.bar}>
             <FriendList/>
             <OptionsBar/>
           </div> 

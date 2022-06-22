@@ -9,6 +9,19 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #ffffff60;
+        transition: 0.3s;
+        border-radius: 20px;
+        width: 0;
+        &:hover {
+            background: #ffffff99;
+        }
+    }
     .groups {
         width: 400px;
         min-height: 300px;

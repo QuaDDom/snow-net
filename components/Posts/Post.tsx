@@ -205,7 +205,6 @@ export default function Post({
                             onMouseLeave={() => setIsHover(false)}
                             onMouseDown={() => setIsHover(false)}
                             onMouseOut={() => setIsHover(false)}
-                            layout="fill"
                         />
                         {group && user.profilePic && (
                             <img src={user.profilePic} className={styles.userGroup} />
@@ -298,7 +297,7 @@ export default function Post({
                         )}
                         {image && (
                             <div className={styles.imageContainer}>
-                                <img src={image} width="100%" onClick={handleClick} layout="fill" />
+                                <img src={image} width="100%" onClick={handleClick} />
                             </div>
                         )}
                         {poll && poll.length > 0 && (

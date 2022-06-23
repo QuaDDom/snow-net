@@ -14,7 +14,7 @@ export default function Welcome() {
                     <img src="wavesbg.svg" alt="" className={styles.bg} />
                     {isResponsive && (
                         <div className={styles.snow}>
-                            <img src="snow-logo.svg" layout="fill" />
+                            <img src="snow-logo.svg" />
                             <h1>SNOW</h1>
                         </div>
                     )}

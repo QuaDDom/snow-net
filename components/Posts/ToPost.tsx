@@ -245,7 +245,6 @@ export default function ToPost({ userData, fetchData, group }: Props) {
                                 src={userData.profilePic || 'noProfile.png'}
                                 alt="profilepic"
                                 onClick={() => Router.push(`/user/${userData.username}`)}
-                                layout="fill"
                             />
                         </div>
                         <div

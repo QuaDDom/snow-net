@@ -23,7 +23,7 @@ export default function Friend({ id, image, name, lastname, status, username }: 
                     onClick={() => Router.push('/user/' + username)}>
                     <div className={styles.content}>
                         <div className={styles.image}>
-                            <img src={image || 'noProfile.png'} alt={name} layout="fill" />
+                            <img src={image || 'noProfile.png'} alt={name} />
                             <div className={styles.status} />
                         </div>
                         <div className={styles.info}>

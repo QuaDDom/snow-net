@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import type { AppProps } from 'next/app'
 import Loader from '../components/Loader';
-import { useEffect, useState } from 'react';
+import { DetailedHTMLProps, ImgHTMLAttributes, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import RouteLoader from '../components/RouteLoader';
 import Progress from '../components/Progress/Progress';
@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      img: any
+      img: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>
     }
   }
 }

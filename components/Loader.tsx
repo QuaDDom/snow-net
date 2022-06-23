@@ -23,7 +23,6 @@ export default function Loader({ isLoading }: Props) {
                             className={styles.snowLogo}
                             width={70}
                             height={70}
-                            layotu="fill"
                         />
                         <h2>SNOW</h2>
                     </div>

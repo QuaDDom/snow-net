@@ -77,6 +77,10 @@
             .login {
                 width: 100vw;
                 height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0px;
                 .loginText {
                     width: 100%;
                     display: block;
@@ -85,6 +89,18 @@
                     }
                     p {
                         text-align: center;
+                    }
+                }
+                .formContainer {
+                    position: relative;
+                    height: 500px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    form {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
                     }
                 }
             }

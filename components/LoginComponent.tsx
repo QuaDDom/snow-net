@@ -86,7 +86,11 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
                                     type="email"
                                     name="email"
                                     label="Email"
-                                    size={{ width: '400px', height: 50, fontSize: 18 }}
+                                    size={{
+                                        width: `${!isResponsive ? '310px' : '400px'}`,
+                                        height: !isResponsive ? 50 : 45,
+                                        fontSize: 17
+                                    }}
                                     value={valuesLog.email}
                                     handleChange={handleChangeLog}
                                     inputRef={register}
@@ -98,7 +102,11 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
                                     type="password"
                                     name="password"
                                     label="Password"
-                                    size={{ width: '400px', height: 50, fontSize: 17 }}
+                                    size={{
+                                        width: `${!isResponsive ? '310px' : '400px'}`,
+                                        height: !isResponsive ? 50 : 45,
+                                        fontSize: 17
+                                    }}
                                     value={valuesLog.password}
                                     handleChange={handleChangeLog}
                                     inputRef={register}

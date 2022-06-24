@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useMediaQuery } from 'react-responsive';
 
 interface Props {
     isWelcome?: boolean;
@@ -24,6 +25,8 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
         emailValidationApi,
         passwordValidationApi
     } = useContext<any>(AuthContext);
+
+    const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
 
     const loginSchema = yup.object().shape({
         email: yup

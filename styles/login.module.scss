@@ -1,17 +1,17 @@
 @import '../styles/colors/variables.scss';
-.loginContainer{
+.loginContainer {
     height: 100vh;
     width: 100%;
     background: url(./img/loginbg.svg);
     background-size: cover;
-    .containerAll{
+    .containerAll {
         width: 100%;
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
         background: #00000040;
-        .login{
+        .login {
             height: 450px;
             width: 600px;
             position: relative;
@@ -22,7 +22,7 @@
             border-radius: 10px;
             padding: 15px 0;
             background: $black;
-            .loginText{
+            .loginText {
                 display: flex;
                 justify-content: start;
                 width: 86%;
@@ -30,41 +30,62 @@
                 padding-bottom: 0px;
                 flex-direction: column;
                 padding-left: 5px;
-                h2{
+                h2 {
                     font-weight: 700;
                     font-size: 2em;
                     background: #fff;
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
-                p{
+                p {
                     padding-top: 15px;
                     font-size: 0.95em;
                     letter-spacing: 0.8px;
                     text-align: start;
                     color: rgb(155, 155, 155);
-                    a{
+                    a {
                         color: #00aaff;
                         text-decoration: underline;
                     }
                 }
             }
         }
-        .formContainer{
+        .formContainer {
             position: relative;
             height: 100%;
             width: 100%;
-            form{
+            form {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 padding: 0 45px;
                 padding-top: 35px;
-                div{
+                div {
                     padding: 2px 0;
                 }
-                button{
+                button {
                     margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .loginContainer {
+        .containerAll {
+            .login {
+                width: 100vw;
+                height: 100%;
+                .loginText {
+                    width: 100%;
+                    display: block;
+                    h2 {
+                        text-align: center;
+                    }
+                    p {
+                        text-align: center;
+                    }
                 }
             }
         }

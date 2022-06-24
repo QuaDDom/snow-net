@@ -32,7 +32,8 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
             .required('Required')
             .test('email_async_validation', 'Email Validation Error', async function(value) {
                 const message = await emailValidationApi(value);
-                if (message) return this.resolve(this.createError({ message: 'Email not found' }));
+                if (message)
+                    return this.resolve(this.createError({ message: 'Invalid email or password' }));
                 else return true;
             }),
         password: yup
@@ -41,7 +42,7 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
             .test('password_async_validation', 'Password Validation Error', async function(value) {
                 const isValid = await passwordValidationApi(value);
                 if (!isValid)
-                    return this.resolve(this.createError({ message: 'Incorrect Password' }));
+                    return this.resolve(this.createError({ message: 'Invalid email or password' }));
                 else return true;
             })
     });

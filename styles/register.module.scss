@@ -1,46 +1,41 @@
 @import './colors/variables.scss';
 
-.registerContainer{
+.registerContainer {
     height: 100vh;
     width: 100%;
     background: url(./img/registerbg.svg);
     background-size: cover;
     font-family: 'Manrope', sans-serif !important;
-    .containerAll{
+    .containerAll {
         width: 100%;
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
         background: #00000035;
-        .registerContent{
+        .registerContent {
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 15px;
             overflow: hidden;
             padding: 27px 55px;
-            padding-left: calc(470px + 30px);
+            padding-left: 500px;
             position: relative;
-            .registerBackground{
-                height: calc(50vh + 30px);
+            .registerBackground {
+                height: 520px;
                 width: 600px;
-                height: 600px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 15px;
+                border-radius: 10px;
                 position: relative;
-                img{
-                    height: 520px;
-                    width: 700px;
+                img {
+                    width: 100%;
+                    height: 100%;
                     border-radius: 10px;
                     background-size: cover;
-                    scale: 1.2;
                     object-fit: cover;
                 }
             }
-            .register{
+            .register {
                 height: 520px;
                 width: 477px;
                 position: absolute;
@@ -53,13 +48,13 @@
                 z-index: 10;
                 padding: 15px 0;
                 background: $black2;
-                .registerText{
+                .registerText {
                     display: flex;
                     width: 100%;
                     padding-top: 40px;
                     padding: 0 15px;
                     padding-top: 40px;
-                    h2{
+                    h2 {
                         font-weight: 700;
                         font-size: 2.2em;
                         text-align: center;
@@ -69,19 +64,19 @@
                         -webkit-text-fill-color: transparent;
                     }
                 }
-                .formContainer{
+                .formContainer {
                     position: relative;
                     height: 100%;
                     width: 100%;
-                    form{
+                    form {
                         width: 100%;
                         display: flex;
                         align-items: center;
                         flex-direction: column;
                         padding: 0 55px;
                         padding-top: 40px;
-    
-                        .centerContent{
+
+                        .centerContent {
                             display: flex;
                             justify-content: center;
                             padding-left: 80px;
@@ -89,57 +84,57 @@
                         }
                     }
                 }
-                .buttons{
+                .buttons {
                     display: flex;
                     width: 100%;
                     height: 60px;
-                    button{
+                    button {
                         background: transparent;
                         color: $primary;
                         font-size: 3em;
                         border: none;
                         outline: none;
                     }
-                    .back{
+                    .back {
                         position: absolute;
                         left: 60px;
                         bottom: 60px;
                     }
-                    .forward{
+                    .forward {
                         position: absolute;
                         right: 60px;
                         bottom: 60px;
                     }
                 }
-        }
+            }
         }
     }
 }
 
-@media (max-width: 1200px){
-    .registerContainer{
-        .containerAll{
+@media (max-width: 1200px) {
+    .registerContainer {
+        .containerAll {
             width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            .registerContent{
+            .registerContent {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
                 padding: 0;
-                .registerBackground{
+                .registerBackground {
                     height: 29.5vh;
                     width: 100vw;
-                    img{
+                    img {
                         height: 30vh;
                         width: 100vw;
                         border-radius: 25px 25px 0px 0px;
                     }
                 }
-                .register{
+                .register {
                     position: relative;
                     height: 70vh;
                     width: 100vw;

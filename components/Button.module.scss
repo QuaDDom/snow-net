@@ -1,20 +1,20 @@
 $primary: #8bffff;
 $secondary: #0099ff;
 
-.button{
+.button {
     width: 200px;
     height: 45px;
-    background: transparent;
     display: block;
     font-size: 1em;
     color: #fff;
-    transition: .3s;
+    transition: 0.3s;
     font-family: 'Nunito Sans', sans-serif;
     border-radius: 12px;
     background: #00bbff;
     cursor: pointer;
     color: #000;
-    &:hover{
+    border: none;
+    &:hover {
         background: #38b9ff;
         transform: translateY(-4px);
         box-shadow: 0 4px 10px #000;

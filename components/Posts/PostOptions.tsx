@@ -41,7 +41,9 @@ export default function PostOptions({
     const handleLike = async () => {
         isLiked ? setIsLiked(false) : setIsLiked(true);
         isLiked ? setTotalLikes(totalLikes - 1) : setTotalLikes(totalLikes + 1);
-        await axios.put(`http://localhost:5000/api/posts/${_id}/like`, { userId: loggedUser._id });
+        await axios.put(`https://snow-net.herokuapp.com//api/posts/${_id}/like`, {
+            userId: loggedUser._id
+        });
     };
 
     useEffect(() => {
@@ -54,7 +56,7 @@ export default function PostOptions({
             isReposted ? setIsReposted(false) : setIsReposted(true);
             isReposted ? setTotalReposts(totalReposts - 1) : setTotalReposts(totalReposts + 1);
             const newRepostedBy = [...repostedBy];
-            await axios.post('http://localhost:5000/api/posts/repost', {
+            await axios.post('https://snow-net.herokuapp.com//api/posts/repost', {
                 userId: loggedUser._id,
                 text,
                 image,

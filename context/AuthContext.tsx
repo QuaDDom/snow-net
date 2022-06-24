@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }: Props) => {
                 try {
                     console.log('get');
                     const data = await axios.post(
-                        'http://localhost:5000/api/auth/userdata',
+                        'https://snow-net.herokuapp.com//api/auth/userdata',
                         {},
                         {
                             headers: {

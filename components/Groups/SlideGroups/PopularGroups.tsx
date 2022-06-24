@@ -24,7 +24,7 @@ export default function PopularGroups() {
 
     const fetchGroups = async () => {
         try {
-            const groupsData = await axios.get('http://localhost:5000/api/groups');
+            const groupsData = await axios.get('https://snow-net.herokuapp.com//api/groups');
             setGroups([...groupsData.data]);
             groupsData.data;
         } catch (err) {

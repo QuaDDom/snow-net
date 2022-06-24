@@ -70,7 +70,7 @@ export default function UploadUserProfile({
                     });
 
                     const update = async () => {
-                        await axios.put(`http://localhost:5000/api/users/${userId}`, {
+                        await axios.put(`https://snow-net.herokuapp.com//api/users/${userId}`, {
                             userId,
                             profilePic: url
                         });

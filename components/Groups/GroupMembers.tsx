@@ -15,7 +15,9 @@ export default function GroupMembers({ members }: Props) {
             try {
                 const membersGroup: any = [];
                 members.map(async userId => {
-                    const data = await axios.get(`http://localhost:5000/api/users/${userId}`);
+                    const data = await axios.get(
+                        `https://snow-net.herokuapp.com//api/users/${userId}`
+                    );
                     membersGroup.push(data.data);
                     setMembersData([...membersGroup]);
                 });

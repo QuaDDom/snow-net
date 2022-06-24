@@ -1,11 +1,11 @@
-import axios from "axios";
-import { useEffect, useState } from "react"
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-interface Props{
-    type: string
+interface Props {
+    type: string;
 }
 
-export const usePosts = ({type}: Props)=>{
+export const usePosts = ({ type }: Props) => {
     const [posts, setPosts] = useState<any>([]);
     const [loader, setLoader] = useState(false);
     const [isLimit, setIsLimit] = useState(false);
@@ -13,38 +13,37 @@ export const usePosts = ({type}: Props)=>{
 
     let data: any;
 
-    const fetchData = async ()=>{
-        try{
-            setLoader(true)
-            data = await axios.get(`http://localhost:5000/api/posts/get/all/0/${offset}`);
-            if(data.data === "limit") {
+    const fetchData = async () => {
+        try {
+            setLoader(true);
+            data = await axios.get(`https://snow-net.herokuapp.com//api/posts/get/all/0/${offset}`);
+            if (data.data === 'limit') {
                 setIsLimit(true);
                 return;
-            };
+            }
             setPosts([...data.data]);
             setLoader(false);
-        } catch(err){
-            console.log(err)
+        } catch (err) {
+            console.log(err);
         }
     };
 
-    const loadMorePosts = async ()=>{
-        ('loadMore')
-        setLoader(true)
-        data = await axios.get(`http://localhost:5000/api/posts/get/all/${10}/${offset}`);
-        if(data.data === "limit") {
+    const loadMorePosts = async () => {
+        ('loadMore');
+        setLoader(true);
+        data = await axios.get(`https://snow-net.herokuapp.com//api/posts/get/all/${10}/${offset}`);
+        if (data.data === 'limit') {
             setIsLimit(true);
             return;
-        };
+        }
         setPosts((oldPosts: any) => oldPosts.concat(data.data));
         setLoader(false);
-    }
-    
-    useEffect(()=>{
-        if(isLimit) return;
-        loadMorePosts();
-    },[offset])
+    };
 
+    useEffect(() => {
+        if (isLimit) return;
+        loadMorePosts();
+    }, [offset]);
 
     return {
         posts,
@@ -54,5 +53,5 @@ export const usePosts = ({type}: Props)=>{
         setOffset,
         offset,
         isLimit
-    }
-}
+    };
+};

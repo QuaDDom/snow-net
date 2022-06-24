@@ -87,12 +87,15 @@ export default function AddComment({ userData, fetchData, postId }: Props) {
                     });
 
                     const post = async () => {
-                        await axios.put(`http://localhost:5000/api/posts/comment/${postId}`, {
-                            text: text.trim(),
-                            userId: userData._id,
-                            image: url,
-                            createdAt
-                        });
+                        await axios.put(
+                            `https://snow-net.herokuapp.com//api/posts/comment/${postId}`,
+                            {
+                                text: text.trim(),
+                                userId: userData._id,
+                                image: url,
+                                createdAt
+                            }
+                        );
                     };
 
                     post();
@@ -104,7 +107,7 @@ export default function AddComment({ userData, fetchData, postId }: Props) {
                 }
             );
         } else if (gif) {
-            await axios.put(`http://localhost:5000/api/posts/comment/${postId}`, {
+            await axios.put(`https://snow-net.herokuapp.com//api/posts/comment/${postId}`, {
                 text,
                 userId: userData._id,
                 createdAt: Date.now(),
@@ -114,7 +117,7 @@ export default function AddComment({ userData, fetchData, postId }: Props) {
             setGif('');
             fetchData();
         } else {
-            await axios.put(`http://localhost:5000/api/posts/comment/${postId}`, {
+            await axios.put(`https://snow-net.herokuapp.com//api/posts/comment/${postId}`, {
                 text,
                 userId: userData._id,
                 createdAt: Date.now()

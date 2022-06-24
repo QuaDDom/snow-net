@@ -68,7 +68,7 @@ export default function Post({
     const getComments = async () => {
         if (post) {
             const commentsData = await axios.get(
-                `http://localhost:5000/api/posts/comments/${post._id}`
+                `https://snow-net.herokuapp.com//api/posts/comments/${post._id}`
             );
             setComments([...commentsData.data]);
         }
@@ -76,9 +76,11 @@ export default function Post({
 
     useEffect(() => {
         const fetchData = async () => {
-            const postData = await axios.get(`http://localhost:5000/api/posts/${repostedPost}`);
+            const postData = await axios.get(
+                `https://snow-net.herokuapp.com//api/posts/${repostedPost}`
+            );
             const userPost = await axios.get(
-                `http://localhost:5000/api/users/${postData.data.userId}`
+                `https://snow-net.herokuapp.com//api/users/${postData.data.userId}`
             );
             setPost(postData.data);
             setPostUser(userPost.data);
@@ -102,7 +104,7 @@ export default function Post({
     };
 
     const deletePost = async () => {
-        await axios.delete(`http://localhost:5000/api/posts/${_id}`, {
+        await axios.delete(`https://snow-net.herokuapp.com//api/posts/${_id}`, {
             data: { userId: loggedUser._id }
         });
         fetchData();

@@ -20,7 +20,7 @@ export default function SearchUsers() {
 
     const handleSubmit = async () => {
         try {
-            const users = await axios.post(`http://localhost:5000/api/users/search`, {
+            const users = await axios.post(`https://snow-net.herokuapp.com//api/users/search`, {
                 query: query
             });
             setUserList([...users.data]);

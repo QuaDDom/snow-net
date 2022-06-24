@@ -95,7 +95,9 @@ export default function Post({
     const handleOpenOptions = () => (optionsOpen ? setOptionsOpen(false) : setOptionsOpen(true));
 
     const getComments = async () => {
-        const commentsData = await axios.get(`http://localhost:5000/api/posts/comments/${_id}`);
+        const commentsData = await axios.get(
+            `https://snow-net.herokuapp.com//api/posts/comments/${_id}`
+        );
         setComments([...commentsData.data]);
     };
     const user: User = useGetUser(userId);
@@ -118,7 +120,7 @@ export default function Post({
     };
 
     const deletePost = async () => {
-        await axios.delete(`http://localhost:5000/api/posts/${_id}`, {
+        await axios.delete(`https://snow-net.herokuapp.com//api/posts/${_id}`, {
             data: { userId: loggedUser._id }
         });
         fetchData();

@@ -18,9 +18,11 @@ export default function Suggestions() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await axios.get('http://localhost:5000/api/users/get/all/3/8');
+            const data = await axios.get('https://snow-net.herokuapp.com//api/users/get/all/3/8');
             setRandomUsersData([...data.data]);
-            const randomGroup = await axios.get('http://localhost:5000/api/groups/random');
+            const randomGroup = await axios.get(
+                'https://snow-net.herokuapp.com//api/groups/random'
+            );
             setGroup({ ...randomGroup.data });
         };
         fetchData();

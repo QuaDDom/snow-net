@@ -29,7 +29,7 @@ export default function EditModal({
     const updatePost = async () => {
         setText(inputVal);
         try {
-            await axios.put(`http://localhost:5000/api/posts/${postId}`, {
+            await axios.put(`https://snow-net.herokuapp.com//api/posts/${postId}`, {
                 userId,
                 text: inputVal
             });

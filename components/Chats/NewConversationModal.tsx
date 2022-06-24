@@ -17,7 +17,7 @@ export default function NewConversationModal({ setIsModalOpen, loggedUser, getCh
 
     useEffect(() => {
         const fetchData = async () => {
-            const users = await axios.get('http://localhost:5000/api/users/get/all');
+            const users = await axios.get('https://snow-net.herokuapp.com//api/users/get/all');
             setAllUsers([...users.data]);
         };
         fetchData();
@@ -28,7 +28,7 @@ export default function NewConversationModal({ setIsModalOpen, loggedUser, getCh
     };
 
     const handleClick = async (id: number) => {
-        await axios.post('http://localhost:5000/api/chats', {
+        await axios.post('https://snow-net.herokuapp.com//api/chats', {
             senderId: loggedUser._id,
             receiverId: id
         });

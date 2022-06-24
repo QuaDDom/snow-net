@@ -24,7 +24,7 @@ export default function EditProfileModal({ userData, setEditProfile }: Props) {
             if (lastname.length <= 3) return;
             if (username.length <= 3) return;
             setLoading(true);
-            await axios.put('http://localhost:5000/api/users/' + userData.user._id, {
+            await axios.put('https://snow-net.herokuapp.com//api/users/' + userData.user._id, {
                 name,
                 lastname,
                 username,

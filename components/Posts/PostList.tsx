@@ -35,7 +35,7 @@ export default function PostList() {
 
     useEffect(() => {
         const getRandomUsers = async () => {
-            const data = await axios.get('http://localhost:5000/api/users/get/all/7/8');
+            const data = await axios.get('https://snow-net.herokuapp.com//api/users/get/all/7/8');
             setRandomUsersData([...data.data]);
         };
         getRandomUsers();

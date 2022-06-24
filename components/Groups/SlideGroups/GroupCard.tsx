@@ -36,7 +36,7 @@ export default function GroupCard({
 
     const handleJoin = async () => {
         try {
-            await axios.put(`http://localhost:5000/api/groups/join/${_id}`, {
+            await axios.put(`https://snow-net.herokuapp.com//api/groups/join/${_id}`, {
                 userId: userId
             });
             isJoined ? setIsJoined(false) : setIsJoined(true);

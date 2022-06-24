@@ -16,7 +16,7 @@ export default function SearchGroupsModal({ setSearchModal }: Props) {
 
     useEffect(() => {
         const fetchData = async () => {
-            const groups = await axios.get('http://localhost:5000/api/groups/');
+            const groups = await axios.get('https://snow-net.herokuapp.com//api/groups/');
             setAllGroups([...groups.data]);
         };
         fetchData();

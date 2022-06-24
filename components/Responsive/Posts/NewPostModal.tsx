@@ -42,7 +42,7 @@ export default function NewPostModal({ loggedUser, fetchData, group }: Props) {
             const post = async () => {
                 if (gif) {
                     const post = async () => {
-                        await axios.post('http://localhost:5000/api/posts', {
+                        await axios.post('https://snow-net.herokuapp.com//api/posts', {
                             userId: loggedUser._id,
                             text,
                             image: gif,
@@ -81,7 +81,7 @@ export default function NewPostModal({ loggedUser, fetchData, group }: Props) {
                             });
 
                             const post = async () => {
-                                await axios.post('http://localhost:5000/api/posts', {
+                                await axios.post('https://snow-net.herokuapp.com//api/posts', {
                                     userId: loggedUser._id,
                                     text,
                                     image: url,
@@ -101,7 +101,7 @@ export default function NewPostModal({ loggedUser, fetchData, group }: Props) {
                 } else {
                     try {
                         const post = async () => {
-                            await axios.post('http://localhost:5000/api/posts', {
+                            await axios.post('https://snow-net.herokuapp.com//api/posts', {
                                 userId: loggedUser._id,
                                 text,
                                 isGroupPost: true,
@@ -145,7 +145,7 @@ export default function NewPostModal({ loggedUser, fetchData, group }: Props) {
                     });
 
                     const post = async () => {
-                        await axios.post('http://localhost:5000/api/posts', {
+                        await axios.post('https://snow-net.herokuapp.com//api/posts', {
                             userId: loggedUser._id,
                             text,
                             image: url
@@ -162,7 +162,7 @@ export default function NewPostModal({ loggedUser, fetchData, group }: Props) {
             );
         } else if (gif) {
             const post = async () => {
-                await axios.post('http://localhost:5000/api/posts', {
+                await axios.post('https://snow-net.herokuapp.com//api/posts', {
                     userId: loggedUser._id,
                     text,
                     image: gif
@@ -174,7 +174,7 @@ export default function NewPostModal({ loggedUser, fetchData, group }: Props) {
             post();
         } else if (poll) {
             const post = async () => {
-                await axios.post('http://localhost:5000/api/posts', {
+                await axios.post('https://snow-net.herokuapp.com//api/posts', {
                     userId: loggedUser._id,
                     text,
                     poll
@@ -185,7 +185,7 @@ export default function NewPostModal({ loggedUser, fetchData, group }: Props) {
             post();
         } else {
             const post = async () => {
-                const postData = await axios.post('http://localhost:5000/api/posts', {
+                const postData = await axios.post('https://snow-net.herokuapp.com//api/posts', {
                     userId: loggedUser._id,
                     text
                 });

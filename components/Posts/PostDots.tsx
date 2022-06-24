@@ -41,7 +41,7 @@ export default function PostDots({
 
     const handlePin = async () => {
         try {
-            await axios.put(`http://localhost:5000/api/posts/pin/${postId}`);
+            await axios.put(`https://snow-net.herokuapp.com//api/posts/pin/${postId}`);
             fetchData();
         } catch (err) {
             console.log(err);

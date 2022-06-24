@@ -88,7 +88,7 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
                                     label="Email"
                                     size={{
                                         width: `${!isResponsive ? '310px' : '400px'}`,
-                                        height: !isResponsive ? 50 : 45,
+                                        height: 50,
                                         fontSize: 17
                                     }}
                                     value={valuesLog.email}
@@ -104,7 +104,7 @@ export default function LoginComponent({ isWelcome, launch }: Props) {
                                     label="Password"
                                     size={{
                                         width: `${!isResponsive ? '310px' : '400px'}`,
-                                        height: !isResponsive ? 50 : 45,
+                                        height: 50,
                                         fontSize: 17
                                     }}
                                     value={valuesLog.password}

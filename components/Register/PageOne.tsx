@@ -12,14 +12,18 @@ interface Props {
     isResponsive: boolean;
 }
 
-export default function PageOne({ handleChange, values, register, errors }: Props) {
+export default function PageOne({ handleChange, values, register, errors, isResponsive }: Props) {
     return (
         <>
             <Input
                 type="text"
                 label="Username"
                 name="username"
-                size={{ width: '384px', height: 52, fontSize: 18 }}
+                size={{
+                    width: `${!isResponsive ? '310px' : '400px'}`,
+                    height: 50,
+                    fontSize: 17
+                }}
                 handleChange={handleChange}
                 value={values.username}
                 inputRef={register}
@@ -30,7 +34,11 @@ export default function PageOne({ handleChange, values, register, errors }: Prop
                 type="email"
                 label="Email"
                 name="email"
-                size={{ width: '384px', height: 52, fontSize: 18 }}
+                size={{
+                    width: `${!isResponsive ? '310px' : '400px'}`,
+                    height: 50,
+                    fontSize: 17
+                }}
                 handleChange={handleChange}
                 value={values.email}
                 inputRef={register}

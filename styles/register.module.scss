@@ -125,21 +125,27 @@
                 justify-content: center;
                 flex-direction: column;
                 padding: 0;
+                height: 100%;
                 .registerBackground {
-                    height: 29.5vh;
+                    height: 30%;
                     width: 100vw;
                     img {
                         height: 30vh;
                         width: 100vw;
-                        border-radius: 25px 25px 0px 0px;
+                        border-radius: 0px;
                     }
                 }
                 .register {
                     position: relative;
-                    height: 70vh;
+                    height: 70%;
                     width: 100vw;
                     left: 0;
-                    border-radius: 0px 0px 25px 25px;
+                    border-radius: 0px;
+                    .registerText {
+                        h2 {
+                            font-size: 1.8em;
+                        }
+                    }
                 }
             }
         }

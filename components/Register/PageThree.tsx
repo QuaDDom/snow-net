@@ -12,14 +12,25 @@ interface Props {
     handleSubmit: any;
 }
 
-export default function PageThree({ handleChange, values, register, errors, handleSubmit }: Props) {
+export default function PageThree({
+    handleChange,
+    values,
+    register,
+    errors,
+    handleSubmit,
+    isResponsive
+}: Props) {
     return (
         <>
             <Input
                 type="text"
                 label="Name"
                 name="name"
-                size={{ width: '384px', height: 52, fontSize: 18 }}
+                size={{
+                    width: `${!isResponsive ? '310px' : '400px'}`,
+                    height: 50,
+                    fontSize: 17
+                }}
                 handleChange={handleChange}
                 value={values.name}
                 inputRef={register}
@@ -30,7 +41,11 @@ export default function PageThree({ handleChange, values, register, errors, hand
                 type="text"
                 label="Lastname"
                 name="lastname"
-                size={{ width: '384px', height: 52, fontSize: 18 }}
+                size={{
+                    width: `${!isResponsive ? '310px' : '400px'}`,
+                    height: 50,
+                    fontSize: 17
+                }}
                 handleChange={handleChange}
                 value={values.lastname}
                 inputRef={register}

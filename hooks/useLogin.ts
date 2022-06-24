@@ -19,7 +19,7 @@ export const useLogin = () => {
 
     const emailValidationApi = async () => {
         try {
-            const message = await axios.post('https://snow-net.herokuapp.com//api/auth/email', {
+            const message = await axios.post('https://snow-net.herokuapp.com/api/auth/email', {
                 email
             });
             if (message.data) return true;
@@ -31,7 +31,7 @@ export const useLogin = () => {
 
     const passwordValidationApi = async () => {
         try {
-            const isValid = await axios.post('https://snow-net.herokuapp.com//api/auth/password', {
+            const isValid = await axios.post('https://snow-net.herokuapp.com/api/auth/password', {
                 email,
                 password
             });
@@ -43,7 +43,7 @@ export const useLogin = () => {
 
     const handleSubmitLog = async (update: boolean, loggedUser: any) => {
         try {
-            const res = await axios.post('https://snow-net.herokuapp.com//api/auth/login', {
+            const res = await axios.post('https://snow-net.herokuapp.com/api/auth/login', {
                 email,
                 password
             });

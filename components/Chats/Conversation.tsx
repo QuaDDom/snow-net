@@ -32,7 +32,7 @@ export default function Conversation({
         try {
             if (currentChat) {
                 const res = await axios.get(
-                    `https://snow-net.herokuapp.com//api/messages/${currentChat._id}`
+                    `https://snow-net.herokuapp.com/api/messages/${currentChat._id}`
                 );
                 setAllMessages(res.data);
                 allMessages;

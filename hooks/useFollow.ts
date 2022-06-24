@@ -18,12 +18,12 @@ export const useFollow = (loggedUser: any, id: string, friendReqs: any) => {
     const handleFollow = async () => {
         try {
             if (!isFollowed) {
-                await axios.put(`https://snow-net.herokuapp.com//api/users/${id}/follow`, {
+                await axios.put(`https://snow-net.herokuapp.com/api/users/${id}/follow`, {
                     userId: loggedUser._id
                 });
                 setIsFollowed(true);
             } else {
-                await axios.put(`https://snow-net.herokuapp.com//api/users/${id}/unfollow`, {
+                await axios.put(`https://snow-net.herokuapp.com/api/users/${id}/unfollow`, {
                     userId: loggedUser._id
                 });
                 setIsFollowed(false);

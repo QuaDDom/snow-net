@@ -25,7 +25,7 @@ export default function MutualFriends({ friends }: any) {
             const userFriends: any = [];
             friends.map(async (id: string) => {
                 const fetchFriendData = async () => {
-                    const data = await axios.get(`https://snow-net.herokuapp.com//api/users/${id}`);
+                    const data = await axios.get(`https://snow-net.herokuapp.com/api/users/${id}`);
                     userFriends.push(data.data);
                     setFriendsData([...userFriends]);
                 };

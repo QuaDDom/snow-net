@@ -14,12 +14,12 @@ export default function FriendList() {
             if (loggedUser) {
                 const userFriends: any = [];
                 const friends: any = await axios.get(
-                    `https://snow-net.herokuapp.com//api/users/${loggedUser?._id}/friends`
+                    `https://snow-net.herokuapp.com/api/users/${loggedUser?._id}/friends`
                 );
                 friends.data.map((id: string) => {
                     const fetchFriendData = async () => {
                         const data = await axios.get(
-                            `https://snow-net.herokuapp.com//api/users/${id}`
+                            `https://snow-net.herokuapp.com/api/users/${id}`
                         );
                         userFriends.push(data.data);
                         setFriendsData([...userFriends]);

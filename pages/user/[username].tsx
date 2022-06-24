@@ -16,10 +16,10 @@ export default function UserProfile() {
         const fetchUserData = async () => {
             try {
                 const posts = await axios.get(
-                    `https://snow-net.herokuapp.com//api/posts/profile/${username}`
+                    `https://snow-net.herokuapp.com/api/posts/profile/${username}`
                 );
                 const user = await axios.get(
-                    `https://snow-net.herokuapp.com//api/users/profile/${username}`
+                    `https://snow-net.herokuapp.com/api/users/profile/${username}`
                 );
                 setUserData({ user: user.data, posts: posts.data });
             } catch (err) {

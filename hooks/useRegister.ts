@@ -32,7 +32,7 @@ export const useRegister = () => {
 
     const usernameValidation = async (username: string) => {
         try {
-            const message = await axios.post('https://snow-net.herokuapp.com//api/auth/username', {
+            const message = await axios.post('https://snow-net.herokuapp.com/api/auth/username', {
                 username
             });
             if (message.data) return false;
@@ -44,7 +44,7 @@ export const useRegister = () => {
 
     const emailValidation = async () => {
         try {
-            const message = await axios.post('https://snow-net.herokuapp.com//api/auth/email', {
+            const message = await axios.post('https://snow-net.herokuapp.com/api/auth/email', {
                 email
             });
             if (message.data) return false;
@@ -93,7 +93,7 @@ export const useRegister = () => {
     const handleSubmit = async (e: any) => {
         try {
             const data = await axios.post(
-                'https://snow-net.herokuapp.com//api/auth/register',
+                'https://snow-net.herokuapp.com/api/auth/register',
                 userData
             );
             if (data.data === 'This user already exists') {

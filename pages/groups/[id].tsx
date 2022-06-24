@@ -13,7 +13,7 @@ export default function Group() {
     useEffect(() => {
         const fetchGroupData = async () => {
             try {
-                const res = await axios.get(`https://snow-net.herokuapp.com//api/groups/${id}`);
+                const res = await axios.get(`https://snow-net.herokuapp.com/api/groups/${id}`);
                 setGroup(res.data);
             } catch (err) {
                 console.log(err);

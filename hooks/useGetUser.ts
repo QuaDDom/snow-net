@@ -24,7 +24,7 @@ export const useGetUser = (userId: string) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await axios.get(`https://snow-net.herokuapp.com//api/users/${userId}`);
+            const data = await axios.get(`https://snow-net.herokuapp.com/api/users/${userId}`);
             setUser(data.data);
         };
         fetchData();

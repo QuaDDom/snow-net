@@ -41,7 +41,7 @@ export default function CreateGroup() {
                 members: [loggedUser._id],
                 admins: [loggedUser._id]
             };
-            const data = await axios.post('https://snow-net.herokuapp.com//api/groups', bodyData);
+            const data = await axios.post('https://snow-net.herokuapp.com/api/groups', bodyData);
             Router.push('/groups/' + data.data._id);
         } catch (err) {
             console.log(err);

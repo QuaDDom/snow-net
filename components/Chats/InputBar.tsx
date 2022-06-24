@@ -87,7 +87,7 @@ export default function InputBar({
                     });
 
                     const sendMessage = async () => {
-                        await axios.post('https://snow-net.herokuapp.com//api/messages', {
+                        await axios.post('https://snow-net.herokuapp.com/api/messages', {
                             sender: loggedUser._id,
                             text: message,
                             chatId: chatId,
@@ -125,7 +125,7 @@ export default function InputBar({
                 image: gif
             });
 
-            await axios.post('https://snow-net.herokuapp.com//api/messages', messageToFetch);
+            await axios.post('https://snow-net.herokuapp.com/api/messages', messageToFetch);
             getAllMessages();
             setGif('');
             setMessage('');
@@ -142,7 +142,7 @@ export default function InputBar({
                 text: message
             });
 
-            await axios.post('https://snow-net.herokuapp.com//api/messages', messageToFetch);
+            await axios.post('https://snow-net.herokuapp.com/api/messages', messageToFetch);
             getAllMessages();
             setMessage('');
         }

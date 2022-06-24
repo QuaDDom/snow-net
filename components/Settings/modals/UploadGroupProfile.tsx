@@ -70,7 +70,7 @@ export default function UploadUserProfile({
                     });
 
                     const update = async () => {
-                        await axios.put(`https://snow-net.herokuapp.com//api/groups/${groupId}`, {
+                        await axios.put(`https://snow-net.herokuapp.com/api/groups/${groupId}`, {
                             userId,
                             groupPic: url
                         });

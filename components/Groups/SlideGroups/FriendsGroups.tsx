@@ -21,7 +21,7 @@ export default function FriendsGroups() {
 
     const fetchGroups = async () => {
         try {
-            const groupsData = await axios.get('https://snow-net.herokuapp.com//api/groups');
+            const groupsData = await axios.get('https://snow-net.herokuapp.com/api/groups');
             setGroups([...groupsData.data]);
             groupsData.data;
         } catch (err) {

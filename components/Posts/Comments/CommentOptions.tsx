@@ -13,7 +13,7 @@ interface Props {
 
 export default function CommentOptions({ loggedUser, comments, likes, userId }: Props) {
     const handleLike = async () => {
-        //await axios.put(`https://snow-net.herokuapp.com//api/posts/like`, {userId: loggedUser._id});
+        //await axios.put(`https://snow-net.herokuapp.com/api/posts/like`, {userId: loggedUser._id});
     };
 
     return (

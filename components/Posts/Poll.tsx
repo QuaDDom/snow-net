@@ -27,7 +27,7 @@ export default function Poll({ poll, loggedUser, _id }: Props) {
         const percentage2 = Math.floor((option2 * 100) / totalVotes);
         setPercentage([percentage1, percentage2]);
         const data = await axios.put(
-            `https://snow-net.herokuapp.com//api/posts/poll/${_id}/${pollNumber}`,
+            `https://snow-net.herokuapp.com/api/posts/poll/${_id}/${pollNumber}`,
             {
                 userId: loggedUser._id
             }

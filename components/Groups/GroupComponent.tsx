@@ -31,7 +31,7 @@ export default function GroupComponent({ group }: { group: any }) {
     const fetchData = async () => {
         try {
             const res = await axios.get(
-                `https://snow-net.herokuapp.com//api/posts/group/${group._id}`
+                `https://snow-net.herokuapp.com/api/posts/group/${group._id}`
             );
             setGroupPosts([...res.data]);
             res.data;
@@ -42,7 +42,7 @@ export default function GroupComponent({ group }: { group: any }) {
 
     const handleJoin = async () => {
         try {
-            await axios.put(`https://snow-net.herokuapp.com//api/groups/join/${group._id}`, {
+            await axios.put(`https://snow-net.herokuapp.com/api/groups/join/${group._id}`, {
                 userId: loggedUser?._id
             });
             isJoined ? setIsJoined(false) : setIsJoined(true);
@@ -57,7 +57,7 @@ export default function GroupComponent({ group }: { group: any }) {
         const fetchMembersData = () => {
             const profiles: any = [];
             group.members.map(async (userId: string) => {
-                const res = await axios.get(`https://snow-net.herokuapp.com//api/users/${userId}`);
+                const res = await axios.get(`https://snow-net.herokuapp.com/api/users/${userId}`);
                 profiles.push(res.data.profilePic);
                 setMembersProfile([...profiles]);
             });

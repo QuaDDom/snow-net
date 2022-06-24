@@ -35,7 +35,7 @@ export default function MessagesComponent() {
         try {
             if (loggedUser) {
                 const res = await axios.get(
-                    `https://snow-net.herokuapp.com//api/chats/${loggedUser._id}`
+                    `https://snow-net.herokuapp.com/api/chats/${loggedUser._id}`
                 );
                 setConversations([...res.data]);
                 res;

@@ -54,7 +54,7 @@ export default function UserProfileComponent({ userData, username }: Props) {
         try {
             if (!isFollowed) {
                 await axios.put(
-                    `https://snow-net.herokuapp.com//api/users/${userData.user._id}/follow`,
+                    `https://snow-net.herokuapp.com/api/users/${userData.user._id}/follow`,
                     {
                         userId: loggedUser?._id
                     }
@@ -62,7 +62,7 @@ export default function UserProfileComponent({ userData, username }: Props) {
                 setIsFollowed(true);
             } else {
                 await axios.put(
-                    `https://snow-net.herokuapp.com//api/users/${userData.user._id}/unfollow`,
+                    `https://snow-net.herokuapp.com/api/users/${userData.user._id}/unfollow`,
                     {
                         userId: loggedUser?._id
                     }

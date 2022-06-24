@@ -16,7 +16,7 @@ export const usePosts = ({ type }: Props) => {
     const fetchData = async () => {
         try {
             setLoader(true);
-            data = await axios.get(`https://snow-net.herokuapp.com//api/posts/get/all/0/${offset}`);
+            data = await axios.get(`https://snow-net.herokuapp.com/api/posts/get/all/0/${offset}`);
             if (data.data === 'limit') {
                 setIsLimit(true);
                 return;
@@ -31,7 +31,7 @@ export const usePosts = ({ type }: Props) => {
     const loadMorePosts = async () => {
         ('loadMore');
         setLoader(true);
-        data = await axios.get(`https://snow-net.herokuapp.com//api/posts/get/all/${10}/${offset}`);
+        data = await axios.get(`https://snow-net.herokuapp.com/api/posts/get/all/${10}/${offset}`);
         if (data.data === 'limit') {
             setIsLimit(true);
             return;

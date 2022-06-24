@@ -28,9 +28,7 @@ export default function RownMsg({
 
         const getFriend = async () => {
             try {
-                const res = await axios.get(
-                    `https://snow-net.herokuapp.com//api/users/${friendId}`
-                );
+                const res = await axios.get(`https://snow-net.herokuapp.com/api/users/${friendId}`);
                 setFriend(res.data);
                 setUser(res.data);
             } catch (err) {

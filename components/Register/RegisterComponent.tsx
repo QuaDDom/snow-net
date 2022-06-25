@@ -40,11 +40,8 @@ export default function RegisterInputs() {
             .lowercase('Please put the username in lowercase')
             .test('username_async_validation', 'Username Validation Error', async function(value) {
                 const message = await usernameValidation(value);
-                if (message)
-                    return this.resolve(
-                        this.createError({ message: 'This username is already in use' })
-                    );
-                else return true;
+
+                return true;
             }),
         name: yup
             .string()

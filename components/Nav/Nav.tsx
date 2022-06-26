@@ -23,11 +23,6 @@ export default function Nav() {
                     </ul>
                     <ul>
                         <li>
-                            <NavLink href="/explore">Explore</NavLink>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
                             <NavLink href="/messages">Messages</NavLink>
                         </li>
                     </ul>

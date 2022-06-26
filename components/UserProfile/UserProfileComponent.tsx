@@ -108,13 +108,15 @@ export default function UserProfileComponent({ userData, username }: Props) {
                         <div
                             className={`${styles.banner} ${isLoggedUser && styles.logged}`}
                             onClick={() => isLoggedUser && setUpdateCoverModal(true)}>
-                            <img src={newCoverPic || userData.user.coverPic || 'noCover.jpg'} />
+                            <img src={newCoverPic || userData.user.coverPic || '/noCover.jpg'} />
                         </div>
                         <div className={styles.info}>
                             <div className={styles.profilePic}>
                                 <img
                                     src={
-                                        newProfilePic || userData.user.profilePic || 'noProfile.png'
+                                        newProfilePic ||
+                                        userData.user.profilePic ||
+                                        '/noProfile.png'
                                     }
                                 />
                                 {isLoggedUser && (

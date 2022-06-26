@@ -11,17 +11,17 @@ export default function Welcome() {
         <div className={styles.welcomeContainer}>
             <div className={styles.containerAll}>
                 <div className={styles.leftSide}>
-                    <img src="wavesbg.svg" alt="" className={styles.bg} />
+                    <img src="/wavesbg.svg" alt="" className={styles.bg} />
                     {isResponsive && (
                         <div className={styles.snow}>
-                            <img src="snow-logo.svg" />
+                            <img src="/snow-logo.svg" />
                             <h1>SNOW</h1>
                         </div>
                     )}
                 </div>
                 <div className={styles.rightSide}>
                     <div className={styles.snowLogo}>
-                        <img src="snow-logo.svg" alt="" />
+                        <img src="/snow-logo.svg" alt="" />
                     </div>
                     <h2>
                         Welcome to Snow! <br /> A new social network

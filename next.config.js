@@ -4,7 +4,8 @@
 
 const nextConfig = {
     reactStrictMode: true,
-    exportTrailingSlash: true
+    exportTrailingSlash: true,
+    trailingSlash: true
 };
 
 module.exports = nextConfig;

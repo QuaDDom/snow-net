@@ -2,7 +2,7 @@
     "name": "snow-net",
     "private": true,
     "version": "1.0.0-beta",
-    "proxy": "https://localhost:5000/api",
+    "proxy": "https://snow-net.herokuapp.com/api",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "scripts": {
         "dev": "next dev",

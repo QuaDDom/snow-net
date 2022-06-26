@@ -8,6 +8,13 @@ export default function _document() {
                 <meta charSet="utf-8" className="next-head" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta name="author" content="Mateo Leal" />
+                <meta
+                    name="description"
+                    content="Snow is a new modern social network! Sign in to connect with your friends and find groups and more."
+                />
+                <meta name="keywords" content="Social, Network, Snow, Social Network" />
+                <meta property="og:image" content="https://i.imgur.com/n737Fmc.jpg" />
                 <link
                     rel="stylesheet"
                     type="text/css"

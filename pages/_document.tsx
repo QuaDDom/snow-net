@@ -21,9 +21,9 @@ export default function _document() {
                     content="Snow is a new modern social network! Sign in to connect with your friends and find groups and more."
                 />
                 <meta name="keywords" content="Social, Network, Snow, Social Network" />
-                <meta property="og:image" content="https://i.imgur.com/n737Fmc.jpg" />
-                <meta property="og:image:width" content="640" />
-                <meta property="og:image:height" content="360" />
+                <meta property="og:image" content="https://i.imgur.com/RjNqmPi.png" />
+                <meta property="og:image:width" content="500" />
+                <meta property="og:image:height" content="500" />
                 <link
                     rel="stylesheet"
                     type="text/css"

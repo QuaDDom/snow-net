@@ -20,6 +20,7 @@ import * as yup from 'yup';
 export default function RegisterInputs() {
     const [page, setPage] = useState(1);
     const [isErrors, setIsErrors] = useState(true);
+
     const {
         handleChange,
         handleSubmit,
@@ -37,12 +38,7 @@ export default function RegisterInputs() {
             .required('This field is required')
             .min(3)
             .max(10)
-            .lowercase('Please put the username in lowercase')
-            .test('username_async_validation', 'Username Validation Error', async function(value) {
-                const message = await usernameValidation(value);
-
-                return true;
-            }),
+            .lowercase('Please put the username in lowercase'),
         name: yup
             .string()
             .required('This field is required')
@@ -56,15 +52,7 @@ export default function RegisterInputs() {
         email: yup
             .string()
             .email('Not a valid email')
-            .required('This field is required')
-            .test('email_async_validation', 'Email Validation Error', async function(value) {
-                const message = await emailValidation(value);
-                if (message)
-                    return this.resolve(
-                        this.createError({ message: 'This email is already in use' })
-                    );
-                else return true;
-            }),
+            .required('This field is required'),
         password: yup
             .string()
             .required('This field is required')

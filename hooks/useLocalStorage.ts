@@ -1,28 +1,28 @@
-import Router from "next/router";
-import { useEffect, useState } from "react"
+import Router from 'next/router';
+import { useEffect, useState } from 'react';
 
-export const useLocalStorage = ()=>{
+export const useLocalStorage = () => {
     const [loggedUser, setLoggedUser] = useState<any>(null);
 
-    useEffect(()=>{
-        try{
+    useEffect(() => {
+        try {
             const userLocal = localStorage.getItem('userLog');
-            if(userLocal){
+            if (userLocal) {
                 const user = JSON.parse(userLocal);
-                setLoggedUser(user); 
+                setLoggedUser(user);
+            } else if (!loggedUser && Router.pathname !== '/register') {
+                if (Router.pathname !== '/login') Router.push('/welcome');
+            } else if (
+                (loggedUser && Router.pathname === '/register') ||
+                Router.pathname === '/login' ||
+                Router.pathname === '/welcome'
+            ) {
+                Router.push('/');
             }
-            else if(!loggedUser && Router.pathname !== "/register" && Router.pathname !== "/countdown" 
-            && Router.pathname !== "/welcome"
-            ){
-                Router.push('/login')
-            }
-            else if(loggedUser && Router.pathname === "/register" || Router.pathname === "/login" || Router.pathname === "/welcome"){
-                Router.push('/')
-            }
-        } catch(err){
+        } catch (err) {
             console.log(err);
         }
-    },[]);
+    }, []);
 
-    return {loggedUser, setLoggedUser};
-}
+    return { loggedUser, setLoggedUser };
+};

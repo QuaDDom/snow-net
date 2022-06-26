@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Oval } from 'react-loader-spinner';
 import Input from '../Input';
 import ErrorMessage from './Errors/ErrorMessage';
 import styles from './PageThree.module.scss';
@@ -20,6 +21,7 @@ export default function PageThree({
     handleSubmit,
     isResponsive
 }: Props) {
+    const [isLoading, setIsLoading] = useState(false);
     return (
         <>
             <Input
@@ -52,8 +54,22 @@ export default function PageThree({
                 error={{}}
             />
             {errors.lastname && <ErrorMessage error={errors.lastname?.message} />}
-            <button className={styles.register} type="submit">
-                Register
+            <button className={styles.register} type="submit" onClick={() => setIsLoading(true)}>
+                {!isLoading ? (
+                    'Register'
+                ) : (
+                    <div className={styles.loader}>
+                        <Oval
+                            ariaLabel="loading-profile"
+                            height={28}
+                            width={28}
+                            strokeWidth={15}
+                            strokeWidthSecondary={5}
+                            color="black"
+                            secondaryColor="none"
+                        />
+                    </div>
+                )}
             </button>
         </>
     );

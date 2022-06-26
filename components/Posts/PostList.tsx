@@ -11,6 +11,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import SlideFriends from '../Responsive/SlideFriends';
 import axios from 'axios';
 import { SpinnerCircular } from 'spinners-react';
+import Router from 'next/router';
 
 interface Post {
     _id: string;

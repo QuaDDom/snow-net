@@ -20,7 +20,7 @@ export default function CountdownComponent({ launch, setLaunch }: Props) {
     let countdown: any = useRef();
 
     const handleTimerStart = () => {
-        const date = new Date('April 23 2022 20:18:50').getTime();
+        const date = new Date('June 26 2022 17:40:00 GMT-3').getTime();
 
         countdown = setInterval(() => {
             const now = new Date().getTime();
@@ -81,7 +81,6 @@ export default function CountdownComponent({ launch, setLaunch }: Props) {
                             <p>Seconds</p>
                         </div>
                     </div>
-                    <button onClick={() => Router.push('/register')}>Register Now</button>
                 </div>
                 <div className={styles.snowLogo}>
                     <img src="snow-logo.svg" alt="" />

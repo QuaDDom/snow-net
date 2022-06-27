@@ -1,10 +1,5 @@
 {
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:prettier/recommended",
-        "next/core-web-vitals"
-    ],
+    "extends": ["eslint:recommended", "plugin:react/recommended", "next/core-web-vitals"],
     "globals": {
         "NodeJS": true
     },
@@ -12,7 +7,6 @@
         "react/no-children-prop": 0,
         "react/react-in-jsx-scope": "off",
         "no-unused-vars": "off",
-        "no-redeclare": "off",
-        "prettier/prettier": "off"
+        "no-redeclare": "off"
     }
 }

@@ -1,20 +1,20 @@
 @import './colors/variables.scss';
-.welcomeContainer{
+.welcomeContainer {
     width: 100vw;
     height: 100vh;
     background: #001220;
-    .containerAll{
+    .containerAll {
         width: 100vw;
         height: 100vh;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .leftSide{
+        .leftSide {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 50%;
-            .bg{
+            .bg {
                 height: 100vh;
                 position: absolute;
                 top: 0;
@@ -24,16 +24,16 @@
                 user-select: none;
                 pointer-events: none;
             }
-            .snow{
+            .snow {
                 z-index: 5;
                 padding-bottom: 10vh;
                 display: flex;
                 align-items: center;
-                img{
+                img {
                     width: 100px;
                     height: 100px;
                 }
-                h1{
+                h1 {
                     color: #fff;
                     padding: 0 20px;
                     font-size: 6.5em;
@@ -44,33 +44,33 @@
                 }
             }
         }
-        .rightSide{
+        .rightSide {
             width: 45%;
             height: 100vh;
             display: flex;
             align-items: start;
             justify-content: center;
             flex-direction: column;
-            .snowLogo{
+            .snowLogo {
                 top: 5vh;
                 display: flex;
                 position: absolute;
-                img{
+                img {
                     width: 60px;
                     height: 60px;
                 }
             }
-            h2{
+            h2 {
                 font-size: 4em;
             }
-            h3{
+            h3 {
                 font-size: 2.5em;
                 padding-top: 4vh;
                 color: $primary;
                 padding-bottom: 1vh;
             }
-            .buttons{
-                button{
+            .buttons {
+                button {
                     width: 100%;
                     height: 40px;
                     background: #fff;
@@ -82,22 +82,22 @@
                     margin: 10px 0;
                     font-weight: 700;
                     transition: 0.3s;
-                    &.register{
+                    &.register {
                         margin-bottom: 2vh;
-                        &:hover{
+                        &:hover {
                             background: #ececec;
                         }
                     }
-                    &.login{
+                    &.login {
                         border: 2px solid #fff;
                         color: $primary;
                         background: transparent;
-                        &:hover{
+                        &:hover {
                             background: #002b4b;
                         }
                     }
                 }
-                p{
+                p {
                     font-size: 1em;
                 }
             }
@@ -106,37 +106,37 @@
 }
 
 @media (max-width: 1200px) {
-    .welcomeContainer{
-        .containerAll{
+    .welcomeContainer {
+        .containerAll {
             width: 100vw;
             max-height: 100vh;
-            .leftSide{
+            .leftSide {
                 position: absolute;
-                bottom: 47vh;
+                bottom: 45vh;
                 left: 0;
-                .bg{
+                .bg {
                     width: 100vw;
                     height: 48vh;
                 }
             }
-            .rightSide{
+            .rightSide {
                 z-index: 10;
                 width: 100vw;
                 height: 100vh;
                 justify-content: center;
                 align-items: center;
-                .snowLogo{
-                    top: 20vh;
-                    img{
+                .snowLogo {
+                    top: 15vh;
+                    img {
                         width: 70px;
                         height: 70px;
                     }
                 }
-                h2{
-                    font-size: 2.3em;
+                h2 {
+                    font-size: 2.2em;
                     text-align: center;
                 }
-                h3{
+                h3 {
                     font-size: 2.2em;
                 }
             }

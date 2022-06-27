@@ -7,7 +7,7 @@ import { AuthProvider } from '../../context/AuthContext';
 import UserProfileComponent from '../../components/UserProfile/UserProfileComponent';
 import { useMediaQuery } from 'react-responsive';
 
-export default function UserProfile() {
+export default function userProfile() {
     const [userData, setUserData] = useState<any>(null);
     const router = useRouter();
     const username = router.query.username;
@@ -29,7 +29,6 @@ export default function UserProfile() {
         fetchUserData();
     }, [username]);
 
-    userData && userData;
     return (
         <Layout title={`@${username} - Snow`}>
             <AuthProvider>

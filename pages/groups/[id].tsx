@@ -5,7 +5,7 @@ import GroupComponent from '../../components/Groups/GroupComponent';
 import Layout from '../../components/Layout';
 import AuthContext, { AuthProvider } from '../../context/AuthContext';
 
-export default function Group() {
+export default function group() {
     const router = useRouter();
     const id = router.query.id;
     const [group, setGroup] = useState<any>(null);

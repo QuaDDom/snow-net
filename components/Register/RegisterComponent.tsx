@@ -39,25 +39,10 @@ export default function RegisterInputs() {
             .min(3)
             .max(10)
             .lowercase('Please put the username in lowercase'),
-        name: yup
-            .string()
-            .required('This field is required')
-            .min(3)
-            .max(10),
-        lastname: yup
-            .string()
-            .required('This field is required')
-            .min(3)
-            .max(14),
-        email: yup
-            .string()
-            .email('Not a valid email')
-            .required('This field is required'),
-        password: yup
-            .string()
-            .required('This field is required')
-            .min(6)
-            .max(30),
+        name: yup.string().required('This field is required').min(3).max(10),
+        lastname: yup.string().required('This field is required').min(3).max(14),
+        email: yup.string().email('Not a valid email').required('This field is required'),
+        password: yup.string().required('This field is required').min(6).max(30),
         reppassword: yup
             .string()
             .required('This field is required')
@@ -108,7 +93,7 @@ export default function RegisterInputs() {
                 <div className={styles.containerAll}>
                     <div className={styles.registerContent}>
                         <div className={styles.registerBackground}>
-                            <img src="welcome-snow.svg" alt="" />
+                            <img src="/welcome-snow.svg" alt="" />
                         </div>
                         <div className={styles.register}>
                             <div className={styles.registerText}>

@@ -34,11 +34,6 @@ export default function UserProfile() {
     return (
         <Layout title={`@${username} - Snow`}>
             <Head>
-                <meta charSet="utf-8" className="next-head" />
-                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <meta name="author" content="Mateo Leal" />
-                <meta name="description" content="Meet new people in Snow!" />
                 <meta name="og:title" content={`Visit @${username} - Snow`} />
                 <meta name="og:url" content={'https://snowcy.com/user/' + username} />
                 <meta name="og:site_name" content="Snow" />

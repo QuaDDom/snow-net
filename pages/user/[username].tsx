@@ -35,3 +35,10 @@ export default function UserProfile() {
         </Layout>
     );
 }
+
+export async function getStaticPaths() {
+    return {
+        paths: [{ params: {} }],
+        fallback: true // false or 'blocking'
+    };
+}

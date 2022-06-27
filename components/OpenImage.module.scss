@@ -1,4 +1,4 @@
-.openImageContainer{
+.openImageContainer {
     top: 0;
     left: 0;
     position: fixed;
@@ -10,58 +10,58 @@
     justify-content: center;
     animation: blur 0.5s forwards;
     align-items: center;
-    &.close{
+    &.close {
         animation: unblur 0.3s forwards;
     }
-    img{
+    img {
         max-width: 800px;
         max-height: 90%;
         transform: scale(0);
         background-size: cover;
         object-fit: cover;
         animation: appear 0.5s forwards;
-        &.close{
+        &.close {
             animation: disappear 0.3s forwards;
         }
     }
 }
 
-@keyframes blur{
-    from{
+@keyframes blur {
+    from {
         backdrop-filter: blur(0px);
         background: transparent;
     }
-    to{
+    to {
         backdrop-filter: blur(10px);
         background: #00000045;
     }
 }
 
-@keyframes unblur{
-    from{
+@keyframes unblur {
+    from {
         backdrop-filter: blur(10px);
         background: #00000045;
     }
-    to{
+    to {
         backdrop-filter: blur(0px);
         background: transparent;
     }
 }
 
-@keyframes appear{
-    from{
+@keyframes appear {
+    from {
         transform: scale(0);
     }
-    to{
+    to {
         transform: scale(1);
     }
 }
 
-@keyframes disappear{
-    from{
+@keyframes disappear {
+    from {
         transform: scale(1);
     }
-    to{
+    to {
         transform: scale(0);
     }
 }

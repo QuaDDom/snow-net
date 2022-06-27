@@ -60,7 +60,7 @@ export default function EditProfileModal({ userData, setEditProfile }: Props) {
                     <div className={styles.profilePhotos}>
                         <div className={styles.banner}>
                             <img
-                                src={userData?.user.coverPic || 'noCover.jpg'}
+                                src={userData?.user.coverPic || './noCover.jpg'}
                                 alt={userData.user.username}
                             />
                         </div>

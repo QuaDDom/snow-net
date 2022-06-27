@@ -49,7 +49,7 @@ export default function Profile({ isOpen, userData, setIsOpen }: Props) {
                             <div className={styles.icon}>
                                 <IoLanguage />
                             </div>
-                            <p>Lenguage</p>
+                            <p>Language</p>
                             <div />
                         </div>
                         <div className={styles.option} onClick={() => Router.push('/settings')}>

@@ -5,27 +5,15 @@ import axios from 'axios';
 import { AuthProvider } from '../../context/AuthContext';
 import UserProfileComponent from '../../components/UserProfile/UserProfileComponent';
 
-export default function UserProfile() {
-    const [userData, setUserData] = useState<any>(null);
+interface Props {
+    user: any;
+    posts: any;
+}
+
+export default function UserProfile({ user, posts }: Props) {
+    const [userData, setUserData] = useState<any>({ user, posts });
     const router = useRouter();
     const username = router.query.username;
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const posts = await axios.get(
-                    `https://snow-net.herokuapp.com/api/posts/profile/${username}`
-                );
-                const user = await axios.get(
-                    `https://snow-net.herokuapp.com/api/users/profile/${username}`
-                );
-                setUserData({ user: user.data, posts: posts.data });
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        fetchUserData();
-    }, [username]);
 
     return (
         <Layout title={`@${username} - Snow`}>
@@ -36,9 +24,14 @@ export default function UserProfile() {
     );
 }
 
-export async function getStaticPaths() {
+export async function getServerSideProps(context: any) {
+    const posts = await axios.get(
+        `https://snow-net.herokuapp.com/api/posts/profile/${context.params.username}`
+    );
+    const user = await axios.get(
+        `https://snow-net.herokuapp.com/api/users/profile/${context.params.username}`
+    );
     return {
-        paths: [{ params: {} }],
-        fallback: true // false or 'blocking'
+        props: { posts, user }
     };
 }

@@ -5,7 +5,7 @@ import GroupComponent from '../../components/Groups/GroupComponent';
 import Layout from '../../components/Layout';
 import { AuthProvider } from '../../context/AuthContext';
 
-export default function Group() {
+export default function roup() {
     const router = useRouter();
     const id = router.query.id;
     const [group, setGroup] = useState<any>(null);
@@ -24,13 +24,13 @@ export default function Group() {
 
     return (
         <>
-            (
-            <Layout title={group.title + ' - Snow'}>
-                <AuthProvider>
-                    <GroupComponent group={group} />
-                </AuthProvider>
-            </Layout>
-            )
+            {group && (
+                <Layout title={group.title + ' - Snow'}>
+                    <AuthProvider>
+                        <GroupComponent group={group} />
+                    </AuthProvider>
+                </Layout>
+            )}
         </>
     );
 }

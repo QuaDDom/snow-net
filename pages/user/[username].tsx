@@ -6,7 +6,6 @@ import { usePosts } from '../../hooks/usePosts';
 import { AuthProvider } from '../../context/AuthContext';
 import UserProfileComponent from '../../components/UserProfile/UserProfileComponent';
 import { useMediaQuery } from 'react-responsive';
-import { NextResponse } from 'next/server';
 
 export default function UserProfile() {
     const [userData, setUserData] = useState<any>(null);

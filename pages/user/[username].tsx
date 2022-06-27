@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import axios from 'axios';
-import { usePosts } from '../../hooks/usePosts';
 import { AuthProvider } from '../../context/AuthContext';
 import UserProfileComponent from '../../components/UserProfile/UserProfileComponent';
-import { useMediaQuery } from 'react-responsive';
 
-export default function userProfile() {
+export default function UserProfile() {
     const [userData, setUserData] = useState<any>(null);
     const router = useRouter();
     const username = router.query.username;

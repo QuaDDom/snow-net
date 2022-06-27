@@ -10,9 +10,7 @@ const nextConfig = {
             '/groups/:id': { page: '/groups', query: { id: '' } }
         };
     },
-    reactStrictMode: true,
-    exportTrailingSlash: true,
-    trailingSlash: true
+    reactStrictMode: true
 };
 
 module.exports = nextConfig;

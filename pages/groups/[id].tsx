@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import GroupComponent from '../../components/Groups/GroupComponent';
 import Layout from '../../components/Layout';
-import AuthContext, { AuthProvider } from '../../context/AuthContext';
+import { AuthProvider } from '../../context/AuthContext';
 
 export default function group() {
     const router = useRouter();

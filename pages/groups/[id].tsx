@@ -24,13 +24,13 @@ export default function Group() {
 
     return (
         <>
-            {group && (
-                <Layout title={group.title + ' - Snow'}>
-                    <AuthProvider>
-                        <GroupComponent group={group} />
-                    </AuthProvider>
-                </Layout>
-            )}
+            (
+            <Layout title={group.title + ' - Snow'}>
+                <AuthProvider>
+                    <GroupComponent group={group} />
+                </AuthProvider>
+            </Layout>
+            )
         </>
     );
 }

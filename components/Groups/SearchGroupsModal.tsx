@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Router from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { CgClose } from 'react-icons/cg';
@@ -58,7 +59,10 @@ export default function SearchGroupsModal({ setSearchModal }: Props) {
                 <div className={styles.groups}>
                     {search().map(
                         ({ title, groupPic, private: groupPrivate, members, _id }: any) => (
-                            <div className={styles.group} key={_id}>
+                            <div
+                                className={styles.group}
+                                key={_id}
+                                onClick={() => Router.push('/groups/' + _id)}>
                                 <div className={styles.content}>
                                     <div className={styles.groupPic}>
                                         <img src={groupPic} alt="" />
@@ -83,9 +87,6 @@ export default function SearchGroupsModal({ setSearchModal }: Props) {
                                                 </p>
                                             )}
                                         </div>
-                                    </div>
-                                    <div className={styles.button}>
-                                        <button>Join</button>
                                     </div>
                                 </div>
                             </div>

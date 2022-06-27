@@ -26,10 +26,10 @@ export default function UserProfile({ user, posts }: Props) {
 
 export async function getServerSideProps(context: any) {
     const posts = await axios.get(
-        `https://snow-net.herokuapp.com/api/posts/profile/${context.params.username}`
+        `https://snow-net.herokuapp.com/api/posts/profile/${context.query.username}`
     );
     const user = await axios.get(
-        `https://snow-net.herokuapp.com/api/users/profile/${context.params.username}`
+        `https://snow-net.herokuapp.com/api/users/profile/${context.query.username}`
     );
     return {
         props: { posts, user }

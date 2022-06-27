@@ -6,8 +6,8 @@ const nextConfig = {
     exportPathMap: async function(defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
         return {
             '/': { page: '/' },
-            '/user': { page: '/user' },
-            '/groups': { page: '/groups' }
+            '/user': { page: '/user', query: { username: '' } },
+            '/groups': { page: '/groups', query: { id: '' } }
         };
     },
     reactStrictMode: true,

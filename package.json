@@ -5,7 +5,7 @@
     "proxy": "https://snow-net.herokuapp.com/api",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "scripts": {
-        "dev": "next dev",
+        "dev": "next start --prod --force",
         "build": "next build && next export",
         "start": "next start",
         "lint": "next lint"

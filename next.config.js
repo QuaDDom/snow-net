@@ -3,11 +3,11 @@
  */
 
 const nextConfig = {
-    exportPathMap: async function(defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
+    exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
         return {
             '/': { page: '/' },
-            '/user': { page: '/user', query: { username: '' } },
-            '/groups': { page: '/groups', query: { id: '' } }
+            '/user/:username': { page: '/user', query: { username: '' } },
+            '/groups/:id': { page: '/groups', query: { id: '' } }
         };
     },
     reactStrictMode: true,

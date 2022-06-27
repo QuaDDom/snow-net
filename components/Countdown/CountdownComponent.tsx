@@ -83,7 +83,7 @@ export default function CountdownComponent({ launch, setLaunch }: Props) {
                     </div>
                 </div>
                 <div className={styles.snowLogo}>
-                    <img src="snow-logo.svg" alt="" />
+                    <img src="/snow-logo.svg" alt="" />
                 </div>
             </div>
         </>

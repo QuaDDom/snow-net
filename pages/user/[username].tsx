@@ -6,6 +6,7 @@ import { usePosts } from '../../hooks/usePosts';
 import { AuthProvider } from '../../context/AuthContext';
 import UserProfileComponent from '../../components/UserProfile/UserProfileComponent';
 import { useMediaQuery } from 'react-responsive';
+import Head from 'next/head';
 
 export default function UserProfile() {
     const [userData, setUserData] = useState<any>(null);
@@ -32,6 +33,24 @@ export default function UserProfile() {
     userData && userData;
     return (
         <Layout title={`@${username} - Snow`}>
+            <Head>
+                <meta charSet="utf-8" className="next-head" />
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta name="author" content="Mateo Leal" />
+                <meta name="description" content="Meet new people in Snow!" />
+                <meta name="og:title" content={`Visit @${username} - Snow`} />
+                <meta name="og:url" content={'https://snowcy.com/user/' + username} />
+                <meta name="og:site_name" content="Snow" />
+                <meta name="og:description" content="Meet new people in Snow!" />
+                <meta
+                    name="keywords"
+                    content="Social, Network, Snow, Social Network, User Profile"
+                />
+                <meta property="og:image" content={userData && userData.user.profilePic} />
+                <meta property="og:image:width" content="500" />
+                <meta property="og:image:height" content="500" />
+            </Head>
             <AuthProvider>
                 <UserProfileComponent userData={userData} username={username} />
             </AuthProvider>

@@ -5,7 +5,7 @@
     "proxy": "https://snow-net.herokuapp.com/api",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "scripts": {
-        "dev": "next start --prod --force",
+        "dev": "next dev",
         "build": "next build && next export",
         "start": "next start",
         "lint": "next lint"
@@ -22,7 +22,7 @@
         "firebase": "^9.6.7",
         "framer-motion": "^6.2.8",
         "mention-hashtag": "^1.1.1",
-        "next": "^12.1.7-canary.48",
+        "next": "^12.1.6",
         "next-compose-plugins": "^2.2.1",
         "next-transpile-modules": "^9.0.0",
         "prettier": "^2.7.1",

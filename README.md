@@ -24,6 +24,24 @@ Snow is a social network developed by me, it all started as a small social netwo
 * [Mongoose.js](https://mongoosejs.com/)
 * [MongoDB](https://www.mongodb.com/)
 
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/QuaDDom/snow-net
+   ```
+2. Install packages
+   ```sh
+   npm install
+   ```
+3. Run code
+   ```sh
+   npm run dev
+   ```
+
 <div align="center"> 
   <h2>Samples</h2>
   <img width="100%" height="auto" src="https://i.imgur.com/QGs0qZ3.png" height="175px"/>

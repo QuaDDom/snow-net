@@ -1,4 +1,10 @@
-<a href="#"><img width="100%" height="auto" src="https://i.imgur.com/n737Fmc.jpg" height="175px"/></a>
+<div align="center">
+  <a href="https://snowcy.com/">
+    <img src="https://i.imgur.com/RjNqmPi.png" alt="snow" width="120" height="120">
+  </a>
+</div>
+
+<br />
 
 <div align="center"> 
   <img width="auto" height="auto" src="https://img.shields.io/github/stars/QuaDDom/snow-net?style=for-the-badge" />

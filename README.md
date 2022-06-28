@@ -1,4 +1,10 @@
-<a href="#"><img width="100%" height="auto" src="https://i.imgur.com/n737Fmc.jpg" height="175px"/></a>
+<div align="center">
+  <a href="https://snowcy.com/">
+    <img src="https://i.imgur.com/RjNqmPi.png" alt="snow" width="120" height="120">
+  </a>
+</div>
+
+<br />
 
 <div align="center"> 
   <img width="auto" height="auto" src="https://img.shields.io/github/stars/QuaDDom/snow-net?style=for-the-badge" />
@@ -23,6 +29,24 @@ Snow is a social network developed by me, it all started as a small social netwo
 * [TypeScript](https://www.typescriptlang.org/)
 * [Mongoose.js](https://mongoosejs.com/)
 * [MongoDB](https://www.mongodb.com/)
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/QuaDDom/snow-net
+   ```
+2. Install packages
+   ```sh
+   npm install
+   ```
+3. Run code
+   ```sh
+   npm run dev
+   ```
 
 <div align="center"> 
   <h2>Samples</h2>

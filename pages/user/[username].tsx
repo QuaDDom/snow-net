@@ -32,7 +32,7 @@ export default function UserProfile() {
 
     userData && userData;
     return (
-        <Layout title={`@${username} - Snow`}>
+        <>
             <Head>
                 <meta name="og:title" content={`Visit @${username} - Snow`} />
                 <meta name="og:url" content={'https://snowcy.com/user/' + username} />
@@ -46,9 +46,11 @@ export default function UserProfile() {
                 <meta property="og:image:width" content="500" />
                 <meta property="og:image:height" content="500" />
             </Head>
-            <AuthProvider>
-                <UserProfileComponent userData={userData} username={username} />
-            </AuthProvider>
-        </Layout>
+            <Layout title={`@${username} - Snow`}>
+                <AuthProvider>
+                    <UserProfileComponent userData={userData} username={username} />
+                </AuthProvider>
+            </Layout>
+        </>
     );
 }

@@ -26,7 +26,7 @@ export default function Group() {
     return (
         <>
             {group && (
-                <Layout title={group.title + ' - Snow'}>
+                <>
                     <Head>
                         <meta charSet="utf-8" className="next-head" />
                         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -45,10 +45,12 @@ export default function Group() {
                         <meta property="og:image:width" content="500" />
                         <meta property="og:image:height" content="500" />
                     </Head>
-                    <AuthProvider>
-                        <GroupComponent group={group} />
-                    </AuthProvider>
-                </Layout>
+                    <Layout title={group.title + ' - Snow'}>
+                        <AuthProvider>
+                            <GroupComponent group={group} />
+                        </AuthProvider>
+                    </Layout>
+                </>
             )}
         </>
     );

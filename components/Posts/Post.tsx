@@ -85,7 +85,7 @@ export default function Post({
     const [deleteComment, setDeleteComment] = useState(false);
     const [editComment, setEditComment] = useState(false);
 
-    const isResponsive = useMediaQuery({ query: '(max-width: 1200px)' });
+    const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     const postRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
 
     const handleHover = () => {
@@ -178,7 +178,7 @@ export default function Post({
                     postRef={postRef}
                 />
             )}
-            {user && loggedUser && user.profilePic ? (
+            {user && loggedUser && !user.profilePic ? (
                 <div className={styles.postContainer} ref={postRef}>
                     {isHover && (
                         <HoverUserProfile
@@ -334,77 +334,77 @@ export default function Post({
                     <ContentLoader
                         viewBox="0 0 380 70"
                         speed={2}
-                        width={!isResponsive ? 70 : 470}
-                        height={!isResponsive ? 150 : 140}
+                        width={!isResponsive ? 400 : 470}
+                        height={!isResponsive ? 140 : 140}
                         backgroundColor={'#424a51'}
                         foregroundColor={'#77839a'}>
                         <rect
-                            x={!isResponsive ? '' : '50'}
-                            y={!isResponsive ? '' : '8'}
+                            x={!isResponsive ? '50' : '50'}
+                            y={!isResponsive ? '8' : '8'}
                             rx="3"
                             ry="3"
-                            width={!isResponsive ? '68' : '88'}
+                            width={!isResponsive ? '88' : '88'}
                             height={!isResponsive ? '5.5' : '6.5'}
                         />
                         <rect
-                            x={!isResponsive ? '' : '148'}
-                            y={!isResponsive ? '' : '8'}
+                            x={!isResponsive ? '148' : '148'}
+                            y={!isResponsive ? '8' : '8'}
                             rx="3"
                             ry="3"
                             width={!isResponsive ? '32' : '52'}
                             height={!isResponsive ? '5.5' : '6.5'}
                         />
                         <rect
-                            x={!isResponsive ? '' : '50'}
-                            y={!isResponsive ? '' : '30'}
+                            x={!isResponsive ? '50' : '50'}
+                            y={!isResponsive ? '30' : '30'}
                             rx="3"
                             ry="3"
-                            width={!isResponsive ? '180' : '250'}
+                            width={!isResponsive ? '230' : '250'}
                             height={!isResponsive ? '5' : '6'}
                         />
                         <rect
-                            x={!isResponsive ? '' : '310'}
-                            y={!isResponsive ? '' : '30'}
+                            x={!isResponsive ? '290' : '310'}
+                            y={!isResponsive ? '30' : '30'}
                             rx="3"
                             ry="3"
-                            width={!isResponsive ? '30' : '50'}
+                            width={!isResponsive ? '50' : '50'}
                             height={!isResponsive ? '5' : '6'}
                         />
                         <rect
-                            x={!isResponsive ? '' : '50'}
-                            y={!isResponsive ? '' : '45'}
+                            x={!isResponsive ? '50' : '50'}
+                            y={!isResponsive ? '45' : '45'}
                             rx="3"
                             ry="3"
-                            width={!isResponsive ? '60' : '100'}
+                            width={!isResponsive ? '100' : '100'}
                             height={!isResponsive ? '5' : '6'}
                         />
                         <rect
-                            x={!isResponsive ? '' : '160'}
-                            y={!isResponsive ? '' : '45'}
+                            x={!isResponsive ? '160' : '160'}
+                            y={!isResponsive ? '45' : '45'}
                             rx="3"
                             ry="3"
-                            width={!isResponsive ? '20' : '40'}
+                            width={!isResponsive ? '40' : '40'}
                             height={!isResponsive ? '5' : '6'}
                         />
                         <rect
-                            x={!isResponsive ? '' : '210'}
-                            y={!isResponsive ? '' : '45'}
+                            x={!isResponsive ? '210' : '210'}
+                            y={!isResponsive ? '45' : '45'}
                             rx="3"
                             ry="3"
-                            width={!isResponsive ? '100' : '130'}
-                            height={!isResponsive ? '' : '6'}
+                            width={!isResponsive ? '130' : '130'}
+                            height={!isResponsive ? '5' : '6'}
                         />
                         <rect
-                            x={!isResponsive ? '' : '0'}
-                            y={!isResponsive ? '' : '72'}
+                            x={!isResponsive ? '0' : '0'}
+                            y={!isResponsive ? '72' : '72'}
                             rx="3"
                             ry="3"
                             width={!isResponsive ? '180' : '380'}
                             height={!isResponsive ? '' : '6'}
                         />
                         <rect
-                            x={!isResponsive ? '' : '20'}
-                            y={!isResponsive ? '' : '88'}
+                            x={!isResponsive ? '20' : '20'}
+                            y={!isResponsive ? '88' : '88'}
                             rx="3"
                             ry="3"
                             width={!isResponsive ? '100' : '178'}

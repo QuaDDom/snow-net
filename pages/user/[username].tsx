@@ -33,19 +33,6 @@ export default function UserProfile() {
     userData && userData;
     return (
         <>
-            <Head>
-                <meta name="og:title" content={`Visit @${username} - Snow`} />
-                <meta name="og:url" content={'https://snowcy.com/user/' + username} />
-                <meta name="og:site_name" content="Snow" />
-                <meta name="og:description" content="Meet new people in Snow!" />
-                <meta
-                    name="keywords"
-                    content="Social, Network, Snow, Social Network, User Profile"
-                />
-                <meta property="og:image" content={userData && userData.user.profilePic} />
-                <meta property="og:image:width" content="500" />
-                <meta property="og:image:height" content="500" />
-            </Head>
             <Layout title={`@${username} - Snow`}>
                 <AuthProvider>
                     <UserProfileComponent userData={userData} username={username} />

@@ -64,7 +64,7 @@ export default function SearchUsers() {
                             type={styles.text}
                             onChange={handleChange}
                             value={query}
-                            placeholder="Search Snow"
+                            placeholder="Search Users"
                             onFocus={() => setIsFocus(true)}
                         />
                     </div>

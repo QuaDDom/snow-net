@@ -140,7 +140,7 @@ export default function GroupComponent({ group }: { group: any }) {
                         </div>
                     </div>
                     <div className={styles.members}>
-                        {membersProfile.map((profile: string) => (
+                        {membersProfile.slice(0, 8).map((profile: string) => (
                             <div className={styles.member} key={profile}>
                                 <img src={profile} className={styles.memberProfile} />
                             </div>

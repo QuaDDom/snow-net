@@ -55,12 +55,12 @@ export default function Comment({ image, text, userId, likes, loggedUser, create
                     </div>
                 )}
             </div>
-            <CommentDots
+            {/* <CommentDots
                 username={user.username}
                 userId={userId}
                 loggedUserId={loggedUser?._id}
                 handleModal={handleModal}
-            />
+            /> */}
         </div>
     );
 }

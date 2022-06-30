@@ -162,7 +162,7 @@ export default function AddComment({ userData, fetchData, postId }: Props) {
                             id="inputFile"
                             className={styles.fileInput}
                         />
-                        <div className={styles.buttons}>
+                        {/* <div className={styles.buttons}>
                             <p onClick={handleEmojiPickerButton} className={styles.button}>
                                 <BiHappy />
                             </p>
@@ -173,7 +173,7 @@ export default function AddComment({ userData, fetchData, postId }: Props) {
                             <label htmlFor="file" className={styles.button}>
                                 <BiImageAlt />
                             </label>
-                        </div>
+                        </div> */}
                     </div>
                 </form>
             </div>

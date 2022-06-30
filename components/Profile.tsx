@@ -45,13 +45,13 @@ export default function Profile({ isOpen, userData, setIsOpen }: Props) {
                             <p className={styles.settings}>Profile</p>
                             <div />
                         </div>
-                        <div className={styles.option}>
+                        {/* <div className={styles.option}>
                             <div className={styles.icon}>
                                 <IoLanguage />
                             </div>
                             <p>Language</p>
                             <div />
-                        </div>
+                        </div> */}
                         <div className={styles.option} onClick={() => Router.push('/settings')}>
                             <div className={styles.icon}>
                                 <IoSettingsOutline />

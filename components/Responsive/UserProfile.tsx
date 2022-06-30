@@ -45,12 +45,12 @@ export default function UserProfile({ loggedUser, touch }: Props) {
                                 </span>{' '}
                                 Profile
                             </button>
-                            <button onClick={() => Router.push('/')}>
+                            {/* <button onClick={() => Router.push('/')}>
                                 <span>
                                     <IoLanguage />
                                 </span>{' '}
                                 Language
-                            </button>
+                            </button> */}
                             <button onClick={() => Router.push('/settings')}>
                                 <span>
                                     <IoSettingsOutline />

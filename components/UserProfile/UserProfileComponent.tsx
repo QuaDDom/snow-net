@@ -17,7 +17,7 @@ import UploadUserProfile from '../Settings/modals/UploadUserProfile';
 import UploadUserCover from '../Settings/modals/UploadUserCover';
 import Repost from '../Posts/Repost';
 import EditProfileModal from '../Settings/modals/User/EditProfileModal';
-import { Head } from 'next/document';
+import Head from 'next/head';
 
 interface Post {
     _id: string;

@@ -109,16 +109,23 @@
 
 @media (max-width: 1200px) {
     .welcomeContainer {
+        max-height: 100vh;
+        overflow: hidden;
         .containerAll {
             width: 100vw;
             max-height: 100vh;
+            overflow: hidden;
             .leftSide {
                 position: absolute;
-                bottom: 45vh;
                 left: 0;
+                bottom: -235px;
+                height: 100vh;
+                overflow: hidden;
+                width: 100%;
                 .bg {
                     width: 100vw;
-                    height: 48vh;
+                    height: 100vh;
+                    bottom: 0;
                 }
             }
             .rightSide {

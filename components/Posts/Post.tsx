@@ -85,7 +85,7 @@ export default function Post({
     const [deleteComment, setDeleteComment] = useState(false);
     const [editComment, setEditComment] = useState(false);
 
-    const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+    const isResponsive = useMediaQuery({ query: '(max-width: 1200px)' });
     const postRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
 
     const handleHover = () => {
@@ -334,19 +334,82 @@ export default function Post({
                     <ContentLoader
                         viewBox="0 0 380 70"
                         speed={2}
-                        width={!isResponsive ? 570 : 470}
-                        height={!isResponsive ? 160 : 140}
+                        width={!isResponsive ? 70 : 470}
+                        height={!isResponsive ? 150 : 140}
                         backgroundColor={'#424a51'}
                         foregroundColor={'#77839a'}>
-                        <rect x="50" y="8" rx="3" ry="3" width="88" height="6.5" />
-                        <rect x="148" y="8" rx="3" ry="3" width="52" height="6.5" />
-                        <rect x="50" y="30" rx="3" ry="3" width="250" height="6" />
-                        <rect x="310" y="30" rx="3" ry="3" width="50" height="6" />
-                        <rect x="50" y="45" rx="3" ry="3" width="100" height="6" />
-                        <rect x="160" y="45" rx="3" ry="3" width="40" height="6" />
-                        <rect x="210" y="45" rx="3" ry="3" width="130" height="6" />
-                        <rect x="0" y="72" rx="3" ry="3" width="380" height="6" />
-                        <rect x="20" y="88" rx="3" ry="3" width="178" height="6" />
+                        <rect
+                            x={!isResponsive ? '' : '50'}
+                            y={!isResponsive ? '' : '8'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '68' : '88'}
+                            height={!isResponsive ? '5.5' : '6.5'}
+                        />
+                        <rect
+                            x={!isResponsive ? '' : '148'}
+                            y={!isResponsive ? '' : '8'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '32' : '52'}
+                            height={!isResponsive ? '5.5' : '6.5'}
+                        />
+                        <rect
+                            x={!isResponsive ? '' : '50'}
+                            y={!isResponsive ? '' : '30'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '180' : '250'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '' : '310'}
+                            y={!isResponsive ? '' : '30'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '30' : '50'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '' : '50'}
+                            y={!isResponsive ? '' : '45'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '60' : '100'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '' : '160'}
+                            y={!isResponsive ? '' : '45'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '20' : '40'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '' : '210'}
+                            y={!isResponsive ? '' : '45'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '100' : '130'}
+                            height={!isResponsive ? '' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '' : '0'}
+                            y={!isResponsive ? '' : '72'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '180' : '380'}
+                            height={!isResponsive ? '' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '' : '20'}
+                            y={!isResponsive ? '' : '88'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '100' : '178'}
+                            height={!isResponsive ? '' : '6'}
+                        />
                         <circle cx="22" cy="19" r="19" />
                     </ContentLoader>
                 </div>

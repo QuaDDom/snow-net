@@ -178,7 +178,7 @@ export default function Post({
                     postRef={postRef}
                 />
             )}
-            {user && loggedUser && !user.profilePic ? (
+            {user && loggedUser && user.profilePic ? (
                 <div className={styles.postContainer} ref={postRef}>
                     {isHover && (
                         <HoverUserProfile

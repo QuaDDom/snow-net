@@ -334,7 +334,7 @@ export default function Post({
                     <ContentLoader
                         viewBox="0 0 380 70"
                         speed={2}
-                        width={!isResponsive ? 400 : 470}
+                        width={!isResponsive ? 370 : 470}
                         height={!isResponsive ? 140 : 140}
                         backgroundColor={'#424a51'}
                         foregroundColor={'#77839a'}>
@@ -400,7 +400,7 @@ export default function Post({
                             rx="3"
                             ry="3"
                             width={!isResponsive ? '180' : '380'}
-                            height={!isResponsive ? '' : '6'}
+                            height={!isResponsive ? '5' : '6'}
                         />
                         <rect
                             x={!isResponsive ? '20' : '20'}
@@ -408,7 +408,7 @@ export default function Post({
                             rx="3"
                             ry="3"
                             width={!isResponsive ? '100' : '178'}
-                            height={!isResponsive ? '' : '6'}
+                            height={!isResponsive ? '5' : '6'}
                         />
                         <circle cx="22" cy="19" r="19" />
                     </ContentLoader>

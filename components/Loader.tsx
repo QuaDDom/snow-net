@@ -24,7 +24,7 @@ export default function Loader({ isLoading }: Props) {
                             width={70}
                             height={70}
                         />
-                        <h2>SNOW</h2>
+                        <h1>SNOW</h1>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ export default function _document() {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta name="author" content="Mateo Leal" />
                 <meta name="title" content="Snow Network" />
-                <meta http-equiv="content-language" content="en-us" />
+                <meta httpEquiv="content-language" content="en-us" />
                 <meta
                     name="description"
                     content="Snow is a new modern social network! Sign in to connect with your friends and find groups and more."

@@ -49,6 +49,8 @@ export default function EditProfileModal({ userData, setEditProfile }: Props) {
             case 'username':
                 setUsername(e.target.value);
                 break;
+            case 'bio':
+                setBio(e.target.value);
         }
     };
 
@@ -89,7 +91,12 @@ export default function EditProfileModal({ userData, setEditProfile }: Props) {
                                 />
                             </div>
                         </div>
-                        <textarea name="" id="" value={bio} placeholder="Bio"></textarea>
+                        <textarea
+                            name=""
+                            id=""
+                            value={bio}
+                            placeholder="Bio"
+                            onChange={(e: any) => handleChange('bio', e)}></textarea>
                     </div>
                 </div>
                 <div className={styles.buttons}>

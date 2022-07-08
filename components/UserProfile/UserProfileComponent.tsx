@@ -143,10 +143,22 @@ export default function UserProfileComponent({ userData, username }: Props) {
                                     </span>
                                 )}
                             </div>
-                            <div>
+                            <div className={styles.userInfo}>
                                 <h4>{`${userData.user.name} ${userData.user.lastname}`}</h4>
                                 <p>{`@${username}`}</p>
                                 {!isResponsive && <p className={styles.bio}>{userData.user.bio}</p>}
+                                <div className={styles.followers}>
+                                    <p>
+                                        <span>{userData && userData.user.friendReqs.length}</span>{' '}
+                                        Followers
+                                    </p>
+                                    <p>
+                                        <span>
+                                            {userData && userData.user.friendReqsSend.length}
+                                        </span>{' '}
+                                        Followings
+                                    </p>
+                                </div>
                             </div>
                             <div className={styles.buttons}>
                                 {/* {!isLoggedUser && (

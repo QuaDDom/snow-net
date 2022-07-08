@@ -1,21 +1,21 @@
 @import './colors/variables.scss';
 
-.userProfileContainer{
+.userProfileContainer {
     min-height: 100vh;
     width: 100%;
-    .profile{
+    .profile {
         width: 100%;
         min-height: 530px;
         background: $black2;
         border-radius: 10px;
         position: relative;
-        .banner{
+        .banner {
             width: 92.5vw;
             height: 33vh;
             padding: 0 100px;
             position: relative;
             transition: 0.7s;
-            &.logged::before{
+            &.logged::before {
                 content: '';
                 position: absolute;
                 top: 0;
@@ -27,10 +27,10 @@
                 opacity: 0;
                 transition: 0.2s;
             }
-            &:hover::before{
+            &:hover::before {
                 opacity: 1;
             }
-            img{
+            img {
                 width: 100%;
                 height: 100%;
                 background-size: cover;
@@ -38,14 +38,14 @@
                 user-select: none;
             }
         }
-        .info{
+        .info {
             padding: 0 100px;
             position: absolute;
             top: 250px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            .profilePic{
+            .profilePic {
                 margin: 0;
                 padding: 0;
                 width: 190px;
@@ -56,7 +56,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                img{
+                img {
                     width: 190px;
                     height: 190px;
                     border-radius: 50%;
@@ -66,7 +66,7 @@
                     padding: 7px;
                     user-select: none;
                 }
-                .editProfilePic{
+                .editProfilePic {
                     position: absolute;
                     width: 183px;
                     height: 183px;
@@ -80,32 +80,53 @@
                     justify-content: center;
                     flex-direction: column;
                     font-weight: 800;
-                    span{
+                    span {
                         font-size: 3em;
                         height: 40px;
                     }
                     cursor: pointer;
-                    &:hover{
+                    &:hover {
                         opacity: 1;
                     }
                 }
             }
-            div{
-                padding: 0 10px;
-                padding-top: 50px;
-                h4{
+            .userInfo {
+                padding-left: 15px;
+                padding-top: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .followers {
+                    padding-top: 10px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    p {
+                        padding-right: 10px;
+                        span {
+                            font-weight: 600;
+                            color: #fff;
+                            padding-right: 4px;
+                        }
+                    }
+                }
+                h4 {
                     font-size: 1.8em;
                     font-weight: 600;
+                    padding-top: 50px;
                 }
-                p{
+                p {
                     color: #999;
                 }
             }
-            .buttons{
+            .buttons {
                 margin-bottom: 15px;
+                padding-top: 40px;
+                padding-left: 10px;
                 display: flex;
-                width: 300px;
-                button{
+                width: 250px;
+                button {
                     height: 35px;
                     min-width: 35px;
                     display: block;
@@ -120,30 +141,30 @@
                     align-items: center;
                     justify-content: center;
                     transition: 0.35s;
-                    &:not(.follow):hover{
+                    &:not(.follow):hover {
                         background-color: #ffffff20;
                     }
-                    &.follow{
+                    &.follow {
                         width: 100px;
                         font-size: 1em;
                         background: #fff;
                         color: #000;
                     }
-                    &.follow.followed{
+                    &.follow.followed {
                         background: transparent;
                         border: 2px solid #fff;
                         background: transparent;
                         color: #fff;
                     }
-                    &.follow.followed:hover{
+                    &.follow.followed:hover {
                         background-color: #ffffff20;
                     }
-                    &.editProfile{
+                    &.editProfile {
                         background: transparent;
                         color: #fff;
                         border: 2px solid #fff;
                         width: 120px;
-                        &:hover{
+                        &:hover {
                             background: #ffffff10;
                         }
                     }
@@ -151,7 +172,7 @@
             }
         }
     }
-    .about{
+    .about {
         width: 100%;
         height: auto;
         margin-top: 10px;
@@ -159,7 +180,7 @@
         justify-content: center;
         padding: 30px 0;
         position: relative;
-        .postsContainer{
+        .postsContainer {
             width: 50%;
             padding: 0px 20px;
             height: auto;
@@ -167,13 +188,13 @@
             align-items: center;
             flex-direction: column;
             position: relative;
-            .posts{
+            .posts {
                 display: flex;
                 align-items: center;
                 flex-direction: column-reverse;
             }
         }
-        .bio{
+        .bio {
             width: 450px;
             height: 225px;
             border-radius: 10px;
@@ -182,24 +203,24 @@
             top: 100px;
             position: sticky;
             right: 60px;
-            h4{
+            h4 {
                 font-size: 1.5em;
                 font-weight: 500;
                 padding-bottom: 10px;
             }
-            p{
+            p {
                 font-size: 1em;
             }
-            .info{
+            .info {
                 position: absolute;
                 bottom: 30px;
-                p{
+                p {
                     font-size: 0.9em;
                     color: #ccc;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    span{
+                    span {
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -213,25 +234,24 @@
     }
 }
 
-
 @media (max-width: 1500px) {
-    .userProfileContainer{
-        .profile{
+    .userProfileContainer {
+        .profile {
             min-height: 390px;
             max-height: 390px;
-            .info{
+            .info {
                 top: 150px;
                 margin-right: 5px;
-                .profilePic{
+                .profilePic {
                     width: 175px;
                     height: 175px;
-                    img{
+                    img {
                         width: 165px;
                         height: 165px;
                     }
                 }
-                div{
-                    h4{
+                div {
+                    h4 {
                         font-size: 1.6em;
                     }
                 }
@@ -240,66 +260,66 @@
     }
 }
 
-@media (max-width: 1200px){
-    .userProfileContainer{
+@media (max-width: 1200px) {
+    .userProfileContainer {
         max-width: 100vw;
         margin: 0;
         padding: 0;
-        .profile{
+        .profile {
             width: 100vw;
             min-height: 32vh;
             border-radius: 0;
-            .banner{
+            .banner {
                 width: 100vw;
                 height: 17vh;
                 padding: 0;
             }
-            .info{
+            .info {
                 padding: 0 10px;
                 top: 25vw;
                 width: 100vw;
                 justify-content: start;
                 flex-direction: column;
                 align-items: start;
-                .profilePic{
+                .profilePic {
                     width: 80px;
                     height: 80px;
-                    img{
+                    img {
                         width: 80px;
                         height: 80px;
                         padding: 4px;
                     }
                 }
-                div{
+                div {
                     padding-top: 0px;
-                    h4{
+                    h4 {
                         font-size: 1em;
                         padding-top: 10px;
                     }
-                    p{
+                    p {
                         font-size: 0.95em;
                     }
-                    .bio{
+                    .bio {
                         color: #fff;
                         font-size: 0.9em;
                         padding-top: 10px;
                     }
                 }
-                .buttons{
+                .buttons {
                     width: 45vw;
                     position: absolute;
                     right: 20px;
                     top: 60px;
                     display: flex;
                     align-items: center;
-                    button{
+                    button {
                         font-size: 1.2em;
-                        &.follow{
+                        &.follow {
                             padding: 5px 0;
                             font-size: 0.9em;
                             height: 30px;
                         }
-                        &.editProfile{
+                        &.editProfile {
                             font-size: 0.9em;
                             height: 30px;
                             width: 100px;
@@ -312,15 +332,15 @@
                 }
             }
         }
-        .about{
+        .about {
             flex-direction: column;
             align-items: center;
             justify-content: center;
             margin-top: 0;
             padding: 0;
-            .leftColumn{
+            .leftColumn {
                 width: 100vw;
-                .photos{
+                .photos {
                     width: 100vw;
                     height: 30vh;
                     position: relative;
@@ -328,11 +348,11 @@
                     left: auto;
                     margin: 0;
                     border-radius: 0;
-                    h4{
+                    h4 {
                         font-size: 1.35em;
                     }
                 }
-                .friends{
+                .friends {
                     width: 100vw;
                     height: 30vh;
                     position: relative;
@@ -340,22 +360,22 @@
                     left: auto;
                     margin: 0;
                     border-radius: 0;
-                    h4{
+                    h4 {
                         font-size: 1.35em;
                     }
                 }
             }
-            .postsContainer{
+            .postsContainer {
                 width: 100vw;
                 margin: 0;
                 padding: 0;
-                h4{
+                h4 {
                     font-size: 1.4em;
                     width: 100vw;
                     border-radius: 0;
                     margin: 0;
                 }
-                .posts{
+                .posts {
                     margin: 0;
                     padding: 0;
                 }

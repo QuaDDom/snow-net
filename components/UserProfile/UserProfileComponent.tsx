@@ -149,11 +149,11 @@ export default function UserProfileComponent({ userData, username }: Props) {
                                 {!isResponsive && <p className={styles.bio}>{userData.user.bio}</p>}
                             </div>
                             <div className={styles.buttons}>
-                                {!isLoggedUser && (
+                                {/* {!isLoggedUser && (
                                     <button>
                                         <RiMailSendLine />
                                     </button>
-                                )}
+                                )} */}
                                 <button
                                     className={`${styles.follow} ${
                                         isLoggedUser && styles.editProfile

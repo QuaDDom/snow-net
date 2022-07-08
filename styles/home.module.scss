@@ -5,11 +5,11 @@
     z-index: 14;
     .bar {
         position: fixed;
-        top: 0px;
+        top: 105px;
         left: 0;
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
         overflow-y: auto;
         &::-webkit-scrollbar {

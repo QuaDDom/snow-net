@@ -4,6 +4,7 @@ import { RiGalleryLine, RiSearchLine } from 'react-icons/ri';
 import { FaIgloo } from 'react-icons/fa';
 import styles from './ResponsiveNav.module.scss';
 import NavLink from 'next/link';
+import { BsPeopleFill } from 'react-icons/bs';
 
 export default function ResponsiveNav() {
     return (
@@ -12,8 +13,8 @@ export default function ResponsiveNav() {
                 <NavLink href="/">
                     <FaIgloo />
                 </NavLink>
-                <NavLink href="/explore">
-                    <RiSearchLine />
+                <NavLink href="/groups/all">
+                    <BsPeopleFill />
                 </NavLink>
                 <NavLink href="/messages">
                     <BiConversation />

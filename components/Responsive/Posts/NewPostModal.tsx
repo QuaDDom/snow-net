@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { MutableRefObject, useRef, useState } from 'react';
-import { AiOutlineGif } from 'react-icons/ai';
+import { AiOutlineArrowLeft, AiOutlineGif } from 'react-icons/ai';
 import { BiHappy, BiImageAlt, BiPoll } from 'react-icons/bi';
 import { projectFirestore, projectStorage, timestamp } from '../../../config/firebase.config';
 import { useDragDrop } from '../../../hooks/useDragDrop';
@@ -215,6 +215,12 @@ export default function NewPostModal({ loggedUser, fetchData, group }: Props) {
 
     return (
         <div className={styles.newPostModal}>
+            <div className={styles.bar}>
+                <button className={styles.back}>
+                    <AiOutlineArrowLeft />
+                </button>
+                <button className={styles.post}>Post</button>
+            </div>
             <div className={styles.modal}>
                 <div className={styles.space}>
                     <div className={styles.user}>

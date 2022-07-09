@@ -18,7 +18,7 @@ export default function ResposiveToPost() {
             {isOpen && (
                 <NewPostModal
                     loggedUser={loggedUser}
-                    fetchData={function(): Promise<void> {
+                    fetchData={function (): Promise<void> {
                         throw new Error('Function not implemented.');
                     }}
                 />

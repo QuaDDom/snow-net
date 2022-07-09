@@ -1,41 +1,45 @@
 @import '../../../styles/colors/variables.scss';
 
-.newPostModal{
+.newPostModal {
     position: fixed;
-    top: 50px;
-    bottom: 50px;
     left: 0;
     width: 100vw;
-    height: 90vh;
-    background: #ffffff20;
-    backdrop-filter: blur(5px);
+    height: 100vh;
+    background: $black2;
     display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 10;
-    .modal{
-        width: 95vw;
-        height: 40vh;
-        background: $black2;
-        padding: 35px;
-        border-radius: 20px;
+    z-index: 80;
+    .bar {
+        .back {
+            font-size: 1.5em;
+            color: #fff;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: start;
+        }
+    }
+    .modal {
+        width: 100vw;
+        height: 30vh;
+        padding: 35px 0px;
         position: relative;
-        .space{
+        .space {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            .user{
-                img{
-                    width: 58px;
-                    height: 58px;
+            .user {
+                img {
+                    width: 50px;
+                    height: 50px;
                     border-radius: 50%;
                     object-fit: cover;
                     background-repeat: cover;
                 }
             }
-            .input{
+            .input {
                 width: 80%;
-                input{
+                input {
                     background: none;
                     width: 100%;
                     height: 50px;
@@ -45,7 +49,7 @@
                 }
             }
         }
-        .options{
+        .options {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -55,7 +59,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            .post{
+            .post {
                 cursor: pointer;
                 width: 102px;
                 height: 42px;
@@ -66,38 +70,38 @@
                 border-radius: 30px;
                 font-weight: 800;
                 transition: 0.2s;
-                &.notAllowed{
+                &.notAllowed {
                     opacity: 0.6;
                     cursor: inherit;
                     pointer-events: none;
                 }
-                &:hover:not(.notAllowed){
+                &:hover:not(.notAllowed) {
                     background: $aqua;
                 }
             }
-            .emojiPicker{
+            .emojiPicker {
                 position: absolute;
-                transition: .3s;
+                transition: 0.3s;
                 z-index: 17;
                 top: 50px;
                 left: -90px;
             }
-            .gifSearch{
+            .gifSearch {
                 position: absolute;
-                transition: .3s;
+                transition: 0.3s;
                 z-index: 17;
                 top: 50px;
                 left: -50px;
             }
-            .buttons{
+            .buttons {
                 display: flex;
                 padding: 0px 60px;
                 padding-right: 70px;
                 color: $aquah;
-                input[type="file"]{
+                input[type='file'] {
                     display: none;
                 }
-                .button{
+                .button {
                     font-size: 1.5em;
                     margin-top: 5px;
                     width: 35px;
@@ -107,10 +111,10 @@
                     align-items: center;
                     margin: 0 10px;
                     border-radius: 50%;
-                    transition: color .2s;
+                    transition: color 0.2s;
                     cursor: pointer;
                     transition: 0.2s;
-                    &:hover{
+                    &:hover {
                         background: #6dffff20;
                     }
                 }

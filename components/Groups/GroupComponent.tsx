@@ -97,7 +97,7 @@ export default function GroupComponent({ group }: { group: any }) {
                     <div
                         className={`${styles.banner} ${isAdmin && styles.logged}`}
                         onClick={() => isAdmin && setUpdateCoverModal(true)}>
-                        <img src={group.groupCover || './noCover.jpg'} alt="" />
+                        <img src={newCoverPic || group.groupCover || './noCover.jpg'} alt="" />
                     </div>
                     <div className={styles.info}>
                         <div className={styles.groupPic}>

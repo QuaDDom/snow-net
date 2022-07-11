@@ -1,6 +1,6 @@
 @import '../../../styles/colors/variables.scss';
 
-.modalContainer{
+.modalContainer {
     background: transparent;
     position: fixed;
     z-index: 25;
@@ -15,7 +15,7 @@
     animation: appear 0.4s forwards;
     backdrop-filter: blur(2px);
     background: #ffffff20;
-    .modal{
+    .modal {
         width: 585px;
         min-height: 300px;
         max-height: 475px;
@@ -23,23 +23,23 @@
         padding: 40px 70px;
         border-radius: 15px;
         position: relative;
-        &.cover{
-            width: 45vw;
-            height: 45vh;
+        &.cover {
+            width: 850px;
+            height: 450px;
         }
-        &.reportModal{
+        &.reportModal {
             height: 37vh;
         }
-        .title{
+        .title {
             font-size: 1.4em;
             font-weight: 500;
             padding-bottom: 15px;
         }
-        p{
+        p {
             color: #999;
             padding-bottom: 20px;
         }
-        .uploadPhoto{
+        .uploadPhoto {
             margin-top: 2vh;
             background: $black3;
             display: flex;
@@ -50,7 +50,7 @@
             font-size: 3em;
             width: 100%;
             position: relative;
-            .imagePreview{
+            .imagePreview {
                 height: 100%;
                 width: 100%;
                 z-index: 3;
@@ -60,7 +60,7 @@
                 top: 0;
                 left: 0;
                 position: absolute;
-                img{
+                img {
                     height: 152px;
                     width: 152px;
                     border-radius: 50%;
@@ -68,7 +68,7 @@
                     object-fit: cover;
                 }
             }
-            .imagePreviewCover{
+            .imagePreviewCover {
                 height: 100%;
                 width: 100%;
                 z-index: 3;
@@ -78,14 +78,14 @@
                 top: 0;
                 left: 0;
                 position: absolute;
-                img{
+                img {
                     width: 900px;
                     height: 160px;
                     background-size: cover;
                     object-fit: cover;
                 }
             }
-            span{
+            span {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -94,7 +94,7 @@
                 border: 1px solid #fff;
                 border-radius: 50%;
             }
-            input{
+            input {
                 cursor: pointer;
                 position: absolute;
                 opacity: 0;
@@ -105,7 +105,7 @@
                 z-index: 4;
             }
         }
-        input{
+        input {
             width: 100%;
             height: 50px;
             background: $black3;
@@ -116,49 +116,49 @@
             font-size: 1em;
             margin-top: 15px;
             color: #fff;
-            &.reportInput{
+            &.reportInput {
                 margin-top: 0;
                 height: 7vh;
             }
         }
-        .buttons{
+        .buttons {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding-top: 45px;
-            button{
+            button {
                 color: #fff;
                 width: 10vw;
                 border-radius: 30px;
                 height: 5vh;
                 border: none;
                 outline: none;
-                transition: .3s;
+                transition: 0.3s;
                 font-size: 1em;
             }
-            .send{
+            .send {
                 background: rgb(255, 99, 99);
-                &:hover{
+                &:hover {
                     background: rgb(255, 65, 65);
                 }
             }
-            .save{
+            .save {
                 background: $secondary;
-                .loader{
+                .loader {
                     width: 100%;
                     height: 100%;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                 }
-                &:hover{
+                &:hover {
                     background: $secondaryh;
                 }
             }
-            .cancel{
+            .cancel {
                 background: $black3;
-                &:hover{
+                &:hover {
                     background: $black3h;
                 }
             }
@@ -167,10 +167,10 @@
 }
 
 @keyframes appear {
-    0%{
+    0% {
         opacity: 0;
     }
-    100%{
+    100% {
         opacity: 1;
     }
 }

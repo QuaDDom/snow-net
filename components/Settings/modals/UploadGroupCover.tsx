@@ -57,6 +57,7 @@ export default function UploadGroupCover({
                 async () => {
                     const url = await storageRef.getDownloadURL();
                     const createdAt = timestamp();
+
                     collectionRef.add({
                         url,
                         groupId

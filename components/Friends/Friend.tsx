@@ -17,7 +17,7 @@ interface Props {
 export default function Friend({ id, image, name, lastname, status, username }: Props) {
     return (
         <>
-            {image ? (
+            {image && name && lastname && id ? (
                 <div
                     className={styles.friendContainer}
                     onClick={() => Router.push('/user/' + username)}>

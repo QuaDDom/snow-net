@@ -66,7 +66,7 @@ export default function UploadGroupCover({
                     const update = async () => {
                         await axios.put(`https://snow-net.herokuapp.com/api/groups/${groupId}`, {
                             userId,
-                            coverPic: url
+                            groupCover: url
                         });
                     };
 

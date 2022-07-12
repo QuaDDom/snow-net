@@ -6,6 +6,7 @@ import { projectFirestore, projectStorage, timestamp } from '../../../config/fir
 import { imageResizer } from '../../assets/imageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
 import styles from './Modals.module.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     type?: string;
@@ -49,7 +50,7 @@ export default function UploadUserProfile({
             setIsLoading(true);
             const resizedImage: any = await imageResizer(file, 256);
             resizedImage;
-            const storageRef = projectStorage.ref(file.name);
+            const storageRef = projectStorage.ref(`SnowImg-${uuidv4()}`);
             const collectionRef = projectFirestore.collection('profilePictures');
 
             storageRef.put(resizedImage).on(

@@ -56,7 +56,7 @@ export default function NewPostModal({ loggedUser, fetchData, group }: Props) {
                 } else if (file) {
                     const resizedImage: any = await imageResizer(file);
                     resizedImage;
-                    const storageRef = projectStorage.ref(file.name);
+                    const storageRef = projectStorage.ref(`SnowImg-${uuidv4()}`);
                     const collectionRef = projectFirestore.collection('postImages');
 
                     storageRef.put(resizedImage).on(
@@ -120,7 +120,7 @@ export default function NewPostModal({ loggedUser, fetchData, group }: Props) {
         } else if (file) {
             const resizedImage: any = await imageResizer(file);
             resizedImage;
-            const storageRef = projectStorage.ref(file.name);
+            const storageRef = projectStorage.ref(`SnowImg-${uuidv4()}`);
             const collectionRef = projectFirestore.collection('postImages');
 
             storageRef.put(resizedImage).on(

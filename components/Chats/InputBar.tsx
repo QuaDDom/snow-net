@@ -60,7 +60,7 @@ export default function InputBar({
         if (message.length <= 0) return;
         setIsLoading(true);
         if (file) {
-            const storageRef = projectStorage.ref(file.name);
+            const storageRef = projectStorage.ref(`SnowImg-${uuidv4()}`);
             const collectionRef = projectFirestore.collection('chatImages');
 
             storageRef.put(file).on(

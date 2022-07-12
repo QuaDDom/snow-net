@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { projectStorage, projectFirestore, timestamp } from '../config/firebase.config';
 import { imageResizer } from '../components/assets/imageResizer';
+import { v4 as uuidv4 } from 'uuid';
 
 export const useFireStorage = (user: any, title?: string) => {
     const [file, setFile] = useState<any>(null),
@@ -28,7 +29,7 @@ export const useFireStorage = (user: any, title?: string) => {
         if (!file) return;
         setIsLoading(true);
         const resizedImage: any = await imageResizer(file, 720, 900);
-        const storageRef = projectStorage.ref(file.name);
+        const storageRef = projectStorage.ref(`SnowImg-${uuidv4()}`);
         const collectionRef = projectFirestore.collection('images');
 
         storageRef.put(resizedImage).on(

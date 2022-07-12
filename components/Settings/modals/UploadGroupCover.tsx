@@ -7,6 +7,7 @@ import { imageResizer } from '../../assets/imageResizer';
 import ImagePreview from '../../Gallery/ImagePreview';
 import ProgressBar from '../../Gallery/ProgressBar';
 import styles from './Modals.module.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     type?: string;
@@ -42,7 +43,7 @@ export default function UploadGroupCover({
             setIsLoading(true);
             const resizedImage: any = await imageResizer(file, 660, 1400);
             resizedImage;
-            const storageRef = projectStorage.ref(file.name);
+            const storageRef = projectStorage.ref(`SnowImg-${uuidv4()}`);
             const collectionRef = projectFirestore.collection('coverPictures');
 
             storageRef.put(resizedImage).on(

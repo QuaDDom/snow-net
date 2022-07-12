@@ -62,7 +62,7 @@ export default function AddComment({ userData, fetchData, postId }: Props) {
         if (!text.trim()) return;
         ('add');
         if (file) {
-            const storageRef = projectStorage.ref(file.name);
+            const storageRef = projectStorage.ref(`SnowImg-${uuidv4()}`);
             const collectionRef = projectFirestore.collection('postCommentsImage');
 
             storageRef.put(file).on(

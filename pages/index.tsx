@@ -15,7 +15,7 @@ const Home = () => {
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     return (
         <>
-            <Head>
+            <head>
                 <meta charSet="utf-8" className="next-head" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,7 +48,7 @@ const Home = () => {
                     type="text/css"
                     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
                 />
-            </Head>
+            </head>
             <Layout title="Snow">
                 <div className={styles.homeContainer}>
                     <AuthProvider>

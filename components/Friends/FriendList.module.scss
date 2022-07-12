@@ -12,6 +12,23 @@
         width: 400px;
         position: relative;
         min-height: 26vh;
+        .friends {
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: 260px;
+            &::-webkit-scrollbar {
+                width: 2.3px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: #ffffff60;
+                transition: 0.3s;
+                border-radius: 20px;
+                width: 0;
+                &:hover {
+                    background: #ffffff99;
+                }
+            }
+        }
         .noFriends {
             height: 100%;
             width: 100%;

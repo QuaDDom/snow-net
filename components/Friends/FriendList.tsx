@@ -38,31 +38,33 @@ export default function FriendList() {
             <div className={styles.border} />
             <div className={styles.friendGrid}>
                 <h2>Friends</h2>
-                {friendsData ? (
-                    friendsData.map(
-                        (
-                            { _id, name, lastname, profilePic, status, username }: any,
-                            index: number
-                        ) => (
-                            <Friend
-                                id={_id}
-                                name={name}
-                                lastname={lastname}
-                                image={profilePic}
-                                status={status}
-                                key={index}
-                                username={username}
-                            />
+                <div className={styles.friends}>
+                    {friendsData ? (
+                        friendsData.map(
+                            (
+                                { _id, name, lastname, profilePic, status, username }: any,
+                                index: number
+                            ) => (
+                                <Friend
+                                    id={_id}
+                                    name={name}
+                                    lastname={lastname}
+                                    image={profilePic}
+                                    status={status}
+                                    key={index}
+                                    username={username}
+                                />
+                            )
                         )
-                    )
-                ) : (
-                    <div className={styles.noFriends}>
-                        <span>
-                            <RiEmotionSadFill />
-                        </span>
-                        <p>{"You don't have friends yet"}</p>
-                    </div>
-                )}
+                    ) : (
+                        <div className={styles.noFriends}>
+                            <span>
+                                <RiEmotionSadFill />
+                            </span>
+                            <p>{"You don't have friends yet"}</p>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

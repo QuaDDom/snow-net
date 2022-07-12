@@ -15,7 +15,7 @@ const Home = () => {
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     return (
         <>
-            <head>
+            <Head>
                 <meta charSet="utf-8" className="next-head" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,7 +27,7 @@ const Home = () => {
                     content="Snow is a new modern social network! Sign in to connect with your friends and find groups and more."
                 />
                 <meta name="og:title" content="Snow" />
-                <meta name="og:url" content="https://snowcy.com" />
+                <meta name="og:url" content="https://snowcy.com/user/" />
                 <meta name="og:site_name" content="Snow" />
                 <meta
                     name="og:description"
@@ -48,7 +48,7 @@ const Home = () => {
                     type="text/css"
                     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
                 />
-            </head>
+            </Head>
             <Layout title="Snow">
                 <div className={styles.homeContainer}>
                     <AuthProvider>

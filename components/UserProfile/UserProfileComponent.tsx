@@ -82,7 +82,7 @@ export default function UserProfileComponent({ userData, username }: Props) {
 
     return (
         <>
-            <head>
+            <Head>
                 <meta name="og:title" content={`Visit @${username} - Snow`} />
                 <meta name="og:url" content={'https://snowcy.com/user/' + username} />
                 <meta name="og:site_name" content="Snow" />
@@ -94,7 +94,7 @@ export default function UserProfileComponent({ userData, username }: Props) {
                 <meta property="og:image" content={userData && userData.user.profilePic} />
                 <meta property="og:image:width" content="500" />
                 <meta property="og:image:height" content="500" />
-            </head>
+            </Head>
             {updatePfpModal && (
                 <UploadUserProfile
                     title="Upload Profile Picture"

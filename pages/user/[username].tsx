@@ -8,29 +8,33 @@ import UserProfileComponent from '../../components/UserProfile/UserProfileCompon
 import { useMediaQuery } from 'react-responsive';
 import Head from 'next/head';
 
-export default function UserProfile() {
-    const [userData, setUserData] = useState<any>(null);
+interface Props {
+    user: any;
+    posts: any;
+}
+
+export default function UserProfile({ user, posts }: Props) {
+    const [userData, setUserData] = useState<any>({ user, posts });
     const router = useRouter();
     const username = router.query.username;
 
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const posts = await axios.get(
-                    `https://snow-net.herokuapp.com/api/posts/profile/${username}`
-                );
-                const user = await axios.get(
-                    `https://snow-net.herokuapp.com/api/users/profile/${username}`
-                );
-                setUserData({ user: user.data, posts: posts.data });
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        fetchUserData();
-    }, [username]);
+    // useEffect(() => {
+    //     const fetchUserData = async () => {
+    //         try {
+    //             const posts = await axios.get(
+    //                 `https://snow-net.herokuapp.com/api/posts/profile/${context.query.username}`
+    //             );
+    //             const user = await axios.get(
+    //                 `https://snow-net.herokuapp.com/api/users/profile/${context.query.username}`
+    //             );
+    //             setUserData({ user: user.data, posts: posts.data });
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     };
+    //     fetchUserData();
+    // }, [username]);
 
-    userData && userData;
     return (
         <>
             <Layout title={`@${username} - Snow`}>
@@ -40,4 +44,18 @@ export default function UserProfile() {
             </Layout>
         </>
     );
+}
+
+export async function getServerSideProps(context: any) {
+    const posts = await axios.get(
+        `https://snow-net.herokuapp.com/api/posts/profile/${context.query.username}`
+    );
+
+    const user = await axios.get(
+        `https://snow-net.herokuapp.com/api/users/profile/${context.query.username}`
+    );
+
+    return {
+        props: { user: user.data, posts: posts.data }
+    };
 }

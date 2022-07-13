@@ -8,6 +8,7 @@ import EmojiPicker from '../Pickers/EmojiPicker';
 import { projectStorage, projectFirestore, timestamp } from '../../config/firebase.config';
 import GIFSearcher from '../Pickers/GIFSearcher';
 import ImagePreview from '../Gallery/ImagePreview';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     loggedUser: any;

@@ -12,7 +12,7 @@ import Router from 'next/router';
 import CreatePoll from './CreatePoll';
 import ProgressBar from '../Gallery/ProgressBar';
 import { imageResizer } from '../assets/imageResizer';
-
+import { v4 as uuidv4 } from 'uuid';
 import TextareaAutosize from 'react-textarea-autosize';
 import { Oval } from 'react-loader-spinner';
 

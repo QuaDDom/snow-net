@@ -6,6 +6,7 @@ import { projectFirestore, projectStorage, timestamp } from '../../../config/fir
 import { useDragDrop } from '../../../hooks/useDragDrop';
 import { imageResizer } from '../../assets/imageResizer';
 import styles from './NewPostModal.module.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     loggedUser: any;

@@ -9,6 +9,7 @@ import ImagePreview from '../../Gallery/ImagePreview';
 import GIFSearcher from '../../Pickers/GIFSearcher';
 import EmojiPicker from '../../Pickers/EmojiPicker';
 import styles from './AddComment.module.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
     userData: any;

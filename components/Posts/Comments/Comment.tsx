@@ -1,8 +1,13 @@
 import axios from 'axios';
 import Router from 'next/router';
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
+import remarkGfm from 'remark-gfm';
 import { format } from 'timeago.js';
 import { useGetUser } from '../../../hooks/useGetUser';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import Markdown from '../../Markdown/Markdown';
 import styles from './Comment.module.scss';
 import CommentDots from './CommentDots';
 
@@ -22,6 +27,7 @@ interface Props {
 export default function Comment({ image, text, userId, likes, loggedUser, createdAt }: Props) {
     const [openImage, setOpenImage] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
+    const [textState, setTextState] = useState(text);
     const user: any = useGetUser(userId);
 
     const handleClick = () => setOpenImage(true);
@@ -48,7 +54,36 @@ export default function Comment({ image, text, userId, likes, loggedUser, create
                 </div>
             </div>
             <div className={styles.post}>
-                {text && <p className={styles.text}>{text}</p>}
+                {text && (
+                    <p className={styles.text}>
+                        {
+                            <ReactMarkdown
+                                children={textState}
+                                remarkPlugins={[[remarkGfm]]}
+                                components={{
+                                    code({ node, inline, className, children, ...props }) {
+                                        const match = /language-(\w+)/.exec(className || '');
+                                        return !inline && match ? (
+                                            <SyntaxHighlighter
+                                                children={String(textState)
+                                                    .replace(/\n$/, '')
+                                                    .replace('~~~', '')
+                                                    .replace('~~~', '')
+                                                    .replace(match[1], '')
+                                                    .replace('```', '')
+                                                    .replace('```', '')}
+                                                style={dracula}
+                                                language={match[1]}
+                                            />
+                                        ) : (
+                                            <Markdown node={node} children={children} />
+                                        );
+                                    }
+                                }}
+                            />
+                        }
+                    </p>
+                )}
                 {image && (
                     <div className={styles.imageContainer}>
                         <img src={image} width="100%" onClick={handleClick} />

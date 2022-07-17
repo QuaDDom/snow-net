@@ -2,7 +2,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light-async';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import remarkGfm from 'remark-gfm';
 import { format } from 'timeago.js';
 import { useGetUser } from '../../../hooks/useGetUser';

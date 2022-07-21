@@ -39,7 +39,7 @@ export default function UploadUserCover({
     const updateProfile = async () => {
         try {
             setIsLoading(true);
-            const resizedImage: any = await imageResizer(file, 660, 1400);
+            const resizedImage: any = await imageResizer(file, 770, 1800);
             resizedImage;
             const storageRef = projectStorage.ref(`SnowImg-${uuidv4()}`);
             const collectionRef = projectFirestore.collection('coverPictures');

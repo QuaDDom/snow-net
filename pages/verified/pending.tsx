@@ -8,7 +8,7 @@ export default function Pending() {
             <div className={styles.bg} />
             <div className={styles.content}>
                 <div className={styles.pendingImg}>
-                    <img src="/pending.svg" />
+                    <img src="/verified/pending.svg" />
                 </div>
                 <p>
                     We have sent you a verification by mail! Click the link to finish the

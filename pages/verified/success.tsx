@@ -8,7 +8,7 @@ export default function success() {
             <div className={styles.bg} />
             <div className={styles.content}>
                 <div className={styles.successImg}>
-                    <img src="./success.svg" />
+                    <img src="/verified/success.svg" />
                 </div>
                 <p>You have successfully registered in Snow!</p>
                 <button>

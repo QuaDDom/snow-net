@@ -37,7 +37,7 @@ export default function RegisterInputs() {
             .string()
             .required('This field is required')
             .min(3)
-            .max(10)
+            .max(15)
             .lowercase('Please put the username in lowercase'),
         name: yup.string().required('This field is required').min(3).max(10),
         lastname: yup.string().required('This field is required').min(3).max(14),

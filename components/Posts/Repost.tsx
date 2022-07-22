@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useGetUser } from '../../hooks/useGetUser';
 import OpenImage from '../OpenImage';
 import styles from './Post.module.scss';
@@ -8,9 +8,24 @@ import PostDots from '../Posts/PostDots';
 import { format, register } from 'timeago.js';
 import ConfirmDelete from '../Posts/ConfirmDelete';
 import axios from 'axios';
-import { BiRepost } from 'react-icons/bi';
+import Poll from './Poll';
+import { BsPinAngleFill } from 'react-icons/bs';
 import Comments from './Comments/Comments';
+import extract from 'mention-hashtag';
+import HoverUserProfile from '../Hover/HoverUserProfile';
+import EditModal from '../Settings/modals/EditModal';
+import Report from '../Modals/Report';
+import { MutableRefObject } from 'react';
 import PostDotsOptions from './PostDotsOptions';
+import { useMediaQuery } from 'react-responsive';
+import DeleteCommentModal from '../Settings/modals/DeleteCommentModal';
+import EditCommentModal from '../Settings/modals/EditCommentModal';
+import remarkGfm from 'remark-gfm';
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import Markdown from '../Markdown/Markdown';
+import ContentLoader from 'react-content-loader';
 
 interface Props {
     _id: string;
@@ -21,13 +36,14 @@ interface Props {
     text: string;
     image: string;
     userId: string;
-    likes: [];
+    likes: any;
     fetchData: () => Promise<void>;
     loggedUser: any;
     createdAt: any;
-    repostedPost: string;
     repostedBy: any;
-    poll: [string];
+    poll?: [string];
+    pinned: boolean;
+    group: any;
 }
 
 interface User {
@@ -36,7 +52,8 @@ interface User {
     name: string;
     lastname: string;
     profilePic: string;
-    _id?: string;
+    bio: string;
+    coverPic: string;
 }
 
 export default function Post({
@@ -48,51 +65,50 @@ export default function Post({
     fetchData,
     loggedUser,
     createdAt,
-    repostedPost,
-    repostedBy
+    repostedBy,
+    poll,
+    pinned,
+    group
 }: Props) {
     const [openImage, setOpenImage] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
-    const [postUser, setPostUser] = useState<any>(null);
-    const [post, setPost] = useState<any>(null);
     const [showComments, setShowComments] = useState(false);
     const [comments, setComments] = useState<any>(null);
-    const [optionsPosition, setOptionsPosition] = useState<any>(null);
-    const [optionsOpen, setOptionsOpen] = useState(false);
+    const [hashtags, setHashtags] = useState<any>([]);
+    const [isHover, setIsHover] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [textState, setTextState] = useState(text);
     const [reportModal, setReportModal] = useState(false);
+    const [optionsPosition, setOptionsPosition] = useState<any>(null);
+    const [optionsOpen, setOptionsOpen] = useState(false);
+    const [fullName, setFullName] = useState('');
+    const [deleteComment, setDeleteComment] = useState(false);
+    const [editComment, setEditComment] = useState(false);
 
+    const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
     const postRef = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLDivElement>;
 
-    const getComments = async () => {
-        if (post) {
-            const commentsData = await axios.get(
-                `https://snow-net.herokuapp.com/api/posts/comments/${post._id}`
-            );
-            setComments([...commentsData.data]);
-        }
+    const handleHover = () => {
+        setIsHover(true);
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const postData = await axios.get(
-                `https://snow-net.herokuapp.com/api/posts/${repostedPost}`
-            );
-            const userPost = await axios.get(
-                `https://snow-net.herokuapp.com/api/users/${postData.data.userId}`
-            );
-            setPost(postData.data);
-            setPostUser(userPost.data);
-        };
-        fetchData();
-    }, []);
+    const handleOpenOptions = () => (optionsOpen ? setOptionsOpen(false) : setOptionsOpen(true));
+
+    const getComments = async () => {
+        const commentsData = await axios.get(
+            `https://snow-net.herokuapp.com/api/posts/comments/${_id}`
+        );
+        setComments([...commentsData.data]);
+    };
+    const user: User = useGetUser(userId);
 
     useEffect(() => {
         getComments();
-    }, [post]);
+    }, []);
 
-    const user: User = useGetUser(userId);
+    useEffect(() => {
+        setFullName(`${user.name} ${user.lastname}`);
+    }, [user]);
 
     const handleClick = () => setOpenImage(true);
     const handleModal = () => (modalOpen ? setModalOpen(false) : setModalOpen(true));
@@ -100,7 +116,7 @@ export default function Post({
     const handleReportModal = () => (reportModal ? setReportModal(false) : setReportModal(true));
 
     const handleImageClick = () => {
-        Router.push('user/' + postUser.username);
+        Router.push('user/' + user.username);
     };
 
     const deletePost = async () => {
@@ -110,113 +126,297 @@ export default function Post({
         fetchData();
     };
 
+    const localeFunc = (number: any, index: any, totalSec: any): any => {
+        return [
+            ['just now', 'right now'],
+            ['%ss', 'in %s seconds'],
+            ['1m', 'in 1 minute'],
+            ['%sm', 'in %s minutes'],
+            ['1h', 'in 1 hour'],
+            ['%sh', 'in %s hours'],
+            ['1d', 'in 1 day'],
+            ['%sd', 'in %s days'],
+            ['1w', 'in 1 week'],
+            ['%sw', 'in %s weeks'],
+            ['1m', 'in 1 month'],
+            ['%sm', 'in %s months'],
+            ['1y', 'in 1 year'],
+            ['%sy', 'in %s years']
+        ][index];
+    };
+
+    register('my-locale', localeFunc);
+
     return (
         <>
-            <div>
-                {optionsOpen && (
-                    <PostDotsOptions
-                        username={user.username}
-                        userId={userId}
-                        loggedUserId={loggedUser?._id}
-                        postId={_id}
-                        deletePost={deletePost}
-                        handleModal={handleModal}
-                        handleEdit={handleEditModal}
-                        isOpen={optionsOpen}
-                        setIsOpen={setOptionsOpen}
-                        postRef={postRef}
-                        reposted={true}
-                        handleReportModal={function(): void {
-                            throw new Error('Function not implemented.');
-                        }}
-                    />
-                )}
-                {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen} />}
-                {user && postUser && loggedUser && post && (
-                    <div className={styles.postContainer} ref={postRef}>
-                        <p
-                            className={styles.reposted}
-                            onClick={() => Router.push('/user/' + user.username)}>
+            {modalOpen && <ConfirmDelete deletePost={deletePost} setModalOpen={setModalOpen} />}
+            {deleteComment && <DeleteCommentModal />}
+            {editComment && <EditCommentModal />}
+            {editModal && (
+                <EditModal
+                    setIsOpen={setEditModal}
+                    value={text}
+                    title="Edit Post"
+                    userId={loggedUser._id}
+                    postId={_id}
+                    setText={setTextState}
+                />
+            )}
+            {reportModal && <Report postId={_id} setModalOpen={setReportModal} />}
+            {optionsOpen && (
+                <PostDotsOptions
+                    username={user.username}
+                    userId={userId}
+                    loggedUserId={loggedUser?._id}
+                    postId={_id}
+                    deletePost={deletePost}
+                    handleModal={handleModal}
+                    handleEdit={handleEditModal}
+                    handleReportModal={handleReportModal}
+                    isOpen={optionsOpen}
+                    setIsOpen={setOptionsOpen}
+                    postRef={postRef}
+                />
+            )}
+            {user && loggedUser && user.profilePic ? (
+                <div className={styles.postContainer} ref={postRef}>
+                    {isHover && (
+                        <HoverUserProfile
+                            name={`${user.name} ${user.lastname}`}
+                            username={user.username}
+                            bio={user.bio}
+                            profilePic={user.profilePic}
+                            bannerPic={user.coverPic}
+                        />
+                    )}
+                    {pinned && (
+                        <p className={styles.pinned}>
                             <span>
-                                <BiRepost />
+                                <BsPinAngleFill />
                             </span>{' '}
-                            {user.name + ' ' + user.lastname} Reposted
+                            Pinned Post
                         </p>
-                        <div className={styles.user}>
-                            <img
-                                src={postUser.profilePic || 'noProfile.png'}
-                                alt={postUser.name}
-                                onClick={handleImageClick}
-                            />
-                            <div className={styles.bothColumn}>
-                                <h5
-                                    className={
-                                        postUser.name || `${styles.skeleton} ${styles.skeletonText}`
-                                    }>
-                                    {`${postUser.name} ${postUser.lastname}`}
-                                </h5>
+                    )}
+                    <div className={`${styles.user} ${group && styles.groupStyle}`}>
+                        <img
+                            src={group?.groupPic || user.profilePic || 'noProfile.png'}
+                            alt={user.name}
+                            onClick={handleImageClick}
+                            className={`${group && styles.group}`}
+                            onMouseMove={handleHover}
+                            onMouseLeave={() => setIsHover(false)}
+                            onMouseDown={() => setIsHover(false)}
+                            onMouseOut={() => setIsHover(false)}
+                        />
+                        {group && user.profilePic && (
+                            <img src={user.profilePic} className={styles.userGroup} />
+                        )}
+                        <div className={styles.bothColumn}>
+                            <h5
+                                className={
+                                    user.name || `${styles.skeleton} ${styles.skeletonText}`
+                                }>
+                                {group
+                                    ? `${group.title}`
+                                    : `${
+                                          isResponsive
+                                              ? fullName
+                                              : fullName.length > 12
+                                              ? fullName.substring(0, 12) + '...'
+                                              : fullName
+                                      } `}
+                            </h5>
+                            {group && (
                                 <p
                                     className={
-                                        postUser.username ||
-                                        `${styles.skeleton} ${styles.skeletonText}`
-                                    }>
-                                    {postUser.username && `@${postUser.username}`}
-                                </p>
-                                <p>·</p>
-                                <p className={styles.createdAt}>
-                                    {format(post.createdAt, 'my-locale')}
-                                </p>
-                            </div>
-                            <PostDots
-                                username={user.username}
-                                userId={userId}
-                                loggedUserId={loggedUser?._id}
-                                postId={_id}
-                                fetchData={fetchData}
-                                deletePost={deletePost}
-                                handleModal={handleModal}
-                                handleEdit={handleEditModal}
-                                handleReport={handleReportModal}
-                                isOpen={optionsOpen}
-                                setIsOpen={setOptionsOpen}
-                            />
-                        </div>
-                        <div className={styles.post}>
-                            {text && <p className={styles.text}>{text}</p>}
-                            {image && (
-                                <div className={styles.imageContainer}>
-                                    <img src={image} width="100%" onClick={handleClick} />
-                                </div>
+                                        styles.groupUsername
+                                    }>{`${user.name} ${user.lastname} · @${user.username}`}</p>
                             )}
+                            {!group && (
+                                <p
+                                    className={
+                                        user.username || `${styles.skeleton} ${styles.skeletonText}`
+                                    }>
+                                    {user.username &&
+                                        `@${
+                                            isResponsive
+                                                ? user.username
+                                                : user.username.length > 8
+                                                ? user.username.substring(0, 8) + '...'
+                                                : user.username
+                                        }`}
+                                </p>
+                            )}
+                            <p>·</p>
+                            <p className={styles.createdAt}>{format(createdAt, 'my-locale')}</p>
                         </div>
-                        <PostOptions
+                        <PostDots
+                            username={user.username}
                             userId={userId}
-                            likes={likes}
-                            _id={_id}
+                            loggedUserId={loggedUser?._id}
+                            postId={_id}
                             fetchData={fetchData}
-                            loggedUser={loggedUser}
-                            image={image}
-                            text={text}
-                            createdAt={createdAt}
-                            repostedBy={repostedBy}
-                            setShowComments={setShowComments}
-                            showComments={showComments}
-                            comments={comments}
+                            deletePost={deletePost}
+                            handleModal={handleModal}
+                            handleEdit={handleEditModal}
+                            handleReport={handleReportModal}
+                            isOpen={optionsOpen}
+                            setIsOpen={setOptionsOpen}
                         />
-                        {showComments && post && (
-                            <Comments
-                                loggedUser={loggedUser}
-                                postId={post._id}
-                                comments={comments}
-                                getComments={getComments}
-                            />
+                    </div>
+                    <div className={styles.post}>
+                        {text && (
+                            <p className={styles.text}>
+                                {
+                                    <ReactMarkdown
+                                        children={textState}
+                                        remarkPlugins={[[remarkGfm]]}
+                                        components={{
+                                            code({ node, inline, className, children, ...props }) {
+                                                const match = /language-(\w+)/.exec(
+                                                    className || ''
+                                                );
+                                                return !inline && match ? (
+                                                    <SyntaxHighlighter
+                                                        children={String(textState)
+                                                            .replace(/\n$/, '')
+                                                            .replace('~~~', '')
+                                                            .replace('~~~', '')
+                                                            .replace(match[1], '')
+                                                            .replace('```', '')
+                                                            .replace('```', '')}
+                                                        style={dracula}
+                                                        language={match[1]}
+                                                    />
+                                                ) : (
+                                                    <Markdown node={node} children={children} />
+                                                );
+                                            }
+                                        }}
+                                    />
+                                }
+                            </p>
+                        )}
+                        {image && (
+                            <div className={styles.imageContainer}>
+                                <img src={image} width="100%" onClick={handleClick} />
+                            </div>
+                        )}
+                        {poll && poll.length > 0 && (
+                            <Poll poll={poll} loggedUser={loggedUser} _id={_id} />
                         )}
                     </div>
-                )}
-                {openImage && (
-                    <OpenImage img={image} openImage={openImage} setOpenImage={setOpenImage} />
-                )}
-            </div>
+                    <PostOptions
+                        userId={userId}
+                        likes={likes}
+                        _id={_id}
+                        fetchData={fetchData}
+                        loggedUser={loggedUser}
+                        image={image}
+                        text={text}
+                        createdAt={createdAt}
+                        repostedBy={repostedBy}
+                        setShowComments={setShowComments}
+                        showComments={showComments}
+                        comments={comments}
+                    />
+                    {showComments && (
+                        <Comments
+                            loggedUser={loggedUser}
+                            postId={_id}
+                            comments={comments}
+                            getComments={getComments}
+                        />
+                    )}
+                </div>
+            ) : (
+                <div className={styles.postContainer}>
+                    <ContentLoader
+                        viewBox="0 0 380 70"
+                        speed={2}
+                        width={!isResponsive ? 370 : 470}
+                        height={!isResponsive ? 140 : 140}
+                        backgroundColor={'#424a51'}
+                        foregroundColor={'#77839a'}>
+                        <rect
+                            x={!isResponsive ? '50' : '50'}
+                            y={!isResponsive ? '8' : '8'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '88' : '88'}
+                            height={!isResponsive ? '5.5' : '6.5'}
+                        />
+                        <rect
+                            x={!isResponsive ? '148' : '148'}
+                            y={!isResponsive ? '8' : '8'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '32' : '52'}
+                            height={!isResponsive ? '5.5' : '6.5'}
+                        />
+                        <rect
+                            x={!isResponsive ? '50' : '50'}
+                            y={!isResponsive ? '30' : '30'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '230' : '250'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '290' : '310'}
+                            y={!isResponsive ? '30' : '30'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '50' : '50'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '50' : '50'}
+                            y={!isResponsive ? '45' : '45'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '100' : '100'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '160' : '160'}
+                            y={!isResponsive ? '45' : '45'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '40' : '40'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '210' : '210'}
+                            y={!isResponsive ? '45' : '45'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '130' : '130'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '0' : '0'}
+                            y={!isResponsive ? '72' : '72'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '180' : '380'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <rect
+                            x={!isResponsive ? '20' : '20'}
+                            y={!isResponsive ? '88' : '88'}
+                            rx="3"
+                            ry="3"
+                            width={!isResponsive ? '100' : '178'}
+                            height={!isResponsive ? '5' : '6'}
+                        />
+                        <circle cx="22" cy="19" r="19" />
+                    </ContentLoader>
+                </div>
+            )}
+            {openImage && (
+                <OpenImage img={image} openImage={openImage} setOpenImage={setOpenImage} />
+            )}
         </>
     );
 }

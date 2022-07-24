@@ -48,7 +48,6 @@ export const AuthProvider = ({ children }: Props) => {
         const getData = async () => {
             if (loggedUser) {
                 try {
-                    console.log('get');
                     const data = await axios.post(
                         'https://snow-net.herokuapp.com/api/auth/userdata',
                         {},

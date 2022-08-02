@@ -27,6 +27,7 @@ import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Markdown from '../Markdown/Markdown';
 import ContentLoader from 'react-content-loader';
 import LoadingPost from './Loader/LoadingPost';
+import Pusher from 'pusher-js';
 
 interface Props {
     _id: string;

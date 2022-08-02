@@ -97,6 +97,11 @@ module.exports = {
         ]
         /* Advanced module configuration (click to show) */
     },
+    node: {
+        net: 'empty',
+        tls: 'empty',
+        dns: 'empty'
+    },
     resolve: {
         // options for resolving module requests
         // (does not apply to resolving of loaders)
@@ -130,7 +135,7 @@ module.exports = {
         hints: 'warning', // enum
         maxAssetSize: 200000, // int (in bytes),
         maxEntrypointSize: 400000, // int (in bytes)
-        assetFilter: function(assetFilename) {
+        assetFilter: function (assetFilename) {
             // Function predicate that provides asset filenames
             return assetFilename.endsWith('.css') || assetFilename.endsWith('.js');
         }

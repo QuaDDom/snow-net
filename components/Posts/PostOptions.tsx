@@ -4,6 +4,9 @@ import { HiOutlineHeart, HiHeart } from 'react-icons/hi';
 import { BiRepost, BiComment } from 'react-icons/bi';
 import axios from 'axios';
 import { useEffect } from 'react';
+import LikeCounter from './Options/LikeCounter';
+import RepostCounter from './Options/RepostCounter';
+import Pusher from 'pusher-js';
 
 interface Props {
     userId: string;
@@ -40,7 +43,6 @@ export default function PostOptions({
 
     const handleLike = async () => {
         isLiked ? setIsLiked(false) : setIsLiked(true);
-        isLiked ? setTotalLikes(totalLikes - 1) : setTotalLikes(totalLikes + 1);
         await axios.put(`https://snow-net.herokuapp.com/api/posts/${_id}/like`, {
             userId: loggedUser._id
         });
@@ -82,24 +84,17 @@ export default function PostOptions({
                 </span>
                 <p>{comments && comments.length}</p>
             </div>
-            <div className={styles.repost} onClick={handleRepost}>
-                <span className={`${isReposted && styles.reposted}`}>
-                    <BiRepost />
-                </span>
-                <p className={`${isReposted && styles.reposted}`}>{totalReposts}</p>
-            </div>
-            <div className={styles.likes} onClick={handleLike}>
-                {isLiked ? (
-                    <span className={styles.isLiked}>
-                        <HiHeart />
-                    </span>
-                ) : (
-                    <span>
-                        <HiOutlineHeart />
-                    </span>
-                )}
-                <p className={`${isLiked && styles.liked}`}>{totalLikes}</p>
-            </div>
+            <RepostCounter
+                handleRepost={handleRepost}
+                totalReposts={totalReposts}
+                isReposted={isReposted}
+            />
+            <LikeCounter
+                handleLike={handleLike}
+                totalLikes={totalLikes}
+                isLiked={isLiked}
+                _id={_id}
+            />
         </div>
     );
 }

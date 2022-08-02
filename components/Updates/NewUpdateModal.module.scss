@@ -1,0 +1,116 @@
+@import '../../styles/colors/variables.scss';
+
+.modalContainer {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #ffffff20;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    .newUpdateModal {
+        max-height: 600px;
+        width: 630px;
+        background: $black3;
+        border-radius: 10px;
+        padding: 35px 40px;
+        position: relative;
+        padding-bottom: 75px;
+        .closeModal {
+            button {
+                font-size: 1.5em;
+                position: absolute;
+                top: 35px;
+                right: 40px;
+                background: transparent;
+                border: none;
+                color: #fff;
+                border-radius: 50%;
+                transition: 0.2s;
+                height: 30px;
+                width: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:hover {
+                    background: #ffffff20;
+                }
+            }
+        }
+        .intro {
+            width: 100%;
+            .text {
+                p {
+                    font-size: 0.9em;
+                    color: #999;
+                }
+            }
+            .snowLogo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 150px;
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                margin: 20px 0;
+                .cover {
+                    width: 100%;
+                    height: 150px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-size: cover;
+                    object-fit: cover;
+                }
+                .logo {
+                    width: 100px;
+                    height: 100px;
+                    z-index: 2;
+                }
+            }
+        }
+        .content {
+            width: 100%;
+            .newFeaturesText {
+                display: flex;
+                align-items: center;
+                h3 {
+                    font-size: 1.15em;
+                    padding-right: 10px;
+                    color: #aef6ff;
+                }
+                .line {
+                    height: 3px;
+                    width: 72%;
+                    background: #aef6ff;
+                }
+            }
+            ul {
+                padding-top: 15px;
+                font-size: 0.9em;
+                width: 100%;
+                li {
+                    display: flex;
+                    align-items: center;
+                    div {
+                        padding-bottom: 11px;
+                    }
+                    .title {
+                        font-weight: bold;
+                        color: #ccc;
+                        max-width: 120px;
+                    }
+                    .description {
+                        color: #a1a1a1;
+                    }
+                }
+            }
+        }
+    }
+}

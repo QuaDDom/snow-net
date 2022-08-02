@@ -10,9 +10,15 @@ import { useMediaQuery } from 'react-responsive';
 import OptionsBar from '../components/Options/OptionsBar';
 import SlideFriends from '../components/Responsive/SlideFriends';
 import ResposiveToPost from '../components/Responsive/Posts/ResposiveToPost';
+import NewUpdateFeatureList from '../components/Updates/NewUpdateFeatureList';
+import NewUpdateModal from '../components/Updates/NewUpdateModal';
+import { useState } from 'react';
+import Pusher from 'pusher-js';
 
 const Home = () => {
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+    const [newUpdateModal, setNewUpdateModal] = useState(true);
+
     return (
         <>
             <Head>
@@ -50,6 +56,28 @@ const Home = () => {
                 />
             </Head>
             <Layout title="Snow">
+                {newUpdateModal && (
+                    <NewUpdateModal
+                        features={[
+                            {
+                                title: 'Realtime',
+                                description:
+                                    'Now the likes and reposts are totally realtime and it is possible to visualize their change instantly'
+                            },
+                            {
+                                title: 'Online Status',
+                                description:
+                                    'Now you can see if a user is online! A green circle will appear indicating the status'
+                            },
+                            {
+                                title: 'Bug fixes',
+                                description:
+                                    'Emoji picker scrollbar, performance, UI/UX general errors'
+                            }
+                        ]}
+                        setOpen={setNewUpdateModal}
+                    />
+                )}
                 <div className={styles.homeContainer}>
                     <AuthProvider>
                         {isResponsive && (

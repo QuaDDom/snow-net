@@ -31,8 +31,6 @@ export default function FriendList() {
         getFriendsData();
     }, [loggedUser]);
 
-    useEffect(() => console.log(friendsData), [friendsData]);
-
     return (
         <div className={styles.friendListContainer}>
             <div className={styles.border} />

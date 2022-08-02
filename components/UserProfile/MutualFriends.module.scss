@@ -2,7 +2,8 @@
 
 .friends {
     width: 450px;
-    height: 300px;
+    min-height: 300px;
+    max-height: 400px;
     border-radius: 10px;
     padding: 40px 31px;
     position: sticky;
@@ -10,6 +11,7 @@
     top: 490px;
     left: 60px;
     background: $black2;
+    overflow: hidden;
     h4 {
         font-size: 1.5em;
         font-weight: 500;
@@ -22,6 +24,20 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         width: 85%;
+        overflow-y: auto;
+        max-height: 250px;
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #ffffff60;
+            transition: 0.3s;
+            border-radius: 20px;
+            width: 0;
+            &:hover {
+                background: #ffffff99;
+            }
+        }
         .friend {
             height: 130px;
             width: 90px;

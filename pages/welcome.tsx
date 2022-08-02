@@ -32,6 +32,7 @@ export default function Welcome() {
                 <meta property="og:image" content="https://i.imgur.com/RjNqmPi.png" />
                 <meta property="og:image:width" content="500" />
                 <meta property="og:image:height" content="500" />
+                <title>Snow - Welcome</title>
                 <link
                     rel="stylesheet"
                     type="text/css"

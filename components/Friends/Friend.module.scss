@@ -22,17 +22,37 @@
         padding: 8px 10px;
         .image {
             position: relative;
-            height: 55px;
-            width: 55px;
+            height: 60px;
+            width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             img {
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%;
-                height: 100%;
+                width: 92%;
+                height: 92%;
                 border-radius: 50%;
                 background-size: cover;
                 object-fit: cover;
+            }
+            .online {
+                position: absolute;
+                bottom: 3px;
+                right: 5px;
+                height: 21px;
+                width: 21px;
+                padding: 4px;
+                background: $black2;
+                z-index: 2;
+                border-radius: 50%;
+                .status {
+                    width: 100%;
+                    height: 100%;
+                    background: rgb(44, 252, 82);
+                    border-radius: 50%;
+                }
             }
         }
         .info {

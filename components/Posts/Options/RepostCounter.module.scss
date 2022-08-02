@@ -1,0 +1,55 @@
+.repost {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.1s;
+    overflow: hidden;
+    span {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        padding: 6px;
+        transition: 0.2s;
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+    p {
+        font-size: 1.2em;
+        text-align: center;
+        padding-top: 2.5px;
+    }
+    .repostContainer {
+        height: 18px;
+        overflow: hidden;
+        min-width: 30px;
+    }
+    .reposted {
+        color: #4bff87;
+    }
+    span.reposted {
+        animation: reposted 0.5s;
+    }
+    &:hover {
+        color: #4bff87;
+        span {
+            background: #4bff8720;
+        }
+    }
+}
+
+.goUp {
+    display: inline-flex;
+    transform: translate3d(0, -20px, 0);
+    transition: 0.2s ease-in-out;
+}
+
+.waitDown {
+    display: inline-flex;
+    transform: translate3d(0, 20px, 0);
+}
+
+.initial {
+    display: inline-flex;
+    transform: translate3d(0, 0px, 0);
+    transition: 0.2s ease-in-out;
+}

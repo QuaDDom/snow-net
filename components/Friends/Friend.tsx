@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 import { RiMailSendLine } from 'react-icons/ri';
 import styles from './Friend.module.scss';
 
@@ -16,7 +16,8 @@ interface Props {
 }
 
 export default function Friend({ id, image, name, lastname, status, username, isOnline }: Props) {
-    console.log(isOnline);
+    const [online, setOnline] = useState(isOnline);
+
     return (
         <>
             {image && name && lastname && id ? (
@@ -26,7 +27,7 @@ export default function Friend({ id, image, name, lastname, status, username, is
                     <div className={styles.content}>
                         <div className={styles.image}>
                             <img src={image || 'noProfile.png'} alt={name} />
-                            {isOnline && (
+                            {online && (
                                 <div className={styles.online}>
                                     <div className={styles.status} />
                                 </div>

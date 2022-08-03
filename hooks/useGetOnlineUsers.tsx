@@ -9,8 +9,10 @@ export const useGetOnlineUsers = () => {
     useEffect(() => {
         socket.current = io('ws://localhost:8080');
         socket.current.on('getUsers', (users: any) => {
-            setOnlineUsers(users.map(({ userId }: any) => userId));
-            console.log(users.map(({ userId }: any) => userId));
+            console.log('users', users);
+            const onlineUsersId = users.map((user: any) => user.userId);
+            setOnlineUsers(onlineUsersId);
+            console.log(`Online Users ${onlineUsersId}`);
         });
     }, []);
 

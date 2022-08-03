@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import AuthContext from '../../context/AuthContext';
 import { postList } from '../../db/post_list';
@@ -12,6 +12,7 @@ import SlideFriends from '../Responsive/SlideFriends';
 import axios from 'axios';
 import { SpinnerCircular } from 'spinners-react';
 import Router from 'next/router';
+import { io } from 'socket.io-client';
 
 interface Post {
     _id: string;
@@ -33,6 +34,13 @@ export default function PostList() {
     const { loggedUser, setLoggedUser } = useContext<any>(AuthContext);
     const [randomUsersData, setRandomUsersData] = useState<any>([]);
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
+
+    const socket = useRef<any>(null);
+
+    useEffect(() => {
+        socket.current = io('ws://localhost:8080');
+        socket.current.emit('addUser', loggedUser?._id);
+    }, []);
 
     useEffect(() => {
         const getRandomUsers = async () => {

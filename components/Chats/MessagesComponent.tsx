@@ -24,7 +24,6 @@ export default function MessagesComponent() {
 
     useEffect(() => {
         if (loggedUser?._id) {
-            socket.current.emit('addUser', loggedUser._id);
             socket.current.on('getUsers', (users: any) => {
                 users;
             });

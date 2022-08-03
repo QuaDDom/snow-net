@@ -1,13 +1,17 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { RiEmotionSadFill } from 'react-icons/ri';
 import AuthContext from '../../context/AuthContext';
 import Friend from './Friend';
 import styles from './FriendList.module.scss';
+import { io } from 'socket.io-client';
+import { useGetOnlineUsers } from '../../hooks/useGetOnlineUsers';
 
 export default function FriendList() {
     const { loggedUser } = useContext<any>(AuthContext);
     const [friendsData, setFriendsData] = useState<any>([]);
+
+    const onlineUsers = useGetOnlineUsers();
 
     useEffect(() => {
         const getFriendsData = async () => {
@@ -51,6 +55,7 @@ export default function FriendList() {
                                     status={status}
                                     key={index}
                                     username={username}
+                                    isOnline={onlineUsers.includes(_id)}
                                 />
                             )
                         )

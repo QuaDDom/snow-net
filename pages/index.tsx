@@ -12,12 +12,23 @@ import SlideFriends from '../components/Responsive/SlideFriends';
 import ResposiveToPost from '../components/Responsive/Posts/ResposiveToPost';
 import NewUpdateFeatureList from '../components/Updates/NewUpdateFeatureList';
 import NewUpdateModal from '../components/Updates/NewUpdateModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Pusher from 'pusher-js';
 
 const Home = () => {
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
-    const [newUpdateModal, setNewUpdateModal] = useState(true);
+    const [newUpdateModal, setNewUpdateModal] = useState<any>('closed');
+
+    useEffect(() => {
+        const token = localStorage.getItem('updateModal');
+        const isOpen = token && JSON.parse(token);
+
+        if (isOpen === 'open') {
+            setNewUpdateModal('open');
+        } else {
+            setNewUpdateModal('closed');
+        }
+    }, []);
 
     return (
         <>
@@ -56,7 +67,7 @@ const Home = () => {
                 />
             </Head>
             <Layout title="Snow">
-                {newUpdateModal && (
+                {newUpdateModal === 'open' && (
                     <NewUpdateModal
                         features={[
                             {

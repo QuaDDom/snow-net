@@ -12,9 +12,11 @@ interface Props {
     lastname: string;
     status: string;
     username: string;
+    isOnline: boolean;
 }
 
-export default function Friend({ id, image, name, lastname, status, username }: Props) {
+export default function Friend({ id, image, name, lastname, status, username, isOnline }: Props) {
+    console.log(isOnline);
     return (
         <>
             {image && name && lastname && id ? (
@@ -24,9 +26,11 @@ export default function Friend({ id, image, name, lastname, status, username }: 
                     <div className={styles.content}>
                         <div className={styles.image}>
                             <img src={image || 'noProfile.png'} alt={name} />
-                            <div className={styles.online}>
-                                <div className={styles.status} />
-                            </div>
+                            {isOnline && (
+                                <div className={styles.online}>
+                                    <div className={styles.status} />
+                                </div>
+                            )}
                         </div>
                         <div className={styles.info}>
                             <h4 className={styles.friendName}>{`${name} ${lastname}`}</h4>

@@ -42,8 +42,6 @@ export default function MessageList({
 
     const keys = ['name', 'lastname', 'username'];
 
-    conversations;
-
     return (
         <>
             {isModalOpen && (

@@ -9,7 +9,12 @@ interface Props {
 }
 
 export default function NewUpdateModal({ features, setOpen }: Props) {
-    const handleClose = () => setOpen(false);
+    localStorage.setItem('updateModal', JSON.stringify('open'));
+
+    const handleClose = () => {
+        localStorage.setItem('updateModal', JSON.stringify('closed'));
+        setOpen(false);
+    };
 
     return (
         <div className={styles.modalContainer}>

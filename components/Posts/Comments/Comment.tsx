@@ -10,6 +10,7 @@ import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Markdown from '../../Markdown/Markdown';
 import styles from './Comment.module.scss';
 import CommentDots from './CommentDots';
+import LoadingComment from './Loader/LoadingComment';
 
 interface Props {
     hour?: {
@@ -38,64 +39,66 @@ export default function Comment({ image, text, userId, likes, loggedUser, create
     };
 
     return (
-        <div className={styles.commentContainer}>
-            <div className={styles.user}>
-                <img
-                    src={user.profilePic || 'noProfile.png'}
-                    alt={user.name}
-                    onClick={handleImageClick}
-                />
-                <div className={styles.bothColumn}>
-                    <h5 className={user.name || `${styles.skeleton} ${styles.skeletonText}`}>
-                        {`${user.name} ${user.lastname}`}
-                    </h5>
-                    <p>·</p>
-                    <p className={styles.createdAt}>{format(createdAt)}</p>
-                </div>
-            </div>
-            <div className={styles.post}>
-                {text && (
-                    <p className={styles.text}>
-                        {
-                            <ReactMarkdown
-                                children={textState}
-                                remarkPlugins={[[remarkGfm]]}
-                                components={{
-                                    code({ node, inline, className, children, ...props }) {
-                                        const match = /language-(\w+)/.exec(className || '');
-                                        return !inline && match ? (
-                                            <SyntaxHighlighter
-                                                children={String(textState)
-                                                    .replace(/\n$/, '')
-                                                    .replace('~~~', '')
-                                                    .replace('~~~', '')
-                                                    .replace(match[1], '')
-                                                    .replace('```', '')
-                                                    .replace('```', '')}
-                                                style={dracula}
-                                                language={match[1]}
-                                            />
-                                        ) : (
-                                            <Markdown node={node} children={children} />
-                                        );
-                                    }
-                                }}
-                            />
-                        }
-                    </p>
-                )}
-                {image && (
-                    <div className={styles.imageContainer}>
-                        <img src={image} width="100%" onClick={handleClick} />
+        <>
+            {text && userId && user.profilePic && user.name ? (
+                <div className={styles.commentContainer}>
+                    <div className={styles.user}>
+                        <img src={user.profilePic} alt={user.name} onClick={handleImageClick} />
+                        <div className={styles.bothColumn}>
+                            <h5>{`${user.name} ${user.lastname}`}</h5>
+                            <p>·</p>
+                            <p className={styles.createdAt}>{format(createdAt)}</p>
+                        </div>
                     </div>
-                )}
-            </div>
-            {/* <CommentDots
+                    <div className={styles.post}>
+                        {text && (
+                            <p className={styles.text}>
+                                {
+                                    <ReactMarkdown
+                                        children={textState}
+                                        remarkPlugins={[[remarkGfm]]}
+                                        components={{
+                                            code({ node, inline, className, children, ...props }) {
+                                                const match = /language-(\w+)/.exec(
+                                                    className || ''
+                                                );
+                                                return !inline && match ? (
+                                                    <SyntaxHighlighter
+                                                        children={String(textState)
+                                                            .replace(/\n$/, '')
+                                                            .replace('~~~', '')
+                                                            .replace('~~~', '')
+                                                            .replace(match[1], '')
+                                                            .replace('```', '')
+                                                            .replace('```', '')}
+                                                        style={dracula}
+                                                        language={match[1]}
+                                                    />
+                                                ) : (
+                                                    <Markdown node={node} children={children} />
+                                                );
+                                            }
+                                        }}
+                                    />
+                                }
+                            </p>
+                        )}
+                        {image && (
+                            <div className={styles.imageContainer}>
+                                <img src={image} width="100%" onClick={handleClick} />
+                            </div>
+                        )}
+                    </div>
+                    {/* <CommentDots
                 username={user.username}
                 userId={userId}
                 loggedUserId={loggedUser?._id}
                 handleModal={handleModal}
             /> */}
-        </div>
+                </div>
+            ) : (
+                <LoadingComment />
+            )}
+        </>
     );
 }

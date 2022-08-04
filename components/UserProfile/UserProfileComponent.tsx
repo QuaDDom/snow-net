@@ -17,6 +17,7 @@ import UploadUserProfile from '../Settings/modals/UploadUserProfile';
 import UploadUserCover from '../Settings/modals/UploadUserCover';
 import Repost from '../Posts/Repost';
 import EditProfileModal from '../Settings/modals/User/EditProfileModal';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import Head from 'next/head';
 
 interface Post {
@@ -50,6 +51,9 @@ export default function UserProfileComponent({ userData, username }: Props) {
     const [newProfilePic, setNewProfilePic] = useState('');
     const [updateCoverModal, setUpdateCoverModal] = useState(false);
     const [editProfile, setEditProfile] = useState(false);
+    const [offset, setOffset] = useState(0);
+    const [isLimit, setIsLimit] = useState(false);
+    const [loader, setLoader] = useState(false);
 
     const handleFollow = async () => {
         try {
@@ -177,61 +181,68 @@ export default function UserProfileComponent({ userData, username }: Props) {
                         <div className={styles.postsContainer}>
                             {isLoggedUser && <ToPost userData={loggedUser} fetchData={fetchData} />}
                             <div className={styles.posts}>
-                                {userData &&
-                                    userData.posts.map(
-                                        (
-                                            {
-                                                _id,
-                                                text,
-                                                image,
-                                                userId,
-                                                likes,
-                                                createdAt,
-                                                reposted,
-                                                repostedPost,
-                                                repostedBy,
-                                                poll,
-                                                pinned,
-                                                groupData
-                                            }: Post,
-                                            index: number
-                                        ) => (
-                                            <>
-                                                {reposted ? (
-                                                    <Repost
-                                                        _id={_id}
-                                                        text={text}
-                                                        image={image}
-                                                        key={_id}
-                                                        userId={userId}
-                                                        likes={likes}
-                                                        fetchData={fetchData}
-                                                        loggedUser={loggedUser}
-                                                        createdAt={createdAt}
-                                                        repostedPost={repostedPost}
-                                                        repostedBy={repostedBy}
-                                                        poll={poll}
-                                                    />
-                                                ) : (
-                                                    <Post
-                                                        _id={_id}
-                                                        text={text}
-                                                        image={image}
-                                                        key={_id}
-                                                        userId={userId}
-                                                        likes={likes}
-                                                        fetchData={fetchData}
-                                                        loggedUser={loggedUser}
-                                                        createdAt={createdAt}
-                                                        repostedBy={repostedBy}
-                                                        poll={poll}
-                                                        pinned={pinned}
-                                                        group={groupData}
-                                                    />
-                                                )}
-                                            </>
-                                        )
-                                    )}
+                                <InfiniteScroll
+                                    dataLength={userData.posts.length}
+                                    hasMore={!isLimit}
+                                    next={() => setOffset(offset + 15)}
+                                    loader={loader}
+                                    style={{ overflow: 'visible', flexDirection: 'column' }}>
+                                    {userData &&
+                                        userData.posts.map(
+                                            (
+                                                {
+                                                    _id,
+                                                    text,
+                                                    image,
+                                                    userId,
+                                                    likes,
+                                                    createdAt,
+                                                    reposted,
+                                                    repostedPost,
+                                                    repostedBy,
+                                                    poll,
+                                                    pinned,
+                                                    groupData
+                                                }: Post,
+                                                index: number
+                                            ) => (
+                                                <>
+                                                    {reposted ? (
+                                                        <Repost
+                                                            _id={_id}
+                                                            text={text}
+                                                            image={image}
+                                                            key={_id}
+                                                            userId={userId}
+                                                            likes={likes}
+                                                            fetchData={fetchData}
+                                                            loggedUser={loggedUser}
+                                                            createdAt={createdAt}
+                                                            repostedPost={repostedPost}
+                                                            repostedBy={repostedBy}
+                                                            poll={poll}
+                                                        />
+                                                    ) : (
+                                                        <Post
+                                                            _id={_id}
+                                                            text={text}
+                                                            image={image}
+                                                            key={_id}
+                                                            userId={userId}
+                                                            likes={likes}
+                                                            fetchData={fetchData}
+                                                            loggedUser={loggedUser}
+                                                            createdAt={createdAt}
+                                                            repostedBy={repostedBy}
+                                                            poll={poll}
+                                                            pinned={pinned}
+                                                            group={groupData}
+                                                        />
+                                                    )}
+                                                </>
+                                            )
+                                        )}
+                                </InfiniteScroll>
                             </div>
                         </div>
                         {isResponsive && (

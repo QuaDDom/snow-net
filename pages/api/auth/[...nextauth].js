@@ -14,11 +14,14 @@ export default NextAuth({
     },
     secret: process.env.secret,
     callbacks: {
-        async signIn({ account, profile }) {
-            if (account.provider === 'google') {
-                return profile.email_verified && profile.email.endsWith('@example.com');
+        async signIn({ token, account, profile }) {
+            if (account?.accessToken) {
+                token.accessToken = account.accessToken;
             }
-            return true; // Do different verification for other providers that don't have `email_verified`
+            return token;
+        },
+        redirect: async (url, _baseUrl) => {
+            return Promise.resolve('/');
         }
     }
 });

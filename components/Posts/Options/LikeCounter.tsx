@@ -40,19 +40,24 @@ export default function LikeCounter({ handleLike, isLiked, totalLikes, _id }: Pr
     //     }
     // });
 
-    useEffect(() => {
-        // 1. Old number goes up
+    // useEffect(() => {
+    //     setTimeout(() => setAnimationLikes('goUp'), 0);
+
+    //     setTimeout(() => setAnimationLikes('waitDown'), 100);
+
+    //     setTimeout(() => setAnimationLikes('initial'), 200);
+    // }, [likes]);
+
+    const handleLikes = () => {
+        setIsUserLiked(true);
+        // 2. Like the post
+        setTimeout(() => setLikes(!isLiked ? likes + 1 : likes - 1), 300);
+
         setTimeout(() => setAnimationLikes('goUp'), 0);
         // 3. New number waits down
         setTimeout(() => setAnimationLikes('waitDown'), 100);
         // 4. New number stays in the middle
         setTimeout(() => setAnimationLikes('initial'), 200);
-    }, [likes]);
-
-    const handleLikes = () => {
-        setIsUserLiked(true);
-        // 2. Like the post
-        setTimeout(() => setLikes(!isLiked ? likes + 1 : likes - 1), 100);
 
         // Call main like function
         handleLike();

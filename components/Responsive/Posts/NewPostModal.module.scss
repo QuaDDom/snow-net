@@ -10,7 +10,7 @@
     flex-direction: column;
     z-index: 80;
     .bar {
-        padding: 10px;
+        padding: 20px;
         width: 100vw;
         display: flex;
         .back {
@@ -21,11 +21,39 @@
             width: 100%;
             text-align: start;
         }
+        .post {
+            cursor: pointer;
+            width: 100px;
+            height: 35px;
+            background: $aquah;
+            outline: none;
+            font-size: 1.05em;
+            border: none;
+            border-radius: 35px;
+            font-weight: 800;
+            transition: 0.2s;
+            font-weight: 700;
+            .loader {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            &.notAllowed {
+                opacity: 0.6;
+                cursor: inherit;
+                pointer-events: none;
+            }
+            &:hover:not(.notAllowed) {
+                background: $aqua;
+            }
+        }
     }
     .modal {
         width: 100vw;
-        height: 30vh;
-        padding: 35px 10px;
+        height: 20vh;
+        padding: 5px 20px;
         position: relative;
         .space {
             display: flex;
@@ -49,6 +77,10 @@
                     font-size: 1em;
                     border: none;
                     color: #fff;
+                    outline: none;
+                    &::placeholder {
+                        font-size: 1.1em;
+                    }
                 }
             }
         }

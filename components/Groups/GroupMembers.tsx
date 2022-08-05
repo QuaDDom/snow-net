@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Router from 'next/router';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import styles from './GroupMembers.module.scss';
@@ -33,7 +34,10 @@ export default function GroupMembers({ members }: Props) {
             <h4>Members</h4>
             <div className={styles.grid}>
                 {membersData.map((member: any) => (
-                    <div className={styles.member} key={member._id}>
+                    <div
+                        className={styles.member}
+                        key={member._id}
+                        onClick={() => Router.push('/user/' + member.username)}>
                         <img src={member.profilePic} alt={member.username} />
                         <div className={styles.info}>
                             <h6>

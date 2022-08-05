@@ -118,7 +118,7 @@ export default function Post({
     const handleReportModal = () => (reportModal ? setReportModal(false) : setReportModal(true));
 
     const handleImageClick = () => {
-        Router.push('user/' + user.username);
+        Router.push('/user/' + user.username);
     };
 
     const deletePost = async () => {

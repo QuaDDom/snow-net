@@ -32,6 +32,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            transition: 0.3s;
             img {
                 position: relative;
                 height: 90px;
@@ -54,6 +55,9 @@
                     text-align: center;
                     width: 100%;
                 }
+            }
+            &:hover {
+                background: $black2h;
             }
         }
     }

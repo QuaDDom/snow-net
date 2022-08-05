@@ -9,6 +9,7 @@ interface User {
     username: string;
     bio: string;
     coverPic: string;
+    verifiedBadge: boolean;
 }
 
 export const useGetUser = (userId: string) => {
@@ -19,7 +20,8 @@ export const useGetUser = (userId: string) => {
         profilePic: '',
         username: '',
         bio: '',
-        coverPic: ''
+        coverPic: '',
+        verifiedBadge: false
     });
 
     useEffect(() => {

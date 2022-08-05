@@ -12,6 +12,7 @@ import { BiRepost } from 'react-icons/bi';
 import Comments from './Comments/Comments';
 import PostDotsOptions from './PostDotsOptions';
 import LoadingPost from './Loader/LoadingPost';
+import { HiBadgeCheck } from 'react-icons/hi';
 
 interface Props {
     _id: string;
@@ -22,13 +23,15 @@ interface Props {
     text: string;
     image: string;
     userId: string;
-    likes: [];
+    likes: any;
     fetchData: () => Promise<void>;
     loggedUser: any;
     createdAt: any;
-    repostedPost: string;
     repostedBy: any;
-    poll: [string];
+    poll?: [string];
+    pinned: boolean;
+    group: any;
+    repostedPost: boolean;
 }
 
 interface User {
@@ -37,7 +40,9 @@ interface User {
     name: string;
     lastname: string;
     profilePic: string;
-    _id?: string;
+    bio: string;
+    coverPic: string;
+    verifiedBadge: boolean;
 }
 
 export default function Post({
@@ -50,7 +55,8 @@ export default function Post({
     loggedUser,
     createdAt,
     repostedPost,
-    repostedBy
+    repostedBy,
+    group
 }: Props) {
     const [openImage, setOpenImage] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
@@ -103,7 +109,11 @@ export default function Post({
     const handleReportModal = () => (reportModal ? setReportModal(false) : setReportModal(true));
 
     const handleImageClick = () => {
-        Router.push('user/' + postUser.username);
+        if (!group) {
+            Router.push('/user/' + user.username);
+        } else {
+            Router.push('/groups/' + group._id);
+        }
     };
 
     const deletePost = async () => {
@@ -157,6 +167,11 @@ export default function Post({
                                         postUser.name || `${styles.skeleton} ${styles.skeletonText}`
                                     }>
                                     {`${postUser.name} ${postUser.lastname}`}
+                                    {user.verifiedBadge && (
+                                        <span className={styles.verified}>
+                                            <HiBadgeCheck />
+                                        </span>
+                                    )}
                                 </h5>
                                 <p
                                     className={

@@ -94,9 +94,11 @@ export default function PostList() {
                                                     fetchData={fetchData}
                                                     loggedUser={loggedUser}
                                                     createdAt={createdAt}
+                                                    poll={poll}
+                                                    pinned={pinned}
+                                                    group={groupData}
                                                     repostedPost={repostedPost}
                                                     repostedBy={repostedBy}
-                                                    poll={poll}
                                                 />
                                             ) : (
                                                 <Post

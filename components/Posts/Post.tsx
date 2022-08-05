@@ -9,7 +9,7 @@ import { format, register } from 'timeago.js';
 import ConfirmDelete from '../Posts/ConfirmDelete';
 import axios from 'axios';
 import Poll from './Poll';
-import { BsPinAngleFill } from 'react-icons/bs';
+import { BsFillPatchCheckFill, BsPinAngleFill } from 'react-icons/bs';
 import Comments from './Comments/Comments';
 import extract from 'mention-hashtag';
 import HoverUserProfile from '../Hover/HoverUserProfile';
@@ -28,6 +28,7 @@ import Markdown from '../Markdown/Markdown';
 import ContentLoader from 'react-content-loader';
 import LoadingPost from './Loader/LoadingPost';
 import Pusher from 'pusher-js';
+import { HiBadgeCheck } from 'react-icons/hi';
 
 interface Props {
     _id: string;
@@ -56,6 +57,7 @@ interface User {
     profilePic: string;
     bio: string;
     coverPic: string;
+    verifiedBadge: boolean;
 }
 
 export default function Post({
@@ -231,6 +233,11 @@ export default function Post({
                                               ? fullName.substring(0, 12) + '...'
                                               : fullName
                                       } `}
+                                {user.verifiedBadge && (
+                                    <span className={styles.verified}>
+                                        <HiBadgeCheck />
+                                    </span>
+                                )}
                             </h5>
                             {group && (
                                 <p

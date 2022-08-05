@@ -93,6 +93,20 @@
                 margin: 0;
                 font-size: 16px;
                 font-weight: 500;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    min-width: 20px;
+                    padding-left: 4px;
+                    margin-top: 1px;
+                    font-size: 1.15em;
+                }
             }
             p {
                 margin: 0;

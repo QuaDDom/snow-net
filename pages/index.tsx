@@ -81,6 +81,11 @@ const Home = () => {
                                     'Now you can see if a user is online! A green circle will appear indicating the status'
                             },
                             {
+                                title: 'Verified Users',
+                                description:
+                                    'Verified badges added! Now you can find public figures easily'
+                            },
+                            {
                                 title: 'Bug fixes',
                                 description:
                                     'Emoji picker scrollbar, performance, UI/UX general errors'

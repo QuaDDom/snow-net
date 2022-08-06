@@ -33,13 +33,14 @@
             justify-content: center;
             flex-direction: column;
             transition: 0.3s;
+            border-radius: 10px;
+            cursor: pointer;
             img {
                 position: relative;
                 height: 90px;
                 width: 90px;
                 object-fit: cover;
                 background-size: cover;
-                cursor: pointer;
                 border-radius: 50%;
             }
             .info {

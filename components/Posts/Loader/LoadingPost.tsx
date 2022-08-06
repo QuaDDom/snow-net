@@ -9,7 +9,7 @@ export default function LoadingPost() {
     return (
         <div className={styles.postContainer}>
             <ContentLoader
-                viewBox="0 0 350 70"
+                viewBox="0 0 380 70"
                 speed={2}
                 width={!isResponsive ? 325 : 470}
                 height={!isResponsive ? 140 : 140}

@@ -9,9 +9,9 @@ export default function LoadingPost() {
     return (
         <div className={styles.postContainer}>
             <ContentLoader
-                viewBox="0 0 380 70"
+                viewBox="0 0 350 70"
                 speed={2}
-                width={!isResponsive ? 370 : 470}
+                width={!isResponsive ? 325 : 470}
                 height={!isResponsive ? 140 : 140}
                 backgroundColor={'#424a51'}
                 foregroundColor={'#77839a'}>

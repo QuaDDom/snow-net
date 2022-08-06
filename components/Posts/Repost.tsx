@@ -13,6 +13,11 @@ import Comments from './Comments/Comments';
 import PostDotsOptions from './PostDotsOptions';
 import LoadingPost from './Loader/LoadingPost';
 import { HiBadgeCheck } from 'react-icons/hi';
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import Markdown from '../Markdown/Markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Props {
     _id: string;
@@ -167,7 +172,7 @@ export default function Post({
                                         postUser.name || `${styles.skeleton} ${styles.skeletonText}`
                                     }>
                                     {`${postUser.name} ${postUser.lastname}`}
-                                    {user.verifiedBadge && (
+                                    {postUser.verifiedBadge && (
                                         <span className={styles.verified}>
                                             <HiBadgeCheck />
                                         </span>
@@ -200,7 +205,44 @@ export default function Post({
                             />
                         </div>
                         <div className={styles.post}>
-                            {text && <p className={styles.text}>{text}</p>}
+                            {text && (
+                                <p className={styles.text}>
+                                    {
+                                        <ReactMarkdown
+                                            children={textState}
+                                            remarkPlugins={[[remarkGfm]]}
+                                            components={{
+                                                code({
+                                                    node,
+                                                    inline,
+                                                    className,
+                                                    children,
+                                                    ...props
+                                                }) {
+                                                    const match = /language-(\w+)/.exec(
+                                                        className || ''
+                                                    );
+                                                    return !inline && match ? (
+                                                        <SyntaxHighlighter
+                                                            children={String(textState)
+                                                                .replace(/\n$/, '')
+                                                                .replace('~~~', '')
+                                                                .replace('~~~', '')
+                                                                .replace(match[1], '')
+                                                                .replace('```', '')
+                                                                .replace('```', '')}
+                                                            style={dracula}
+                                                            language={match[1]}
+                                                        />
+                                                    ) : (
+                                                        <Markdown node={node} children={children} />
+                                                    );
+                                                }
+                                            }}
+                                        />
+                                    }
+                                </p>
+                            )}
                             {image && (
                                 <div className={styles.imageContainer}>
                                     <img src={image} width="100%" onClick={handleClick} />

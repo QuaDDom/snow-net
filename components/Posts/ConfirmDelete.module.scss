@@ -1,6 +1,6 @@
 @import '../../styles/colors/variables.scss';
 
-.confirmDeleteContainer{
+.confirmDeleteContainer {
     background: transparent;
     position: fixed;
     z-index: 25;
@@ -12,49 +12,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: appear 0.4s forwards;
-    backdrop-filter: blur(2px);
-    background: #ffffff20;
-    .modal{
+    animation: appear 0.3s forwards;
+    backdrop-filter: blur(10px);
+    background: transparent;
+    .modal {
         width: 500px;
         min-height: 250px;
-        background: $black2;
+        background: $black3;
         padding: 40px 70px;
         border-radius: 15px;
-        h4{
+        h4 {
             font-size: 1.4em;
             font-weight: 500;
             padding-bottom: 15px;
         }
-        p{
+        p {
             color: #999;
             padding-bottom: 60px;
         }
-        .buttons{
+        .buttons {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            button{
+            button {
                 color: #fff;
-                width: 10vw;
+                width: 140px;
                 border-radius: 30px;
-                height: 5vh;
+                height: 45px;
                 border: none;
                 outline: none;
-                transition: .3s;
+                transition: 0.3s;
                 font-size: 1em;
             }
-            .delete{
+            .delete {
                 background: $delete;
-                &:hover{
+                &:hover {
                     background: $deleteh;
                 }
             }
-            .cancel{
-                background: $black3;
-                &:hover{
-                    background: $black3h;
+            .cancel {
+                background: $bluegrey;
+                &:hover {
+                    background: $bluegreyh;
                 }
             }
         }
@@ -62,24 +62,25 @@
 }
 
 @keyframes appear {
-    0%{
+    0% {
         opacity: 0;
+        transform: scale(0.9);
     }
-    100%{
+    100% {
         opacity: 1;
+        transform: scale(1);
     }
 }
 
-
-@media (max-width: 1200px){
-    .confirmDeleteContainer{
-        .modal{
+@media (max-width: 1200px) {
+    .confirmDeleteContainer {
+        .modal {
             width: 100vw;
             height: 30vh;
             padding: 40px 50px;
-            .buttons{
+            .buttons {
                 height: 0px;
-                button{
+                button {
                     width: 25vw;
                     height: 39px;
                 }

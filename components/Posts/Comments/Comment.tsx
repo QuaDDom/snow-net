@@ -11,6 +11,7 @@ import Markdown from '../../Markdown/Markdown';
 import styles from './Comment.module.scss';
 import CommentDots from './CommentDots';
 import LoadingComment from './Loader/LoadingComment';
+import { HiBadgeCheck } from 'react-icons/hi';
 
 interface Props {
     hour?: {
@@ -46,6 +47,11 @@ export default function Comment({ image, text, userId, likes, loggedUser, create
                         <img src={user.profilePic} alt={user.name} onClick={handleImageClick} />
                         <div className={styles.bothColumn}>
                             <h5>{`${user.name} ${user.lastname}`}</h5>
+                            {user.verifiedBadge && (
+                                <span className={styles.verified}>
+                                    <HiBadgeCheck />
+                                </span>
+                            )}
                             <p>·</p>
                             <p className={styles.createdAt}>{format(createdAt)}</p>
                         </div>

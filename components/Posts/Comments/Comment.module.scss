@@ -1,6 +1,6 @@
 @import '../../../styles/colors/variables.scss';
 
-.commentContainer{
+.commentContainer {
     min-height: 80px;
     width: 40vw;
     z-index: 1;
@@ -10,7 +10,7 @@
     border-radius: 15px;
     transition: 0.25s;
     animation: appear 0.6s forwards;
-    .user{
+    .user {
         width: 100%;
         height: 45px;
         display: flex;
@@ -18,7 +18,7 @@
         justify-content: start;
         position: relative;
         padding-top: 20px;
-        img{
+        img {
             height: 42px;
             width: 42px;
             border-radius: 50%;
@@ -26,17 +26,20 @@
             object-fit: cover;
             cursor: pointer;
         }
-        .bothColumn{
+        .bothColumn {
             display: flex;
             justify-content: space-between;
             margin-left: 15px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            h5{
+            .verified {
+                margin-left: 3px;
+            }
+            h5 {
                 margin: 0;
                 font-size: 0.85em;
                 font-weight: 400;
             }
-            p{
+            p {
                 margin: 0;
                 font-size: 0.85em;
                 color: #777;
@@ -44,19 +47,19 @@
             }
         }
     }
-    .post{
+    .post {
         width: 80%;
-        .text{
+        .text {
             font-size: 0.85em;
             padding-left: 58px;
             font-weight: 300;
         }
-        .imageContainer{
+        .imageContainer {
             max-width: 100%;
             max-height: 45vh;
             padding-top: 15px;
             margin-bottom: 10px;
-            img{
+            img {
                 display: block;
                 max-width: 25vw;
                 max-height: 45vh;
@@ -70,50 +73,51 @@
     }
 }
 
-.skeleton{
+.skeleton {
     animation: skeletonLoading 1s linear infinite alternate;
     min-width: 100px;
 }
-  
-.skeletonText{
+
+.skeletonText {
     width: 100%;
     height: 10px;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
 }
-  
+
 @keyframes skeletonLoading {
-    0%{
+    0% {
         background-color: #4f575a;
     }
-    100%{
+    100% {
         background-color: #7a8286;
     }
 }
 
 @keyframes appear {
-    from{
+    from {
         opacity: 0;
         transform: translateY(30px);
-    } to{
+    }
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
 @media (max-width: 1200px) {
-    .commentContainer{
+    .commentContainer {
         width: 90vw;
-        .user{
-            img{
+        .user {
+            img {
                 width: 38px;
                 height: 38px;
             }
-            .bothColumn{
+            .bothColumn {
                 width: 100%;
-                h5{
+                h5 {
                     font-size: 0.85em;
                 }
-                p{
+                p {
                     font-size: 0.8em;
                     margin: 0 !important;
                 }

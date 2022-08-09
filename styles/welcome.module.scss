@@ -118,14 +118,11 @@
             .leftSide {
                 position: absolute;
                 left: 0;
-                bottom: -235px;
-                height: 100vh;
-                overflow: hidden;
+                height: 30vh;
+                bottom: 0;
                 width: 100%;
                 .bg {
-                    width: 100vw;
-                    height: 100vh;
-                    bottom: 0;
+                    opacity: 0;
                 }
             }
             .rightSide {

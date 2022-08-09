@@ -17,11 +17,11 @@ export default function ConfirmDelete({ deletePost, setModalOpen }: Props) {
                         to delete this post?
                     </p>
                     <div className={styles.buttons}>
-                        <button className={styles.delete} onClick={deletePost}>
-                            Delete
-                        </button>
                         <button className={styles.cancel} onClick={() => setModalOpen(false)}>
                             Cancel
+                        </button>
+                        <button className={styles.delete} onClick={deletePost}>
+                            Delete
                         </button>
                     </div>
                 </div>

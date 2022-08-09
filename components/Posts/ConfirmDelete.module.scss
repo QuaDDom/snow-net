@@ -12,10 +12,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: appear 0.3s forwards;
+    animation: blured 0.3s forwards;
     backdrop-filter: blur(10px);
     background: transparent;
     .modal {
+        animation: appear 0.3s forwards;
         width: 500px;
         min-height: 250px;
         background: $black3;
@@ -69,6 +70,15 @@
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes blured {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 

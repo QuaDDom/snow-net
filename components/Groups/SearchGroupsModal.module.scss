@@ -1,6 +1,6 @@
 @import '../../styles/colors/variables.scss';
 
-.searchGroupsModal{
+.searchGroupsModal {
     background: transparent;
     position: fixed;
     z-index: 25;
@@ -11,17 +11,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: appear 0.4s forwards;
-    backdrop-filter: blur(2px);
-    background: #ffffff20;
-    .modal{
+    animation: blured 0.3s forwards;
+    backdrop-filter: blur(10px);
+    background: transparent;
+    .modal {
         height: 50vh;
         width: 35vw;
-        background: $black2;
+        animation: appear 0.3s forwards;
+        background: $black3;
         border-radius: 15px;
         padding: 20px 70px;
         position: relative;
-        .close{
+        .close {
             font-size: 1.5em;
             position: absolute;
             top: 20px;
@@ -37,31 +38,31 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            &:hover{
+            &:hover {
                 background: #ffffff20;
             }
         }
-        h3{
+        h3 {
             font-size: 1.2em;
             font-weight: 500;
             padding-bottom: 10px;
         }
-        .inputSearch{
+        .inputSearch {
             width: 100%;
-            background: $black2h;
+            background: $bluegrey;
             height: 4vh;
             border-radius: 10px;
             display: flex;
             align-items: center;
             padding: 0 15px;
-            span{
+            span {
                 font-size: 1.3em;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 padding-right: 15px;
             }
-            input{
+            input {
                 outline: none;
                 background: transparent;
                 color: #fff;
@@ -69,35 +70,39 @@
                 height: 100%;
                 width: 100%;
                 font-size: 1em;
+                &::placeholder {
+                    color: rgb(80, 101, 120);
+                }
             }
         }
-        .groups{
+        .groups {
             height: 38vh;
             margin-top: 10px;
             overflow-y: scroll;
-            &::-webkit-scrollbar{
+            &::-webkit-scrollbar {
                 width: 5px;
             }
-            &::-webkit-scrollbar-thumb{
+            &::-webkit-scrollbar-thumb {
                 background: #ffffff60;
-                transition: .3s;
+                transition: 0.3s;
                 border-radius: 20px;
-                &:hover{
+                &:hover {
                     background: #ffffff99;
                 }
             }
-            .group{
+            .group {
                 height: 70px;
                 width: 100%;
                 position: relative;
-                background: $black2;
+                background: $black3;
                 transition: 0.2s;
                 cursor: pointer;
                 z-index: 7;
-                &:hover{
-                    background: $black2h;
+                border-radius: 10px;
+                &:hover {
+                    background: $black3h;
                 }
-                .content{
+                .content {
                     display: flex;
                     align-items: center;
                     height: 100%;
@@ -105,11 +110,11 @@
                     position: relative;
                     padding: 8px 16px;
                 }
-                .groupPic{
+                .groupPic {
                     position: relative;
                     height: 50px;
                     width: 50px;
-                    img{
+                    img {
                         position: absolute;
                         top: 0;
                         left: 0;
@@ -120,21 +125,21 @@
                         object-fit: cover;
                     }
                 }
-                .text{
+                .text {
                     margin-left: 15px;
-                    h4{
+                    h4 {
                         font-size: 0.92em;
                         font-weight: 400;
                     }
-                    div{
+                    div {
                         padding-top: 3px;
                         display: flex;
                         align-items: center;
                         width: 100%;
-                        p{
+                        p {
                             display: flex;
                             align-items: center;
-                            span{
+                            span {
                                 display: flex;
                                 padding: 0 2px;
                                 padding-left: 5px;
@@ -146,13 +151,13 @@
                         }
                     }
                 }
-                .button{
+                .button {
                     position: absolute;
                     right: 30px;
                     display: flex;
                     justify-content: end;
                     align-items: flex-end;
-                    button{
+                    button {
                         width: 100px;
                         height: 30px;
                         border: 2px solid #fff;
@@ -160,7 +165,7 @@
                         border-radius: 30px;
                         background: transparent;
                         transition: 0.3s;
-                        &:hover{
+                        &:hover {
                             background: #fff;
                             color: #000;
                         }
@@ -168,6 +173,25 @@
                 }
             }
         }
+    }
+}
 
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes blured {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

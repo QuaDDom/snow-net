@@ -19,6 +19,7 @@ import Repost from '../Posts/Repost';
 import EditProfileModal from '../Settings/modals/User/EditProfileModal';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Head from 'next/head';
+import { HiBadgeCheck } from 'react-icons/hi';
 
 interface Post {
     _id: string;
@@ -135,7 +136,14 @@ export default function UserProfileComponent({ userData, username }: Props) {
                                 )}
                             </div>
                             <div className={styles.userInfo}>
-                                <h4>{`${userData.user.name} ${userData.user.lastname}`}</h4>
+                                <h4>
+                                    {`${userData.user.name} ${userData.user.lastname}`}{' '}
+                                    {userData.user.verifiedBadge && (
+                                        <span className={styles.verified}>
+                                            <HiBadgeCheck />
+                                        </span>
+                                    )}
+                                </h4>
                                 <p>{`@${username}`}</p>
                                 {!isResponsive && <p className={styles.bio}>{userData.user.bio}</p>}
                                 <div className={styles.followers}>
@@ -221,6 +229,8 @@ export default function UserProfileComponent({ userData, username }: Props) {
                                                             repostedPost={repostedPost}
                                                             repostedBy={repostedBy}
                                                             poll={poll}
+                                                            pinned={false}
+                                                            group={undefined}
                                                         />
                                                     ) : (
                                                         <Post

@@ -115,6 +115,14 @@
                     font-size: 1.8em;
                     font-weight: 600;
                     padding-top: 50px;
+                    display: flex;
+                    align-items: center;
+                    span {
+                        padding: 0 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
                 }
                 p {
                     color: #999;

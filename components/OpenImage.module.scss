@@ -19,9 +19,9 @@
         transform: scale(0);
         background-size: cover;
         object-fit: cover;
-        animation: appear 0.5s forwards;
+        animation: appear 0.25s forwards;
         &.close {
-            animation: disappear 0.3s forwards;
+            animation: disappear 0.25s forwards;
         }
     }
 }
@@ -50,18 +50,22 @@
 
 @keyframes appear {
     from {
-        transform: scale(0);
+        transform: scale(0.9);
+        opacity: 0;
     }
     to {
         transform: scale(1);
+        opacity: 1;
     }
 }
 
 @keyframes disappear {
     from {
         transform: scale(1);
+        opacity: 1;
     }
     to {
-        transform: scale(0);
+        transform: scale(0.9);
+        opacity: 0;
     }
 }

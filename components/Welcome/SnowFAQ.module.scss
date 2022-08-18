@@ -22,8 +22,29 @@
         align-items: center;
         justify-content: center;
         padding: 15px;
+        transition: 0.3s;
+        transform-origin: top left;
+        &.closed {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        &.open {
+            opacity: 1;
+            transform: scale(1);
+        }
         p {
             font-size: 1em;
         }
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }

@@ -6,10 +6,10 @@ export default function SnowFAQ() {
     const [faqOpen, setFaqOpen] = useState(false);
     return (
         <div className={styles.faqContainer}>
-            <button>
+            <button onClick={() => (faqOpen ? setFaqOpen(false) : setFaqOpen(true))}>
                 <BsFillQuestionCircleFill />
             </button>
-            <div className={styles.faq}>
+            <div className={`${styles.faq} ${faqOpen ? styles.open : styles.closed}`}>
                 <p>
                     Snow is a social network. Here you can create and share content! You can upload
                     posts, upload images, create polls, interact with friends, create and join

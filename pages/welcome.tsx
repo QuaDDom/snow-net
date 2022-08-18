@@ -3,6 +3,7 @@ import styles from '../styles/welcome.module.scss';
 import Router from 'next/router';
 import { useMediaQuery } from 'react-responsive';
 import Head from 'next/head';
+import SnowFAQ from '../components/Welcome/SnowFAQ';
 
 export default function Welcome() {
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
@@ -58,7 +59,7 @@ export default function Welcome() {
                     </div>
                     <div className={styles.rightSide}>
                         <div className={styles.snowLogo}>
-                            <img src="/snow-logo.svg" alt="" />
+                            <SnowFAQ />
                         </div>
                         <h2>
                             Welcome to Snow! <br /> A new social network

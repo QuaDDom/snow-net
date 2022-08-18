@@ -34,7 +34,6 @@ export default function AllGallery() {
         <Layout title="Gallery - Snow">
             <div className={styles.galleryContainer}>
                 <AuthProvider>
-                    {isResponsive && <GalleryColumn />}
                     <div className={styles.searchContainer}>
                         <div className={styles.search}>
                             <span>

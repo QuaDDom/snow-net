@@ -1,13 +1,13 @@
 @import './colors/variables.scss';
-.galleryContainer{
+.galleryContainer {
     width: 100%;
     max-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-left: 24vw;
-    .searchContainer{
+    // padding-left: 24vw;
+    .searchContainer {
         position: fixed;
         top: 85px;
         margin-bottom: 30px;
@@ -17,8 +17,8 @@
         justify-content: center;
         padding: 10px 0;
     }
-    .search{
-        width: 69.4vw;
+    .search {
+        width: 80vw;
         display: flex;
         align-items: center;
         background: $black2;
@@ -26,13 +26,13 @@
         position: relative;
         border-radius: 10px;
         padding: 0 25px;
-        span{
+        span {
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5em;
         }
-        input{
+        input {
             width: 100%;
             height: 100%;
             background: transparent;
@@ -43,10 +43,10 @@
             font-size: 1.2em;
         }
     }
-    .masonry{
+    .masonry {
         margin-top: 90px;
-        width: 70vw;
-        columns: 5 340px;
+        width: 80vw;
+        columns: 3 340px;
         column-fill: auto;
         -moz-column-fill: balance;
         -webkit-column-fill: auto;
@@ -54,15 +54,15 @@
         overflow-x: hidden;
         opacity: 0;
         animation: appear 1s forwards;
-        &::-webkit-scrollbar{
+        &::-webkit-scrollbar {
             width: 0px;
         }
-        &::-webkit-scrollbar-thumb{
+        &::-webkit-scrollbar-thumb {
             background: #ffffff60;
-            transition: .3s;
+            transition: 0.3s;
             border-radius: 20px;
             width: 0;
-            &:hover{
+            &:hover {
                 background: #ffffff99;
             }
         }
@@ -70,28 +70,28 @@
 }
 
 @media (max-width: 1200px) {
-    .galleryContainer{
+    .galleryContainer {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         padding: 0;
-        .searchContainer{
+        .searchContainer {
             top: 55px;
             height: 55px;
         }
-        .search{
+        .search {
             height: 45px;
             width: 90vw;
             font-size: 1em;
-            span{
+            span {
                 font-size: 1.4em;
             }
-            input{
+            input {
                 font-size: 1em;
             }
         }
-        .masonry{
+        .masonry {
             width: 90vw;
             margin-top: 75px;
             z-index: 6;
@@ -100,9 +100,10 @@
 }
 
 @keyframes appear {
-    from{
+    from {
         opacity: 0;
-    } to{
+    }
+    to {
         opacity: 1;
     }
 }

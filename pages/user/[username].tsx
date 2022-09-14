@@ -59,7 +59,7 @@ export default function UserProfile({ user, posts }: Props) {
     );
 }
 
-export async function getServerSideProps(context: any) {
+async function getServerSideProps(context: any) {
     const posts = await axios.get(
         `https://snow-net.herokuapp.com/api/posts/profile/${context.query.username}`
     );

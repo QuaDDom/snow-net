@@ -26,7 +26,7 @@ export default function NewUpdateModal({ features, setOpen }: Props) {
                 </div>
                 <div className={styles.intro}>
                     <div className={styles.text}>
-                        <h2>What's New</h2>
+                        <h2>{`What's New`}</h2>
                         <p className={styles.date}>11 June</p>
                     </div>
                     <div className={styles.snowLogo}>
@@ -40,8 +40,8 @@ export default function NewUpdateModal({ features, setOpen }: Props) {
                         <div className={styles.line} />
                     </div>
                     <ul>
-                        {features.map((feature: any) => (
-                            <li>
+                        {features.map((feature: any, index: number) => (
+                            <li key={feature + index}>
                                 <div>
                                     <p className={styles.title}>{feature.title}.</p>
                                     <p className={styles.description}>{feature.description}</p>

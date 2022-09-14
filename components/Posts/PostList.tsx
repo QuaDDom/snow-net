@@ -37,10 +37,10 @@ export default function PostList() {
 
     const socket = useRef<any>(null);
 
-    useEffect(() => {
-        socket.current = io('ws://localhost:8080');
-        loggedUser && socket.current.emit('addUser', loggedUser._id);
-    }, [loggedUser]);
+    // useEffect(() => {
+    //     socket.current = io('ws://localhost:8080');
+    //     loggedUser && socket.current.emit('addUser', loggedUser._id);
+    // }, [loggedUser]);
 
     useEffect(() => {
         const getRandomUsers = async () => {

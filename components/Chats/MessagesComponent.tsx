@@ -18,17 +18,17 @@ export default function MessagesComponent() {
     const socket = useRef<any>(null);
     const { loggedUser } = useContext<any>(AuthContext);
 
-    useEffect(() => {
-        socket.current = io('ws://localhost:8080');
-    }, []);
+    // useEffect(() => {
+    //     socket.current = io('ws://localhost:8080');
+    // }, []);
 
-    useEffect(() => {
-        if (loggedUser?._id) {
-            socket.current.on('getUsers', (users: any) => {
-                users;
-            });
-        }
-    }, [loggedUser?._id]);
+    // useEffect(() => {
+    //     if (loggedUser?._id) {
+    //         socket.current.on('getUsers', (users: any) => {
+    //             users;
+    //         });
+    //     }
+    // }, [loggedUser?._id]);
 
     const getChats = async () => {
         try {

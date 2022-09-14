@@ -6,15 +6,15 @@ export const useGetOnlineUsers = () => {
 
     const socket = useRef<any>(null);
 
-    useEffect(() => {
-        socket.current = io('ws://localhost:8080');
-        socket.current.on('getUsers', (users: any) => {
-            console.log('users', users);
-            const onlineUsersId = users.map((user: any) => user.userId);
-            setOnlineUsers(onlineUsersId);
-            console.log(`Online Users ${onlineUsersId}`);
-        });
-    }, []);
+    // useEffect(() => {
+    //     socket.current = io('ws://localhost:8080');
+    //     socket.current.on('getUsers', (users: any) => {
+    //         console.log('users', users);
+    //         const onlineUsersId = users.map((user: any) => user.userId);
+    //         setOnlineUsers(onlineUsersId);
+    //         console.log(`Online Users ${onlineUsersId}`);
+    //     });
+    // }, []);
 
     return onlineUsers;
 };

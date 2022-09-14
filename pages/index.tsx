@@ -17,7 +17,7 @@ import Pusher from 'pusher-js';
 
 const Home = () => {
     const isResponsive = useMediaQuery({ query: '(min-width: 1200px)' });
-    const [newUpdateModal, setNewUpdateModal] = useState<any>('closed');
+    const [newUpdateModal, setNewUpdateModal] = useState<any>('open');
 
     useEffect(() => {
         const token = localStorage.getItem('updateModal');

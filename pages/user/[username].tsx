@@ -13,8 +13,8 @@ interface Props {
     posts: any;
 }
 
-export default function UserProfile({ user, posts }: Props) {
-    const [userData, setUserData] = useState<any>({ user, posts });
+export default function UserProfile() {
+    const [userData, setUserData] = useState<any>(null);
     const router = useRouter();
     const username = router.query.username;
 
@@ -46,29 +46,29 @@ export default function UserProfile({ user, posts }: Props) {
                     name="keywords"
                     content="Social, Network, Snow, Social Network, User Profile"
                 />
-                <meta property="og:image" content={user.profilePic} />
+                <meta property="og:image" content={userData?.profilePic} />
                 <meta property="og:image:width" content="500" />
                 <meta property="og:image:height" content="500" />
             </Head>
             <Layout title={`@${username} - Snow`}>
                 <AuthProvider>
-                    <UserProfileComponent userData={userData} username={username} />
+                    {userData && <UserProfileComponent userData={userData} username={username} />}
                 </AuthProvider>
             </Layout>
         </>
     );
 }
 
-async function getServerSideProps(context: any) {
-    const posts = await axios.get(
-        `https://snow-net.herokuapp.com/api/posts/profile/${context.query.username}`
-    );
+// export async function getServerSideProps(context: any) {
+//     const posts = await axios.get(
+//         `https://snow-net.herokuapp.com/api/posts/profile/${context.query.username}`
+//     );
 
-    const user = await axios.get(
-        `https://snow-net.herokuapp.com/api/users/profile/${context.query.username}`
-    );
+//     const user = await axios.get(
+//         `https://snow-net.herokuapp.com/api/users/profile/${context.query.username}`
+//     );
 
-    return {
-        props: { user: user.data, posts: posts.data }
-    };
-}
+//     return {
+//         props: { user: user.data, posts: posts.data }
+//     };
+// }

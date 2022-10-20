@@ -36,7 +36,7 @@ export default function Comment({ image, text, userId, likes, loggedUser, create
     const handleModal = () => (modalOpen ? setModalOpen(false) : setModalOpen(true));
 
     const handleImageClick = () => {
-        Router.push('user/' + user.username);
+        Router.push('/user/' + user.username);
     };
 
     return (
